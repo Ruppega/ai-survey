@@ -1,0 +1,47 @@
+.card{
+    background:#ffffff;
+    border:1px solid #ffd2a6;
+    border-left:6px solid #ff7a1a;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    transition:all 0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(255,122,26,0.25);
+}
+
+.card h2{
+    margin-top:0;
+    margin-bottom:15px;
+    color:#ff6b00;
+    font-size:24px;
+    text-align:center;
+}
+
+.card p{
+    margin:10px 0;
+    color:#444;
+    font-size:15px;
+    line-height:1.5;
+}
+
+.card strong{
+    color:#222;
+}
+
+.card span{
+    font-weight:bold;
+}
+
+.card p:last-child{
+    margin-top:15px;
+    padding:12px;
+    background:#fff7ef;
+    border-left:4px solid #ff9d4d;
+    border-radius:8px;
+    font-style:italic;
+    color:#555;
+}
