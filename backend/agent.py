@@ -3,7 +3,7 @@ import re
 from gemini import generate
 
 
-def generate_personas(product, description, age, objective, count):
+def generate_personas(product, description, gender, age, objective, count):
 
     prompt = f"""
 You are a professional UX Research AI.
@@ -16,17 +16,28 @@ Product Name:
 Description:
 {description}
 
-Target Audience:
+Target Gender:
+{gender}
+
+Target Audience Age:
 {age}
 
 Research Objective:
 {objective}
+
+IMPORTANT RULES:
+- If Target Gender is Male, EVERY persona must be male.
+- If Target Gender is Female, EVERY persona must be female.
+- If Target Gender is Both, generate a realistic mix of male and female personas.
+- Do NOT violate the requested gender.
+- Ages should match the target audience.
 
 Return ONLY a valid JSON array.
 
 Each persona must contain:
 
 - name
+- gender
 - age
 - occupation
 - personality

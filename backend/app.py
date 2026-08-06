@@ -24,9 +24,10 @@ def generate():
         result = generate_personas(
             data["product"],
             data["description"],
+            data["gender"],      # <-- NEW
             data["age"],
             data["objective"],
-            int(data["count"])     # <-- Number of personas
+            int(data["count"])
         )
 
         return jsonify(result)

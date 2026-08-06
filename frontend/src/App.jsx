@@ -6,6 +6,7 @@ import "./App.css";
 function App() {
   const [product, setProduct] = useState("");
   const [description, setDescription] = useState("");
+  const [gender, setGender] = useState("Both");
   const [age, setAge] = useState("");
   const [objective, setObjective] = useState("");
   const [count, setCount] = useState(20);
@@ -17,6 +18,7 @@ function App() {
       const res = await axios.post("http://127.0.0.1:5000/generate", {
         product,
         description,
+        gender,
         age,
         objective,
         count,
@@ -32,7 +34,7 @@ function App() {
 
         alert(
           err.response.data.error ||
-            JSON.stringify(err.response.data)
+          JSON.stringify(err.response.data)
         );
       } else {
         alert(err.message);
@@ -42,32 +44,80 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Synthetic Persona Generator</h1>
+      <h1>🧠 Synthetic Persona Generator</h1>
 
+      <p className="subtitle">
+        Generate AI-powered synthetic personas for market research
+      </p>
+
+      {/* Product Name */}
+      <label className="form-label">📦 Product Name</label>
       <input
         type="text"
-        placeholder="Product Name"
+        placeholder="Enter product name"
         value={product}
         onChange={(e) => setProduct(e.target.value)}
       />
 
+      {/* Description */}
+      <label className="form-label">📝 Product Description</label>
       <textarea
-        placeholder="Description"
+        placeholder="Describe your product"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
 
+      {/* Target Gender */}
+      <div className="gender-group">
+        <label className="form-label">👤 Target Gender</label>
+
+        <div className="gender-options">
+          <label>
+            <input
+              type="radio"
+              value="Male"
+              checked={gender === "Male"}
+              onChange={(e) => setGender(e.target.value)}
+            />
+            Male
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              value="Female"
+              checked={gender === "Female"}
+              onChange={(e) => setGender(e.target.value)}
+            />
+            Female
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              value="Both"
+              checked={gender === "Both"}
+              onChange={(e) => setGender(e.target.value)}
+            />
+            Both
+          </label>
+        </div>
+      </div>
+
+      {/* Age */}
+      <label className="form-label">🎯 Target Audience Age</label>
       <input
         type="text"
-        placeholder="Target Audience Age"
+        placeholder="Example: 18-30"
         value={age}
         onChange={(e) => setAge(e.target.value)}
       />
 
       {/* Number of Personas */}
+      <label className="form-label">👥 Number of Personas</label>
       <input
         type="number"
-        placeholder="Number of Personas (1-20)"
+        placeholder="1 - 20"
         value={count}
         min="1"
         max="20"
@@ -81,29 +131,48 @@ function App() {
         }}
       />
 
+      {/* Research Objective */}
+      <label className="form-label">📊 Research Objective</label>
       <input
         type="text"
-        placeholder="Research Objective"
+        placeholder="What do you want to discover?"
         value={objective}
         onChange={(e) => setObjective(e.target.value)}
       />
 
-      <button onClick={generate}>
-        Generate Personas
+      <button className="generate-btn" onClick={generate}>
+        ✨ Generate Personas
       </button>
 
       {result && (
         <>
-          <h2>
-            {result.preferred} / {result.personas.length} Prefer
-          </h2>
+          <div className="stats">
+            <div className="stat-box">
+              <h3>👍 Preferred</h3>
+              <p>{result.preferred}</p>
+            </div>
 
-          <h3>
-            {Math.round(
-              (result.preferred * 100) / result.personas.length
-            )}
-            % Prefer
-          </h3>
+            <div className="stat-box">
+              <h3>👎 Not Preferred</h3>
+              <p>{result.notPreferred}</p>
+            </div>
+
+            <div className="stat-box">
+              <h3>📊 Preference Rate</h3>
+              <p>
+                {Math.round(
+                  (result.preferred * 100) /
+                    result.personas.length
+                )}
+                %
+              </p>
+            </div>
+
+            <div className="stat-box">
+              <h3>👥 Total Personas</h3>
+              <p>{result.personas.length}</p>
+            </div>
+          </div>
 
           <div className="grid">
             {result.personas.map((persona, index) => (

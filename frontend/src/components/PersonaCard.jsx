@@ -1,3 +1,4 @@
+import "./PersonaCard.css";
 function PersonaCard({ persona }) {
   return (
     <div className="card">
