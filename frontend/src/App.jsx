@@ -14,20 +14,16 @@ function App() {
 
   const generate = async () => {
     try {
-      const res = await axios.post(
-        "http://127.0.0.1:5000/generate",
-        {
-          product,
-          description,
-          age,
-          objective,
-          count,
-        }
-      );
+      const res = await axios.post("http://127.0.0.1:5000/generate", {
+        product,
+        description,
+        age,
+        objective,
+        count,
+      });
 
       console.log("Response:", res.data);
       setResult(res.data);
-
     } catch (err) {
       console.error("Full Error:", err);
 
@@ -36,7 +32,7 @@ function App() {
 
         alert(
           err.response.data.error ||
-          JSON.stringify(err.response.data)
+            JSON.stringify(err.response.data)
         );
       } else {
         alert(err.message);
@@ -46,7 +42,6 @@ function App() {
 
   return (
     <div className="container">
-
       <h1>Synthetic Persona Generator</h1>
 
       <input
@@ -69,15 +64,22 @@ function App() {
         onChange={(e) => setAge(e.target.value)}
       />
 
-      <select
+      {/* Number of Personas */}
+      <input
+        type="number"
+        placeholder="Number of Personas (1-20)"
         value={count}
-        onChange={(e) => setCount(e.target.value)}
-      >
-        <option value="10">10 Personas</option>
-        <option value="20">20 Personas</option>
-        <option value="50">50 Personas</option>
-        <option value="100">100 Personas</option>
-      </select>
+        min="1"
+        max="20"
+        onChange={(e) => {
+          let value = Number(e.target.value);
+
+          if (value > 20) value = 20;
+          if (value < 1 && e.target.value !== "") value = 1;
+
+          setCount(value);
+        }}
+      />
 
       <input
         type="text"
@@ -113,7 +115,6 @@ function App() {
           </div>
         </>
       )}
-
     </div>
   );
 }
