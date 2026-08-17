@@ -1,0 +1,60 @@
+{
+  "personas": {
+    "cfaf971a-b3ce-497c-9c1a-d2b2a7466a2d": {
+      "profile": {
+        "name": "Aarav Sharma",
+        "gender": "Male",
+        "age": 16,
+        "occupation": "High School Student",
+        "personality": "Diligent, organized, aesthetic-oriented",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "The smooth, high-grade paper prevents ink bleed-through from gel pens, and the durable binding holds up well in a heavy backpack.",
+        "id": "cfaf971a-b3ce-497c-9c1a-d2b2a7466a2d"
+      },
+      "conversation": []
+    },
+    "c9332e8e-b995-4d59-8e2f-872b9c116339": {
+      "profile": {
+        "name": "Maya Lin",
+        "gender": "Female",
+        "age": 20,
+        "occupation": "Undergraduate University Student",
+        "personality": "Tech-savvy, minimalist, pragmatic",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Prefers digital note-taking on a tablet for easy searchability and cloud backup, making physical notebooks redundant for her routine.",
+        "id": "c9332e8e-b995-4d59-8e2f-872b9c116339"
+      },
+      "conversation": []
+    },
+    "84a90b57-08e0-460c-b64c-4b4114d7545f": {
+      "profile": {
+        "name": "Marcus Vance",
+        "gender": "Male",
+        "age": 14,
+        "occupation": "Middle School Student",
+        "personality": "Energetic, budget-conscious, casual",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "Finds premium notebooks overpriced for basic daily homework and would rather buy cheaper store-brand alternatives.",
+        "id": "84a90b57-08e0-460c-b64c-4b4114d7545f"
+      },
+      "conversation": []
+    },
+    "d9e448e3-45e6-4dc2-aaba-ce304dec3ef7": {
+      "profile": {
+        "name": "Sophia Rodriguez",
+        "gender": "Female",
+        "age": 19,
+        "occupation": "College Sophomore",
+        "personality": "Creative, detail-oriented, tactile learner",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Loves the tactile feel of writing on thick paper for study diagrams and bullet journaling, though she wishes it came in more cover designs.",
+        "id": "d9e448e3-45e6-4dc2-aaba-ce304dec3ef7"
+      },
+      "conversation": []
+    }
+  }
+}
