@@ -1,58 +1,96 @@
 {
   "personas": {
-    "cfaf971a-b3ce-497c-9c1a-d2b2a7466a2d": {
+    "542e31f0-6e67-4ea9-9466-72043556f15c": {
       "profile": {
-        "name": "Aarav Sharma",
+        "name": "Rohan Sharma",
         "gender": "Male",
-        "age": 16,
-        "occupation": "High School Student",
-        "personality": "Diligent, organized, aesthetic-oriented",
+        "age": 21,
+        "occupation": "College Student",
+        "personality": "Energetic, value-conscious, music lover",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "The smooth, high-grade paper prevents ink bleed-through from gel pens, and the durable binding holds up well in a heavy backpack.",
-        "id": "cfaf971a-b3ce-497c-9c1a-d2b2a7466a2d"
+        "reason": "The 50-hour battery life and deep bass are perfect for my long gym sessions and daily commutes without breaking my student budget.",
+        "id": "542e31f0-6e67-4ea9-9466-72043556f15c"
       },
       "conversation": []
     },
-    "c9332e8e-b995-4d59-8e2f-872b9c116339": {
+    "e9644f47-1099-4527-adc8-380fe043b367": {
       "profile": {
-        "name": "Maya Lin",
+        "name": "Ananya Roy",
         "gender": "Female",
-        "age": 20,
-        "occupation": "Undergraduate University Student",
-        "personality": "Tech-savvy, minimalist, pragmatic",
+        "age": 26,
+        "occupation": "Corporate PR Executive",
+        "personality": "Pragmatic, brand-focused, detail-oriented",
         "buyDecision": "No",
-        "rating": 2,
-        "reason": "Prefers digital note-taking on a tablet for easy searchability and cloud backup, making physical notebooks redundant for her routine.",
-        "id": "c9332e8e-b995-4d59-8e2f-872b9c116339"
+        "rating": 3,
+        "reason": "While fast charging and ENC calling are useful for work calls, I personally prefer earbuds with active noise cancellation (ANC) and a more minimalist design for office use.",
+        "id": "e9644f47-1099-4527-adc8-380fe043b367"
       },
       "conversation": []
     },
-    "84a90b57-08e0-460c-b64c-4b4114d7545f": {
+    "ad48766a-5962-495f-b6e3-74e3e35889c8": {
+      "profile": {
+        "name": "Vikram Malhotra",
+        "gender": "Male",
+        "age": 24,
+        "occupation": "Junior Software Developer",
+        "personality": "Practical, tech-savvy, frequent traveler",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Fast charging is a lifesaver when I forget to charge before online meetings, and clear ENC calls make it easy to work remotely from coffee shops.",
+        "id": "ad48766a-5962-495f-b6e3-74e3e35889c8"
+      },
+      "conversation": []
+    },
+    "744ab83e-895f-4742-a6f4-dc447499408b": {
+      "profile": {
+        "name": "Sarah Jenkins",
+        "gender": "Female",
+        "age": 31,
+        "occupation": "Software Engineer",
+        "personality": "Health-conscious, pragmatic, efficiency-driven",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "I love fried food, but with a busy schedule and a desire to stay fit, traditional deep frying takes too long and adds too many unnecessary calories. Getting crispy results with 90% less oil fits my routine perfectly.",
+        "id": "744ab83e-895f-4742-a6f4-dc447499408b"
+      },
+      "conversation": [
+        {
+          "question": "can we also bake ",
+          "answer": "Yes, absolutely! That’s actually one of the best parts about it. You can definitely bake things like healthy oat muffins, single-serve cakes, or even chicken and veggies. \n\nFrom an efficiency standpoint, it’s a total game-changer. It heats up almost instantly, so I don't have to waste 15 minutes preheating my big kitchen oven just to bake a quick meal or healthy snack after a long day at work. It saves a ton of time, doesn't heat up the whole apartment, and everything bakes super evenly."
+        }
+      ]
+    },
+    "3586bb69-60d1-43d4-8650-e6a374987f8a": {
       "profile": {
         "name": "Marcus Vance",
         "gender": "Male",
-        "age": 14,
-        "occupation": "Middle School Student",
-        "personality": "Energetic, budget-conscious, casual",
+        "age": 28,
+        "occupation": "Sous Chef",
+        "personality": "Traditionalist, culinary enthusiast, skeptical",
         "buyDecision": "No",
-        "rating": 3,
-        "reason": "Finds premium notebooks overpriced for basic daily homework and would rather buy cheaper store-brand alternatives.",
-        "id": "84a90b57-08e0-460c-b64c-4b4114d7545f"
+        "rating": 2,
+        "reason": "From a culinary standpoint, circulating hot air simply cannot replicate the authentic flavor profile and texture achieved through traditional oil frying. It also takes up valuable counter space that I prefer keeping clear.",
+        "id": "3586bb69-60d1-43d4-8650-e6a374987f8a"
       },
-      "conversation": []
+      "conversation": [
+        {
+          "question": "what do you dislike about this product",
+          "answer": "Honestly, almost everything about the concept. As a sous chef, I can tell you that blowing hot air around a basket isn't frying—it's just baking with extra steps. You completely lose the depth of flavor, richness, and perfect texture that proper oil frying gives you. Food comes out dry rather than genuinely crisp. \n\nOn top of the culinary disappointment, it's a bulky piece of plastic taking up prime counter space that I’d much rather keep clear. It’s essentially a glorified mini convection oven trying to replace traditional techniques that simply don't need replacing."
+        }
+      ]
     },
-    "d9e448e3-45e6-4dc2-aaba-ce304dec3ef7": {
+    "f917f567-dfeb-496b-aa66-8176d3914f0e": {
       "profile": {
-        "name": "Sophia Rodriguez",
+        "name": "Elena Rostova",
         "gender": "Female",
-        "age": 19,
-        "occupation": "College Sophomore",
-        "personality": "Creative, detail-oriented, tactile learner",
+        "age": 37,
+        "occupation": "Marketing Manager",
+        "personality": "Balanced, health-focused, pragmatic",
         "buyDecision": "Yes",
         "rating": 4,
-        "reason": "Loves the tactile feel of writing on thick paper for study diagrams and bullet journaling, though she wishes it came in more cover designs.",
-        "id": "d9e448e3-45e6-4dc2-aaba-ce304dec3ef7"
+        "reason": "My doctor recommended cutting back on saturated fats to improve cholesterol levels. The air fryer makes preparing guilt-free weekday dinners quick and easy, even if the flavor takes a little getting used to.",
+        "id": "f917f567-dfeb-496b-aa66-8176d3914f0e"
       },
       "conversation": []
     }
