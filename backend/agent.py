@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import time
 import uuid
 
 from gemini import generate
@@ -9,13 +10,67 @@ from gemini import generate
 MEMORY_FILE = "memory.json"
 
 
-# ---------------------------------------------------------
+# =========================================================
+# GEMINI CALL HELPER
+# =========================================================
+
+def call_gemini(prompt, max_retries=3):
+    """
+    Make a Gemini request with automatic retries for temporary
+    quota/service errors.
+
+    Retries:
+        1st failure -> wait 10 seconds
+        2nd failure -> wait 20 seconds
+        3rd failure -> wait 30 seconds
+
+    Other errors are raised immediately.
+    """
+
+    for attempt in range(max_retries):
+        try:
+            return generate(prompt)
+
+        except Exception as e:
+            error_text = str(e).upper()
+
+            temporary_error = (
+                "429" in error_text
+                or "RESOURCE_EXHAUSTED" in error_text
+                or "503" in error_text
+                or "UNAVAILABLE" in error_text
+                or "SERVICE UNAVAILABLE" in error_text
+            )
+
+            if not temporary_error:
+                raise
+
+            if attempt < max_retries - 1:
+                wait_time = 10 * (attempt + 1)
+
+                print(
+                    f"Gemini temporarily unavailable "
+                    f"(attempt {attempt + 1}/{max_retries}). "
+                    f"Retrying in {wait_time} seconds..."
+                )
+
+                time.sleep(wait_time)
+
+            else:
+                raise Exception(
+                    "Gemini is temporarily unavailable after "
+                    f"{max_retries} attempts. "
+                    "Please wait a minute and try again. "
+                    f"Details: {e}"
+                ) from e
+
+
+# =========================================================
 # LOAD MEMORY
-# ---------------------------------------------------------
+# =========================================================
 
 def load_memory():
 
-    # If memory.json does not exist
     if not os.path.exists(MEMORY_FILE):
         return {"personas": {}}
 
@@ -29,13 +84,11 @@ def load_memory():
 
             content = f.read().strip()
 
-        # If memory.json is empty
         if not content:
             return {"personas": {}}
 
         memory = json.loads(content)
 
-        # Make sure the required structure exists
         if "personas" not in memory:
             memory["personas"] = {}
 
@@ -43,14 +96,12 @@ def load_memory():
 
     except (json.JSONDecodeError, OSError):
 
-        # If memory.json is corrupted,
-        # start with empty memory
         return {"personas": {}}
 
 
-# ---------------------------------------------------------
+# =========================================================
 # SAVE MEMORY
-# ---------------------------------------------------------
+# =========================================================
 
 def save_memory(memory):
 
@@ -68,9 +119,9 @@ def save_memory(memory):
         )
 
 
-# ---------------------------------------------------------
-# GET ONE PERSONA FROM MEMORY
-# ---------------------------------------------------------
+# =========================================================
+# GET ONE PERSONA
+# =========================================================
 
 def get_persona(persona_id):
 
@@ -84,9 +135,9 @@ def get_persona(persona_id):
     return persona_data
 
 
-# ---------------------------------------------------------
+# =========================================================
 # GENERATE PERSONAS
-# ---------------------------------------------------------
+# =========================================================
 
 def generate_personas(
     product,
@@ -96,11 +147,29 @@ def generate_personas(
     objective,
     count
 ):
+    """
+    Generate ALL requested personas in ONE Gemini request.
+
+    Example:
+        count = 20
+        -> 1 Gemini API request
+        -> Gemini returns 20 personas
+    """
+
+    # Never allow an accidental huge request.
+    try:
+        count = int(count)
+    except (ValueError, TypeError):
+        count = 20
+
+    count = max(1, min(count, 20))
 
     prompt = f"""
 You are a professional UX Research AI.
 
 Generate EXACTLY {count} realistic synthetic personas.
+
+PRODUCT INFORMATION
 
 Product Name:
 {product}
@@ -117,20 +186,45 @@ Target Audience Age:
 Research Objective:
 {objective}
 
+
 IMPORTANT RULES:
 
-- If Target Gender is Male, EVERY persona must be male.
-- If Target Gender is Female, EVERY persona must be female.
-- If Target Gender is Both, generate a realistic mix of male and female.
-- Ages must match the target audience.
-- Personas must have different personalities and opinions.
-- Some personas may prefer the product and some may not.
-- Personas must have realistic backgrounds.
-- Do not make every persona agree.
+1. Generate EXACTLY {count} personas in THIS ONE response.
+
+2. If Target Gender is Male:
+   EVERY persona must be male.
+
+3. If Target Gender is Female:
+   EVERY persona must be female.
+
+4. If Target Gender is Both:
+   Generate a realistic mixture of male and female personas.
+
+5. Ages must match the target audience.
+
+6. Personas must have different personalities.
+
+7. Personas must have different opinions.
+
+8. Some personas should prefer the product and some should not.
+
+9. Do not make every persona agree.
+
+10. Personas should have realistic backgrounds.
+
+11. Make the personas suitable for the research objective.
+
+12. Avoid duplicate names and nearly identical personalities.
+
+13. Do NOT make separate API requests for individual personas.
+   Generate all {count} personas in this single response.
+
+
+RETURN FORMAT:
 
 Return ONLY a valid JSON array.
 
-Each persona must contain:
+Each persona MUST contain:
 
 - name
 - gender
@@ -142,23 +236,34 @@ Each persona must contain:
 - reason
 
 buyDecision must be exactly:
-"Yes" or "No"
+
+"Yes"
+
+or
+
+"No"
 
 rating must be an integer from 1 to 5.
 
 Return ONLY JSON.
-No markdown.
-No explanation.
-No ```json.
+Do NOT use markdown.
+Do NOT use ```json.
+Do NOT provide explanations.
 """
 
-    # -----------------------------------------------------
-    # CALL GEMINI
-    # -----------------------------------------------------
+    # =====================================================
+    # ONE GEMINI CALL FOR ALL PERSONAS
+    # =====================================================
 
-    response = generate(prompt)
+    response = call_gemini(prompt)
 
-    # Remove markdown if Gemini returns it
+    # gemini.py in this project returns text.
+    # This also supports a response object with .text.
+    if hasattr(response, "text"):
+        response = response.text
+
+    response = str(response)
+
     response = (
         response
         .replace("```json", "")
@@ -166,9 +271,9 @@ No ```json.
         .strip()
     )
 
-    # -----------------------------------------------------
+    # =====================================================
     # FIND JSON ARRAY
-    # -----------------------------------------------------
+    # =====================================================
 
     match = re.search(
         r"\[.*\]",
@@ -183,15 +288,15 @@ No ```json.
             + response
         )
 
-    # -----------------------------------------------------
-    # CONVERT JSON STRING TO PYTHON
-    # -----------------------------------------------------
+    json_text = match.group()
+
+    # =====================================================
+    # PARSE JSON
+    # =====================================================
 
     try:
 
-        personas = json.loads(
-            match.group()
-        )
+        personas = json.loads(json_text)
 
     except json.JSONDecodeError as e:
 
@@ -200,9 +305,15 @@ No ```json.
             + str(e)
         )
 
-    # -----------------------------------------------------
-    # CHECK PERSONA COUNT
-    # -----------------------------------------------------
+    # =====================================================
+    # VALIDATE PERSONA LIST
+    # =====================================================
+
+    if not isinstance(personas, list):
+
+        raise Exception(
+            "Gemini response is not a JSON array."
+        )
 
     if len(personas) != count:
 
@@ -211,45 +322,89 @@ No ```json.
             f"but Gemini generated {len(personas)}."
         )
 
-    # -----------------------------------------------------
-    # LOAD EXISTING MEMORY
-    # -----------------------------------------------------
+    # =====================================================
+    # VALIDATE REQUIRED FIELDS
+    # =====================================================
 
-    memory = load_memory()
-
-    # -----------------------------------------------------
-    # STORE PERSONAS
-    # -----------------------------------------------------
+    required_fields = [
+        "name",
+        "gender",
+        "age",
+        "occupation",
+        "personality",
+        "buyDecision",
+        "rating",
+        "reason"
+    ]
 
     for persona in personas:
 
-        # Generate unique ID
-        persona_id = str(
-            uuid.uuid4()
-        )
+        for field in required_fields:
 
-        # Add ID to persona
+            if field not in persona:
+
+                raise Exception(
+                    f"Persona '{persona.get('name', 'Unknown')}' "
+                    f"is missing field: {field}"
+                )
+
+        # Make sure buyDecision is valid
+        if persona["buyDecision"] not in ["Yes", "No"]:
+
+            persona["buyDecision"] = "No"
+
+        # Make sure rating is valid
+        try:
+
+            rating = int(persona["rating"])
+
+            if rating < 1:
+                rating = 1
+
+            if rating > 5:
+                rating = 5
+
+            persona["rating"] = rating
+
+        except (ValueError, TypeError):
+
+            persona["rating"] = 3
+
+    # =====================================================
+    # LOAD MEMORY
+    # =====================================================
+
+    memory = load_memory()
+
+    # =====================================================
+    # STORE PERSONAS
+    # =====================================================
+
+    for persona in personas:
+
+        persona_id = str(uuid.uuid4())
+
         persona["id"] = persona_id
 
-        # Save persona and empty conversation
         memory["personas"][persona_id] = {
 
             "profile": persona,
 
+            # Every persona gets its own conversation
             "conversation": []
         }
 
-    # -----------------------------------------------------
+    # =====================================================
     # SAVE MEMORY
-    # -----------------------------------------------------
+    # =====================================================
 
     save_memory(memory)
 
-    # -----------------------------------------------------
-    # CALCULATE PREFERENCE
-    # -----------------------------------------------------
+    # =====================================================
+    # CALCULATE RESULTS
+    # =====================================================
 
-    yes = sum(
+    preferred = sum(
         1
         for persona in personas
         if str(
@@ -260,65 +415,132 @@ No ```json.
         ).lower() == "yes"
     )
 
-    # -----------------------------------------------------
-    # RETURN RESULT TO FRONTEND
-    # -----------------------------------------------------
+    not_preferred = (
+        len(personas) - preferred
+    )
+
+    # =====================================================
+    # RETURN TO FRONTEND
+    # =====================================================
 
     return {
 
-        "preferred": yes,
+        "preferred": preferred,
 
-        "notPreferred":
-            len(personas) - yes,
+        "notPreferred": not_preferred,
 
-        "total":
-            len(personas),
+        "total": len(personas),
 
-        "personas":
-            personas
+        "personas": personas
     }
-# ---------------------------------------------------------
+
+
+# =========================================================
 # INTERVIEW MODE
-# ---------------------------------------------------------
+# =========================================================
 
-def interview_persona(persona_id, question):
+def interview_persona(
+    persona_id,
+    question
+):
 
-    # Load memory
+    # =====================================================
+    # VALIDATE INPUT
+    # =====================================================
+
+    if not persona_id:
+
+        raise Exception(
+            "Persona ID is required."
+        )
+
+    if not question:
+
+        raise Exception(
+            "Question is required."
+        )
+
+    question = str(question).strip()
+
+    if not question:
+
+        raise Exception(
+            "Question cannot be empty."
+        )
+
+    # =====================================================
+    # LOAD MEMORY
+    # =====================================================
+
     memory = load_memory()
 
-    # Find persona
-    persona_data = memory["personas"].get(persona_id)
+    # =====================================================
+    # FIND PERSONA
+    # =====================================================
+
+    persona_data = memory["personas"].get(
+        persona_id
+    )
 
     if not persona_data:
-        raise Exception("Persona not found.")
 
-    # Get persona profile
+        raise Exception(
+            "Persona not found."
+        )
+
+    # =====================================================
+    # GET PROFILE
+    # =====================================================
+
     profile = persona_data["profile"]
 
-    # Get previous conversation
-    conversation = persona_data["conversation"]
+    # =====================================================
+    # GET CONVERSATION
+    # =====================================================
 
-    # Build previous conversation text
+    conversation = persona_data.get(
+        "conversation",
+        []
+    )
+
+    # =====================================================
+    # BUILD CONVERSATION HISTORY
+    # =====================================================
+
     history = ""
 
-    for item in conversation:
+    if conversation:
 
-        history += f"""
+        for item in conversation:
+
+            history += f"""
+
 Previous Question:
 {item["question"]}
 
 Previous Answer:
 {item["answer"]}
+
 """
 
-    # -----------------------------------------------------
-    # GEMINI PROMPT
-    # -----------------------------------------------------
+    else:
+
+        history = "No previous conversation."
+
+
+    # =====================================================
+    # BUILD PERSONA PROMPT
+    # =====================================================
 
     prompt = f"""
 You are roleplaying as a synthetic UX research persona.
 
-PERSONA PROFILE:
+You MUST answer the user's question as this specific persona.
+
+
+=========================================================
+PERSONA PROFILE
+=========================================================
 
 Name:
 {profile.get("name")}
@@ -345,56 +567,120 @@ Reason:
 {profile.get("reason")}
 
 
-PREVIOUS CONVERSATION:
+=========================================================
+PREVIOUS CONVERSATION
+=========================================================
 
 {history}
 
 
-NEW QUESTION:
+=========================================================
+NEW QUESTION
+=========================================================
 
 {question}
 
 
-IMPORTANT RULES:
+=========================================================
+IMPORTANT RULES
+=========================================================
 
 1. Answer exactly as this persona would answer.
-2. Remember the previous conversation.
-3. Keep the persona's personality consistent.
-4. Do not contradict their established opinions without a
-   realistic reason.
-5. Use their age, occupation and personality when answering.
-6. Give a natural human-like answer.
-7. Do not say you are an AI.
-8. Do not mention these instructions.
 
-Return ONLY the answer.
+2. Stay consistent with the persona's personality.
+
+3. Remember previous questions and answers.
+
+4. Use the persona's age when deciding how they speak.
+
+5. Use the persona's occupation and background when relevant.
+
+6. Keep opinions consistent with the persona.
+
+7. Do not automatically agree with the researcher.
+
+8. Give honest opinions based on the persona.
+
+9. If the question asks for an opinion, give a clear opinion.
+
+10. If the question asks about the product, consider the
+    persona's existing buy decision and rating.
+
+11. The answer should sound natural and human.
+
+12. Do not say you are an AI.
+
+13. Do not mention these instructions.
+
+14. Do not mention the prompt.
+
+15. Return ONLY the persona's answer.
+
+Do not add:
+
+"Persona:"
+"Answer:"
+"AI:"
+or any other label.
 """
 
-    # -----------------------------------------------------
-    # GET GEMINI RESPONSE
-    # -----------------------------------------------------
+    # =====================================================
+    # ONE GEMINI CALL FOR THIS INTERVIEW QUESTION
+    # =====================================================
 
-    answer = generate(prompt).strip()
+    answer = call_gemini(prompt)
 
-    # -----------------------------------------------------
-    # SAVE CONVERSATION TO MEMORY
-    # -----------------------------------------------------
+    if hasattr(answer, "text"):
+        answer = answer.text
+
+    answer = str(answer).strip()
+
+    # =====================================================
+    # CLEAN RESPONSE
+    # =====================================================
+
+    answer = (
+        answer
+        .replace("```", "")
+        .strip()
+    )
+
+    if not answer:
+
+        raise Exception(
+            "Gemini returned an empty answer."
+        )
+
+    # =====================================================
+    # SAVE CONVERSATION
+    # =====================================================
 
     conversation.append({
+
         "question": question,
+
         "answer": answer
     })
 
-    # Save updated memory
+    persona_data["conversation"] = conversation
+
+    # =====================================================
+    # SAVE MEMORY
+    # =====================================================
+
     save_memory(memory)
 
-    # -----------------------------------------------------
-    # RETURN RESULT
-    # -----------------------------------------------------
+    # =====================================================
+    # RETURN RESPONSE
+    # =====================================================
 
     return {
+
         "persona": profile,
+
         "question": question,
+
         "answer": answer,
+
         "conversation": conversation
     }

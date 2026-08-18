@@ -93,6 +93,343 @@
         "id": "f917f567-dfeb-496b-aa66-8176d3914f0e"
       },
       "conversation": []
+    },
+    "ffcd778e-3e00-4777-959f-9366fcc90f33": {
+      "profile": {
+        "name": "Aarav Sharma",
+        "gender": "Male",
+        "age": 19,
+        "occupation": "Undergraduate Engineering Student",
+        "personality": "Practical, organized, and budget-conscious",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "The smooth paper quality allows for fast lecture scribbling without ink bleeding through, though he thinks the price could be slightly lower for students.",
+        "id": "ffcd778e-3e00-4777-959f-9366fcc90f33"
+      },
+      "conversation": []
+    },
+    "757f1f5d-d2f8-4d8a-82db-0423e798157b": {
+      "profile": {
+        "name": "Priya Patel",
+        "gender": "Female",
+        "age": 16,
+        "occupation": "High School Student",
+        "personality": "Creative, meticulous, and aesthetic-driven",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Loves the durable cover art and bright white pages that make her bullet journaling and color-coded study notes look neat and vibrant.",
+        "id": "757f1f5d-d2f8-4d8a-82db-0423e798157b"
+      },
+      "conversation": []
+    },
+    "b912a802-68e8-4bd5-ad67-45acfe8ef97e": {
+      "profile": {
+        "name": "Marcus Chen",
+        "gender": "Male",
+        "age": 21,
+        "occupation": "College Senior (Business)",
+        "personality": "Tech-savvy, efficient, and minimalist",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "He has fully transitioned to taking digital notes on a tablet and finds physical paper notebooks unnecessary for his daily routine.",
+        "id": "b912a802-68e8-4bd5-ad67-45acfe8ef97e"
+      },
+      "conversation": []
+    },
+    "49fa349e-7e94-4122-8daa-b9cee0220359": {
+      "profile": {
+        "name": "Sophia Rodriguez",
+        "gender": "Female",
+        "age": 14,
+        "occupation": "Middle School Student",
+        "personality": "Social, energetic, and trend-focused",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "Finds the notebook cover design too plain compared to trendy branded stationery, and prefers buying cheaper store-brand notebooks to save allowance.",
+        "id": "49fa349e-7e94-4122-8daa-b9cee0220359"
+      },
+      "conversation": []
+    },
+    "2d59062b-f50d-4d41-9cdf-3e9d52ace45c": {
+      "profile": {
+        "name": "Liam Taylor",
+        "gender": "Male",
+        "age": 17,
+        "occupation": "High School Senior",
+        "personality": "Studious, focused, and methodical",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "The strong binding prevents pages from falling out during heavy exam preparation, making it reliable for long-term study reference.",
+        "id": "2d59062b-f50d-4d41-9cdf-3e9d52ace45c"
+      },
+      "conversation": []
+    },
+    "7502227d-395f-4dfe-b11a-7962a9a94869": {
+      "profile": {
+        "name": "Aarav Sharma",
+        "gender": "Male",
+        "age": 19,
+        "occupation": "Undergraduate Engineering Student",
+        "personality": "Diligent, organized, practical",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "The thick, high-quality paper prevents gel pen ink from bleeding through during heavy lecture note-taking, making it worth the cost.",
+        "id": "7502227d-395f-4dfe-b11a-7962a9a94869"
+      },
+      "conversation": []
+    },
+    "9fa58a86-c5f7-4668-af17-8f166f75e043": {
+      "profile": {
+        "name": "Chloe Bennett",
+        "gender": "Female",
+        "age": 16,
+        "occupation": "High School Student",
+        "personality": "Budget-conscious, casual, tech-savvy",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "She does most of her note-taking on her tablet and finds the notebook overpriced for just rough drafting work.",
+        "id": "9fa58a86-c5f7-4668-af17-8f166f75e043"
+      },
+      "conversation": []
+    },
+    "7ac49e69-0b64-45f5-bd55-cd10d10f756e": {
+      "profile": {
+        "name": "Marcus Vance",
+        "gender": "Male",
+        "age": 14,
+        "occupation": "Middle School Student",
+        "personality": "Energetic, visual learner, careless with belongings",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "The durable outer cover survives being tossed into a crammed backpack, and the smooth paper is great for sketching science diagrams.",
+        "id": "7ac49e69-0b64-45f5-bd55-cd10d10f756e"
+      },
+      "conversation": []
+    },
+    "4ff60775-6efb-412e-af0d-b1601caac903": {
+      "profile": {
+        "name": "Priya Patel",
+        "gender": "Female",
+        "age": 21,
+        "occupation": "Design Student",
+        "personality": "Aesthetic-focused, detail-oriented, selective",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "Paper quality is decent, but the cover art and page layouts feel too plain and traditional for her bullet-journaling preferences.",
+        "id": "4ff60775-6efb-412e-af0d-b1601caac903"
+      },
+      "conversation": []
+    },
+    "30ab3162-ceb7-4f9d-8d3b-94acf6700bf7": {
+      "profile": {
+        "name": "Ethan Delgado",
+        "gender": "Male",
+        "age": 17,
+        "occupation": "High School Senior",
+        "personality": "Ambitious, methodical, goal-driven",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Sturdy binding keeps pages intact throughout intense AP exam revision sessions, though he wishes it included pre-perforated pages.",
+        "id": "30ab3162-ceb7-4f9d-8d3b-94acf6700bf7"
+      },
+      "conversation": []
+    },
+    "ce92e442-ac6d-44e6-863e-99c0a5ac3080": {
+      "profile": {
+        "name": "Rohan Sharma",
+        "gender": "Male",
+        "age": 21,
+        "occupation": "College Student (Engineering)",
+        "personality": "Energetic, budget-conscious, music lover",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Loves the heavy deep bass for hip-hop and gym sessions, plus the 50-hour battery life means he won't need to charge during intense exam weeks. Fits his tight student budget perfectly.",
+        "id": "ce92e442-ac6d-44e6-863e-99c0a5ac3080"
+      },
+      "conversation": []
+    },
+    "8807676d-c039-4d36-8075-4003721c3e85": {
+      "profile": {
+        "name": "Ananya Roy",
+        "gender": "Female",
+        "age": 25,
+        "occupation": "Corporate PR Executive",
+        "personality": "Detail-oriented, pragmatic, audiophile",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Prefers a balanced sound profile over heavy bass, which tends to overpower vocal clarity in podcasts. While ENC is nice, she specifically needs Active Noise Cancellation (ANC) for noisy office commutes.",
+        "id": "8807676d-c039-4d36-8075-4003721c3e85"
+      },
+      "conversation": [
+        {
+          "question": "what is the main drawback of this product",
+          "answer": "Honestly, the biggest issue for me is the sound profile. The heavy bass is way too dominant and completely overpowers the vocal clarity, which really ruins things when I'm trying to listen to spoken-word podcasts. \n\nClose second is the lack of proper Active Noise Cancellation. It only has Environmental Noise Cancellation (ENC), which just doesn't cut it for my daily office commute. I really need full ANC to block out subway and city noise."
+        }
+      ]
+    },
+    "630177b9-d31a-4de1-bef0-59bab0b7aa17": {
+      "profile": {
+        "name": "Vikram Patel",
+        "gender": "Male",
+        "age": 28,
+        "occupation": "Field Sales Manager",
+        "personality": "Fast-paced, practical, always on calls",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Fast charging and Environmental Noise Cancellation (ENC) make taking client calls while traveling very convenient. The massive battery life guarantees he won't be left stranded without power mid-day.",
+        "id": "630177b9-d31a-4de1-bef0-59bab0b7aa17"
+      },
+      "conversation": []
+    },
+    "42b2277d-cd20-49b9-9180-ae0723d020b2": {
+      "profile": {
+        "name": "Meera Nair",
+        "gender": "Female",
+        "age": 23,
+        "occupation": "Freelance Graphic Designer",
+        "personality": "Minimalist, aesthetic-focused, casual listener",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Offers great value for money with a sleek aesthetic. The long battery life allows her to work from coffee shops for days without carrying extra charging cables.",
+        "id": "42b2277d-cd20-49b9-9180-ae0723d020b2"
+      },
+      "conversation": [
+        {
+          "question": "what is the main drawback of this product",
+          "answer": "I’d say the audio quality is pretty average. I’m a pretty casual listener—mostly just running lo-fi beats or podcasts while I’m designing in coffee shops—so it works fine for me, but if you’re an audiophile looking for super rich sound or deep bass, it might feel a little flat. Also, the matte finish on the case picks up micro-scratches pretty easily when tossed in my bag, which kind of bugs my aesthetic side. But for the price and battery life, I still really like them."
+        }
+      ]
+    },
+    "a6a67227-d555-4a10-8e3b-3655a76b6f37": {
+      "profile": {
+        "name": "Kabir Mehta",
+        "gender": "Male",
+        "age": 19,
+        "occupation": "Mobile Gamer & Esports Enthusiast",
+        "personality": "Tech-savvy, competitive, critical",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "The focus is heavily on deep bass and battery life rather than ultra-low latency gaming modes or multi-device switching, which are critical features for his gaming setup.",
+        "id": "a6a67227-d555-4a10-8e3b-3655a76b6f37"
+      },
+      "conversation": []
+    },
+    "859317a1-9a74-45c4-a8b5-195f60fc5326": {
+      "profile": {
+        "name": "Sarah Jenkins",
+        "gender": "Female",
+        "age": 32,
+        "occupation": "Digital Marketing Manager",
+        "personality": "Health-conscious, busy, tech-savvy",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "I want to cook healthier weeknight meals for my family without sacrificing the crispy texture of fried foods, and the quick cleanup fits my hectic schedule.",
+        "id": "859317a1-9a74-45c4-a8b5-195f60fc5326"
+      },
+      "conversation": []
+    },
+    "7c6504a0-ad5f-47e7-bb98-de62078ac64a": {
+      "profile": {
+        "name": "Marcus Vance",
+        "gender": "Male",
+        "age": 45,
+        "occupation": "Culinary School Instructor",
+        "personality": "Traditionalist, passionate, skeptical of gadgets",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "In my opinion, air frying is just small-scale convection baking; it cannot replicate authentic oil-rendered flavor, and I prefer traditional cooking techniques.",
+        "id": "7c6504a0-ad5f-47e7-bb98-de62078ac64a"
+      },
+      "conversation": [
+        {
+          "question": "what is the main drawback of this project",
+          "answer": "From a culinary standpoint, the main drawback is that it’s marketing a fundamental compromise. Call it what it is: a glorified, small-scale convection oven. \n\nReal frying relies on hot oil to transfer heat efficiently, seal in moisture, and render deep, authentic flavor that you simply cannot get from hot air alone. Dry air circulating at high speeds tends to dry ingredients out rather than crisping them properly. You end up with an inferior texture and a pale imitation of the real thing. As someone who teaches classical technique, I see it as a gadget that encourages people to cut corners on flavor and proper method for the sake of convenience."
+        }
+      ]
+    },
+    "f44bd515-7781-4413-bd20-d1f66040f802": {
+      "profile": {
+        "name": "David Chen",
+        "gender": "Male",
+        "age": 28,
+        "occupation": "Software Engineer",
+        "personality": "Fitness-focused, analytical, convenience-driven",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "I track my daily macronutrients closely, so cutting down up to 90% of oil intake makes hitting my fitness goals much easier without making meal prep tedious.",
+        "id": "f44bd515-7781-4413-bd20-d1f66040f802"
+      },
+      "conversation": []
+    },
+    "77ab3cc5-03fc-4547-850c-a10d933a7fbd": {
+      "profile": {
+        "name": "Elena Rostova",
+        "gender": "Female",
+        "age": 39,
+        "occupation": "High School Teacher",
+        "personality": "Budget-conscious, minimalist, practical",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "My kitchen counter space is very limited, and I already own a convection toaster oven that fulfills a similar role without needing another expensive appliance.",
+        "id": "77ab3cc5-03fc-4547-850c-a10d933a7fbd"
+      },
+      "conversation": []
+    },
+    "b0e388df-140c-498e-b672-5c69e2ffac6b": {
+      "profile": {
+        "name": "Rohan Sharma",
+        "gender": "Male",
+        "age": 21,
+        "occupation": "College Student",
+        "personality": "Value-conscious, energetic, heavy audio consumer who loves bass-heavy music",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "The 50-hour battery life and fast charging mean he rarely has to charge them during busy campus days, and the deep bass is ideal for his EDM playlists.",
+        "id": "b0e388df-140c-498e-b672-5c69e2ffac6b"
+      },
+      "conversation": []
+    },
+    "6b6734d2-b832-4036-8bd6-8626b411ff2f": {
+      "profile": {
+        "name": "Ananya Roy",
+        "gender": "Female",
+        "age": 25,
+        "occupation": "Corporate Sales Executive",
+        "personality": "Practical, professional, demanding high clarity and sleek aesthetics",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Requires pristine microphone isolation for frequent client calls; feels entry-level ENC won't reliably block background noise and finds exaggerated deep bass exhausting.",
+        "id": "6b6734d2-b832-4036-8bd6-8626b411ff2f"
+      },
+      "conversation": []
+    },
+    "12bd81c2-722d-45a9-8992-f5dea4ca31b4": {
+      "profile": {
+        "name": "Vikram Malhotra",
+        "gender": "Male",
+        "age": 28,
+        "occupation": "Freelance Graphic Designer",
+        "personality": "Tech-savvy, analytical audiophile who prefers flat and natural sound profiles",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "Appreciates the fast charging and long battery specs, but prefers a balanced treble-and-mid sound signature rather than overpowering bass.",
+        "id": "12bd81c2-722d-45a9-8992-f5dea4ca31b4"
+      },
+      "conversation": []
+    },
+    "469ad6ea-6f28-48d9-9c9d-faf287d54fef": {
+      "profile": {
+        "name": "Priya Patel",
+        "gender": "Female",
+        "age": 23,
+        "occupation": "Digital Marketer",
+        "personality": "Fast-paced, fitness-oriented, constantly on the go and values convenience",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Fast charging saves her when she forgets to plug them in before gym sessions, and the punchy bass keeps her motivated during workouts.",
+        "id": "469ad6ea-6f28-48d9-9c9d-faf287d54fef"
+      },
+      "conversation": []
     }
   }
 }
