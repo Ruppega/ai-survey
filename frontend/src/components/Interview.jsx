@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "./Interview.css";
 
 function Interview({
   personas,
@@ -10,6 +11,7 @@ function Interview({
   const [askedQuestion, setAskedQuestion] = useState("");
   const [answers, setAnswers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [mode, setMode] = useState("individual");
 
   // =====================================================
   // SELECT PERSONA
@@ -17,26 +19,22 @@ function Interview({
 
   const selectPersona = (persona) => {
     onSelectPersona(persona);
-
-    // Clear old visible answers
+    setMode("individual");
     setAnswers([]);
     setAskedQuestion("");
-    setQuestion("");
   };
 
-
   // =====================================================
-  // ASK SELECTED PERSONA
+  // INDIVIDUAL INTERVIEW
   // =====================================================
 
   const askSelectedPersona = async () => {
-
     if (!selectedPersona) {
       alert("Please select a persona first.");
       return;
     }
 
-    if (!question.trim()) {
+    if (!question.trim() || loading) {
       return;
     }
 
@@ -46,7 +44,6 @@ function Interview({
     const currentQuestion = question.trim();
 
     try {
-
       const response = await axios.post(
         "http://127.0.0.1:5000/interview",
         {
@@ -65,34 +62,29 @@ function Interview({
       ]);
 
       setQuestion("");
-
     } catch (error) {
-
-      console.error(
-        "Individual interview error:",
-        error
-      );
+      console.error("Individual interview error:", error);
 
       alert(
         error.response?.data?.error ||
         "Unable to get a response from this persona."
       );
-
     } finally {
-
       setLoading(false);
-
     }
   };
 
-
   // =====================================================
-  // ASK ALL PERSONAS
+  // ALL PERSONAS - ONE BACKEND REQUEST
   // =====================================================
 
   const askAllPersonas = async () => {
+    if (!question.trim() || loading) {
+      return;
+    }
 
-    if (!question.trim()) {
+    if (!personas || personas.length === 0) {
+      alert("No personas are available.");
       return;
     }
 
@@ -102,77 +94,48 @@ function Interview({
     const currentQuestion = question.trim();
 
     try {
-
-      const requests = personas.map(
-        (persona) =>
-          axios.post(
-            "http://127.0.0.1:5000/interview",
-            {
-              personaId: persona.id,
-              question: currentQuestion
-            }
-          )
-      );
-
-      const responses = await Promise.all(
-        requests
-      );
-
-      const newAnswers = responses.map(
-        (response, index) => ({
-          persona: personas[index],
-          answer: response.data.answer
-        })
+      // IMPORTANT:
+      // This is ONE HTTP request.
+      // The backend makes ONE Gemini request for all personas.
+      const response = await axios.post(
+        "http://127.0.0.1:5000/interview-all",
+        {
+          question: currentQuestion
+        }
       );
 
       setAskedQuestion(currentQuestion);
-      setAnswers(newAnswers);
-
+      setAnswers(response.data.answers || []);
       setQuestion("");
-
     } catch (error) {
-
-      console.error(
-        "Multi-persona interview error:",
-        error
-      );
+      console.error("All-persona interview error:", error);
 
       alert(
         error.response?.data?.error ||
         "Unable to get responses from all personas."
       );
-
     } finally {
-
       setLoading(false);
-
     }
   };
 
-
   // =====================================================
-  // HANDLE ENTER KEY
+  // ENTER KEY
   // =====================================================
 
   const handleKeyDown = (e) => {
+    if (e.key !== "Enter" || e.shiftKey) {
+      return;
+    }
 
-    if (e.key === "Enter") {
+    e.preventDefault();
 
-      if (e.shiftKey) {
-        return;
-      }
-
-      e.preventDefault();
-
-      if (selectedPersona) {
-        askSelectedPersona();
-      } else {
-        askAllPersonas();
-      }
-
+    if (mode === "all") {
+      askAllPersonas();
+    } else {
+      askSelectedPersona();
     }
   };
-
 
   return (
     <div className="interview-container">
@@ -184,10 +147,48 @@ function Interview({
       <h2>🎤 AI Persona Interview</h2>
 
       <p>
-        Select a persona to interview individually,
-        or ask the same question to everyone.
+        Interview one persona or ask the same question
+        to all generated personas.
       </p>
 
+      {/* ================================================= */}
+      {/* MODE SWITCH */}
+      {/* ================================================= */}
+
+      <div className="interview-mode-switch">
+
+        <button
+          className={
+            mode === "individual"
+              ? "mode-btn active"
+              : "mode-btn"
+          }
+          onClick={() => {
+            setMode("individual");
+            setAnswers([]);
+            setAskedQuestion("");
+          }}
+        >
+          👤 Individual Interview
+        </button>
+
+        <button
+          className={
+            mode === "all"
+              ? "mode-btn active"
+              : "mode-btn"
+          }
+          onClick={() => {
+            setMode("all");
+            onSelectPersona(null);
+            setAnswers([]);
+            setAskedQuestion("");
+          }}
+        >
+          👥 Ask All Personas
+        </button>
+
+      </div>
 
       {/* ================================================= */}
       {/* PERSONA SELECTOR */}
@@ -199,71 +200,47 @@ function Interview({
 
         <div className="persona-selector-grid">
 
-          {personas.map(
-            (persona, index) => (
+          {personas.map((persona, index) => (
 
-              <button
-                key={persona.id || index}
-                className={
-                  selectedPersona?.id === persona.id
-                    ? "persona-select-btn selected"
-                    : "persona-select-btn"
-                }
-                onClick={() =>
-                  selectPersona(persona)
-                }
-              >
+            <button
+              key={persona.id || index}
+              className={
+                selectedPersona?.id === persona.id &&
+                mode === "individual"
+                  ? "persona-select-btn selected"
+                  : "persona-select-btn"
+              }
+              onClick={() => selectPersona(persona)}
+            >
 
-                <span className="selector-avatar">
-                  👤
-                </span>
+              <span className="selector-avatar">
+                👤
+              </span>
 
-                <span>
-                  <strong>
-                    {persona.name}
-                  </strong>
+              <span>
+                <strong>
+                  {persona.name}
+                </strong>
 
-                  <small>
-                    {persona.age} years •{" "}
-                    {persona.occupation}
-                  </small>
-                </span>
+                <small>
+                  {persona.age} years •{" "}
+                  {persona.occupation}
+                </small>
+              </span>
 
-              </button>
+            </button>
 
-            )
-          )}
+          ))}
 
         </div>
 
-
-        {/* ================================================= */}
-        {/* ALL PERSONAS BUTTON */}
-        {/* ================================================= */}
-
-        <button
-          className={
-            !selectedPersona
-              ? "all-personas-btn selected"
-              : "all-personas-btn"
-          }
-          onClick={() => {
-            onSelectPersona(null);
-            setAnswers([]);
-            setAskedQuestion("");
-          }}
-        >
-          👥 Ask All Personas
-        </button>
-
       </div>
 
-
       {/* ================================================= */}
-      {/* CURRENT PERSONA */}
+      {/* SELECTED PERSONA */}
       {/* ================================================= */}
 
-      {selectedPersona && (
+      {mode === "individual" && selectedPersona && (
 
         <div className="selected-persona">
 
@@ -272,10 +249,8 @@ function Interview({
           </div>
 
           <div>
-
             <h3>
-              Interviewing:{" "}
-              {selectedPersona.name}
+              Interviewing: {selectedPersona.name}
             </h3>
 
             <p>
@@ -287,13 +262,39 @@ function Interview({
             <p>
               🧠 {selectedPersona.personality}
             </p>
-
           </div>
 
         </div>
 
       )}
 
+      {/* ================================================= */}
+      {/* ALL MODE INFO */}
+      {/* ================================================= */}
+
+      {mode === "all" && (
+
+        <div className="selected-persona">
+
+          <div className="selected-persona-avatar">
+            👥
+          </div>
+
+          <div>
+            <h3>
+              Asking All Personas
+            </h3>
+
+            <p>
+              One question will be sent to the backend,
+              which generates answers for all personas
+              in one Gemini request.
+            </p>
+          </div>
+
+        </div>
+
+      )}
 
       {/* ================================================= */}
       {/* QUESTION INPUT */}
@@ -304,55 +305,43 @@ function Interview({
         <input
           type="text"
           placeholder={
-            selectedPersona
-              ? `Ask ${selectedPersona.name} a question...`
-              : "Ask a question to all personas..."
+            mode === "all"
+              ? "Ask the same question to all personas..."
+              : selectedPersona
+                ? `Ask ${selectedPersona.name} a question...`
+                : "Select a persona first..."
           }
           value={question}
-          onChange={(e) =>
-            setQuestion(e.target.value)
-          }
+          onChange={(e) => setQuestion(e.target.value)}
           onKeyDown={handleKeyDown}
-          disabled={loading}
+          disabled={
+            loading ||
+            (mode === "individual" && !selectedPersona)
+          }
         />
 
-
-        {/* INDIVIDUAL BUTTON */}
-
-        {selectedPersona ? (
-
-          <button
-            onClick={askSelectedPersona}
-            disabled={
-              loading ||
-              !question.trim()
-            }
-          >
-            {loading
-              ? "Thinking..."
-              : `Ask ${selectedPersona.name}`}
-          </button>
-
-        ) : (
-
-          /* ALL PERSONAS BUTTON */
-
-          <button
-            onClick={askAllPersonas}
-            disabled={
-              loading ||
-              !question.trim()
-            }
-          >
-            {loading
-              ? "Personas are thinking..."
-              : "Ask All Personas"}
-          </button>
-
-        )}
+        <button
+          onClick={
+            mode === "all"
+              ? askAllPersonas
+              : askSelectedPersona
+          }
+          disabled={
+            loading ||
+            !question.trim() ||
+            (mode === "individual" && !selectedPersona)
+          }
+        >
+          {loading
+            ? "Thinking..."
+            : mode === "all"
+              ? "Ask All Personas"
+              : selectedPersona
+                ? `Ask ${selectedPersona.name}`
+                : "Select a Persona"}
+        </button>
 
       </div>
-
 
       {/* ================================================= */}
       {/* LOADING */}
@@ -363,22 +352,18 @@ function Interview({
         <div className="interview-loading">
 
           <h3>
-            🧠 Generating response...
+            🧠 Generating responses...
           </h3>
 
           <p>
-
-            {selectedPersona
-              ? `${selectedPersona.name} is thinking...`
-              : `Asking ${personas.length} personas for their opinions...`
-            }
-
+            {mode === "all"
+              ? `Generating answers for ${personas.length} personas with one Gemini request...`
+              : `${selectedPersona?.name} is thinking...`}
           </p>
 
         </div>
 
       )}
-
 
       {/* ================================================= */}
       {/* QUESTION */}
@@ -400,7 +385,6 @@ function Interview({
 
       )}
 
-
       {/* ================================================= */}
       {/* ANSWERS */}
       {/* ================================================= */}
@@ -409,105 +393,87 @@ function Interview({
 
         <div className="answers-grid">
 
-          {answers.map(
-            (item, index) => (
+          {answers.map((item, index) => (
 
-              <div
-                className="interview-card"
-                key={
-                  item.persona.id ||
-                  index
-                }
-              >
+            <div
+              className="interview-card"
+              key={item.persona?.id || index}
+            >
 
-                {/* PERSONA HEADER */}
+              <div className="persona-header">
 
-                <div className="persona-header">
-
-                  <div className="persona-avatar">
-                    👤
-                  </div>
-
-                  <div>
-
-                    <h3>
-                      {item.persona.name}
-                    </h3>
-
-                    <p>
-                      {item.persona.age} years old
-                      {" • "}
-                      {item.persona.occupation}
-                    </p>
-
-                  </div>
-
+                <div className="persona-avatar">
+                  👤
                 </div>
 
-
-                {/* PERSONA DETAILS */}
-
-                <div className="persona-info">
-
-                  <span>
-                    🧠{" "}
-                    {item.persona.personality}
-                  </span>
-
-                  <span>
-                    ⭐{" "}
-                    {item.persona.rating}/5
-                  </span>
-
-                </div>
-
-
-                {/* ANSWER */}
-
-                <div className="answer-box">
-
-                  <strong>
-                    💬 {item.persona.name}:
-                  </strong>
+                <div>
+                  <h3>
+                    {item.persona?.name}
+                  </h3>
 
                   <p>
-                    {item.answer}
+                    {item.persona?.age} years old
+                    {" • "}
+                    {item.persona?.occupation}
                   </p>
-
                 </div>
 
               </div>
 
-            )
-          )}
+              <div className="persona-info">
+
+                <span>
+                  🧠{" "}
+                  {item.persona?.personality}
+                </span>
+
+                <span>
+                  ⭐{" "}
+                  {item.persona?.rating}/5
+                </span>
+
+              </div>
+
+              <div className="answer-box">
+
+                <strong>
+                  💬 {item.persona?.name}:
+                </strong>
+
+                <p>
+                  {item.answer}
+                </p>
+
+              </div>
+
+            </div>
+
+          ))}
 
         </div>
 
       )}
 
-
       {/* ================================================= */}
-      {/* NO PERSONA SELECTED MESSAGE */}
+      {/* EMPTY STATE */}
       {/* ================================================= */}
 
-      {!selectedPersona &&
-        !loading &&
-        answers.length === 0 && (
+      {!loading &&
+        answers.length === 0 &&
+        !askedQuestion && (
 
           <div className="interview-empty">
 
             <h3>
-              👥 Multi-Persona Mode
+              {mode === "all"
+                ? "👥 Ask All Personas"
+                : "👤 Select a Persona"}
             </h3>
 
             <p>
-              Ask a question to receive answers
-              from all generated personas.
-            </p>
-
-            <p>
-              Or select one persona above to
-              interview them individually.
+              {mode === "all"
+                ? "Ask one question and receive a distinct answer from every generated persona."
+                : "Choose one persona above to start an individual AI interview."}
             </p>
 
           </div>
