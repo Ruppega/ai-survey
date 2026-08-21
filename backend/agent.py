@@ -78,12 +78,7 @@ def load_memory():
 
 def save_memory(memory):
     with open(MEMORY_FILE, "w", encoding="utf-8") as f:
-        json.dump(
-            memory,
-            f,
-            indent=2,
-            ensure_ascii=False
-        )
+        json.dump(memory, f, indent=2, ensure_ascii=False)
 
 
 def get_persona(persona_id):
@@ -107,13 +102,11 @@ def parse_json_response(response):
     response = str(response).strip()
     response = response.replace("```json", "").replace("```", "").strip()
 
-    # First try the complete response.
     try:
         return json.loads(response)
     except json.JSONDecodeError:
         pass
 
-    # Fallback: find an object or array.
     array_match = re.search(r"\[.*\]", response, re.DOTALL)
     if array_match:
         return json.loads(array_match.group())
@@ -217,6 +210,12 @@ Return this exact JSON shape:
     ]
 
     memory = load_memory()
+
+    # IMPORTANT:
+    # A new product generation starts a new persona set.
+    # Remove the previous personas so old products cannot leak
+    # into future all-persona interviews.
+    memory["personas"] = {}
 
     for persona in personas:
         if not isinstance(persona, dict):
@@ -372,13 +371,13 @@ RULES:
 # ALL PERSONAS - ONE GEMINI REQUEST
 # =========================================================
 
-def interview_all_personas(question):
+def interview_all_personas(question, personas):
     """
-    Ask all generated personas the same question using ONE
-    Gemini request instead of one request per persona.
+    Ask the same question to ONLY the personas supplied by the
+    current frontend generation.
 
-    This reduces request count and avoids firing many Gemini
-    requests simultaneously.
+    Gemini is called ONCE for the complete current persona set.
+    Previous personas stored in memory are NOT used here.
     """
 
     question = str(question or "").strip()
@@ -386,17 +385,31 @@ def interview_all_personas(question):
     if not question:
         raise Exception("Question cannot be empty.")
 
-    memory = load_memory()
-    persona_items = list(memory["personas"].items())
+    if not isinstance(personas, list) or not personas:
+        raise Exception("No current personas provided.")
 
-    if not persona_items:
-        raise Exception("No personas available.")
+    # Validate and normalize the CURRENT personas only.
+    current_personas = []
 
+    for persona in personas:
+        if not isinstance(persona, dict):
+            continue
+
+        persona_id = str(persona.get("id", "")).strip()
+
+        if not persona_id:
+            continue
+
+        current_personas.append(persona)
+
+    if not current_personas:
+        raise Exception("No valid current personas provided.")
+
+    # Build the prompt ONLY from the personas sent by the frontend.
     persona_blocks = []
 
-    for persona_id, persona_data in persona_items:
-        profile = persona_data["profile"]
-        history = build_history(persona_data.get("conversation", []))
+    for profile in current_personas:
+        persona_id = str(profile.get("id")).strip()
 
         persona_blocks.append(
             f"""
@@ -409,9 +422,6 @@ Personality: {profile.get("personality")}
 Buy Decision: {profile.get("buyDecision")}
 Rating: {profile.get("rating")}/5
 Reason: {profile.get("reason")}
-
-Previous Conversation:
-{history}
 """
         )
 
@@ -420,27 +430,30 @@ Previous Conversation:
     prompt = f"""
 You are a UX Research AI conducting a multi-persona interview.
 
-The researcher asked ONE question to all personas.
+The researcher asked ONE question to the CURRENT PERSONAS below.
 
 QUESTION:
 {question}
 
-PERSONAS:
+CURRENT PERSONAS:
 {personas_text}
 
 TASK:
-Generate exactly ONE natural answer for EACH persona.
+Generate exactly ONE natural answer for EACH CURRENT PERSONA.
 
 IMPORTANT:
-1. Every persona must answer as themselves.
-2. Keep each personality and opinion distinct.
-3. Use the persona's previous conversation when relevant.
-4. Do not make everyone agree.
-5. Do not merge personas.
-6. Do not create new personas.
-7. Keep answers reasonably concise.
-8. Return ONLY valid JSON.
-9. The "personaId" must exactly match the supplied Persona ID.
+1. Use ONLY the supplied current personas.
+2. Do NOT use personas from memory.
+3. Do NOT create new personas.
+4. Do NOT reuse personas from previous products.
+5. Every supplied persona must receive exactly one answer.
+6. Every persona must answer as themselves.
+7. Keep each personality and opinion distinct.
+8. Do not merge personas.
+9. Do not make everyone agree.
+10. Keep answers reasonably concise.
+11. Return ONLY valid JSON.
+12. The "personaId" must exactly match the supplied Persona ID.
 
 RETURN EXACTLY THIS SHAPE:
 {{
@@ -453,7 +466,7 @@ RETURN EXACTLY THIS SHAPE:
 }}
 """
 
-    # ONE Gemini request for all personas.
+    # ONE Gemini request for ONLY the current personas.
     response = call_gemini(prompt)
     result = parse_json_response(response)
 
@@ -477,28 +490,40 @@ RETURN EXACTLY THIS SHAPE:
         if persona_id and answer:
             answer_map[persona_id] = answer
 
+    current_ids = [
+        str(persona.get("id")).strip()
+        for persona in current_personas
+    ]
+
     missing = [
         persona_id
-        for persona_id, _ in persona_items
+        for persona_id in current_ids
         if persona_id not in answer_map
     ]
 
     if missing:
         raise Exception(
-            f"Gemini did not return answers for {len(missing)} persona(s)."
+            f"Gemini did not return answers for {len(missing)} current persona(s)."
         )
 
     final_answers = []
 
-    for persona_id, persona_data in persona_items:
-        profile = persona_data["profile"]
+    # Save interview history only for the current personas.
+    memory = load_memory()
+
+    for profile in current_personas:
+        persona_id = str(profile.get("id")).strip()
         answer = answer_map[persona_id]
 
-        # Save this question/answer to that persona's own history.
-        persona_data.setdefault("conversation", []).append({
-            "question": question,
-            "answer": answer
-        })
+        # Update memory only if this current persona still exists there.
+        # This does not affect which personas are returned.
+        persona_data = memory.get("personas", {}).get(persona_id)
+
+        if persona_data:
+            persona_data.setdefault("conversation", []).append({
+                "question": question,
+                "answer": answer
+            })
 
         final_answers.append({
             "persona": profile,

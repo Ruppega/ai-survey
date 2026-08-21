@@ -59,17 +59,32 @@ def interview():
 @app.route("/interview-all", methods=["POST"])
 def interview_all():
     """
-    Ask the same question to every generated persona.
+    Ask the same question to the CURRENT personas only.
 
-    IMPORTANT:
-    This calls Gemini ONCE for all personas.
-    It does NOT create one Gemini request per persona.
+    The frontend sends the personas generated for the currently
+    selected product. The backend passes that exact list to the
+    interview agent, so previous product personas are not reused.
+    Gemini is called once for the whole current persona set.
     """
     try:
         data = request.get_json() or {}
 
+        question = data.get("question", "").strip()
+        personas = data.get("personas", [])
+
+        if not question:
+            return jsonify({
+                "error": "Question is required."
+            }), 400
+
+        if not isinstance(personas, list) or not personas:
+            return jsonify({
+                "error": "No current personas were provided."
+            }), 400
+
         result = interview_all_personas(
-            question=data.get("question")
+            question=question,
+            personas=personas,
         )
 
         return jsonify(result), 200

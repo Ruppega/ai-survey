@@ -1,155 +1,80 @@
 {
   "personas": {
-    "f2d878d3-ac41-4401-b212-9cdc74abf2d3": {
-      "profile": {
-        "name": "Aarav Sharma",
-        "gender": "Male",
-        "age": 19,
-        "occupation": "Sophomore Engineering Student",
-        "personality": "Detail-oriented, meticulous, and practical",
-        "buyDecision": "Yes",
-        "rating": 5,
-        "reason": "I use fountain and gel pens for complex engineering diagrams, and Classmate's paper quality prevents ink bleeding through pages.",
-        "id": "f2d878d3-ac41-4401-b212-9cdc74abf2d3"
-      },
-      "conversation": [
-        {
-          "question": "what is your budget for this product",
-          "answer": "I'm willing to spend around ₹100 to ₹150 ($3–$5) per notebook. Since I rely on thick paper for fountain pens and detailed engineering diagrams without ink bleed-through, paying a slightly higher price for good paper quality is definitely worth it to me."
-        }
-      ]
-    },
-    "57ba5428-1c1d-4811-81bd-9fd1856f7701": {
-      "profile": {
-        "name": "Chloe Bennett",
-        "gender": "Female",
-        "age": 14,
-        "occupation": "9th Grade Student",
-        "personality": "Budget-conscious, trend-focused, and expressive",
-        "buyDecision": "No",
-        "rating": 2,
-        "reason": "It feels a bit plain and overpriced for daily school use; I prefer cheaper, aesthetically colorful spiral notebooks.",
-        "id": "57ba5428-1c1d-4811-81bd-9fd1856f7701"
-      },
-      "conversation": [
-        {
-          "question": "what is your budget for this product",
-          "answer": "Honestly, under $2 or $3 max per notebook. I buy a bunch of them for school, so I'd rather spend my money on cheaper, cuter spiral notebooks than spend extra on a basic plain one."
-        }
-      ]
-    },
-    "338b6159-e70e-4434-9279-8965567b3196": {
-      "profile": {
-        "name": "Marcus Vance",
-        "gender": "Male",
-        "age": 21,
-        "occupation": "College Senior & Part-time Intern",
-        "personality": "Minimalist, tech-reliant, and pragmatic",
-        "buyDecision": "No",
-        "rating": 3,
-        "reason": "I do almost all my note-taking digitally on my tablet now, so I rarely buy physical notebooks unless required for a lab.",
-        "id": "338b6159-e70e-4434-9279-8965567b3196"
-      },
-      "conversation": [
-        {
-          "question": "what is your budget for this product",
-          "answer": "My budget for physical notebooks is basically $0 day-to-day since I do everything on my tablet. On the rare occasion I need a physical lab book for a class, I try to keep it under $3 for something simple."
-        }
-      ]
-    },
-    "a0899122-9215-4adb-8d54-2f5d3263b945": {
-      "profile": {
-        "name": "Maya Lin",
-        "gender": "Female",
-        "age": 17,
-        "occupation": "High School Senior",
-        "personality": "Organized, creative, and ambitious",
-        "buyDecision": "Yes",
-        "rating": 4,
-        "reason": "The durable binding and smooth paper hold up well throughout the entire school year for my intensive AP exam prep.",
-        "id": "a0899122-9215-4adb-8d54-2f5d3263b945"
-      },
-      "conversation": [
-        {
-          "question": "what is your budget for this product",
-          "answer": "I'd comfortably pay around $4 to $6 for a reliable notebook. I need something with durable binding and smooth paper that will survive an entire year of heavy AP studying without falling apart."
-        }
-      ]
-    },
-    "e00a9e07-d18e-46e2-8d02-9cee30fa527b": {
+    "89b702ba-bf52-404c-8fa3-e2b728aa5917": {
       "profile": {
         "name": "Rohan Sharma",
         "gender": "Male",
-        "age": 21,
-        "occupation": "Engineering Student",
-        "personality": "Budget-conscious and pragmatic",
+        "age": 20,
+        "occupation": "Undergraduate Student",
+        "personality": "Energetic, budget-conscious, and music-obsessed",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "The 50-hour battery life and fast charging are essential for long library sessions and daily commutes without constant charging. Deep bass is a huge plus for gaming and music.",
-        "id": "e00a9e07-d18e-46e2-8d02-9cee30fa527b"
+        "reason": "The 50-hour battery life and fast charging are perfect for long college days, and I love heavy bass for hip-hop and gym workouts.",
+        "id": "89b702ba-bf52-404c-8fa3-e2b728aa5917"
       },
       "conversation": [
         {
-          "question": "how are you?",
-          "answer": "Doing well, thanks! Just taking a quick break from some engineering assignments at the library. How are you?"
+          "question": "why do you prefer this over wired headphones",
+          "answer": "Wired headphones are a nightmare at the gym and during long campus days. The cords always get tangled in my backpack or snag on gym equipment. Going wireless gives me total freedom of movement, and with a 50-hour battery life, I never have to worry about them dying in the middle of a workout."
         }
       ]
     },
-    "0a555b1b-6972-4727-8e1a-e135276b9eb9": {
+    "bc4f81b9-b352-4a8b-becd-2b6e0c1cb667": {
       "profile": {
-        "name": "Ananya Roy",
-        "gender": "Female",
-        "age": 25,
-        "occupation": "Freelance Graphic Designer",
-        "personality": "Detail-oriented audiophile",
-        "buyDecision": "No",
-        "rating": 2,
-        "reason": "I prefer a flat, balanced sound profile for music listening. Earbuds advertised heavily for 'deep bass' usually overpower the mid-frequencies, making podcasts and acoustic tracks sound muddy.",
-        "id": "0a555b1b-6972-4727-8e1a-e135276b9eb9"
-      },
-      "conversation": []
-    },
-    "0d53fce7-6c19-477d-80b0-398c19a98fb4": {
-      "profile": {
-        "name": "Vikram Malhotra",
+        "name": "Vikram Nair",
         "gender": "Male",
         "age": 28,
-        "occupation": "Corporate Sales Executive",
-        "personality": "Fast-paced and efficiency-driven",
-        "buyDecision": "Yes",
-        "rating": 4,
-        "reason": "Environmental Noise Cancellation (ENC) is crucial for taking business calls while traveling or in noisy cafes. Fast charging is a lifesaver when I forget to charge them overnight.",
-        "id": "0d53fce7-6c19-477d-80b0-398c19a98fb4"
+        "occupation": "Freelance Graphic Designer",
+        "personality": "Analytical, audio-critical, and detail-oriented",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "I prefer a flat, balanced sound profile. Boat's signature 'deep bass' tends to muddy the mids and highs, making them unsuitable for my listening taste despite the impressive battery life.",
+        "id": "bc4f81b9-b352-4a8b-becd-2b6e0c1cb667"
       },
-      "conversation": []
+      "conversation": [
+        {
+          "question": "why do you prefer this over wired headphones",
+          "answer": "To be honest, I actually don't prefer these over wired headphones. Wired options still offer superior sound fidelity with a flat, balanced profile. While wireless is convenient, the heavy, muddy bass tuning on these ruins audio clarity, so I'd still choose a good wired pair for critical listening."
+        }
+      ]
     },
-    "9225c237-bbd7-4cce-82ab-9807b47fe220": {
+    "1e24298e-55e6-4fa8-8ff8-6da346a2665d": {
       "profile": {
-        "name": "Priya Nair",
-        "gender": "Female",
-        "age": 23,
-        "occupation": "Fitness Trainer",
-        "personality": "Energetic and active",
+        "name": "Aarav Mehta",
+        "gender": "Male",
+        "age": 25,
+        "occupation": "Digital Marketing Executive",
+        "personality": "Pragmatic, fast-paced, and value-seeking",
         "buyDecision": "Yes",
         "rating": 4,
-        "reason": "The punchy deep bass keeps me motivated during high-intensity workouts. Not having to worry about battery for almost two weeks of gym sessions makes it a solid deal.",
-        "id": "9225c237-bbd7-4cce-82ab-9807b47fe220"
+        "reason": "The ENC calling feature is a lifesaver for taking client calls during noisy commute hours, and not having to charge them every few days makes it a great daily driver.",
+        "id": "1e24298e-55e6-4fa8-8ff8-6da346a2665d"
       },
-      "conversation": []
+      "conversation": [
+        {
+          "question": "why do you prefer this over wired headphones",
+          "answer": "It's all about hassle-free daily commuting. Wires get caught on bag straps or people in packed transport, which is frustrating when I need to quickly hop on client calls. Being cable-free lets me multitask smoothly while moving around without feeling tethered to my phone."
+        }
+      ]
     },
-    "755b546a-c37b-4abe-aa91-3db7d9447fa0": {
+    "743b3db5-4a92-418d-ab6e-4fafed0aeb47": {
       "profile": {
         "name": "Siddharth Verma",
         "gender": "Male",
-        "age": 19,
-        "occupation": "Retail Sales Associate",
-        "personality": "Minimalist and cautious buyer",
+        "age": 23,
+        "occupation": "Junior Software Engineer & Gamer",
+        "personality": "Tech-savvy, competitive, and feature-focused",
         "buyDecision": "No",
         "rating": 3,
-        "reason": "While the battery life is impressive, my current pair of budget earbuds works fine. ENC calling and extra battery aren't enough of an upgrade incentive for me to spend money right now.",
-        "id": "755b546a-c37b-4abe-aa91-3db7d9447fa0"
+        "reason": "While the battery and fast charging are excellent, I need Active Noise Cancellation (ANC) and ultra-low latency for mobile gaming, which ENC alone doesn't provide.",
+        "id": "743b3db5-4a92-418d-ab6e-4fafed0aeb47"
       },
-      "conversation": []
+      "conversation": [
+        {
+          "question": "why do you prefer this over wired headphones",
+          "answer": "The main advantage is cutting desk clutter and having full mobility, but for gaming, I still lean toward wired. Wireless convenience is nice, but without ultra-low latency and ANC on this pair, wired headphones still win for competitive gaming where instant audio feedback matters."
+        }
+      ]
     }
   }
 }

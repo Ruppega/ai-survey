@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Interview.css";
 
@@ -12,6 +12,19 @@ function Interview({
   const [answers, setAnswers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState("individual");
+
+  // =====================================================
+  // RESET INTERVIEW WHEN A NEW PERSONA SET IS GENERATED
+  // =====================================================
+
+  useEffect(() => {
+    setQuestion("");
+    setAskedQuestion("");
+    setAnswers([]);
+    setLoading(false);
+    setMode("individual");
+    onSelectPersona(null);
+  }, [personas]);
 
   // =====================================================
   // SELECT PERSONA
@@ -100,7 +113,8 @@ function Interview({
       const response = await axios.post(
         "http://127.0.0.1:5000/interview-all",
         {
-          question: currentQuestion
+          question: currentQuestion,
+          personas: personas
         }
       );
 
