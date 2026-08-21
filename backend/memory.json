@@ -1,78 +1,94 @@
 {
   "personas": {
-    "89b702ba-bf52-404c-8fa3-e2b728aa5917": {
+    "9b0f246b-e2a6-40bf-a0e7-2625d1e98179": {
       "profile": {
-        "name": "Rohan Sharma",
-        "gender": "Male",
-        "age": 20,
-        "occupation": "Undergraduate Student",
-        "personality": "Energetic, budget-conscious, and music-obsessed",
+        "name": "Sarah Jenkins",
+        "gender": "Female",
+        "age": 34,
+        "occupation": "Marketing Manager & Mother of Two",
+        "personality": "Health-conscious, busy, and highly organized",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "The 50-hour battery life and fast charging are perfect for long college days, and I love heavy bass for hip-hop and gym workouts.",
-        "id": "89b702ba-bf52-404c-8fa3-e2b728aa5917"
+        "reason": "She wants to feed her children healthier versions of their favorite crispy foods without spend hours cooking or cleaning up after traditional frying.",
+        "id": "9b0f246b-e2a6-40bf-a0e7-2625d1e98179"
       },
       "conversation": [
         {
-          "question": "why do you prefer this over wired headphones",
-          "answer": "Wired headphones are a nightmare at the gym and during long campus days. The cords always get tangled in my backpack or snag on gym equipment. Going wireless gives me total freedom of movement, and with a 50-hour battery life, I never have to worry about them dying in the middle of a workout."
+          "question": "Do you have any suggestion for this product",
+          "answer": "I'd love to see pre-programmed settings tailored specifically for popular kid meals like chicken tenders or veggie fries, plus a cheat sheet for quick weeknight prep. Also, making sure every removable part is 100% dishwasher-safe would save busy parents even more cleanup time!"
+        },
+        {
+          "question": "what makes it less appealing than other products",
+          "answer": "I honestly love it, but if I had to pick something, the capacity can be a little limiting when I'm trying to cook dinner for the whole family at once. Sometimes I have to cook in batches, which adds time back into my evening routine."
         }
       ]
     },
-    "bc4f81b9-b352-4a8b-becd-2b6e0c1cb667": {
+    "78c318fb-2316-4e60-8d83-79915f6ce179": {
       "profile": {
-        "name": "Vikram Nair",
-        "gender": "Male",
-        "age": 28,
-        "occupation": "Freelance Graphic Designer",
-        "personality": "Analytical, audio-critical, and detail-oriented",
+        "name": "Elena Rostova",
+        "gender": "Female",
+        "age": 48,
+        "occupation": "High School English Teacher",
+        "personality": "Traditional, skeptical of modern gadgets, and frugal",
         "buyDecision": "No",
         "rating": 2,
-        "reason": "I prefer a flat, balanced sound profile. Boat's signature 'deep bass' tends to muddy the mids and highs, making them unsuitable for my listening taste despite the impressive battery life.",
-        "id": "bc4f81b9-b352-4a8b-becd-2b6e0c1cb667"
+        "reason": "She believes authentic flavor requires traditional oil-based cooking and feels the appliance would just take up limited counter space without delivering equal taste.",
+        "id": "78c318fb-2316-4e60-8d83-79915f6ce179"
       },
       "conversation": [
         {
-          "question": "why do you prefer this over wired headphones",
-          "answer": "To be honest, I actually don't prefer these over wired headphones. Wired options still offer superior sound fidelity with a flat, balanced profile. While wireless is convenient, the heavy, muddy bass tuning on these ruins audio clarity, so I'd still choose a good wired pair for critical listening."
+          "question": "Do you have any suggestion for this product",
+          "answer": "My main suggestion would be to significantly reduce its footprint on the countertop, or make it easy to store away. Unless an appliance can genuinely replicate the rich, authentic flavor of traditional stovetop cooking with oil, I can't justify letting it take up precious kitchen space."
+        },
+        {
+          "question": "what makes it less appealing than other products",
+          "answer": "It's a bulky, expensive unit that simply cannot replicate authentic flavor. Real cooking with traditional methods produces far better taste, and I refuse to surrender my limited counter space to a single-use gadget that doesn't deliver equal results."
         }
       ]
     },
-    "1e24298e-55e6-4fa8-8ff8-6da346a2665d": {
+    "e481b98e-17e0-4ebf-b8db-e72e27376b44": {
       "profile": {
-        "name": "Aarav Mehta",
-        "gender": "Male",
-        "age": 25,
-        "occupation": "Digital Marketing Executive",
-        "personality": "Pragmatic, fast-paced, and value-seeking",
+        "name": "Maya Patel",
+        "gender": "Female",
+        "age": 27,
+        "occupation": "Graphic Designer",
+        "personality": "Practical, trend-aware, and space-conscious",
         "buyDecision": "Yes",
         "rating": 4,
-        "reason": "The ENC calling feature is a lifesaver for taking client calls during noisy commute hours, and not having to charge them every few days makes it a great daily driver.",
-        "id": "1e24298e-55e6-4fa8-8ff8-6da346a2665d"
+        "reason": "Living in a small apartment, she values quick single-portion meals that fit her fitness goals and minimize heat and mess compared to a standard oven.",
+        "id": "e481b98e-17e0-4ebf-b8db-e72e27376b44"
       },
       "conversation": [
         {
-          "question": "why do you prefer this over wired headphones",
-          "answer": "It's all about hassle-free daily commuting. Wires get caught on bag straps or people in packed transport, which is frustrating when I need to quickly hop on client calls. Being cable-free lets me multitask smoothly while moving around without feeling tethered to my phone."
+          "question": "Do you have any suggestion for this product",
+          "answer": "It would be great to have optional divider inserts for the basket so I can cook a protein and a vegetable side simultaneously for quick single-portion meals. Also, offering sleeker, modern aesthetic options or a slightly narrower design for small apartment counters would be amazing!"
+        },
+        {
+          "question": "what makes it less appealing than other products",
+          "answer": "Compared to something like a versatile toaster oven, some of these models are quite bulky for a small apartment counter. Plus, if you want to cook a larger portion or meal-prep for the week, the basket size can feel a bit restrictive."
         }
       ]
     },
-    "743b3db5-4a92-418d-ab6e-4fafed0aeb47": {
+    "0a606070-9eb1-4a04-b8c7-2536cd8a819a": {
       "profile": {
-        "name": "Siddharth Verma",
-        "gender": "Male",
-        "age": 23,
-        "occupation": "Junior Software Engineer & Gamer",
-        "personality": "Tech-savvy, competitive, and feature-focused",
+        "name": "Rachel Adams",
+        "gender": "Female",
+        "age": 41,
+        "occupation": "Corporate Accountant",
+        "personality": "Analytical, flavor-focused, and uncompromising",
         "buyDecision": "No",
         "rating": 3,
-        "reason": "While the battery and fast charging are excellent, I need Active Noise Cancellation (ANC) and ultra-low latency for mobile gaming, which ENC alone doesn't provide.",
-        "id": "743b3db5-4a92-418d-ab6e-4fafed0aeb47"
+        "reason": "While she respects the health benefits of using 90% less oil, her testing showed the texture didn't match genuine deep-frying, making the investment unappealing for her culinary tastes.",
+        "id": "0a606070-9eb1-4a04-b8c7-2536cd8a819a"
       },
       "conversation": [
         {
-          "question": "why do you prefer this over wired headphones",
-          "answer": "The main advantage is cutting desk clutter and having full mobility, but for gaming, I still lean toward wired. Wireless convenience is nice, but without ultra-low latency and ANC on this pair, wired headphones still win for competitive gaming where instant audio feedback matters."
+          "question": "Do you have any suggestion for this product",
+          "answer": "If you want to win over culinary purists, you need to refine the crisping technology. Maybe incorporate dual heating elements or precise humidity control so the exterior gets that truly shatter-crisp crunch of actual deep-frying without drying out the inside."
+        },
+        {
+          "question": "what makes it less appealing than other products",
+          "answer": "From an analytical perspective, the trade-off isn't worth the cost. The food ends up drier rather than truly crispy, and it lacks the rich texture profile of genuine deep-frying. If a product compromises the primary culinary experience, it loses its appeal for me."
         }
       ]
     }

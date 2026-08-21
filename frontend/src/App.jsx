@@ -13,27 +13,49 @@ function App() {
   const [count, setCount] = useState(20);
 
   const [result, setResult] = useState(null);
-
-  // Current sidebar page
   const [activePage, setActivePage] = useState("generate");
-
-  // Selected persona for individual interview
   const [selectedPersona, setSelectedPersona] = useState(null);
-
-  // Sidebar collapsed / expanded
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
 
-  // Generate personas
+  // =========================================================
+  // GENERATE PERSONAS
+  // =========================================================
+
   const generate = async () => {
+    if (!product.trim()) {
+      alert("Please enter a product name.");
+      return;
+    }
+
+    if (!age.trim()) {
+      alert("Please enter the target audience age.");
+      return;
+    }
+
+    if (!description.trim()) {
+      alert("Please describe the product.");
+      return;
+    }
+
+    if (!objective.trim()) {
+      alert("Please enter the research objective.");
+      return;
+    }
+
+    if (isGenerating) return;
+
+    setIsGenerating(true);
+
     try {
       const res = await axios.post(
         "http://127.0.0.1:5000/generate",
         {
-          product,
-          description,
+          product: product.trim(),
+          description: description.trim(),
           gender,
-          age,
-          objective,
+          age: age.trim(),
+          objective: objective.trim(),
           count,
         }
       );
@@ -54,22 +76,40 @@ function App() {
             JSON.stringify(err.response.data)
         );
       } else {
-        alert(err.message);
+        alert(
+          "Unable to connect to the backend. Make sure Flask is running."
+        );
       }
+    } finally {
+      setIsGenerating(false);
     }
   };
 
-  // Open individual persona interview
+  // =========================================================
+  // INTERVIEW
+  // =========================================================
+
   const openInterview = (persona) => {
     setSelectedPersona(persona);
     setActivePage("interview");
   };
 
-  // Open interview page
   const openInterviewPage = () => {
     if (result) {
       setActivePage("interview");
     }
+  };
+
+  // =========================================================
+  // SIDEBAR
+  // =========================================================
+
+  const goToPage = (page) => {
+    if (page === "personas" && !result) return;
+    if (page === "interview" && !result) return;
+    if (page === "results" && !result) return;
+
+    setActivePage(page);
   };
 
   return (
@@ -86,17 +126,21 @@ function App() {
       >
         {/* LOGO */}
         <div className="sidebar-logo">
-          <h2>
-            🧠
-            <span className="sidebar-logo-text">
-              Persona AI
-            </span>
-          </h2>
 
-          <p>Synthetic User Research</p>
+          <div className="logo-row">
+            <div className="logo-brain">🧠</div>
+
+            {!sidebarCollapsed && (
+              <div>
+                <h2>Persona AI</h2>
+                <p>Synthetic User Research</p>
+              </div>
+            )}
+          </div>
+
         </div>
 
-        {/* SIDEBAR TOGGLE */}
+        {/* TOGGLE */}
         <button
           type="button"
           className="sidebar-toggle"
@@ -114,9 +158,7 @@ function App() {
               : "Collapse sidebar"
           }
         >
-          <span aria-hidden="true">
-            {sidebarCollapsed ? "☰" : "←"}
-          </span>
+          {sidebarCollapsed ? "☰" : "←"}
         </button>
 
         {/* NAVIGATION */}
@@ -129,10 +171,15 @@ function App() {
                 ? "nav-item active"
                 : "nav-item"
             }
-            onClick={() => setActivePage("generate")}
+            onClick={() => goToPage("generate")}
           >
             <span className="nav-icon">✨</span>
-            <span className="nav-label">Generate</span>
+
+            {!sidebarCollapsed && (
+              <span className="nav-label">
+                Generate
+              </span>
+            )}
           </button>
 
           <button
@@ -142,11 +189,16 @@ function App() {
                 ? "nav-item active"
                 : "nav-item"
             }
-            onClick={() => setActivePage("personas")}
+            onClick={() => goToPage("personas")}
             disabled={!result}
           >
             <span className="nav-icon">👥</span>
-            <span className="nav-label">Personas</span>
+
+            {!sidebarCollapsed && (
+              <span className="nav-label">
+                Personas
+              </span>
+            )}
           </button>
 
           <button
@@ -160,7 +212,12 @@ function App() {
             disabled={!result}
           >
             <span className="nav-icon">🎤</span>
-            <span className="nav-label">Interview</span>
+
+            {!sidebarCollapsed && (
+              <span className="nav-label">
+                Interview
+              </span>
+            )}
           </button>
 
           <button
@@ -170,19 +227,26 @@ function App() {
                 ? "nav-item active"
                 : "nav-item"
             }
-            onClick={() => setActivePage("results")}
+            onClick={() => goToPage("results")}
             disabled={!result}
           >
             <span className="nav-icon">📊</span>
-            <span className="nav-label">Results</span>
+
+            {!sidebarCollapsed && (
+              <span className="nav-label">
+                Results
+              </span>
+            )}
           </button>
 
         </nav>
 
-        {/* SIDEBAR FOOTER */}
-        <div className="sidebar-footer">
-          <p>AI-powered UX Research</p>
-        </div>
+        {/* FOOTER */}
+        {!sidebarCollapsed && (
+          <div className="sidebar-footer">
+            <span>AI-powered UX Research</span>
+          </div>
+        )}
       </aside>
 
       {/* =====================================================
@@ -198,33 +262,83 @@ function App() {
         {activePage === "generate" && (
           <div className="page">
 
-            <div className="page-header">
-              <h1>🧠 Synthetic Persona Generator</h1>
+            {/* PAGE HEADER */}
 
-              <p className="subtitle">
-                Generate AI-powered synthetic users for smarter
-                market research
-              </p>
-            </div>
+            <header className="page-header">
 
-            <div className="generator-card">
+              <div className="title-icon">
+                🧠
+              </div>
+
+              <div className="title-content">
+                <h1>
+                  Generation of AI Powered Synthetic
+                  Users for Product Research
+                </h1>
+
+                <p className="subtitle">
+                  Generate realistic AI-powered synthetic users
+                  to understand customer preferences, behavior,
+                  and product decisions.
+                </p>
+              </div>
+
+            </header>
+
+            {/* ABOUT PROJECT */}
+
+            <section className="project-info">
+
+              <div className="project-info-icon">
+                💡
+              </div>
+
+              <div>
+                <h3>About the Project</h3>
+
+                <p>
+                  This platform uses Generative AI to create
+                  realistic synthetic users based on your target
+                  audience, product information, and research
+                  objective. These AI personas can be analyzed,
+                  interviewed, and used to simulate product
+                  research before conducting real-world studies.
+                </p>
+              </div>
+
+            </section>
+
+            {/* GENERATOR CARD */}
+
+            <section className="generator-card">
 
               {/* SECTION HEADER */}
+
               <div className="form-section-title">
-                <div className="section-icon">📋</div>
+
+                <div className="section-icon">
+                  📋
+                </div>
 
                 <div>
                   <h2>Research Setup</h2>
+
                   <p>
-                    Define your product and target audience
+                    Define your product, target audience and
+                    research goals
                   </p>
                 </div>
+
               </div>
+
+              {/* FORM */}
 
               <div className="form-grid">
 
                 {/* PRODUCT NAME */}
+
                 <div className="form-field">
+
                   <label className="form-label">
                     📦 Product Name
                   </label>
@@ -241,10 +355,13 @@ function App() {
                   <span className="form-help">
                     Enter the product you want to research
                   </span>
+
                 </div>
 
                 {/* AGE */}
+
                 <div className="form-field">
+
                   <label className="form-label">
                     🎯 Target Audience Age
                   </label>
@@ -261,16 +378,19 @@ function App() {
                   <span className="form-help">
                     Specify the age range of your target users
                   </span>
+
                 </div>
 
                 {/* DESCRIPTION */}
+
                 <div className="form-field full">
+
                   <label className="form-label">
                     📝 Product Description
                   </label>
 
                   <textarea
-                    placeholder="Describe the product, its features, price range, benefits, etc."
+                    placeholder="Describe the product, features, price range, benefits, target market, etc."
                     value={description}
                     onChange={(e) =>
                       setDescription(e.target.value)
@@ -278,20 +398,23 @@ function App() {
                   />
 
                   <span className="form-help">
-                    The more context you provide, the more
-                    relevant the personas will be
+                    More product context helps the AI create
+                    more relevant synthetic users
                   </span>
+
                 </div>
 
                 {/* GENDER */}
+
                 <div className="form-field">
+
                   <label className="form-label">
                     👤 Target Gender
                   </label>
 
                   <div className="gender-options">
 
-                    <label>
+                    <label className="radio-option">
                       <input
                         type="radio"
                         value="Male"
@@ -300,10 +423,10 @@ function App() {
                           setGender(e.target.value)
                         }
                       />
-                      Male
+                      <span>Male</span>
                     </label>
 
-                    <label>
+                    <label className="radio-option">
                       <input
                         type="radio"
                         value="Female"
@@ -312,10 +435,10 @@ function App() {
                           setGender(e.target.value)
                         }
                       />
-                      Female
+                      <span>Female</span>
                     </label>
 
-                    <label>
+                    <label className="radio-option">
                       <input
                         type="radio"
                         value="Both"
@@ -324,14 +447,17 @@ function App() {
                           setGender(e.target.value)
                         }
                       />
-                      Both
+                      <span>Both</span>
                     </label>
 
                   </div>
+
                 </div>
 
                 {/* PERSONA COUNT */}
+
                 <div className="form-field">
+
                   <label className="form-label">
                     👥 Number of Personas
                   </label>
@@ -342,7 +468,9 @@ function App() {
                     max="20"
                     value={count}
                     onChange={(e) => {
-                      let value = Number(e.target.value);
+                      let value = Number(
+                        e.target.value
+                      );
 
                       if (value > 20) {
                         value = 20;
@@ -362,10 +490,13 @@ function App() {
                   <span className="form-help">
                     Generate between 1 and 20 synthetic users
                   </span>
+
                 </div>
 
-                {/* RESEARCH OBJECTIVE */}
+                {/* OBJECTIVE */}
+
                 <div className="form-field full">
+
                   <label className="form-label">
                     📊 Research Objective
                   </label>
@@ -380,23 +511,29 @@ function App() {
                   />
 
                   <span className="form-help">
-                    What would you like the AI personas to help
-                    you discover?
+                    Define what you want to discover from
+                    your synthetic users
                   </span>
+
                 </div>
 
               </div>
 
               {/* GENERATE BUTTON */}
+
               <button
                 type="button"
                 className="generate-btn"
                 onClick={generate}
+                disabled={isGenerating}
               >
-                ✨ Generate AI Personas
+                {isGenerating
+                  ? "⏳ Generating Synthetic Users..."
+                  : "✨ Generate AI Personas"}
               </button>
 
-            </div>
+            </section>
+
           </div>
         )}
 
@@ -407,20 +544,31 @@ function App() {
         {activePage === "personas" && result && (
           <div className="page">
 
-            <div className="page-header">
-              <h1>👥 Generated Personas</h1>
+            <div className="page-header simple-header">
 
-              <p className="subtitle">
-                AI-generated synthetic users for your research
-              </p>
+              <div className="title-icon">
+                👥
+              </div>
+
+              <div>
+                <h1>Generated Personas</h1>
+
+                <p className="subtitle">
+                  AI-generated synthetic users for your
+                  product research
+                </p>
+              </div>
+
             </div>
 
             <div className="grid">
+
               {result.personas.map((persona, index) => (
                 <div
                   key={persona.id || index}
                   className="persona-wrapper"
                 >
+
                   <PersonaCard persona={persona} />
 
                   <button
@@ -432,8 +580,10 @@ function App() {
                   >
                     🎤 Interview Persona
                   </button>
+
                 </div>
               ))}
+
             </div>
 
           </div>
@@ -446,12 +596,21 @@ function App() {
         {activePage === "interview" && result && (
           <div className="page">
 
-            <div className="page-header">
-              <h1>🎤 Persona Interview</h1>
+            <div className="page-header simple-header">
 
-              <p className="subtitle">
-                Interact with your AI-generated synthetic users
-              </p>
+              <div className="title-icon">
+                🎤
+              </div>
+
+              <div>
+                <h1>Persona Interview</h1>
+
+                <p className="subtitle">
+                  Interact with your AI-generated synthetic
+                  users
+                </p>
+              </div>
+
             </div>
 
             <Interview
@@ -470,50 +629,79 @@ function App() {
         {activePage === "results" && result && (
           <div className="page">
 
-            <div className="page-header">
-              <h1>📊 Research Results</h1>
+            <div className="page-header simple-header">
 
-              <p className="subtitle">
-                Summary of persona preferences
-              </p>
+              <div className="title-icon">
+                📊
+              </div>
+
+              <div>
+                <h1>Research Results</h1>
+
+                <p className="subtitle">
+                  Summary of synthetic persona preferences
+                </p>
+              </div>
+
             </div>
 
             <div className="stats">
 
-              {/* PREFERRED */}
               <div className="stat-box">
-                <h3>👍 Preferred</h3>
-                <p>{result.preferred}</p>
+                <span className="stat-icon">
+                  👍
+                </span>
+
+                <div>
+                  <h3>Preferred</h3>
+                  <p>{result.preferred}</p>
+                </div>
               </div>
 
-              {/* NOT PREFERRED */}
               <div className="stat-box">
-                <h3>👎 Not Preferred</h3>
-                <p>{result.notPreferred}</p>
+                <span className="stat-icon">
+                  👎
+                </span>
+
+                <div>
+                  <h3>Not Preferred</h3>
+                  <p>{result.notPreferred}</p>
+                </div>
               </div>
 
-              {/* PREFERENCE RATE */}
               <div className="stat-box">
-                <h3>📊 Preference Rate</h3>
+                <span className="stat-icon">
+                  📊
+                </span>
 
-                <p>
-                  {result.personas.length > 0
-                    ? Math.round(
-                        (result.preferred * 100) /
-                          result.personas.length
-                      )
-                    : 0}
-                  %
-                </p>
+                <div>
+                  <h3>Preference Rate</h3>
+
+                  <p>
+                    {result.personas.length > 0
+                      ? Math.round(
+                          (result.preferred * 100) /
+                            result.personas.length
+                        )
+                      : 0}
+                    %
+                  </p>
+                </div>
               </div>
 
-              {/* TOTAL PERSONAS */}
               <div className="stat-box">
-                <h3>👥 Total Personas</h3>
-                <p>{result.personas.length}</p>
+                <span className="stat-icon">
+                  👥
+                </span>
+
+                <div>
+                  <h3>Total Personas</h3>
+                  <p>{result.personas.length}</p>
+                </div>
               </div>
 
             </div>
+
           </div>
         )}
 
