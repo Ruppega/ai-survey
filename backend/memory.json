@@ -1,0 +1,108 @@
+{
+  "personas": {
+    "9f08b515-82b4-4292-87dd-b145bdbcb876": {
+      "profile": {
+        "name": "Marcus Vance",
+        "gender": "Male",
+        "age": 32,
+        "occupation": "Software Engineer",
+        "personality": "Fitness-conscious, efficiency-driven, analytical",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Wants to cut down daily caloric intake from cooking oils while maintaining macros, appreciating the quick cook times and easy cleanup for weeknight meal prepping.",
+        "id": "9f08b515-82b4-4292-87dd-b145bdbcb876"
+      },
+      "conversation": [
+        {
+          "question": "what would you change one thing about this project",
+          "answer": "I’d add smart connectivity with API support for macro-tracking apps so I can automatically log precise caloric savings and cook times directly into my fitness routine."
+        },
+        {
+          "question": "what do like about this project",
+          "answer": "The biggest win for me is how effectively it eliminates excess cooking oil, which helps me shave off unnecessary calories while hitting my macro targets precisely. From an efficiency standpoint, the fast cook times and painless cleanup make my weeknight batch meal prepping practically effortless. It just delivers solid, measurable results without wasting my time."
+        },
+        {
+          "question": "are you an athelete",
+          "answer": "Not professionally—I work as a software engineer. But I definitely treat my fitness with an athletic mindset. I train consistently, strictly track my macros, and approach my physical performance and nutrition with the same data-driven discipline I bring to my work."
+        },
+        {
+          "question": "thank you",
+          "answer": "You're welcome. Glad I could provide some useful feedback. Good luck with the project."
+        },
+        {
+          "question": "what is it that you would Like to change about this project",
+          "answer": "I love the speed and macro control, but if I could change one thing, it would be the tray capacity and shape for meal prepping. If the basket were rectangular and slightly larger, I could fit a full week's worth of chicken breast or veggies in a single cycle rather than having to run two batches."
+        }
+      ]
+    },
+    "b7e231ec-c5c2-455c-823d-eee186f589df": {
+      "profile": {
+        "name": "Elena Rostova",
+        "gender": "Female",
+        "age": 45,
+        "occupation": "Art Gallery Director",
+        "personality": "Culinary purist, passionate, detail-oriented",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Believes traditional frying yields far superior flavor and texture that air circulation cannot truly replicate, preferring authentic taste over oil reduction.",
+        "id": "b7e231ec-c5c2-455c-823d-eee186f589df"
+      },
+      "conversation": [
+        {
+          "question": "what would you change one thing about this project",
+          "answer": "I would stop positioning it as a replacement for traditional frying. Unless you change the core technology to preserve authentic moisture and rich flavor development, it's just a glorified small convection oven."
+        },
+        {
+          "question": "what is it that you would Like to change about this project",
+          "answer": "Unless you can fundamentally change the heating mechanism to deliver true oil-based thermal transfer and authentic crispness, I'd change how it's marketed. Stop positioning it as a replacement for traditional frying; culinary purists know hot air simply dries food out instead of achieving genuine depth of flavor."
+        }
+      ]
+    },
+    "53abdc3e-3039-4deb-804c-a44b19e959bf": {
+      "profile": {
+        "name": "Sarah Jenkins",
+        "gender": "Female",
+        "age": 28,
+        "occupation": "Marketing Specialist",
+        "personality": "Pragmatic, time-strapped, health-curious",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Eager to transition to healthier eating habits for her young family without spending hours in the kitchen, making the 90% oil reduction a major selling point.",
+        "id": "53abdc3e-3039-4deb-804c-a44b19e959bf"
+      },
+      "conversation": [
+        {
+          "question": "what would you change one thing about this project",
+          "answer": "I’d include a quick-start guide focused on fast, kid-friendly family meals so I don't have to spend extra time searching for recipes on busy weeknights."
+        },
+        {
+          "question": "what is it that you would Like to change about this project",
+          "answer": "I'd love to see multi-tier cooking racks included so I can cook a protein and a vegetable side at the same time for my family. Also, adding quick-start presets tailored for kid-friendly meals would make dinner prep even faster on hectic weeknights."
+        }
+      ]
+    },
+    "7e0fa720-8240-4b12-b7ad-f6d35c78d1cc": {
+      "profile": {
+        "name": "David Miller",
+        "gender": "Male",
+        "age": 49,
+        "occupation": "Construction Manager",
+        "personality": "Habitual, budget-minded, straightforward",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Feels his conventional convection oven already performs a similar function and does not want to waste limited counter space or spend extra money on a single-purpose appliance.",
+        "id": "7e0fa720-8240-4b12-b7ad-f6d35c78d1cc"
+      },
+      "conversation": [
+        {
+          "question": "what would you change one thing about this project",
+          "answer": "I’d make it a multi-functional unit or significantly lower the price, because as it stands, it takes up way too much counter space for something my standard oven can already do."
+        },
+        {
+          "question": "what is it that you would Like to change about this project",
+          "answer": "You'd need to lower the price point significantly and make it multi-functional so it isn't just taking up permanent space on my counter. My regular convection oven already does this job, so unless this thing replaces two or three other appliances, it's not worth the money to me."
+        }
+      ]
+    }
+  }
+}

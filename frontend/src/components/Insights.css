@@ -1,0 +1,600 @@
+/* =========================================================
+   INSIGHTS PAGE - PURPLE / LAVENDER THEME
+========================================================= */
+
+.insights-page {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 30px 35px 50px;
+
+  background: #f7f4ff;
+  color: #29204a;
+
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.insights-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.insights-header h1 {
+  margin: 0 0 7px;
+
+  color: #1d1238;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.insights-header p {
+  margin: 0;
+
+  color: #6f6385;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.refresh-insights-btn {
+  padding: 11px 18px;
+
+  background: #6d28d9;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.refresh-insights-btn:hover:not(:disabled) {
+  background: #5b21b6;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 14px rgba(109, 40, 217, 0.2);
+}
+
+.refresh-insights-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.insight-section {
+  margin-bottom: 28px;
+}
+
+.insight-section h2 {
+  margin: 0 0 15px;
+
+  color: #3c2b5b;
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   PRODUCT SCORE
+========================================================= */
+
+.score-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 16px;
+}
+
+.score-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 135px;
+
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1.5px solid #dfd2f8;
+  border-radius: 18px;
+
+  box-shadow: 0 7px 22px rgba(92, 45, 145, 0.06);
+
+  transition: all 0.2s ease;
+}
+
+.score-card:hover {
+  border-color: #b894ef;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 25px rgba(92, 45, 145, 0.1);
+}
+
+.score-value {
+  color: #6d28d9;
+
+  font-size: 30px;
+  font-weight: 750;
+
+  margin-bottom: 7px;
+}
+
+.score-label {
+  color: #75698a;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.summary-card {
+  padding: 24px 26px;
+
+  background: #ffffff;
+
+  border: 1.5px solid #dfd2f8;
+  border-radius: 18px;
+
+  box-shadow: 0 7px 22px rgba(92, 45, 145, 0.06);
+}
+
+.summary-card p {
+  margin: 0;
+
+  color: #514566;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   SENTIMENT
+========================================================= */
+
+.sentiment-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 16px;
+}
+
+.sentiment-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 22px;
+
+  background: #ffffff;
+
+  border: 1.5px solid #dfd2f8;
+  border-radius: 15px;
+
+  box-shadow: 0 6px 20px rgba(92, 45, 145, 0.05);
+}
+
+.sentiment-card span {
+  color: #625477;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sentiment-card strong {
+  color: #6d28d9;
+
+  font-size: 22px;
+}
+
+/* =========================================================
+   RECURRING THEMES
+========================================================= */
+
+.themes-list {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+}
+
+.theme-card {
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1.5px solid #dfd2f8;
+  border-radius: 17px;
+
+  box-shadow: 0 6px 20px rgba(92, 45, 145, 0.05);
+
+  transition: all 0.2s ease;
+}
+
+.theme-card:hover {
+  border-color: #b894ef;
+
+  transform: translateY(-2px);
+}
+
+.theme-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 9px;
+}
+
+.theme-card h3 {
+  margin: 0;
+
+  color: #3f2b5e;
+
+  font-size: 16px;
+}
+
+.theme-sentiment {
+  padding: 5px 9px;
+
+  background: #f0e8ff;
+
+  border: 1px solid #d2b8f5;
+  border-radius: 20px;
+
+  color: #6d28d9;
+
+  font-size: 10px;
+  font-weight: 650;
+
+  white-space: nowrap;
+}
+
+.theme-card p {
+  margin: 0;
+
+  color: #716582;
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   AGREEMENT + BEHAVIORAL LISTS
+========================================================= */
+
+.insight-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+.list-item {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 16px 18px;
+
+  background: #ffffff;
+
+  border: 1.5px solid #dfd2f8;
+  border-radius: 14px;
+
+  box-shadow: 0 5px 16px rgba(92, 45, 145, 0.04);
+
+  transition: all 0.2s ease;
+}
+
+.list-item:hover {
+  border-color: #b894ef;
+
+  background: #fdfbff;
+}
+
+.list-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  flex-shrink: 0;
+
+  background: #eee5ff;
+
+  border-radius: 50%;
+
+  color: #6d28d9;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.list-item p {
+  margin: 3px 0 0;
+
+  color: #514566;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   PERSONA SEGMENT INSIGHTS
+========================================================= */
+
+.segment-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 17px;
+}
+
+.segment-card {
+  position: relative;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1.5px solid #dfd2f8;
+  border-radius: 18px;
+
+  box-shadow: 0 7px 22px rgba(92, 45, 145, 0.06);
+
+  transition: all 0.2s ease;
+}
+
+.segment-card:hover {
+  border-color: #b894ef;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 25px rgba(92, 45, 145, 0.1);
+}
+
+.segment-card h3 {
+  margin: 0 0 13px;
+
+  color: #3c2b5b;
+
+  font-size: 16px;
+}
+
+.segment-score {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 70px;
+
+  padding: 7px 12px;
+
+  background: #f0e8ff;
+
+  border: 1px solid #d2b8f5;
+  border-radius: 20px;
+
+  color: #6d28d9;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  margin-bottom: 13px;
+}
+
+.segment-card p {
+  margin: 0;
+
+  color: #716582;
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.insights-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 380px;
+
+  padding: 40px;
+
+  background: #ffffff;
+
+  border: 1.5px solid #dfd2f8;
+  border-radius: 22px;
+
+  box-shadow: 0 8px 25px rgba(92, 45, 145, 0.06);
+
+  text-align: center;
+}
+
+.insights-loading::before {
+  content: "";
+
+  width: 45px;
+  height: 45px;
+
+  margin-bottom: 22px;
+
+  border: 4px solid #eadfff;
+  border-top-color: #8b5cf6;
+
+  border-radius: 50%;
+
+  animation: insightsSpin 0.9s linear infinite;
+}
+
+@keyframes insightsSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.insights-loading h2 {
+  margin: 0 0 8px;
+
+  color: #3c2b5b;
+
+  font-size: 20px;
+}
+
+.insights-loading p {
+  margin: 0;
+
+  color: #766a87;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.insights-error {
+  padding: 28px;
+
+  background: #ffffff;
+
+  border: 1.5px solid #d5bdf4;
+  border-radius: 18px;
+
+  text-align: center;
+
+  box-shadow: 0 7px 22px rgba(92, 45, 145, 0.05);
+}
+
+.insights-error h2 {
+  margin: 0 0 9px;
+
+  color: #4b2a76;
+
+  font-size: 19px;
+}
+
+.insights-error p {
+  margin: 0 0 18px;
+
+  color: #75698a;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.insights-page > .insights-error p {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+  .insights-page {
+    padding: 25px;
+  }
+
+  .score-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .segment-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .insights-page {
+    padding: 18px 14px 35px;
+  }
+
+  .insights-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    margin-bottom: 22px;
+  }
+
+  .insights-header h1 {
+    font-size: 25px;
+  }
+
+  .refresh-insights-btn {
+    width: 100%;
+  }
+
+  .score-grid,
+  .sentiment-grid,
+  .themes-list,
+  .segment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insight-section h2 {
+    font-size: 19px;
+  }
+
+  .summary-card {
+    padding: 18px;
+  }
+
+  .theme-card {
+    padding: 17px;
+  }
+
+  .segment-card {
+    padding: 18px;
+  }
+}

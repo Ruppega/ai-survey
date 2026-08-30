@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./Interview.css";
 
@@ -8,23 +8,33 @@ function Interview({
   onSelectPersona
 }) {
   const [question, setQuestion] = useState("");
-  const [askedQuestion, setAskedQuestion] = useState("");
-  const [answers, setAnswers] = useState([]);
+  const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState("individual");
 
+  const chatEndRef = useRef(null);
+
   // =====================================================
-  // RESET INTERVIEW WHEN A NEW PERSONA SET IS GENERATED
+  // RESET WHEN A NEW PERSONA SET IS GENERATED
   // =====================================================
 
   useEffect(() => {
     setQuestion("");
-    setAskedQuestion("");
-    setAnswers([]);
+    setMessages([]);
     setLoading(false);
     setMode("individual");
     onSelectPersona(null);
   }, [personas]);
+
+  // =====================================================
+  // AUTO SCROLL TO LATEST MESSAGE
+  // =====================================================
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({
+      behavior: "smooth"
+    });
+  }, [messages, loading]);
 
   // =====================================================
   // SELECT PERSONA
@@ -33,8 +43,22 @@ function Interview({
   const selectPersona = (persona) => {
     onSelectPersona(persona);
     setMode("individual");
-    setAnswers([]);
-    setAskedQuestion("");
+    setMessages([]);
+    setQuestion("");
+  };
+
+  // =====================================================
+  // SWITCH MODE
+  // =====================================================
+
+  const switchMode = (newMode) => {
+    setMode(newMode);
+    setMessages([]);
+    setQuestion("");
+
+    if (newMode === "all") {
+      onSelectPersona(null);
+    }
   };
 
   // =====================================================
@@ -47,14 +71,23 @@ function Interview({
       return;
     }
 
-    if (!question.trim() || loading) {
+    const currentQuestion = question.trim();
+
+    if (!currentQuestion || loading) {
       return;
     }
 
-    setLoading(true);
-    setAnswers([]);
+    // Show user's question immediately
+    setMessages((previous) => [
+      ...previous,
+      {
+        type: "user",
+        text: currentQuestion
+      }
+    ]);
 
-    const currentQuestion = question.trim();
+    setQuestion("");
+    setLoading(true);
 
     try {
       const response = await axios.post(
@@ -65,34 +98,46 @@ function Interview({
         }
       );
 
-      setAskedQuestion(currentQuestion);
-
-      setAnswers([
+      setMessages((previous) => [
+        ...previous,
         {
+          type: "persona",
           persona: selectedPersona,
-          answer: response.data.answer
+          text:
+            response.data.answer ||
+            "The persona did not provide a response."
         }
       ]);
 
-      setQuestion("");
     } catch (error) {
-      console.error("Individual interview error:", error);
-
-      alert(
-        error.response?.data?.error ||
-        "Unable to get a response from this persona."
+      console.error(
+        "Individual interview error:",
+        error
       );
+
+      setMessages((previous) => [
+        ...previous,
+        {
+          type: "error",
+          text:
+            error.response?.data?.error ||
+            "Unable to get a response from this persona."
+        }
+      ]);
+
     } finally {
       setLoading(false);
     }
   };
 
   // =====================================================
-  // ALL PERSONAS - ONE BACKEND REQUEST
+  // ALL PERSONAS
   // =====================================================
 
   const askAllPersonas = async () => {
-    if (!question.trim() || loading) {
+    const currentQuestion = question.trim();
+
+    if (!currentQuestion || loading) {
       return;
     }
 
@@ -101,15 +146,18 @@ function Interview({
       return;
     }
 
-    setLoading(true);
-    setAnswers([]);
+    setMessages((previous) => [
+      ...previous,
+      {
+        type: "user",
+        text: currentQuestion
+      }
+    ]);
 
-    const currentQuestion = question.trim();
+    setQuestion("");
+    setLoading(true);
 
     try {
-      // IMPORTANT:
-      // This is ONE HTTP request.
-      // The backend makes ONE Gemini request for all personas.
       const response = await axios.post(
         "http://127.0.0.1:5000/interview-all",
         {
@@ -118,18 +166,50 @@ function Interview({
         }
       );
 
-      setAskedQuestion(currentQuestion);
-      setAnswers(response.data.answers || []);
-      setQuestion("");
-    } catch (error) {
-      console.error("All-persona interview error:", error);
+      const newAnswers =
+        response.data.answers || [];
 
-      alert(
-        error.response?.data?.error ||
-        "Unable to get responses from all personas."
+      setMessages((previous) => [
+        ...previous,
+        ...newAnswers.map((item) => ({
+          type: "persona",
+          persona: item.persona,
+          text:
+            item.answer ||
+            "The persona did not provide a response."
+        }))
+      ]);
+
+    } catch (error) {
+      console.error(
+        "All-persona interview error:",
+        error
       );
+
+      setMessages((previous) => [
+        ...previous,
+        {
+          type: "error",
+          text:
+            error.response?.data?.error ||
+            "Unable to get responses from all personas."
+        }
+      ]);
+
     } finally {
       setLoading(false);
+    }
+  };
+
+  // =====================================================
+  // SEND MESSAGE
+  // =====================================================
+
+  const sendMessage = () => {
+    if (mode === "all") {
+      askAllPersonas();
+    } else {
+      askSelectedPersona();
     }
   };
 
@@ -138,85 +218,111 @@ function Interview({
   // =====================================================
 
   const handleKeyDown = (e) => {
-    if (e.key !== "Enter" || e.shiftKey) {
-      return;
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
     }
+  };
 
-    e.preventDefault();
+  // =====================================================
+  // CLEAR CURRENT CHAT
+  // =====================================================
 
-    if (mode === "all") {
-      askAllPersonas();
-    } else {
-      askSelectedPersona();
-    }
+  const clearChat = () => {
+    setMessages([]);
+    setQuestion("");
   };
 
   return (
     <div className="interview-container">
 
-      {/* ================================================= */}
-      {/* HEADER */}
-      {/* ================================================= */}
+      {/* =================================================
+          HEADER
+      ================================================= */}
 
-      <h2>🎤 AI Persona Interview</h2>
+      <div className="interview-header">
+        <div>
+          <h2>🎤 AI Persona Interview</h2>
 
-      <p>
-        Interview one persona or ask the same question
-        to all generated personas.
-      </p>
+          <p>
+            Have a natural conversation with your selected
+            persona or compare responses from all personas.
+          </p>
+        </div>
 
-      {/* ================================================= */}
-      {/* MODE SWITCH */}
-      {/* ================================================= */}
+        {messages.length > 0 && (
+          <button
+            type="button"
+            className="clear-chat-btn"
+            onClick={clearChat}
+          >
+            🗑 Clear Chat
+          </button>
+        )}
+      </div>
+
+      {/* =================================================
+          MODE SWITCH
+      ================================================= */}
 
       <div className="interview-mode-switch">
 
         <button
+          type="button"
           className={
             mode === "individual"
               ? "mode-btn active"
               : "mode-btn"
           }
-          onClick={() => {
-            setMode("individual");
-            setAnswers([]);
-            setAskedQuestion("");
-          }}
+          onClick={() =>
+            switchMode("individual")
+          }
         >
           👤 Individual Interview
         </button>
 
         <button
+          type="button"
           className={
             mode === "all"
               ? "mode-btn active"
               : "mode-btn"
           }
-          onClick={() => {
-            setMode("all");
-            onSelectPersona(null);
-            setAnswers([]);
-            setAskedQuestion("");
-          }}
+          onClick={() =>
+            switchMode("all")
+          }
         >
           👥 Ask All Personas
         </button>
 
       </div>
 
-      {/* ================================================= */}
-      {/* PERSONA SELECTOR */}
-      {/* ================================================= */}
+      {/* =================================================
+          PERSONA SELECTOR
+      ================================================= */}
 
       <div className="persona-selector">
 
-        <h3>👥 Choose a Persona</h3>
+        <div className="selector-heading">
+          <div>
+            <h3>👥 Choose a Persona</h3>
+
+            <p>
+              Select who you want to interview.
+            </p>
+          </div>
+
+          <span className="persona-count">
+            {personas.length} personas
+          </span>
+        </div>
 
         <div className="persona-selector-grid">
 
           {personas.map((persona, index) => (
 
             <button
+              type="button"
               key={persona.id || index}
               className={
                 selectedPersona?.id === persona.id &&
@@ -224,7 +330,9 @@ function Interview({
                   ? "persona-select-btn selected"
                   : "persona-select-btn"
               }
-              onClick={() => selectPersona(persona)}
+              onClick={() =>
+                selectPersona(persona)
+              }
             >
 
               <span className="selector-avatar">
@@ -250,11 +358,12 @@ function Interview({
 
       </div>
 
-      {/* ================================================= */}
-      {/* SELECTED PERSONA */}
-      {/* ================================================= */}
+      {/* =================================================
+          ACTIVE PERSONA
+      ================================================= */}
 
-      {mode === "individual" && selectedPersona && (
+      {mode === "individual" &&
+        selectedPersona && (
 
         <div className="selected-persona">
 
@@ -262,29 +371,38 @@ function Interview({
             👤
           </div>
 
-          <div>
-            <h3>
-              Interviewing: {selectedPersona.name}
-            </h3>
+          <div className="selected-persona-content">
 
-            <p>
-              {selectedPersona.age} years old
-              {" • "}
-              {selectedPersona.occupation}
-            </p>
+            <div className="selected-persona-title">
+              <div>
+                <h3>
+                  {selectedPersona.name}
+                </h3>
 
-            <p>
+                <p>
+                  {selectedPersona.age} years old
+                  {" • "}
+                  {selectedPersona.occupation}
+                </p>
+              </div>
+
+              <span className="active-badge">
+                ● Active
+              </span>
+            </div>
+
+            <p className="persona-personality">
               🧠 {selectedPersona.personality}
             </p>
+
           </div>
 
         </div>
-
       )}
 
-      {/* ================================================= */}
-      {/* ALL MODE INFO */}
-      {/* ================================================= */}
+      {/* =================================================
+          ALL PERSONAS INFO
+      ================================================= */}
 
       {mode === "all" && (
 
@@ -294,205 +412,293 @@ function Interview({
             👥
           </div>
 
-          <div>
-            <h3>
-              Asking All Personas
-            </h3>
+          <div className="selected-persona-content">
 
-            <p>
-              One question will be sent to the backend,
-              which generates answers for all personas
-              in one Gemini request.
-            </p>
+            <div className="selected-persona-title">
+              <div>
+                <h3>
+                  All Personas
+                </h3>
+
+                <p>
+                  Compare how different personas respond
+                  to the same question.
+                </p>
+              </div>
+
+              <span className="active-badge">
+                ● {personas.length} Voices
+              </span>
+            </div>
+
           </div>
 
         </div>
-
       )}
 
-      {/* ================================================= */}
-      {/* QUESTION INPUT */}
-      {/* ================================================= */}
+      {/* =================================================
+          CHAT WINDOW
+      ================================================= */}
 
-      <div className="question-area">
+      <div className="chat-wrapper">
 
-        <input
-          type="text"
-          placeholder={
-            mode === "all"
-              ? "Ask the same question to all personas..."
-              : selectedPersona
-                ? `Ask ${selectedPersona.name} a question...`
-                : "Select a persona first..."
-          }
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          onKeyDown={handleKeyDown}
-          disabled={
-            loading ||
-            (mode === "individual" && !selectedPersona)
-          }
-        />
+        <div className="chat-header">
 
-        <button
-          onClick={
-            mode === "all"
-              ? askAllPersonas
-              : askSelectedPersona
-          }
-          disabled={
-            loading ||
-            !question.trim() ||
-            (mode === "individual" && !selectedPersona)
-          }
-        >
-          {loading
-            ? "Thinking..."
-            : mode === "all"
-              ? "Ask All Personas"
-              : selectedPersona
-                ? `Ask ${selectedPersona.name}`
-                : "Select a Persona"}
-        </button>
+          <div>
+            <strong>
+              {mode === "all"
+                ? "👥 Persona Panel"
+                : selectedPersona
+                  ? `💬 Chat with ${selectedPersona.name}`
+                  : "💬 Persona Chat"}
+            </strong>
 
-      </div>
+            <span>
+              {mode === "all"
+                ? "Multiple persona perspectives"
+                : selectedPersona
+                  ? "Conversation-aware interview"
+                  : "Select a persona to begin"}
+            </span>
+          </div>
 
-      {/* ================================================= */}
-      {/* LOADING */}
-      {/* ================================================= */}
-
-      {loading && (
-
-        <div className="interview-loading">
-
-          <h3>
-            🧠 Generating responses...
-          </h3>
-
-          <p>
-            {mode === "all"
-              ? `Generating answers for ${personas.length} personas with one Gemini request...`
-              : `${selectedPersona?.name} is thinking...`}
-          </p>
+          <span className="memory-indicator">
+            🧠 Memory On
+          </span>
 
         </div>
 
-      )}
+        <div className="chat-messages">
 
-      {/* ================================================= */}
-      {/* QUESTION */}
-      {/* ================================================= */}
+          {messages.length === 0 && !loading && (
 
-      {askedQuestion && !loading && (
+            <div className="chat-empty">
 
-        <div className="asked-question">
-
-          <strong>
-            ❓ Question:
-          </strong>
-
-          <p>
-            {askedQuestion}
-          </p>
-
-        </div>
-
-      )}
-
-      {/* ================================================= */}
-      {/* ANSWERS */}
-      {/* ================================================= */}
-
-      {answers.length > 0 && (
-
-        <div className="answers-grid">
-
-          {answers.map((item, index) => (
-
-            <div
-              className="interview-card"
-              key={item.persona?.id || index}
-            >
-
-              <div className="persona-header">
-
-                <div className="persona-avatar">
-                  👤
-                </div>
-
-                <div>
-                  <h3>
-                    {item.persona?.name}
-                  </h3>
-
-                  <p>
-                    {item.persona?.age} years old
-                    {" • "}
-                    {item.persona?.occupation}
-                  </p>
-                </div>
-
+              <div className="chat-empty-icon">
+                💬
               </div>
 
-              <div className="persona-info">
+              <h3>
+                Start the conversation
+              </h3>
 
-                <span>
-                  🧠{" "}
-                  {item.persona?.personality}
-                </span>
+              <p>
+                Ask a question and the persona will respond
+                based on their personality, preferences,
+                and previous conversation.
+              </p>
 
-                <span>
-                  ⭐{" "}
-                  {item.persona?.rating}/5
-                </span>
+              <div className="suggested-questions">
 
-              </div>
+                <button
+                  type="button"
+                  disabled={
+                    mode === "individual" &&
+                    !selectedPersona
+                  }
+                  onClick={() =>
+                    setQuestion(
+                      "What matters most to you when choosing a product like this?"
+                    )
+                  }
+                >
+                  What matters most to you?
+                </button>
 
-              <div className="answer-box">
+                <button
+                  type="button"
+                  disabled={
+                    mode === "individual" &&
+                    !selectedPersona
+                  }
+                  onClick={() =>
+                    setQuestion(
+                      "What would make you choose this product?"
+                    )
+                  }
+                >
+                  What would make you choose it?
+                </button>
 
-                <strong>
-                  💬 {item.persona?.name}:
-                </strong>
-
-                <p>
-                  {item.answer}
-                </p>
+                <button
+                  type="button"
+                  disabled={
+                    mode === "individual" &&
+                    !selectedPersona
+                  }
+                  onClick={() =>
+                    setQuestion(
+                      "What concerns would stop you from using it?"
+                    )
+                  }
+                >
+                  What concerns you?
+                </button>
 
               </div>
 
             </div>
 
+          )}
+
+          {messages.map((message, index) => (
+
+            <div
+              key={index}
+              className={
+                message.type === "user"
+                  ? "chat-message user-message"
+                  : message.type === "error"
+                    ? "chat-message error-message"
+                    : "chat-message persona-message"
+              }
+            >
+
+              {message.type === "user" ? (
+
+                <>
+                  <div className="message-content">
+
+                    <span className="message-label">
+                      You
+                    </span>
+
+                    <p>
+                      {message.text}
+                    </p>
+
+                  </div>
+
+                  <div className="message-avatar">
+                    👤
+                  </div>
+                </>
+
+              ) : (
+
+                <>
+
+                  <div className="message-avatar persona-message-avatar">
+                    👤
+                  </div>
+
+                  <div className="message-content">
+
+                    <div className="persona-message-name">
+                      <span>
+                        {message.type === "error"
+                          ? "System"
+                          : message.persona?.name ||
+                            "Persona"}
+                      </span>
+
+                      {message.type !== "error" && (
+                        <small>
+                          {message.persona?.occupation}
+                        </small>
+                      )}
+                    </div>
+
+                    <p>
+                      {message.text}
+                    </p>
+
+                  </div>
+
+                </>
+
+              )}
+
+            </div>
+
           ))}
+
+          {/* =================================================
+              TYPING INDICATOR
+          ================================================= */}
+
+          {loading && (
+
+            <div className="chat-message persona-message">
+
+              <div className="message-avatar persona-message-avatar">
+                👤
+              </div>
+
+              <div className="message-content">
+
+                <div className="persona-message-name">
+                  <span>
+                    {mode === "all"
+                      ? "Personas"
+                      : selectedPersona?.name ||
+                        "Persona"}
+                  </span>
+                </div>
+
+                <div className="typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+              </div>
+
+            </div>
+
+          )}
+
+          <div ref={chatEndRef} />
 
         </div>
 
-      )}
+        {/* =================================================
+            INPUT
+        ================================================= */}
 
-      {/* ================================================= */}
-      {/* EMPTY STATE */}
-      {/* ================================================= */}
+        <div className="chat-input-area">
 
-      {!loading &&
-        answers.length === 0 &&
-        !askedQuestion && (
+          <input
+            type="text"
+            value={question}
+            placeholder={
+              mode === "all"
+                ? "Ask the same question to all personas..."
+                : selectedPersona
+                  ? `Message ${selectedPersona.name}...`
+                  : "Select a persona first..."
+            }
+            onChange={(e) =>
+              setQuestion(e.target.value)
+            }
+            onKeyDown={handleKeyDown}
+            disabled={
+              loading ||
+              (mode === "individual" &&
+                !selectedPersona)
+            }
+          />
 
-          <div className="interview-empty">
+          <button
+            type="button"
+            onClick={sendMessage}
+            disabled={
+              loading ||
+              !question.trim() ||
+              (mode === "individual" &&
+                !selectedPersona)
+            }
+          >
+            {loading ? "..." : "Send ↑"}
+          </button>
 
-            <h3>
-              {mode === "all"
-                ? "👥 Ask All Personas"
-                : "👤 Select a Persona"}
-            </h3>
+        </div>
 
-            <p>
-              {mode === "all"
-                ? "Ask one question and receive a distinct answer from every generated persona."
-                : "Choose one persona above to start an individual AI interview."}
-            </p>
+        <div className="chat-input-hint">
+          Press Enter to send • Shift + Enter for a new line
+        </div>
 
-          </div>
-
-        )}
+      </div>
 
     </div>
   );

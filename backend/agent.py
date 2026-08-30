@@ -537,3 +537,196 @@ RETURN EXACTLY THIS SHAPE:
         "answers": final_answers,
         "total": len(final_answers)
     }
+# =========================================================
+# INSIGHT EXTRACTION AGENT
+# =========================================================
+
+def extract_insights(personas):
+
+    if not isinstance(personas, list) or not personas:
+        raise Exception("No personas provided for insight analysis.")
+
+    # -----------------------------------------------------
+    # CALCULATE BASIC STATISTICS
+    # -----------------------------------------------------
+
+    total = len(personas)
+
+    preferred = sum(
+        1
+        for persona in personas
+        if str(persona.get("buyDecision", "")).lower() == "yes"
+    )
+
+    not_preferred = total - preferred
+
+    would_use_score = round(
+        (preferred / total) * 100,
+        1
+    )
+
+    average_rating = round(
+        sum(
+            float(persona.get("rating", 0))
+            for persona in personas
+        ) / total,
+        1
+    )
+
+    # -----------------------------------------------------
+    # GET INTERVIEW HISTORY
+    # -----------------------------------------------------
+
+    memory = load_memory()
+
+    persona_data = []
+
+    for persona in personas:
+
+        persona_id = persona.get("id")
+
+        conversation = []
+
+        if persona_id in memory.get("personas", {}):
+
+            conversation = memory["personas"][
+                persona_id
+            ].get("conversation", [])
+
+        persona_data.append({
+
+            "name": persona.get("name"),
+
+            "age": persona.get("age"),
+
+            "gender": persona.get("gender"),
+
+            "occupation": persona.get("occupation"),
+
+            "personality": persona.get("personality"),
+
+            "buyDecision": persona.get("buyDecision"),
+
+            "rating": persona.get("rating"),
+
+            "reason": persona.get("reason"),
+
+            "conversation": conversation
+
+        })
+
+    # -----------------------------------------------------
+    # BUILD DATA FOR GEMINI
+    # -----------------------------------------------------
+
+    research_data = json.dumps(
+        persona_data,
+        indent=2,
+        ensure_ascii=False
+    )
+
+    # -----------------------------------------------------
+    # INSIGHT AGENT PROMPT
+    # -----------------------------------------------------
+
+    prompt = f"""
+You are an expert UX Research Insight Extraction Agent.
+
+Analyze the synthetic persona research data below.
+
+RESEARCH DATA:
+
+{research_data}
+
+
+YOUR TASK:
+
+Analyze all persona opinions, ratings, reasons, and
+interview conversations.
+
+Identify meaningful patterns.
+
+Do not invent information that is not supported by the data.
+
+Return ONLY valid JSON.
+
+Return EXACTLY this structure:
+
+{{
+  "summary": "A concise overall research summary",
+
+  "sentiment": {{
+    "positive": 0,
+    "neutral": 0,
+    "negative": 0
+  }},
+
+  "themes": [
+    {{
+      "theme": "Theme name",
+      "description": "Why this theme matters",
+      "sentiment": "Positive, Neutral, Negative, or Mixed"
+    }}
+  ],
+
+  "agreementPatterns": [
+    "Important areas where personas generally agree"
+  ],
+
+  "behavioralTrends": [
+    "Observed behavioral or decision-making trends"
+  ],
+
+  "segmentInsights": [
+    {{
+      "segment": "Persona group",
+      "wouldUsePercentage": 0,
+      "reasoning": "Why this group would or would not use the product"
+    }}
+  ]
+}}
+
+RULES:
+
+1. Sentiment values must add up to 100.
+2. Identify 3 to 6 meaningful recurring themes.
+3. Identify real agreement and disagreement patterns.
+4. Segment personas meaningfully using available data such as:
+   occupation, age group, personality, or buying behavior.
+5. Do not create fake statistics.
+6. Base all conclusions on the supplied research data.
+7. Keep insights concise and useful for product research.
+"""
+
+    # -----------------------------------------------------
+    # CALL GEMINI
+    # -----------------------------------------------------
+
+    response = call_gemini(prompt)
+
+    insights = parse_json_response(response)
+
+    if not isinstance(insights, dict):
+        raise Exception(
+            "Gemini returned invalid insight data."
+        )
+
+    # -----------------------------------------------------
+    # ADD CALCULATED SCORES
+    # -----------------------------------------------------
+
+    insights["productScore"] = {
+
+        "wouldUsePercentage": would_use_score,
+
+        "preferred": preferred,
+
+        "notPreferred": not_preferred,
+
+        "totalPersonas": total,
+
+        "averageRating": average_rating
+
+    }
+
+    return insights

@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import PersonaCard from "./components/PersonaCard";
 import Interview from "./components/Interview";
+import Insights from "./components/Insights";
 import "./App.css";
 
 function App() {
@@ -108,6 +109,7 @@ function App() {
     if (page === "personas" && !result) return;
     if (page === "interview" && !result) return;
     if (page === "results" && !result) return;
+    if (page === "insights" && !result) return;
 
     setActivePage(page);
   };
@@ -235,6 +237,25 @@ function App() {
             {!sidebarCollapsed && (
               <span className="nav-label">
                 Results
+              </span>
+            )}
+          </button>
+
+          <button
+            type="button"
+            className={
+              activePage === "insights"
+                ? "nav-item active"
+                : "nav-item"
+            }
+            onClick={() => goToPage("insights")}
+            disabled={!result}
+          >
+            <span className="nav-icon">💡</span>
+
+            {!sidebarCollapsed && (
+              <span className="nav-label">
+                Insights
               </span>
             )}
           </button>
@@ -702,6 +723,16 @@ function App() {
 
             </div>
 
+          </div>
+        )}
+
+        {/* =====================================================
+            INSIGHTS PAGE
+        ====================================================== */}
+
+        {activePage === "insights" && result && (
+          <div className="page">
+            <Insights personas={result.personas} />
           </div>
         )}
 
