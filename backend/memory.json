@@ -1,106 +1,124 @@
 {
   "personas": {
-    "9f08b515-82b4-4292-87dd-b145bdbcb876": {
+    "8647b617-0a82-4b9c-b322-93b12139b715": {
       "profile": {
-        "name": "Marcus Vance",
+        "name": "Rohan Sharma",
         "gender": "Male",
-        "age": 32,
-        "occupation": "Software Engineer",
-        "personality": "Fitness-conscious, efficiency-driven, analytical",
+        "age": 20,
+        "occupation": "Engineering Student",
+        "personality": "Budget-conscious and energetic music lover",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "Wants to cut down daily caloric intake from cooking oils while maintaining macros, appreciating the quick cook times and easy cleanup for weeknight meal prepping.",
-        "id": "9f08b515-82b4-4292-87dd-b145bdbcb876"
+        "reason": "The 50-hour battery life is perfect for long hostel study sessions without frequent charging, and the deep bass hits hard for his workout playlists.",
+        "id": "8647b617-0a82-4b9c-b322-93b12139b715"
       },
       "conversation": [
         {
-          "question": "what would you change one thing about this project",
-          "answer": "I’d add smart connectivity with API support for macro-tracking apps so I can automatically log precise caloric savings and cook times directly into my fitness routine."
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "Honestly, as a student on a tight budget, value for money is key, but two main things stand out for me: battery life and sound quality. \n\nI need something with a massive battery so I’m not constantly hunting for a charging outlet during late-night hostel study sessions. And sound-wise, punchy, deep bass is a non-negotiable for my workout playlists. If a product gives me crazy long battery life and heavy bass without wiping out my bank account, I’m instantly sold."
         },
         {
-          "question": "what do like about this project",
-          "answer": "The biggest win for me is how effectively it eliminates excess cooking oil, which helps me shave off unnecessary calories while hitting my macro targets precisely. From an efficiency standpoint, the fast cook times and painless cleanup make my weeknight batch meal prepping practically effortless. It just delivers solid, measurable results without wasting my time."
+          "question": "what is your budget?",
+          "answer": "I usually try to cap it around ₹2,000 to ₹2,500 (around $25-$30). Since I’m living on a pretty strict monthly allowance in the hostel, I can't really drop serious cash on high-end audio gear. I'm always looking for that sweet spot under ₹3,000 where I get maximum value—like that crazy battery life and heavy bass—without having to survive on instant noodles for the rest of the month."
         },
         {
-          "question": "are you an athelete",
-          "answer": "Not professionally—I work as a software engineer. But I definitely treat my fitness with an athletic mindset. I train consistently, strictly track my macros, and approach my physical performance and nutrition with the same data-driven discipline I bring to my work."
-        },
-        {
-          "question": "thank you",
-          "answer": "You're welcome. Glad I could provide some useful feedback. Good luck with the project."
-        },
-        {
-          "question": "what is it that you would Like to change about this project",
-          "answer": "I love the speed and macro control, but if I could change one thing, it would be the tray capacity and shape for meal prepping. If the basket were rectangular and slightly larger, I could fit a full week's worth of chicken breast or veggies in a single cycle rather than having to run two batches."
+          "question": "What concerns would stop you from using it?",
+          "answer": "Honestly, my main concern would be long-term build quality. Since it's budget-friendly, I worry the hinges or ear tips might wear out quickly during daily hostel use, or that the battery life might degrade after a few months of continuous heavy use."
         }
       ]
     },
-    "b7e231ec-c5c2-455c-823d-eee186f589df": {
+    "41a999b5-1f1e-48a4-9f98-e3e14fb84dc0": {
       "profile": {
-        "name": "Elena Rostova",
+        "name": "Ananya Roy",
         "gender": "Female",
-        "age": 45,
-        "occupation": "Art Gallery Director",
-        "personality": "Culinary purist, passionate, detail-oriented",
+        "age": 24,
+        "occupation": "Remote Software Developer",
+        "personality": "Pragmatic, detail-oriented, and focus-driven",
         "buyDecision": "No",
         "rating": 2,
-        "reason": "Believes traditional frying yields far superior flavor and texture that air circulation cannot truly replicate, preferring authentic taste over oil reduction.",
-        "id": "b7e231ec-c5c2-455c-823d-eee186f589df"
+        "reason": "Needs true Active Noise Cancellation (ANC) to block out background noise while coding; Environmental Noise Cancellation (ENC) only helps the caller, not her own listening environment.",
+        "id": "41a999b5-1f1e-48a4-9f98-e3e14fb84dc0"
       },
       "conversation": [
         {
-          "question": "what would you change one thing about this project",
-          "answer": "I would stop positioning it as a replacement for traditional frying. Unless you change the core technology to preserve authentic moisture and rich flavor development, it's just a glorified small convection oven."
-        },
-        {
-          "question": "what is it that you would Like to change about this project",
-          "answer": "Unless you can fundamentally change the heating mechanism to deliver true oil-based thermal transfer and authentic crispness, I'd change how it's marketed. Stop positioning it as a replacement for traditional frying; culinary purists know hot air simply dries food out instead of achieving genuine depth of flavor."
+          "question": "What concerns would stop you from using it?",
+          "answer": "The absolute dealbreaker for me is the lack of true Active Noise Cancellation. Environmental Noise Cancellation helps the person on the other side of a call, but it won't block out ambient household noises while I'm trying to focus on coding."
         }
       ]
     },
-    "53abdc3e-3039-4deb-804c-a44b19e959bf": {
+    "06326cb7-0adf-46d7-a575-4c06bea45e4a": {
       "profile": {
-        "name": "Sarah Jenkins",
-        "gender": "Female",
-        "age": 28,
-        "occupation": "Marketing Specialist",
-        "personality": "Pragmatic, time-strapped, health-curious",
+        "name": "Vikram Patel",
+        "gender": "Male",
+        "age": 27,
+        "occupation": "Corporate Sales Executive",
+        "personality": "Fast-paced, efficient, and travel-heavy",
         "buyDecision": "Yes",
         "rating": 4,
-        "reason": "Eager to transition to healthier eating habits for her young family without spending hours in the kitchen, making the 90% oil reduction a major selling point.",
-        "id": "53abdc3e-3039-4deb-804c-a44b19e959bf"
+        "reason": "Fast charging and ENC calling make these reliable for taking client calls on the go, especially during airport commutes.",
+        "id": "06326cb7-0adf-46d7-a575-4c06bea45e4a"
       },
       "conversation": [
         {
-          "question": "what would you change one thing about this project",
-          "answer": "I’d include a quick-start guide focused on fast, kid-friendly family meals so I don't have to spend extra time searching for recipes on busy weeknights."
-        },
-        {
-          "question": "what is it that you would Like to change about this project",
-          "answer": "I'd love to see multi-tier cooking racks included so I can cook a protein and a vegetable side at the same time for my family. Also, adding quick-start presets tailored for kid-friendly meals would make dinner prep even faster on hectic weeknights."
+          "question": "What concerns would stop you from using it?",
+          "answer": "My main concern is seamless multi-device connectivity. If it can't instantly switch between my laptop and smartphone during back-to-back airport calls, or if the Bluetooth drops in crowded transit hubs, it wouldn't fit my workflow."
         }
       ]
     },
-    "7e0fa720-8240-4b12-b7ad-f6d35c78d1cc": {
+    "86f1c261-2a7b-4da3-8de3-c697ca2093bb": {
       "profile": {
-        "name": "David Miller",
-        "gender": "Male",
-        "age": 49,
-        "occupation": "Construction Manager",
-        "personality": "Habitual, budget-minded, straightforward",
+        "name": "Priya Nair",
+        "gender": "Female",
+        "age": 22,
+        "occupation": "Freelance Content Creator",
+        "personality": "Aesthetic-focused, critical audiophile",
         "buyDecision": "No",
-        "rating": 2,
-        "reason": "Feels his conventional convection oven already performs a similar function and does not want to waste limited counter space or spend extra money on a single-purpose appliance.",
-        "id": "7e0fa720-8240-4b12-b7ad-f6d35c78d1cc"
+        "rating": 3,
+        "reason": "Prefers flat, balanced sound profiles for audio editing and podcast listening, making heavy bass boost a drawback rather than a selling point.",
+        "id": "86f1c261-2a7b-4da3-8de3-c697ca2093bb"
       },
       "conversation": [
         {
-          "question": "what would you change one thing about this project",
-          "answer": "I’d make it a multi-functional unit or significantly lower the price, because as it stands, it takes up way too much counter space for something my standard oven can already do."
-        },
+          "question": "What concerns would stop you from using it?",
+          "answer": "The heavy bass profile is a huge issue for me. It muffles mid-range frequencies, making it impossible to accurately judge audio balance when editing video content or listening to vocal-centric podcasts without an EQ override."
+        }
+      ]
+    },
+    "d12a6115-f0d5-4dd2-81ee-47740e36e20b": {
+      "profile": {
+        "name": "Siddharth Verma",
+        "gender": "Male",
+        "age": 19,
+        "occupation": "College Student & Casual Mobile Gamer",
+        "personality": "Competitive, impulsive, and social",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Great value for money; the long battery life ensures his gaming sessions aren't interrupted, and clear ENC voice quality helps during Discord squad chats.",
+        "id": "d12a6115-f0d5-4dd2-81ee-47740e36e20b"
+      },
+      "conversation": [
         {
-          "question": "what is it that you would Like to change about this project",
-          "answer": "You'd need to lower the price point significantly and make it multi-functional so it isn't just taking up permanent space on my counter. My regular convection oven already does this job, so unless this thing replaces two or three other appliances, it's not worth the money to me."
+          "question": "What concerns would stop you from using it?",
+          "answer": "Audio latency would completely stop me from using it. If there's even a slight lag between the game sound effects and action on screen during competitive mobile gaming sessions, it ruins the experience."
+        }
+      ]
+    },
+    "c3d07195-948c-4e92-ad89-29e01e7838d7": {
+      "profile": {
+        "name": "Meera Kapoor",
+        "gender": "Female",
+        "age": 29,
+        "occupation": "Fitness Instructor",
+        "personality": "Active, disciplined, and high-energy",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Deep bass keeps her motivated during workout sessions, and fast charging is a lifesaver when she forgets to charge them before heading to the gym.",
+        "id": "c3d07195-948c-4e92-ad89-29e01e7838d7"
+      },
+      "conversation": [
+        {
+          "question": "What concerns would stop you from using it?",
+          "answer": "Water and sweat resistance is my biggest worry. If they don't have a solid IP rating or if they slip out of my ears during high-intensity workout routines, I wouldn't be able to rely on them at the gym."
         }
       ]
     }

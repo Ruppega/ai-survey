@@ -5,30 +5,40 @@ import "./Interview.css";
 function Interview({
   personas,
   selectedPersona,
-  onSelectPersona
+  onSelectPersona,
+  interviewMessages,
+  setInterviewMessages
 }) {
   const [question, setQuestion] = useState("");
-  const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState("individual");
 
   const chatEndRef = useRef(null);
 
-  // =====================================================
-  // RESET WHEN A NEW PERSONA SET IS GENERATED
-  // =====================================================
+  // =========================================================
+  // CURRENT CHAT
+  // =========================================================
+
+  const currentPersonaId = selectedPersona?.id;
+
+  const messages =
+    mode === "individual"
+      ? interviewMessages[currentPersonaId] || []
+      : interviewMessages.all || [];
+
+  // =========================================================
+  // RESET UI WHEN A COMPLETELY NEW PERSONA SET IS GENERATED
+  // =========================================================
 
   useEffect(() => {
     setQuestion("");
-    setMessages([]);
     setLoading(false);
     setMode("individual");
-    onSelectPersona(null);
   }, [personas]);
 
-  // =====================================================
-  // AUTO SCROLL TO LATEST MESSAGE
-  // =====================================================
+  // =========================================================
+  // AUTO SCROLL
+  // =========================================================
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({
@@ -36,24 +46,29 @@ function Interview({
     });
   }, [messages, loading]);
 
-  // =====================================================
+  // =========================================================
   // SELECT PERSONA
-  // =====================================================
+  // =========================================================
 
   const selectPersona = (persona) => {
     onSelectPersona(persona);
+
     setMode("individual");
-    setMessages([]);
     setQuestion("");
+
+    // IMPORTANT:
+    // Do NOT clear the persona's previous messages.
+    //
+    // If Persona 1 already has a conversation,
+    // it will automatically appear again.
   };
 
-  // =====================================================
+  // =========================================================
   // SWITCH MODE
-  // =====================================================
+  // =========================================================
 
   const switchMode = (newMode) => {
     setMode(newMode);
-    setMessages([]);
     setQuestion("");
 
     if (newMode === "all") {
@@ -61,9 +76,9 @@ function Interview({
     }
   };
 
-  // =====================================================
+  // =========================================================
   // INDIVIDUAL INTERVIEW
-  // =====================================================
+  // =========================================================
 
   const askSelectedPersona = async () => {
     if (!selectedPersona) {
@@ -77,14 +92,23 @@ function Interview({
       return;
     }
 
-    // Show user's question immediately
-    setMessages((previous) => [
+    const personaId = selectedPersona.id;
+
+    // =====================================================
+    // ADD USER MESSAGE
+    // =====================================================
+
+    setInterviewMessages((previous) => ({
       ...previous,
-      {
-        type: "user",
-        text: currentQuestion
-      }
-    ]);
+
+      [personaId]: [
+        ...(previous[personaId] || []),
+        {
+          type: "user",
+          text: currentQuestion
+        }
+      ]
+    }));
 
     setQuestion("");
     setLoading(true);
@@ -93,21 +117,29 @@ function Interview({
       const response = await axios.post(
         "http://127.0.0.1:5000/interview",
         {
-          personaId: selectedPersona.id,
+          personaId: personaId,
           question: currentQuestion
         }
       );
 
-      setMessages((previous) => [
+      // ===================================================
+      // ADD PERSONA RESPONSE
+      // ===================================================
+
+      setInterviewMessages((previous) => ({
         ...previous,
-        {
-          type: "persona",
-          persona: selectedPersona,
-          text:
-            response.data.answer ||
-            "The persona did not provide a response."
-        }
-      ]);
+
+        [personaId]: [
+          ...(previous[personaId] || []),
+          {
+            type: "persona",
+            persona: selectedPersona,
+            text:
+              response.data.answer ||
+              "The persona did not provide a response."
+          }
+        ]
+      }));
 
     } catch (error) {
       console.error(
@@ -115,24 +147,32 @@ function Interview({
         error
       );
 
-      setMessages((previous) => [
+      // ===================================================
+      // ADD ERROR MESSAGE
+      // ===================================================
+
+      setInterviewMessages((previous) => ({
         ...previous,
-        {
-          type: "error",
-          text:
-            error.response?.data?.error ||
-            "Unable to get a response from this persona."
-        }
-      ]);
+
+        [personaId]: [
+          ...(previous[personaId] || []),
+          {
+            type: "error",
+            text:
+              error.response?.data?.error ||
+              "Unable to get a response from this persona."
+          }
+        ]
+      }));
 
     } finally {
       setLoading(false);
     }
   };
 
-  // =====================================================
-  // ALL PERSONAS
-  // =====================================================
+  // =========================================================
+  // ALL PERSONAS INTERVIEW
+  // =========================================================
 
   const askAllPersonas = async () => {
     const currentQuestion = question.trim();
@@ -146,13 +186,21 @@ function Interview({
       return;
     }
 
-    setMessages((previous) => [
+    // =====================================================
+    // ADD USER MESSAGE
+    // =====================================================
+
+    setInterviewMessages((previous) => ({
       ...previous,
-      {
-        type: "user",
-        text: currentQuestion
-      }
-    ]);
+
+      all: [
+        ...(previous.all || []),
+        {
+          type: "user",
+          text: currentQuestion
+        }
+      ]
+    }));
 
     setQuestion("");
     setLoading(true);
@@ -169,16 +217,25 @@ function Interview({
       const newAnswers =
         response.data.answers || [];
 
-      setMessages((previous) => [
+      // ===================================================
+      // ADD ALL PERSONA RESPONSES
+      // ===================================================
+
+      setInterviewMessages((previous) => ({
         ...previous,
-        ...newAnswers.map((item) => ({
-          type: "persona",
-          persona: item.persona,
-          text:
-            item.answer ||
-            "The persona did not provide a response."
-        }))
-      ]);
+
+        all: [
+          ...(previous.all || []),
+
+          ...newAnswers.map((item) => ({
+            type: "persona",
+            persona: item.persona,
+            text:
+              item.answer ||
+              "The persona did not provide a response."
+          }))
+        ]
+      }));
 
     } catch (error) {
       console.error(
@@ -186,24 +243,28 @@ function Interview({
         error
       );
 
-      setMessages((previous) => [
+      setInterviewMessages((previous) => ({
         ...previous,
-        {
-          type: "error",
-          text:
-            error.response?.data?.error ||
-            "Unable to get responses from all personas."
-        }
-      ]);
+
+        all: [
+          ...(previous.all || []),
+          {
+            type: "error",
+            text:
+              error.response?.data?.error ||
+              "Unable to get responses from all personas."
+          }
+        ]
+      }));
 
     } finally {
       setLoading(false);
     }
   };
 
-  // =====================================================
+  // =========================================================
   // SEND MESSAGE
-  // =====================================================
+  // =========================================================
 
   const sendMessage = () => {
     if (mode === "all") {
@@ -213,9 +274,9 @@ function Interview({
     }
   };
 
-  // =====================================================
+  // =========================================================
   // ENTER KEY
-  // =====================================================
+  // =========================================================
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -224,14 +285,34 @@ function Interview({
     }
   };
 
-  // =====================================================
+  // =========================================================
   // CLEAR CURRENT CHAT
-  // =====================================================
+  // =========================================================
 
   const clearChat = () => {
-    setMessages([]);
+    if (
+      mode === "individual" &&
+      selectedPersona
+    ) {
+      setInterviewMessages((previous) => ({
+        ...previous,
+        [selectedPersona.id]: []
+      }));
+    }
+
+    if (mode === "all") {
+      setInterviewMessages((previous) => ({
+        ...previous,
+        all: []
+      }));
+    }
+
     setQuestion("");
   };
+
+  // =========================================================
+  // RENDER
+  // =========================================================
 
   return (
     <div className="interview-container">
@@ -241,13 +322,18 @@ function Interview({
       ================================================= */}
 
       <div className="interview-header">
+
         <div>
-          <h2>🎤 AI Persona Interview</h2>
+
+          <h2>
+            🎤 AI Persona Interview
+          </h2>
 
           <p>
             Have a natural conversation with your selected
             persona or compare responses from all personas.
           </p>
+
         </div>
 
         {messages.length > 0 && (
@@ -259,6 +345,7 @@ function Interview({
             🗑 Clear Chat
           </button>
         )}
+
       </div>
 
       {/* =================================================
@@ -304,17 +391,23 @@ function Interview({
       <div className="persona-selector">
 
         <div className="selector-heading">
+
           <div>
-            <h3>👥 Choose a Persona</h3>
+
+            <h3>
+              👥 Choose a Persona
+            </h3>
 
             <p>
               Select who you want to interview.
             </p>
+
           </div>
 
           <span className="persona-count">
             {personas.length} personas
           </span>
+
         </div>
 
         <div className="persona-selector-grid">
@@ -340,6 +433,7 @@ function Interview({
               </span>
 
               <span>
+
                 <strong>
                   {persona.name}
                 </strong>
@@ -348,6 +442,7 @@ function Interview({
                   {persona.age} years •{" "}
                   {persona.occupation}
                 </small>
+
               </span>
 
             </button>
@@ -374,7 +469,9 @@ function Interview({
           <div className="selected-persona-content">
 
             <div className="selected-persona-title">
+
               <div>
+
                 <h3>
                   {selectedPersona.name}
                 </h3>
@@ -384,11 +481,13 @@ function Interview({
                   {" • "}
                   {selectedPersona.occupation}
                 </p>
+
               </div>
 
               <span className="active-badge">
                 ● Active
               </span>
+
             </div>
 
             <p className="persona-personality">
@@ -398,6 +497,7 @@ function Interview({
           </div>
 
         </div>
+
       )}
 
       {/* =================================================
@@ -415,7 +515,9 @@ function Interview({
           <div className="selected-persona-content">
 
             <div className="selected-persona-title">
+
               <div>
+
                 <h3>
                   All Personas
                 </h3>
@@ -424,16 +526,19 @@ function Interview({
                   Compare how different personas respond
                   to the same question.
                 </p>
+
               </div>
 
               <span className="active-badge">
                 ● {personas.length} Voices
               </span>
+
             </div>
 
           </div>
 
         </div>
+
       )}
 
       {/* =================================================
@@ -445,6 +550,7 @@ function Interview({
         <div className="chat-header">
 
           <div>
+
             <strong>
               {mode === "all"
                 ? "👥 Persona Panel"
@@ -460,6 +566,7 @@ function Interview({
                   ? "Conversation-aware interview"
                   : "Select a persona to begin"}
             </span>
+
           </div>
 
           <span className="memory-indicator">
@@ -469,6 +576,10 @@ function Interview({
         </div>
 
         <div className="chat-messages">
+
+          {/* =================================================
+              EMPTY STATE
+          ================================================= */}
 
           {messages.length === 0 && !loading && (
 
@@ -541,6 +652,10 @@ function Interview({
 
           )}
 
+          {/* =================================================
+              MESSAGES
+          ================================================= */}
+
           {messages.map((message, index) => (
 
             <div
@@ -577,7 +692,6 @@ function Interview({
               ) : (
 
                 <>
-
                   <div className="message-avatar persona-message-avatar">
                     👤
                   </div>
@@ -585,6 +699,7 @@ function Interview({
                   <div className="message-content">
 
                     <div className="persona-message-name">
+
                       <span>
                         {message.type === "error"
                           ? "System"
@@ -597,6 +712,7 @@ function Interview({
                           {message.persona?.occupation}
                         </small>
                       )}
+
                     </div>
 
                     <p>
@@ -628,18 +744,22 @@ function Interview({
               <div className="message-content">
 
                 <div className="persona-message-name">
+
                   <span>
                     {mode === "all"
                       ? "Personas"
                       : selectedPersona?.name ||
                         "Persona"}
                   </span>
+
                 </div>
 
                 <div className="typing-indicator">
+
                   <span></span>
                   <span></span>
                   <span></span>
+
                 </div>
 
               </div>
