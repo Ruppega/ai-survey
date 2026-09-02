@@ -1,126 +1,136 @@
 {
   "personas": {
-    "8647b617-0a82-4b9c-b322-93b12139b715": {
+    "95974fc2-acae-4c36-96a1-7317cd030e75": {
       "profile": {
-        "name": "Rohan Sharma",
+        "name": "Aarav Sharma",
         "gender": "Male",
-        "age": 20,
-        "occupation": "Engineering Student",
-        "personality": "Budget-conscious and energetic music lover",
+        "age": 24,
+        "occupation": "Software Engineer",
+        "personality": "Detail-oriented and pragmatic",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "The 50-hour battery life is perfect for long hostel study sessions without frequent charging, and the deep bass hits hard for his workout playlists.",
-        "id": "8647b617-0a82-4b9c-b322-93b12139b715"
+        "reason": "Noticed a significant reduction in eye strain and headaches after 8+ hour coding sessions. Very lightweight and genuinely useful for long computer work.",
+        "id": "95974fc2-acae-4c36-96a1-7317cd030e75"
       },
-      "conversation": [
-        {
-          "question": "What matters most to you when choosing a product like this?",
-          "answer": "Honestly, as a student on a tight budget, value for money is key, but two main things stand out for me: battery life and sound quality. \n\nI need something with a massive battery so I’m not constantly hunting for a charging outlet during late-night hostel study sessions. And sound-wise, punchy, deep bass is a non-negotiable for my workout playlists. If a product gives me crazy long battery life and heavy bass without wiping out my bank account, I’m instantly sold."
-        },
-        {
-          "question": "what is your budget?",
-          "answer": "I usually try to cap it around ₹2,000 to ₹2,500 (around $25-$30). Since I’m living on a pretty strict monthly allowance in the hostel, I can't really drop serious cash on high-end audio gear. I'm always looking for that sweet spot under ₹3,000 where I get maximum value—like that crazy battery life and heavy bass—without having to survive on instant noodles for the rest of the month."
-        },
-        {
-          "question": "What concerns would stop you from using it?",
-          "answer": "Honestly, my main concern would be long-term build quality. Since it's budget-friendly, I worry the hinges or ear tips might wear out quickly during daily hostel use, or that the battery life might degrade after a few months of continuous heavy use."
-        }
-      ]
+      "conversation": []
     },
-    "41a999b5-1f1e-48a4-9f98-e3e14fb84dc0": {
+    "0bf13ed6-c995-40c7-ac1d-be414a7ac7f2": {
       "profile": {
         "name": "Ananya Roy",
         "gender": "Female",
-        "age": 24,
-        "occupation": "Remote Software Developer",
-        "personality": "Pragmatic, detail-oriented, and focus-driven",
+        "age": 21,
+        "occupation": "Graphic Design Student",
+        "personality": "Creative and skeptical",
         "buyDecision": "No",
         "rating": 2,
-        "reason": "Needs true Active Noise Cancellation (ANC) to block out background noise while coding; Environmental Noise Cancellation (ENC) only helps the caller, not her own listening environment.",
-        "id": "41a999b5-1f1e-48a4-9f98-e3e14fb84dc0"
+        "reason": "The slight yellow tint alters color perception on screen, which messes up my design work. While they reduced glare, they were not useful for color-critical tasks.",
+        "id": "0bf13ed6-c995-40c7-ac1d-be414a7ac7f2"
       },
       "conversation": [
         {
-          "question": "What concerns would stop you from using it?",
-          "answer": "The absolute dealbreaker for me is the lack of true Active Noise Cancellation. Environmental Noise Cancellation helps the person on the other side of a call, but it won't block out ambient household noises while I'm trying to focus on coding."
+          "mode": "individual",
+          "question": "why do you feel bad about it ..doesn't it make any changes to you",
+          "answer": "Look, it did cut down on the glare a bit, I'll give it that. But as a graphic design student, my entire work depends on color accuracy. The yellow tint completely distorts how colors actually look on my screen, which means I can't trust what I'm designing while wearing them. So while it technically made a change, it actually made my work harder, not easier. I can't be guessing hex codes just to relieve a little eye strain."
+        },
+        {
+          "mode": "individual",
+          "question": "what are the changes would you like to do in it ..so that it helps you",
+          "answer": "First and foremost, get rid of the yellow tint completely. I need lenses that are 100% color-neutral—clear lenses with a high-quality anti-reflective coating that cuts glare without shifting hues or saturation. \n\nIf filtering blue light inherently requires a tint, then maybe design a flip-up frame so I can quickly check true colors without taking the glasses off every two minutes. But honestly, unless they can guarantee zero color distortion, I just can't use them for my work."
         }
       ]
     },
-    "06326cb7-0adf-46d7-a575-4c06bea45e4a": {
+    "fad877f3-e690-491c-a2c9-f73d9e5627a2": {
       "profile": {
-        "name": "Vikram Patel",
+        "name": "Rohan Verma",
         "gender": "Male",
-        "age": 27,
-        "occupation": "Corporate Sales Executive",
-        "personality": "Fast-paced, efficient, and travel-heavy",
+        "age": 28,
+        "occupation": "Digital Marketer",
+        "personality": "Trendy and fast-paced",
         "buyDecision": "Yes",
         "rating": 4,
-        "reason": "Fast charging and ENC calling make these reliable for taking client calls on the go, especially during airport commutes.",
-        "id": "06326cb7-0adf-46d7-a575-4c06bea45e4a"
+        "reason": "They look stylish on video calls and effectively keep my eyes fresh during long campaign launches. The lenses smudge easily, but overall they are very useful.",
+        "id": "fad877f3-e690-491c-a2c9-f73d9e5627a2"
       },
-      "conversation": [
-        {
-          "question": "What concerns would stop you from using it?",
-          "answer": "My main concern is seamless multi-device connectivity. If it can't instantly switch between my laptop and smartphone during back-to-back airport calls, or if the Bluetooth drops in crowded transit hubs, it wouldn't fit my workflow."
-        }
-      ]
+      "conversation": []
     },
-    "86f1c261-2a7b-4da3-8de3-c697ca2093bb": {
+    "e36b76ed-777a-49af-b1a5-f4f5f9046c80": {
       "profile": {
         "name": "Priya Nair",
         "gender": "Female",
-        "age": 22,
-        "occupation": "Freelance Content Creator",
-        "personality": "Aesthetic-focused, critical audiophile",
-        "buyDecision": "No",
-        "rating": 3,
-        "reason": "Prefers flat, balanced sound profiles for audio editing and podcast listening, making heavy bass boost a drawback rather than a selling point.",
-        "id": "86f1c261-2a7b-4da3-8de3-c697ca2093bb"
-      },
-      "conversation": [
-        {
-          "question": "What concerns would stop you from using it?",
-          "answer": "The heavy bass profile is a huge issue for me. It muffles mid-range frequencies, making it impossible to accurately judge audio balance when editing video content or listening to vocal-centric podcasts without an EQ override."
-        }
-      ]
-    },
-    "d12a6115-f0d5-4dd2-81ee-47740e36e20b": {
-      "profile": {
-        "name": "Siddharth Verma",
-        "gender": "Male",
         "age": 19,
-        "occupation": "College Student & Casual Mobile Gamer",
-        "personality": "Competitive, impulsive, and social",
-        "buyDecision": "Yes",
-        "rating": 4,
-        "reason": "Great value for money; the long battery life ensures his gaming sessions aren't interrupted, and clear ENC voice quality helps during Discord squad chats.",
-        "id": "d12a6115-f0d5-4dd2-81ee-47740e36e20b"
+        "occupation": "Undergraduate Student & Gamer",
+        "personality": "Budget-conscious and blunt",
+        "buyDecision": "No",
+        "rating": 1,
+        "reason": "I noticed zero difference in eye fatigue during late-night gaming sessions compared to just using night-mode settings on my monitor. Not useful enough to justify the price.",
+        "id": "e36b76ed-777a-49af-b1a5-f4f5f9046c80"
       },
-      "conversation": [
-        {
-          "question": "What concerns would stop you from using it?",
-          "answer": "Audio latency would completely stop me from using it. If there's even a slight lag between the game sound effects and action on screen during competitive mobile gaming sessions, it ruins the experience."
-        }
-      ]
+      "conversation": []
     },
-    "c3d07195-948c-4e92-ad89-29e01e7838d7": {
+    "54cc0528-3de9-4077-8404-70d26fff6656": {
       "profile": {
-        "name": "Meera Kapoor",
+        "name": "Vikram Mehta",
+        "gender": "Male",
+        "age": 26,
+        "occupation": "Financial Analyst",
+        "personality": "Analytical and cautious",
+        "buyDecision": "Yes",
+        "rating": 3,
+        "reason": "They moderately help with dry eyes when staring at spreadsheets, but the frames felt tight behind my ears after 4 hours. Somewhat useful, but comfort could be improved.",
+        "id": "54cc0528-3de9-4077-8404-70d26fff6656"
+      },
+      "conversation": []
+    },
+    "2af74f81-bf95-48c4-9e93-4c4935f935a6": {
+      "profile": {
+        "name": "Sneha Kulkarni",
         "gender": "Female",
-        "age": 29,
-        "occupation": "Fitness Instructor",
-        "personality": "Active, disciplined, and high-energy",
+        "age": 23,
+        "occupation": "Content Writer",
+        "personality": "Enthusiastic and health-conscious",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "Deep bass keeps her motivated during workout sessions, and fast charging is a lifesaver when she forgets to charge them before heading to the gym.",
-        "id": "c3d07195-948c-4e92-ad89-29e01e7838d7"
+        "reason": "My sleep quality noticeably improved after wearing these during evening writing sprints. They look cute, feel comfortable, and eliminated my usual end-of-day eye burning.",
+        "id": "2af74f81-bf95-48c4-9e93-4c4935f935a6"
       },
-      "conversation": [
+      "conversation": []
+    }
+  },
+  "allPersonaInterviews": [
+    {
+      "question": "What concerns would stop you from using it?",
+      "responses": [
         {
-          "question": "What concerns would stop you from using it?",
-          "answer": "Water and sweat resistance is my biggest worry. If they don't have a solid IP rating or if they slip out of my ears during high-intensity workout routines, I wouldn't be able to rely on them at the gym."
+          "personaId": "95974fc2-acae-4c36-96a1-7317cd030e75",
+          "personaName": "Aarav Sharma",
+          "answer": "If the lens coating scratched easily or if the frame material proved fragile over daily 8+ hour coding sessions, I'd stop using them. Also, if they pressed too hard against my over-ear headphones, that would be a dealbreaker."
+        },
+        {
+          "personaId": "0bf13ed6-c995-40c7-ac1d-be414a7ac7f2",
+          "personaName": "Ananya Roy",
+          "answer": "The yellow tint throwing off screen color accuracy is my main dealbreaker. In graphic design, precise color perception is non-negotiable, so any lens that distorts true RGB or Pantone shades stops me from using them for work."
+        },
+        {
+          "personaId": "fad877f3-e690-491c-a2c9-f73d9e5627a2",
+          "personaName": "Rohan Verma",
+          "answer": "The constant smudging is annoying. If I'm on back-to-back video calls and the lenses look greasy or reflect glare awkwardly on camera, I’d stop wearing them because maintaining a polished, professional look matters to me."
+        },
+        {
+          "personaId": "e36b76ed-777a-49af-b1a5-f4f5f9046c80",
+          "personaName": "Priya Nair",
+          "answer": "The cost relative to the actual benefit. Built-in night mode settings on my gaming monitor and phone do the same job for free, so paying a high price for glasses that don't give me any extra relief just isn't worth it."
+        },
+        {
+          "personaId": "54cc0528-3de9-4077-8404-70d26fff6656",
+          "personaName": "Vikram Mehta",
+          "answer": "Physical discomfort is my primary concern. The frames squeeze too tightly behind my ears after a few hours, and if wearing them causes a tension headache, it defeats the whole purpose of reducing fatigue."
+        },
+        {
+          "personaId": "2af74f81-bf95-48c4-9e93-4c4935f935a6",
+          "personaName": "Sneha Kulkarni",
+          "answer": "I’d stop using them if I realized they weren't actually filtering out harmful blue light wavelengths, or if the frames were flimsy and broke easily when tossed into my bag."
         }
       ]
     }
-  }
+  ]
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Insights.css";
 
 const API_URL = "http://127.0.0.1:5000";
@@ -29,7 +29,7 @@ function Insights({ personas }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          personas: personas,
+          personas,
         }),
       });
 
@@ -42,21 +42,20 @@ function Insights({ personas }) {
       }
 
       setInsights(data);
-
     } catch (err) {
       console.error("Insight generation error:", err);
 
       setError(
-        err.message || "Something went wrong while generating insights."
+        err.message ||
+          "Something went wrong while generating insights."
       );
-
     } finally {
       setLoading(false);
     }
   };
 
   // =========================================================
-  // AUTOMATICALLY GENERATE WHEN PERSONAS CHANGE
+  // AUTOMATIC GENERATION
   // =========================================================
 
   useEffect(() => {
@@ -70,25 +69,76 @@ function Insights({ personas }) {
   }, [personas]);
 
   // =========================================================
+  // HELPERS
+  // =========================================================
+
+  const safeNumber = (value, fallback = 0) => {
+    const number = Number(value);
+    return Number.isFinite(number) ? number : fallback;
+  };
+
+  const formatPercentage = (value) => {
+    return `${safeNumber(value)}%`;
+  };
+
+  const getDirectionClass = (direction) => {
+    if (!direction) return "";
+
+    const normalized = direction.toLowerCase();
+
+    if (normalized.includes("supports")) {
+      return "supports";
+    }
+
+    if (normalized.includes("challenges")) {
+      return "challenges";
+    }
+
+    return "adds-detail";
+  };
+
+  const getSentimentClass = (sentimentValue) => {
+    if (!sentimentValue) return "";
+
+    const value = String(sentimentValue).toLowerCase();
+
+    if (value.includes("positive")) return "positive";
+    if (value.includes("negative")) return "negative";
+
+    return "neutral";
+  };
+
+  // =========================================================
   // NO PERSONAS
   // =========================================================
 
   if (!personas || personas.length === 0) {
     return (
       <div className="insights-page">
+
         <div className="insights-header">
           <div>
+            <span className="eyebrow">AI RESEARCH ANALYSIS</span>
+
             <h1>Research Insights</h1>
 
             <p>
-              Generate personas first to analyze research insights.
+              Generate personas first to analyze survey and
+              interview research.
             </p>
           </div>
         </div>
 
         <div className="insights-error">
-          <p>{error}</p>
+          <div className="error-icon">!</div>
+
+          <h2>No Research Data</h2>
+
+          <p>
+            Generate personas before generating research insights.
+          </p>
         </div>
+
       </div>
     );
   }
@@ -103,22 +153,36 @@ function Insights({ personas }) {
 
         <div className="insights-header">
           <div>
+            <span className="eyebrow">AI RESEARCH ANALYSIS</span>
+
             <h1>Research Insights</h1>
 
             <p>
-              AI-generated analysis of your current persona research.
+              Analyzing survey responses and interview conversations.
             </p>
           </div>
         </div>
 
         <div className="insights-loading">
 
+          <div className="loading-orb">
+            <span>AI</span>
+          </div>
+
           <h2>Analyzing Persona Research...</h2>
 
           <p>
-            Gemini is analyzing persona preferences,
-            ratings, reasons, and interview responses.
+            Gemini is comparing persona preferences, ratings,
+            reasons, individual interviews, and all-persona
+            discussions.
           </p>
+
+          <div className="loading-steps">
+            <span>Survey Data</span>
+            <span>Individual Interviews</span>
+            <span>Group Interviews</span>
+            <span>Behavior Patterns</span>
+          </div>
 
         </div>
 
@@ -135,19 +199,20 @@ function Insights({ personas }) {
       <div className="insights-page">
 
         <div className="insights-header">
-
           <div>
+            <span className="eyebrow">AI RESEARCH ANALYSIS</span>
+
             <h1>Research Insights</h1>
 
             <p>
-              AI-generated insights from your current persona
-              research and interviews.
+              AI-generated analysis from your persona research.
             </p>
           </div>
-
         </div>
 
         <div className="insights-error">
+
+          <div className="error-icon">!</div>
 
           <h2>Unable to Generate Insights</h2>
 
@@ -167,7 +232,7 @@ function Insights({ personas }) {
   }
 
   // =========================================================
-  // WAITING FOR DATA
+  // WAITING
   // =========================================================
 
   if (!insights) {
@@ -176,6 +241,28 @@ function Insights({ personas }) {
 
   const productScore = insights.productScore || {};
   const sentiment = insights.sentiment || {};
+  const interviewStats = insights.interviewStats || {};
+
+  const totalPersonas =
+    safeNumber(productScore.total) || personas.length;
+
+  const interviewResponses =
+    safeNumber(interviewStats.individualInterviewResponses);
+
+  const allPersonaQuestions =
+    safeNumber(interviewStats.allPersonaQuestions);
+
+  const personasInterviewed =
+    safeNumber(interviewStats.personasInterviewed);
+
+  const personasInAllInterviews =
+    safeNumber(
+      interviewStats.personasInAllPersonaInterviews
+    );
+
+  // =========================================================
+  // MAIN UI
+  // =========================================================
 
   return (
     <div className="insights-page">
@@ -187,14 +274,16 @@ function Insights({ personas }) {
       <div className="insights-header">
 
         <div>
+          <span className="eyebrow">
+            AI RESEARCH ANALYSIS
+          </span>
 
           <h1>Research Insights</h1>
 
           <p>
-            AI-generated insights from your current persona
-            research and interviews.
+            AI-generated analysis combining survey responses,
+            individual interviews, and all-persona interviews.
           </p>
-
         </div>
 
         <button
@@ -211,71 +300,186 @@ function Insights({ personas }) {
 
 
       {/* =====================================================
+          DATA SOURCES
+      ===================================================== */}
+
+      <section className="data-source-strip">
+
+        <div className="source-item active">
+          <span className="source-icon">S</span>
+
+          <div>
+            <strong>Survey Research</strong>
+            <small>{totalPersonas} personas</small>
+          </div>
+        </div>
+
+        <div className="source-line"></div>
+
+        <div
+          className={`source-item ${
+            interviewResponses > 0 ? "active" : ""
+          }`}
+        >
+          <span className="source-icon">I</span>
+
+          <div>
+            <strong>Individual Interviews</strong>
+
+            <small>
+              {interviewResponses} responses
+            </small>
+          </div>
+        </div>
+
+        <div className="source-line"></div>
+
+        <div
+          className={`source-item ${
+            allPersonaQuestions > 0 ? "active" : ""
+          }`}
+        >
+          <span className="source-icon">G</span>
+
+          <div>
+            <strong>All-Persona Interviews</strong>
+
+            <small>
+              {allPersonaQuestions} questions
+            </small>
+          </div>
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
           PRODUCT SCORE
       ===================================================== */}
 
       <section className="insight-section">
 
-        <h2>Would Use This Product?</h2>
+        <div className="section-heading">
 
-        <div className="score-grid">
-
-          {/* WOULD USE */}
-
-          <div className="score-card">
-
-            <span className="score-value">
-              {productScore.wouldUsePercentage ?? 0}%
+          <div>
+            <span className="section-kicker">
+              PRODUCT RECEPTION
             </span>
 
-            <span className="score-label">
-              Would Use
-            </span>
+            <h2>
+              Would Users Choose This Product?
+            </h2>
+          </div>
+
+          <span className="section-badge">
+            {totalPersonas} personas analyzed
+          </span>
+
+        </div>
+
+
+        <div className="score-dashboard">
+
+          {/* MAIN SCORE */}
+
+          <div className="main-score-card">
+
+            <div className="score-ring">
+
+              <div className="score-ring-inner">
+
+                <strong>
+                  {productScore.wouldUsePercentage ?? 0}%
+                </strong>
+
+                <span>
+                  Would Use
+                </span>
+
+              </div>
+
+            </div>
+
+            <h3>Product Acceptance</h3>
+
+            <p>
+              Percentage of personas who indicated that
+              they would use or purchase the product.
+            </p>
 
           </div>
 
 
-          {/* PREFERRED */}
+          {/* SUPPORTING SCORES */}
 
-          <div className="score-card">
+          <div className="supporting-score-grid">
 
-            <span className="score-value">
-              {productScore.preferred ?? 0}
-            </span>
+            <div className="score-card">
 
-            <span className="score-label">
-              Preferred
-            </span>
+              <span className="score-card-icon">
+                ✓
+              </span>
 
-          </div>
+              <strong>
+                {productScore.preferred ?? 0}
+              </strong>
 
+              <span>
+                Preferred
+              </span>
 
-          {/* NOT PREFERRED */}
-
-          <div className="score-card">
-
-            <span className="score-value">
-              {productScore.notPreferred ?? 0}
-            </span>
-
-            <span className="score-label">
-              Not Preferred
-            </span>
-
-          </div>
+            </div>
 
 
-          {/* AVERAGE RATING */}
+            <div className="score-card">
 
-          <div className="score-card">
+              <span className="score-card-icon">
+                ×
+              </span>
 
-            <span className="score-value">
-              {productScore.averageRating ?? 0}/5
-            </span>
+              <strong>
+                {productScore.notPreferred ?? 0}
+              </strong>
 
-            <span className="score-label">
-              Average Rating
-            </span>
+              <span>
+                Not Preferred
+              </span>
+
+            </div>
+
+
+            <div className="score-card">
+
+              <span className="score-card-icon">
+                ★
+              </span>
+
+              <strong>
+                {productScore.averageRating ?? 0}/5
+              </strong>
+
+              <span>
+                Average Rating
+              </span>
+
+            </div>
+
+
+            <div className="score-card">
+
+              <span className="score-card-icon">
+                P
+              </span>
+
+              <strong>
+                {totalPersonas}
+              </strong>
+
+              <span>
+                Personas
+              </span>
+
+            </div>
 
           </div>
 
@@ -285,23 +489,233 @@ function Insights({ personas }) {
 
 
       {/* =====================================================
-          SUMMARY
+          KEY TAKEAWAY
       ===================================================== */}
 
       <section className="insight-section">
 
-        <h2>Overall Summary</h2>
+        <div className="takeaway-card">
 
-        <div className="summary-card">
+          <div className="takeaway-icon">
+            ✦
+          </div>
 
-          <p>
-            {insights.summary ||
-              "No summary was generated."}
-          </p>
+          <div>
+
+            <span className="section-kicker">
+              KEY TAKEAWAY
+            </span>
+
+            <h2>
+              What does the research tell us?
+            </h2>
+
+            <p>
+              {insights.summary ||
+                "No overall summary was generated."}
+            </p>
+
+          </div>
 
         </div>
 
       </section>
+
+
+      {/* =====================================================
+          INTERVIEW COVERAGE
+      ===================================================== */}
+
+      <section className="insight-section">
+
+        <div className="section-heading">
+
+          <div>
+            <span className="section-kicker">
+              INTERVIEW COVERAGE
+            </span>
+
+            <h2>
+              How Much Interview Data Was Analyzed?
+            </h2>
+          </div>
+
+        </div>
+
+
+        <div className="coverage-grid">
+
+          <div className="coverage-card">
+
+            <div className="coverage-top">
+              <span>Individual Interviews</span>
+
+              <strong>
+                {interviewResponses}
+              </strong>
+            </div>
+
+            <div className="coverage-bar">
+              <div
+                style={{
+                  width: `${Math.min(
+                    100,
+                    totalPersonas > 0
+                      ? (personasInterviewed /
+                          totalPersonas) *
+                          100
+                      : 0
+                  )}%`,
+                }}
+              />
+            </div>
+
+            <p>
+              {personasInterviewed} of{" "}
+              {totalPersonas} personas have
+              individual interview responses.
+            </p>
+
+          </div>
+
+
+          <div className="coverage-card">
+
+            <div className="coverage-top">
+              <span>All-Persona Interviews</span>
+
+              <strong>
+                {allPersonaQuestions}
+              </strong>
+            </div>
+
+            <div className="coverage-bar">
+              <div
+                style={{
+                  width:
+                    allPersonaQuestions > 0
+                      ? "100%"
+                      : "0%",
+                }}
+              />
+            </div>
+
+            <p>
+              {personasInAllInterviews} personas
+              contributed to group interview analysis.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          SURVEY VS INTERVIEW
+      ===================================================== */}
+
+      {Array.isArray(insights.surveyVsInterview) &&
+        insights.surveyVsInterview.length > 0 && (
+
+        <section className="insight-section">
+
+          <div className="section-heading">
+
+            <div>
+              <span className="section-kicker">
+                RESEARCH COMPARISON
+              </span>
+
+              <h2>
+                Survey vs Interview Findings
+              </h2>
+            </div>
+
+            <span className="section-badge">
+              Cross-source analysis
+            </span>
+
+          </div>
+
+
+          <div className="comparison-list">
+
+            {insights.surveyVsInterview.map(
+              (item, index) => {
+
+                const directionClass =
+                  getDirectionClass(
+                    item.direction
+                  );
+
+                return (
+                  <div
+                    className="comparison-card"
+                    key={index}
+                  >
+
+                    <div className="comparison-number">
+                      {index + 1}
+                    </div>
+
+                    <div className="comparison-content">
+
+                      <h3>
+                        {item.topic}
+                      </h3>
+
+                      <div className="comparison-columns">
+
+                        <div>
+                          <span className="comparison-label">
+                            Survey Signal
+                          </span>
+
+                          <p>
+                            {item.surveySignal}
+                          </p>
+                        </div>
+
+                        <div>
+                          <span className="comparison-label">
+                            Interview Signal
+                          </span>
+
+                          <p>
+                            {item.interviewSignal}
+                          </p>
+                        </div>
+
+                      </div>
+
+                      <div className="comparison-interpretation">
+
+                        <span
+                          className={`direction-badge ${directionClass}`}
+                        >
+                          {item.direction ||
+                            "Adds Detail"}
+                        </span>
+
+                        <p>
+                          {item.interpretation}
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+                );
+              }
+            )}
+
+          </div>
+
+        </section>
+      )}
 
 
       {/* =====================================================
@@ -310,57 +724,180 @@ function Insights({ personas }) {
 
       <section className="insight-section">
 
-        <h2>Sentiment Breakdown</h2>
+        <div className="section-heading">
 
-        <div className="sentiment-grid">
-
-          {/* POSITIVE */}
-
-          <div className="sentiment-card">
-
-            <span>
-              Positive
+          <div>
+            <span className="section-kicker">
+              INTERVIEW SENTIMENT
             </span>
 
-            <strong>
-              {sentiment.positive ?? 0}%
-            </strong>
+            <h2>
+              How Do Personas Feel?
+            </h2>
+          </div>
+
+        </div>
+
+
+        <div className="sentiment-dashboard">
+
+          <div className="sentiment-bar">
+
+            <div
+              className="sentiment-positive"
+              style={{
+                width: `${safeNumber(
+                  sentiment.positive
+                )}%`,
+              }}
+            />
+
+            <div
+              className="sentiment-neutral"
+              style={{
+                width: `${safeNumber(
+                  sentiment.neutral
+                )}%`,
+              }}
+            />
+
+            <div
+              className="sentiment-negative"
+              style={{
+                width: `${safeNumber(
+                  sentiment.negative
+                )}%`,
+              }}
+            />
 
           </div>
 
 
-          {/* NEUTRAL */}
+          <div className="sentiment-legend">
 
-          <div className="sentiment-card">
+            <div>
+              <span className="legend-dot positive"></span>
 
-            <span>
-              Neutral
-            </span>
+              <span>Positive</span>
 
-            <strong>
-              {sentiment.neutral ?? 0}%
-            </strong>
+              <strong>
+                {formatPercentage(
+                  sentiment.positive
+                )}
+              </strong>
+            </div>
 
-          </div>
+
+            <div>
+              <span className="legend-dot neutral"></span>
+
+              <span>Neutral</span>
+
+              <strong>
+                {formatPercentage(
+                  sentiment.neutral
+                )}
+              </strong>
+            </div>
 
 
-          {/* NEGATIVE */}
+            <div>
+              <span className="legend-dot negative"></span>
 
-          <div className="sentiment-card">
+              <span>Negative</span>
 
-            <span>
-              Negative
-            </span>
-
-            <strong>
-              {sentiment.negative ?? 0}%
-            </strong>
+              <strong>
+                {formatPercentage(
+                  sentiment.negative
+                )}
+              </strong>
+            </div>
 
           </div>
 
         </div>
 
       </section>
+
+
+      {/* =====================================================
+          INTERVIEW DISCOVERIES
+      ===================================================== */}
+
+      {Array.isArray(insights.interviewDiscoveries) &&
+        insights.interviewDiscoveries.length > 0 && (
+
+        <section className="insight-section">
+
+          <div className="section-heading">
+
+            <div>
+              <span className="section-kicker">
+                INTERVIEW DISCOVERIES
+              </span>
+
+              <h2>
+                What Did Interviews Reveal?
+              </h2>
+            </div>
+
+          </div>
+
+
+          <div className="discovery-grid">
+
+            {insights.interviewDiscoveries.map(
+              (discovery, index) => (
+
+                <div
+                  className="discovery-card"
+                  key={index}
+                >
+
+                  <div className="discovery-top">
+
+                    <span className="discovery-type">
+                      {discovery.type ||
+                        "Finding"}
+                    </span>
+
+                    <span className="discovery-number">
+                      0{index + 1}
+                    </span>
+
+                  </div>
+
+                  <h3>
+                    {discovery.title}
+                  </h3>
+
+                  <p>
+                    {discovery.description}
+                  </p>
+
+                  {discovery.evidence && (
+                    <div className="evidence-box">
+
+                      <span>
+                        Evidence
+                      </span>
+
+                      <p>
+                        {discovery.evidence}
+                      </p>
+
+                    </div>
+                  )}
+
+                </div>
+
+              )
+            )}
+
+          </div>
+
+        </section>
+      )}
 
 
       {/* =====================================================
@@ -369,7 +906,20 @@ function Insights({ personas }) {
 
       <section className="insight-section">
 
-        <h2>Recurring Themes</h2>
+        <div className="section-heading">
+
+          <div>
+            <span className="section-kicker">
+              RECURRING THEMES
+            </span>
+
+            <h2>
+              What Keeps Appearing Across Interviews?
+            </h2>
+          </div>
+
+        </div>
+
 
         <div className="themes-list">
 
@@ -377,39 +927,89 @@ function Insights({ personas }) {
           insights.themes.length > 0 ? (
 
             insights.themes.map(
-              (theme, index) => (
+              (theme, index) => {
 
-                <div
-                  className="theme-card"
-                  key={index}
-                >
+                const agreement =
+                  safeNumber(
+                    theme.agreement
+                  );
 
-                  <div className="theme-card-header">
+                return (
+                  <div
+                    className="theme-card"
+                    key={index}
+                  >
 
-                    <h3>
-                      {theme.theme}
-                    </h3>
+                    <div className="theme-card-header">
 
-                    <span className="theme-sentiment">
-                      {theme.sentiment}
-                    </span>
+                      <div className="theme-title-area">
+
+                        <span className="theme-number">
+                          {index + 1}
+                        </span>
+
+                        <h3>
+                          {theme.theme}
+                        </h3>
+
+                      </div>
+
+                      <span
+                        className={`theme-sentiment ${getSentimentClass(
+                          theme.sentiment
+                        )}`}
+                      >
+                        {theme.sentiment ||
+                          "Neutral"}
+                      </span>
+
+                    </div>
+
+
+                    <p>
+                      {theme.description}
+                    </p>
+
+
+                    <div className="theme-agreement">
+
+                      <div className="agreement-header">
+
+                        <span>
+                          Persona Agreement
+                        </span>
+
+                        <strong>
+                          {agreement}%
+                        </strong>
+
+                      </div>
+
+                      <div className="mini-progress">
+
+                        <div
+                          style={{
+                            width: `${Math.min(
+                              100,
+                              agreement
+                            )}%`,
+                          }}
+                        />
+
+                      </div>
+
+                    </div>
 
                   </div>
-
-                  <p>
-                    {theme.description}
-                  </p>
-
-                </div>
-
-              )
+                );
+              }
             )
 
           ) : (
 
-            <p>
+            <div className="empty-insight">
               No recurring themes were identified.
-            </p>
+            </div>
 
           )}
 
@@ -419,46 +1019,170 @@ function Insights({ personas }) {
 
 
       {/* =====================================================
-          AGREEMENT PATTERNS
+          AGREEMENT + DISAGREEMENT
       ===================================================== */}
 
       <section className="insight-section">
 
-        <h2>Agreement Patterns</h2>
+        <div className="two-column-insights">
 
-        <div className="insight-list">
+          {/* AGREEMENT */}
 
-          {Array.isArray(insights.agreementPatterns) &&
-          insights.agreementPatterns.length > 0 ? (
+          <div className="pattern-panel">
 
-            insights.agreementPatterns.map(
-              (pattern, index) => (
+            <div className="pattern-header">
 
-                <div
-                  className="list-item"
-                  key={index}
-                >
+              <div className="pattern-icon agreement">
+                ✓
+              </div>
 
-                  <span className="list-number">
-                    {index + 1}
-                  </span>
+              <div>
+                <span className="section-kicker">
+                  CONSENSUS
+                </span>
 
-                  <p>
-                    {pattern}
-                  </p>
+                <h2>
+                  Agreement Patterns
+                </h2>
+              </div>
 
-                </div>
+            </div>
 
-              )
-            )
 
-          ) : (
+            <div className="pattern-list">
 
-            <p>
-              No agreement patterns were identified.
-            </p>
+              {Array.isArray(
+                insights.agreementPatterns
+              ) &&
+              insights.agreementPatterns.length >
+                0 ? (
 
-          )}
+                insights.agreementPatterns.map(
+                  (pattern, index) => {
+
+                    const percentage =
+                      safeNumber(
+                        pattern.percentage
+                      );
+
+                    return (
+                      <div
+                        className="pattern-item"
+                        key={index}
+                      >
+
+                        <div className="pattern-item-top">
+
+                          <strong>
+                            {pattern.topic}
+                          </strong>
+
+                          <span>
+                            {percentage}%
+                          </span>
+
+                        </div>
+
+                        <div className="mini-progress">
+
+                          <div
+                            style={{
+                              width: `${Math.min(
+                                100,
+                                percentage
+                              )}%`,
+                            }}
+                          />
+
+                        </div>
+
+                        <p>
+                          {pattern.description}
+                        </p>
+
+                      </div>
+                    );
+                  }
+                )
+
+              ) : (
+
+                <p className="empty-text">
+                  No strong agreement patterns
+                  were identified.
+                </p>
+
+              )}
+
+            </div>
+
+          </div>
+
+
+          {/* DISAGREEMENT */}
+
+          <div className="pattern-panel">
+
+            <div className="pattern-header">
+
+              <div className="pattern-icon disagreement">
+                !
+              </div>
+
+              <div>
+                <span className="section-kicker">
+                  DIVERSITY
+                </span>
+
+                <h2>
+                  Disagreement Patterns
+                </h2>
+              </div>
+
+            </div>
+
+
+            <div className="pattern-list">
+
+              {Array.isArray(
+                insights.disagreementPatterns
+              ) &&
+              insights.disagreementPatterns.length >
+                0 ? (
+
+                insights.disagreementPatterns.map(
+                  (pattern, index) => (
+
+                    <div
+                      className="disagreement-item"
+                      key={index}
+                    >
+
+                      <strong>
+                        {pattern.topic}
+                      </strong>
+
+                      <p>
+                        {pattern.description}
+                      </p>
+
+                    </div>
+
+                  )
+                )
+
+              ) : (
+
+                <p className="empty-text">
+                  No major disagreement patterns
+                  were identified.
+                </p>
+
+              )}
+
+            </div>
+
+          </div>
 
         </div>
 
@@ -471,23 +1195,41 @@ function Insights({ personas }) {
 
       <section className="insight-section">
 
-        <h2>Behavioral Trends</h2>
+        <div className="section-heading">
 
-        <div className="insight-list">
+          <div>
+            <span className="section-kicker">
+              BEHAVIOR ANALYSIS
+            </span>
 
-          {Array.isArray(insights.behavioralTrends) &&
+            <h2>
+              Behavioral Trends
+            </h2>
+          </div>
+
+        </div>
+
+
+        <div className="behavior-grid">
+
+          {Array.isArray(
+            insights.behavioralTrends
+          ) &&
           insights.behavioralTrends.length > 0 ? (
 
             insights.behavioralTrends.map(
               (trend, index) => (
 
                 <div
-                  className="list-item"
+                  className="behavior-card"
                   key={index}
                 >
 
-                  <span className="list-number">
-                    {index + 1}
+                  <span className="behavior-number">
+                    {String(index + 1).padStart(
+                      2,
+                      "0"
+                    )}
                   </span>
 
                   <p>
@@ -501,9 +1243,9 @@ function Insights({ personas }) {
 
           ) : (
 
-            <p>
+            <div className="empty-insight">
               No behavioral trends were identified.
-            </p>
+            </div>
 
           )}
 
@@ -513,16 +1255,151 @@ function Insights({ personas }) {
 
 
       {/* =====================================================
+          INDIVIDUAL PERSONA FINDINGS
+      ===================================================== */}
+
+      {Array.isArray(
+        insights.individualPersonaInsights
+      ) &&
+      insights.individualPersonaInsights.length >
+        0 && (
+
+        <section className="insight-section">
+
+          <div className="section-heading">
+
+            <div>
+              <span className="section-kicker">
+                INDIVIDUAL PERSONA ANALYSIS
+              </span>
+
+              <h2>
+                Persona-by-Persona Interview Findings
+              </h2>
+
+              <p className="section-description">
+                Individual interview responses are compared
+                with each persona's original survey decision.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div className="individual-persona-grid">
+
+            {insights.individualPersonaInsights.map(
+              (personaInsight, index) => (
+
+                <div
+                  className="individual-persona-card"
+                  key={index}
+                >
+
+                  <div className="persona-insight-header">
+
+                    <div className="persona-avatar">
+                      {String(
+                        personaInsight.persona ||
+                          "P"
+                      )
+                        .charAt(0)
+                        .toUpperCase()}
+                    </div>
+
+                    <div>
+
+                      <h3>
+                        {personaInsight.persona}
+                      </h3>
+
+                      <span>
+                        Survey Rating:{" "}
+                        {personaInsight.surveyRating ??
+                          "N/A"}
+                        /5
+                      </span>
+
+                    </div>
+
+                  </div>
+
+
+                  <div className="persona-insight-status">
+
+                    <span
+                      className={`interview-sentiment ${getSentimentClass(
+                        personaInsight.interviewSentiment
+                      )}`}
+                    >
+                      {personaInsight.interviewSentiment ||
+                        "Neutral"}
+                    </span>
+
+                    <span
+                      className={
+                        personaInsight.supportsSurvey
+                          ? "survey-match"
+                          : "survey-difference"
+                      }
+                    >
+                      {personaInsight.supportsSurvey
+                        ? "Supports Survey"
+                        : "Different From Survey"}
+                    </span>
+
+                  </div>
+
+
+                  <div className="persona-finding">
+
+                    <span>
+                      Key Finding
+                    </span>
+
+                    <p>
+                      {personaInsight.keyFinding}
+                    </p>
+
+                  </div>
+
+                </div>
+
+              )
+            )}
+
+          </div>
+
+        </section>
+      )}
+
+
+      {/* =====================================================
           SEGMENT INSIGHTS
       ===================================================== */}
 
       <section className="insight-section">
 
-        <h2>Persona Segment Insights</h2>
+        <div className="section-heading">
+
+          <div>
+            <span className="section-kicker">
+              USER SEGMENTS
+            </span>
+
+            <h2>
+              Persona Segment Insights
+            </h2>
+          </div>
+
+        </div>
+
 
         <div className="segment-grid">
 
-          {Array.isArray(insights.segmentInsights) &&
+          {Array.isArray(
+            insights.segmentInsights
+          ) &&
           insights.segmentInsights.length > 0 ? (
 
             insights.segmentInsights.map(
@@ -533,13 +1410,46 @@ function Insights({ personas }) {
                   key={index}
                 >
 
-                  <h3>
-                    {segment.segment}
-                  </h3>
+                  <div className="segment-card-header">
+
+                    <span className="segment-index">
+                      {index + 1}
+                    </span>
+
+                    <h3>
+                      {segment.segment}
+                    </h3>
+
+                  </div>
+
 
                   <div className="segment-score">
-                    {segment.wouldUsePercentage ?? 0}%
+
+                    <strong>
+                      {segment.wouldUsePercentage ??
+                        0}%
+                    </strong>
+
+                    <span>
+                      would use
+                    </span>
+
                   </div>
+
+
+                  <div className="segment-rating">
+
+                    <span>
+                      Average Rating
+                    </span>
+
+                    <strong>
+                      {segment.averageRating ??
+                        0}/5
+                    </strong>
+
+                  </div>
+
 
                   <p>
                     {segment.reasoning}
@@ -552,11 +1462,82 @@ function Insights({ personas }) {
 
           ) : (
 
-            <p>
+            <div className="empty-insight">
               No segment insights were generated.
-            </p>
+            </div>
 
           )}
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          FINAL CONCLUSION
+      ===================================================== */}
+
+      <section className="insight-section">
+
+        <div className="final-conclusion">
+
+          <div className="final-conclusion-icon">
+            ✓
+          </div>
+
+          <div>
+
+            <span className="section-kicker">
+              RESEARCH CONCLUSION
+            </span>
+
+            <h2>
+              Overall Research Direction
+            </h2>
+
+            <p>
+              {insights.summary ||
+                "The research analysis is complete."}
+            </p>
+
+            <div className="conclusion-stats">
+
+              <div>
+                <strong>
+                  {productScore.wouldUsePercentage ??
+                    0}%
+                </strong>
+
+                <span>
+                  Would Use
+                </span>
+              </div>
+
+              <div>
+                <strong>
+                  {productScore.averageRating ??
+                    0}/5
+                </strong>
+
+                <span>
+                  Average Rating
+                </span>
+              </div>
+
+              <div>
+                <strong>
+                  {interviewResponses +
+                    allPersonaQuestions}
+                </strong>
+
+                <span>
+                  Interview Data Points
+                </span>
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
