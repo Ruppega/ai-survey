@@ -1,134 +1,159 @@
 {
   "personas": {
-    "95974fc2-acae-4c36-96a1-7317cd030e75": {
+    "9faf3433-9bf9-4154-a67d-566b788c4b57": {
       "profile": {
-        "name": "Aarav Sharma",
+        "name": "Marcus Vance",
         "gender": "Male",
-        "age": 24,
-        "occupation": "Software Engineer",
-        "personality": "Detail-oriented and pragmatic",
+        "age": 34,
+        "occupation": "Personal Trainer",
+        "personality": "Health-conscious, energetic, and disciplined",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "Noticed a significant reduction in eye strain and headaches after 8+ hour coding sessions. Very lightweight and genuinely useful for long computer work.",
-        "id": "95974fc2-acae-4c36-96a1-7317cd030e75"
-      },
-      "conversation": []
-    },
-    "0bf13ed6-c995-40c7-ac1d-be414a7ac7f2": {
-      "profile": {
-        "name": "Ananya Roy",
-        "gender": "Female",
-        "age": 21,
-        "occupation": "Graphic Design Student",
-        "personality": "Creative and skeptical",
-        "buyDecision": "No",
-        "rating": 2,
-        "reason": "The slight yellow tint alters color perception on screen, which messes up my design work. While they reduced glare, they were not useful for color-critical tasks.",
-        "id": "0bf13ed6-c995-40c7-ac1d-be414a7ac7f2"
+        "reason": "I'm always looking for ways to enjoy comfort foods like fries and wings without sabotaging my daily macros and fitness goals. The 90% less oil claim makes it a no-brainer for my meal prep.",
+        "id": "9faf3433-9bf9-4154-a67d-566b788c4b57"
       },
       "conversation": [
         {
           "mode": "individual",
-          "question": "why do you feel bad about it ..doesn't it make any changes to you",
-          "answer": "Look, it did cut down on the glare a bit, I'll give it that. But as a graphic design student, my entire work depends on color accuracy. The yellow tint completely distorts how colors actually look on my screen, which means I can't trust what I'm designing while wearing them. So while it technically made a change, it actually made my work harder, not easier. I can't be guessing hex codes just to relieve a little eye strain."
-        },
-        {
-          "mode": "individual",
-          "question": "what are the changes would you like to do in it ..so that it helps you",
-          "answer": "First and foremost, get rid of the yellow tint completely. I need lenses that are 100% color-neutral—clear lenses with a high-quality anti-reflective coating that cuts glare without shifting hues or saturation. \n\nIf filtering blue light inherently requires a tint, then maybe design a flip-up frame so I can quickly check true colors without taking the glasses off every two minutes. But honestly, unless they can guarantee zero color distortion, I just can't use them for my work."
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "For me, it all comes down to hitting my macros without sacrificing taste. I track everything I eat for my clients and my own training, so if I’m having something like wings or fries during meal prep, I need to know it’s not going to wreck my calorie deficit or protein-to-fat ratio. The big selling point for me with this is the 90% less oil claim—if I can get that same crispy texture and comfort-food fix with a fraction of the fat, that's an absolute game-changer for my routine."
         }
       ]
     },
-    "fad877f3-e690-491c-a2c9-f73d9e5627a2": {
+    "948fc7fb-c2e9-407d-b13b-045fd381ca1d": {
       "profile": {
-        "name": "Rohan Verma",
-        "gender": "Male",
+        "name": "Elena Rostova",
+        "gender": "Female",
+        "age": 42,
+        "occupation": "Corporate Attorney",
+        "personality": "Busy, analytical, and efficiency-driven",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "While I appreciate the health benefits, I already own a convection oven and a multi-cooker. Counter space is at a premium in my apartment, and another single-purpose appliance just isn't worth the clutter.",
+        "id": "948fc7fb-c2e9-407d-b13b-045fd381ca1d"
+      },
+      "conversation": [
+        {
+          "mode": "individual",
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "For me, it comes down to utility versus footprint. Because I work long hours at the firm, I value efficiency and health, but my time and kitchen space are both extremely limited. Any new appliance has to earn its keep by either replacing something I already own or offering undeniable, multi-functional value. If it's just going to take up precious counter space for a single task, it's an immediate no."
+        }
+      ]
+    },
+    "05c43dd9-29ec-4891-acba-d203c5cfe883": {
+      "profile": {
+        "name": "Devon Taylor",
+        "gender": "Non-binary",
         "age": 28,
-        "occupation": "Digital Marketer",
-        "personality": "Trendy and fast-paced",
+        "occupation": "Graphic Designer",
+        "personality": "Creative, trend-aware, and budget-conscious",
         "buyDecision": "Yes",
         "rating": 4,
-        "reason": "They look stylish on video calls and effectively keep my eyes fresh during long campaign launches. The lenses smudge easily, but overall they are very useful.",
-        "id": "fad877f3-e690-491c-a2c9-f73d9e5627a2"
+        "reason": "I love the idea of eating healthier, but deep-frying at home feels messy and wasteful with oil. An air fryer seems like a fun, quick way to cook vegetables and snacks after a long day of design work.",
+        "id": "05c43dd9-29ec-4891-acba-d203c5cfe883"
       },
-      "conversation": []
+      "conversation": [
+        {
+          "mode": "individual",
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "Honestly, for me, it really comes down to how easy it is to clean and whether it looks decent sitting on my kitchen counter. Since I work long hours, the last thing I want to deal with when I get home is scrubbing some overly complicated, ugly appliance. It needs to be quick, low-maintenance, and not an eyesore in my small apartment."
+        }
+      ]
     },
-    "e36b76ed-777a-49af-b1a5-f4f5f9046c80": {
+    "dc74af19-0f89-4e1f-b333-be94b8a67f19": {
       "profile": {
-        "name": "Priya Nair",
+        "name": "Sarah Jenkins",
         "gender": "Female",
-        "age": 19,
-        "occupation": "Undergraduate Student & Gamer",
-        "personality": "Budget-conscious and blunt",
-        "buyDecision": "No",
-        "rating": 1,
-        "reason": "I noticed zero difference in eye fatigue during late-night gaming sessions compared to just using night-mode settings on my monitor. Not useful enough to justify the price.",
-        "id": "e36b76ed-777a-49af-b1a5-f4f5f9046c80"
-      },
-      "conversation": []
-    },
-    "54cc0528-3de9-4077-8404-70d26fff6656": {
-      "profile": {
-        "name": "Vikram Mehta",
-        "gender": "Male",
-        "age": 26,
-        "occupation": "Financial Analyst",
-        "personality": "Analytical and cautious",
-        "buyDecision": "Yes",
-        "rating": 3,
-        "reason": "They moderately help with dry eyes when staring at spreadsheets, but the frames felt tight behind my ears after 4 hours. Somewhat useful, but comfort could be improved.",
-        "id": "54cc0528-3de9-4077-8404-70d26fff6656"
-      },
-      "conversation": []
-    },
-    "2af74f81-bf95-48c4-9e93-4c4935f935a6": {
-      "profile": {
-        "name": "Sneha Kulkarni",
-        "gender": "Female",
-        "age": 23,
-        "occupation": "Content Writer",
-        "personality": "Enthusiastic and health-conscious",
+        "age": 39,
+        "occupation": "Stay-at-Home Mom",
+        "personality": "Nurturing, practical, and family-oriented",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "My sleep quality noticeably improved after wearing these during evening writing sprints. They look cute, feel comfortable, and eliminated my usual end-of-day eye burning.",
-        "id": "2af74f81-bf95-48c4-9e93-4c4935f935a6"
+        "reason": "Feeding two picky kids who love chicken nuggets and fries is exhausting. If I can give them the crispy textures they crave while secretly cutting down on fat and oil, I'm sold immediately.",
+        "id": "dc74af19-0f89-4e1f-b333-be94b8a67f19"
       },
-      "conversation": []
+      "conversation": [
+        {
+          "mode": "individual",
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "For me, it honestly comes down to two things: how fast it is and whether the kids will actually eat it without complaining. With two hungry kids running around, I don't have time to mess around with complicated settings or cleanup. If I can pop something in, get that crispy texture they want in a few minutes, and know it's a bit healthier than deep frying, that's a total win in my book."
+        }
+      ]
+    },
+    "cb7c9f0d-ab5c-44e7-be4f-5746cdcea35c": {
+      "profile": {
+        "name": "Kenji Sato",
+        "gender": "Male",
+        "age": 47,
+        "occupation": "Executive Chef",
+        "personality": "Traditional, perfectionist, and culinary-focused",
+        "buyDecision": "No",
+        "rating": 1,
+        "reason": "Nothing replaces the authentic flavor, texture, and caramelization achieved by traditional frying methods. Air fryers essentially just bake food with a fan; it's a marketing gimmick rather than a true cooking upgrade.",
+        "id": "cb7c9f0d-ab5c-44e7-be4f-5746cdcea35c"
+      },
+      "conversation": [
+        {
+          "mode": "individual",
+          "question": "What concerns would stop you from using it?",
+          "answer": "What stops me? The entire premise of the machine is a compromise on quality. A convection fan cannot replicate the Maillard reaction or the proper lipid-to-heat transfer of deep frying—it just dehydrates the exterior while leaving the interior cotton-dry. Cooking is about respect for technique, flavor, and texture, not shortcuts. When you use an air fryer, you aren't frying anything; you're just operating a glorified, overpriced tabletop convection oven, and I have no interest in serving food that tastes like it was blown dry by a hair dryer."
+        }
+      ]
+    },
+    "6476e2cd-2b84-4125-9e57-aa815b4dc09f": {
+      "profile": {
+        "name": "Chloe Bennett",
+        "gender": "Female",
+        "age": 26,
+        "occupation": "Junior Accountant",
+        "personality": "Cautious, frugal, and easily overwhelmed",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "I want to eat healthier, but I'm worried I won't actually use it enough to justify the cost and learning curve. I'd rather stick to my stovetop and oven until I'm more confident in my cooking habits.",
+        "id": "6476e2cd-2b84-4125-9e57-aa815b4dc09f"
+      },
+      "conversation": [
+        {
+          "mode": "individual",
+          "question": "What concerns would stop you from using it?",
+          "answer": "Honestly, I just worry I'm going to spend the money and it'll end up sitting on my counter collecting dust, or worse, buried in a cabinet because I got too stressed trying to figure out how to use it. With my tight budget, I can't afford to waste money on something that has a steep learning curve. Plus, I get really overwhelmed when appliances have too many buttons and digital menus. My regular stovetop and oven just feel safer and easier for now."
+        }
+      ]
     }
   },
   "allPersonaInterviews": [
     {
-      "question": "What concerns would stop you from using it?",
+      "question": "What would make you choose this product?",
       "responses": [
         {
-          "personaId": "95974fc2-acae-4c36-96a1-7317cd030e75",
-          "personaName": "Aarav Sharma",
-          "answer": "If the lens coating scratched easily or if the frame material proved fragile over daily 8+ hour coding sessions, I'd stop using them. Also, if they pressed too hard against my over-ear headphones, that would be a dealbreaker."
+          "personaId": "9faf3433-9bf9-4154-a67d-566b788c4b57",
+          "personaName": "Marcus Vance",
+          "answer": "Honestly, seeing concrete proof that it fits seamlessly into my weekly meal prep without ruining my macros is what sold me. The 90% less oil claim means I can still enjoy wings and fries while staying strictly on track with my fitness goals."
         },
         {
-          "personaId": "0bf13ed6-c995-40c7-ac1d-be414a7ac7f2",
-          "personaName": "Ananya Roy",
-          "answer": "The yellow tint throwing off screen color accuracy is my main dealbreaker. In graphic design, precise color perception is non-negotiable, so any lens that distorts true RGB or Pantone shades stops me from using them for work."
+          "personaId": "948fc7fb-c2e9-407d-b13b-045fd381ca1d",
+          "personaName": "Elena Rostova",
+          "answer": "It would need to be a multi-functional appliance that actually replaces two or three of the kitchen gadgets I already own. Since counter space in my apartment is practically nonexistent, another single-purpose machine is a hard no for me."
         },
         {
-          "personaId": "fad877f3-e690-491c-a2c9-f73d9e5627a2",
-          "personaName": "Rohan Verma",
-          "answer": "The constant smudging is annoying. If I'm on back-to-back video calls and the lenses look greasy or reflect glare awkwardly on camera, I’d stop wearing them because maintaining a polished, professional look matters to me."
+          "personaId": "05c43dd9-29ec-4891-acba-d203c5cfe883",
+          "personaName": "Devon Taylor",
+          "answer": "For me, it’s about making weeknight cooking fast and totally mess-free. I hate dealing with leftover cooking oil, so knowing this gives me a quick, easy way to roast veggies and snacks after a long day at my desk made it an easy yes."
         },
         {
-          "personaId": "e36b76ed-777a-49af-b1a5-f4f5f9046c80",
-          "personaName": "Priya Nair",
-          "answer": "The cost relative to the actual benefit. Built-in night mode settings on my gaming monitor and phone do the same job for free, so paying a high price for glasses that don't give me any extra relief just isn't worth it."
+          "personaId": "dc74af19-0f89-4e1f-b333-be94b8a67f19",
+          "personaName": "Sarah Jenkins",
+          "answer": "It had to solve the daily dinner battle with my picky kids. If a product lets me serve up the crispy chicken nuggets and fries they love while secretly cutting down on fat and oil, I'm sold in a heartbeat."
         },
         {
-          "personaId": "54cc0528-3de9-4077-8404-70d26fff6656",
-          "personaName": "Vikram Mehta",
-          "answer": "Physical discomfort is my primary concern. The frames squeeze too tightly behind my ears after a few hours, and if wearing them causes a tension headache, it defeats the whole purpose of reducing fatigue."
+          "personaId": "cb7c9f0d-ab5c-44e7-be4f-5746cdcea35c",
+          "personaName": "Kenji Sato",
+          "answer": "Frankly, nothing would make me choose it. As a chef, I know that circulating hot air is just convection baking; it can never replicate the genuine Maillard reaction, caramelization, and deep-fried texture of traditional methods. It's just a marketing gimmick."
         },
         {
-          "personaId": "2af74f81-bf95-48c4-9e93-4c4935f935a6",
-          "personaName": "Sneha Kulkarni",
-          "answer": "I’d stop using them if I realized they weren't actually filtering out harmful blue light wavelengths, or if the frames were flimsy and broke easily when tossed into my bag."
+          "personaId": "6476e2cd-2b84-4125-9e57-aa815b4dc09f",
+          "personaName": "Chloe Bennett",
+          "answer": "I'd need foolproof proof that it's genuinely easy to use and clean without a massive learning curve. Since I'm on a strict budget and easily overwhelmed in the kitchen, I have to be 100% sure I won't just let it collect dust on my counter."
         }
       ]
     }
