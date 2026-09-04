@@ -6,10 +6,6 @@ import time
 from gemini import generate
 
 
-# =========================================================
-# CONFIGURATION
-# =========================================================
-
 MEMORY_FILE = "memory.json"
 
 
@@ -19,46 +15,34 @@ MEMORY_FILE = "memory.json"
 
 def load_memory():
     """
-    Load persistent interview memory.
+    Load the persistent interview memory.
 
-    Expected structure:
-
-    memory = {
-        "personas": {
-            "persona_id": {
-                "profile": {...},
-                "conversation": [
-                    {
-                        "question": "...",
-                        "answer": "...",
-                        "timestamp": ...
-                    }
-                ]
-            }
+    The current agent.py stores:
+        memory["personas"][persona_id] = {
+            "profile": {...},
+            "conversation": [...]
         }
-    }
+
+    This Insights Agent reads that structure directly.
     """
 
     if not os.path.exists(MEMORY_FILE):
-        print("[Insights] memory.json not found.")
-
         return {
             "personas": {},
             "allPersonaInterviews": []
         }
 
     try:
+
         with open(
             MEMORY_FILE,
             "r",
             encoding="utf-8"
-        ) as file:
+        ) as f:
 
-            content = file.read().strip()
+            content = f.read().strip()
 
         if not content:
-            print("[Insights] memory.json is empty.")
-
             return {
                 "personas": {},
                 "allPersonaInterviews": []
@@ -67,8 +51,6 @@ def load_memory():
         memory = json.loads(content)
 
         if not isinstance(memory, dict):
-            print("[Insights] memory.json root is not an object.")
-
             return {
                 "personas": {},
                 "allPersonaInterviews": []
@@ -79,23 +61,10 @@ def load_memory():
 
         return memory
 
-    except json.JSONDecodeError as e:
-
-        print(
-            "[Insights] Invalid JSON in memory.json:",
-            str(e)
-        )
-
-        return {
-            "personas": {},
-            "allPersonaInterviews": []
-        }
-
     except Exception as e:
 
         print(
-            "[Insights] Memory loading error:",
-            type(e).__name__,
+            "Memory loading error:",
             str(e)
         )
 
@@ -113,129 +82,50 @@ def call_gemini(prompt, max_retries=3):
 
     """
     Call Gemini with retry handling.
-
-    IMPORTANT:
-    This version does NOT hide the original Gemini error.
-    The real error is printed in the Flask terminal.
     """
-
-    last_error = None
 
     for attempt in range(max_retries):
 
         try:
 
-            print()
-            print("========================================")
-            print(
-                f"Calling Gemini for insights "
-                f"(attempt {attempt + 1}/{max_retries})"
-            )
-            print("========================================")
-
             response = generate(prompt)
 
-            if response is None:
-                raise Exception(
-                    "Gemini returned an empty response."
-                )
-
-            # Gemini response object
             if hasattr(response, "text"):
+                return response.text
 
-                text = response.text
-
-                if text and str(text).strip():
-
-                    print(
-                        "[Insights] Gemini response received."
-                    )
-
-                    return str(text).strip()
-
-                raise Exception(
-                    "Gemini response contained no text."
-                )
-
-            # String response
-            response_text = str(response).strip()
-
-            if response_text:
-
-                print(
-                    "[Insights] Gemini response received."
-                )
-
-                return response_text
-
-            raise Exception(
-                "Gemini returned an empty response."
-            )
+            return str(response)
 
         except Exception as e:
 
-            last_error = e
-
-            print()
-            print("========================================")
-            print("          GEMINI API ERROR")
-            print("========================================")
-
-            print("Attempt:")
-            print(
-                f"{attempt + 1}/{max_retries}"
-            )
-
-            print()
-
-            print("Error type:")
-            print(type(e).__name__)
-
-            print()
-
-            print("Error message:")
-            print(str(e))
-
-            print()
-            print("========================================")
-            print()
-
             error_text = str(e).upper()
 
-            # Temporary / rate-limit errors
             temporary_error = any(
                 code in error_text
-                for code in [
+                for code in (
                     "429",
                     "RESOURCE_EXHAUSTED",
                     "503",
                     "UNAVAILABLE",
-                    "SERVICE UNAVAILABLE",
-                    "DEADLINE",
-                    "TIMEOUT"
-                ]
+                    "SERVICE UNAVAILABLE"
+                )
+            )
+
+            print(
+                f"Gemini error on attempt "
+                f"{attempt + 1}: {e}"
             )
 
             if not temporary_error:
-
-                # Do not retry errors such as:
-                # invalid API key
-                # invalid model
-                # invalid request
-                # malformed request
-
                 raise
 
             if attempt < max_retries - 1:
 
-                wait_time = 5 * (attempt + 1)
-
-                print(
-                    f"[Insights] Temporary Gemini error."
+                wait_time = 5 * (
+                    attempt + 1
                 )
 
                 print(
-                    f"[Insights] Retrying in "
+                    f"Retrying Gemini in "
                     f"{wait_time} seconds..."
                 )
 
@@ -243,24 +133,10 @@ def call_gemini(prompt, max_retries=3):
 
             else:
 
-                print(
-                    "[Insights] Gemini failed after "
-                    f"{max_retries} attempts."
-                )
-
-    # If we reach here, preserve the real exception.
-    if last_error:
-
-        raise Exception(
-            "Gemini Insights Agent failed after "
-            f"{max_retries} attempts: "
-            f"{type(last_error).__name__}: "
-            f"{str(last_error)}"
-        ) from last_error
-
-    raise Exception(
-        "Gemini Insights Agent failed unexpectedly."
-    )
+                raise Exception(
+                    "Gemini is temporarily unavailable. "
+                    "Please try again later."
+                ) from e
 
 
 # =========================================================
@@ -269,38 +145,12 @@ def call_gemini(prompt, max_retries=3):
 
 def parse_json_response(response):
 
-    """
-    Safely parse JSON returned by Gemini.
-
-    Handles:
-    - normal JSON
-    - ```json ... ```
-    - ``` ... ```
-    - JSON embedded in additional text
-    """
-
-    if response is None:
-
-        raise Exception(
-            "Gemini returned no response."
-        )
-
     if hasattr(response, "text"):
-
         response = response.text
 
     response = str(response).strip()
 
-    if not response:
-
-        raise Exception(
-            "Gemini returned an empty response."
-        )
-
-    # -----------------------------------------------------
     # Remove markdown code fences
-    # -----------------------------------------------------
-
     response = re.sub(
         r"^```json\s*",
         "",
@@ -322,10 +172,7 @@ def parse_json_response(response):
 
     response = response.strip()
 
-    # -----------------------------------------------------
     # Direct JSON
-    # -----------------------------------------------------
-
     try:
 
         return json.loads(response)
@@ -333,75 +180,50 @@ def parse_json_response(response):
     except json.JSONDecodeError:
         pass
 
-    # -----------------------------------------------------
-    # Extract JSON object
-    # -----------------------------------------------------
+    # Try extracting an object
+    object_match = re.search(
+        r"\{.*\}",
+        response,
+        re.DOTALL
+    )
 
-    first_object = response.find("{")
-    last_object = response.rfind("}")
-
-    if (
-        first_object != -1
-        and last_object != -1
-        and last_object > first_object
-    ):
-
-        possible_json = response[
-            first_object:last_object + 1
-        ]
+    if object_match:
 
         try:
 
             return json.loads(
-                possible_json
+                object_match.group()
             )
 
         except json.JSONDecodeError:
             pass
 
-    # -----------------------------------------------------
-    # Extract JSON array
-    # -----------------------------------------------------
+    # Try extracting an array
+    array_match = re.search(
+        r"\[.*\]",
+        response,
+        re.DOTALL
+    )
 
-    first_array = response.find("[")
-    last_array = response.rfind("]")
-
-    if (
-        first_array != -1
-        and last_array != -1
-        and last_array > first_array
-    ):
-
-        possible_json = response[
-            first_array:last_array + 1
-        ]
+    if array_match:
 
         try:
 
             return json.loads(
-                possible_json
+                array_match.group()
             )
 
         except json.JSONDecodeError:
             pass
 
-    # -----------------------------------------------------
-    # Failed
-    # -----------------------------------------------------
-
-    print()
-    print("========================================")
-    print("GEMINI RETURNED INVALID JSON")
-    print("========================================")
+    print(
+        "Gemini returned invalid JSON:"
+    )
 
     print(response)
 
-    print("========================================")
-    print()
-
     raise Exception(
-        "Insights Agent received invalid JSON "
-        "from Gemini."
+        "Insights Agent received invalid JSON."
     )
 
 
@@ -412,22 +234,14 @@ def parse_json_response(response):
 def normalize_question(question):
 
     """
-    Normalize interview questions.
-
-    Example:
-
-    "What features do you like?"
-    " what features do you like? "
-
-    become the same normalized question.
+    Normalize interview questions so that the same
+    all-persona question can be detected across personas.
     """
 
     if not question:
         return ""
 
-    question = str(
-        question
-    ).strip().lower()
+    question = str(question).strip().lower()
 
     question = re.sub(
         r"\s+",
@@ -439,18 +253,12 @@ def normalize_question(question):
 
 
 # =========================================================
-# BUILD CURRENT PERSONAS
+# BUILD CURRENT PERSONA DATA
 # =========================================================
 
 def build_current_personas(personas):
 
     current_personas = []
-
-    if not isinstance(personas, list):
-
-        raise Exception(
-            "Personas must be provided as a list."
-        )
 
     for persona in personas:
 
@@ -458,18 +266,13 @@ def build_current_personas(personas):
             continue
 
         persona_id = str(
-            persona.get(
-                "id",
-                ""
-            )
+            persona.get("id", "")
         ).strip()
 
         if not persona_id:
             continue
 
-        current_personas.append(
-            persona
-        )
+        current_personas.append(persona)
 
     if not current_personas:
 
@@ -493,9 +296,6 @@ def calculate_survey_statistics(
     )
 
     preferred = 0
-
-    not_preferred = 0
-
     ratings = []
 
     for persona in current_personas:
@@ -508,25 +308,7 @@ def calculate_survey_statistics(
         ).strip().lower()
 
         if decision == "yes":
-
             preferred += 1
-
-        elif decision == "no":
-
-            not_preferred += 1
-
-    # Safety correction
-    if preferred + not_preferred < total_personas:
-
-        not_preferred = (
-            total_personas - preferred
-        )
-
-    # -----------------------------------------------------
-    # Ratings
-    # -----------------------------------------------------
-
-    for persona in current_personas:
 
         try:
 
@@ -538,66 +320,39 @@ def calculate_survey_statistics(
             )
 
             if 1 <= rating <= 5:
-
-                ratings.append(
-                    rating
-                )
+                ratings.append(rating)
 
         except (
             ValueError,
             TypeError
         ):
 
-            continue
+            pass
 
-    # -----------------------------------------------------
-    # Percentage
-    # -----------------------------------------------------
+    not_preferred = (
+        total_personas - preferred
+    )
 
-    if total_personas > 0:
+    would_use_percentage = round(
+        (
+            preferred /
+            total_personas
+        ) * 100,
+        1
+    ) if total_personas else 0
 
-        would_use_percentage = round(
-            (
-                preferred /
-                total_personas
-            ) * 100,
-            1
-        )
-
-    else:
-
-        would_use_percentage = 0
-
-    # -----------------------------------------------------
-    # Average rating
-    # -----------------------------------------------------
-
-    if ratings:
-
-        average_rating = round(
-            sum(ratings) /
-            len(ratings),
-            1
-        )
-
-    else:
-
-        average_rating = 0
+    average_rating = round(
+        sum(ratings) /
+        len(ratings),
+        1
+    ) if ratings else 0
 
     return {
-
-        "totalPersonas":
-            total_personas,
-
-        "preferred":
-            preferred,
-
-        "notPreferred":
-            not_preferred,
-
+        "totalPersonas": total_personas,
+        "preferred": preferred,
+        "notPreferred": not_preferred,
         "wouldUsePercentage":
             would_use_percentage,
-
         "averageRating":
             average_rating
     }
@@ -607,401 +362,158 @@ def calculate_survey_statistics(
 # INTERVIEW EXTRACTION
 # =========================================================
 
-def extract_interviews(
-    current_personas
-):
-
+def extract_interviews(current_personas):
     """
-    Extract interview conversations belonging ONLY
-    to the current personas.
+    Extract interview data for the CURRENT experiment.
 
-    Current agent.py stores interviews under:
+    New records are stored explicitly by mode:
+      - individual interviews -> persona conversation with mode=individual
+      - all-persona interviews -> memory[allPersonaInterviews]
 
-        memory["personas"][persona_id]["conversation"]
-
-    Since older records do not contain an explicit
-    interview mode, repeated questions across multiple
-    personas are treated as all-persona interview questions.
+    Older records without mode are treated as individual records. This is
+    intentional: an individual interview must never disappear merely because
+    another persona was asked the same question.
     """
 
     memory = load_memory()
-
-    memory_personas = memory.get(
-        "personas",
-        {}
-    )
-
-    if not isinstance(
-        memory_personas,
-        dict
-    ):
-
-        memory_personas = {}
-
-    # -----------------------------------------------------
-    # Current persona IDs
-    # -----------------------------------------------------
-
-    current_ids = {
-
-        str(
-            persona.get(
-                "id",
-                ""
-            )
-        ).strip()
-
-        for persona in current_personas
-
-        if persona.get("id")
-    }
-
-    print()
-    print(
-        "[Insights] Current persona IDs:",
-        list(current_ids)
-    )
-
-    # -----------------------------------------------------
-    # Collect conversations
-    # -----------------------------------------------------
-
-    conversations = {}
-
-    for persona in current_personas:
-
-        persona_id = str(
-            persona.get(
-                "id",
-                ""
-            )
-        ).strip()
-
-        stored = memory_personas.get(
-            persona_id
-        )
-
-        if not isinstance(
-            stored,
-            dict
-        ):
-
-            conversations[
-                persona_id
-            ] = []
-
-            continue
-
-        conversation = stored.get(
-            "conversation",
-            []
-        )
-
-        if not isinstance(
-            conversation,
-            list
-        ):
-
-            conversation = []
-
-        conversations[
-            persona_id
-        ] = conversation
-
-    # -----------------------------------------------------
-    # Debug conversation counts
-    # -----------------------------------------------------
-
-    print(
-        "[Insights] Conversation counts:"
-    )
-
-    for persona_id, conversation in conversations.items():
-
-        print(
-            f"  {persona_id}: "
-            f"{len(conversation)} records"
-        )
-
-    # -----------------------------------------------------
-    # Count question occurrences
-    # -----------------------------------------------------
-
-    question_occurrences = {}
-
-    for persona_id, conversation in conversations.items():
-
-        for item in conversation:
-
-            if not isinstance(
-                item,
-                dict
-            ):
-
-                continue
-
-            question = str(
-                item.get(
-                    "question",
-                    ""
-                )
-            ).strip()
-
-            answer = str(
-                item.get(
-                    "answer",
-                    ""
-                )
-            ).strip()
-
-            if not question or not answer:
-                continue
-
-            normalized = normalize_question(
-                question
-            )
-
-            if not normalized:
-                continue
-
-            if normalized not in question_occurrences:
-
-                question_occurrences[
-                    normalized
-                ] = {
-
-                    "question":
-                        question,
-
-                    "personas":
-                        []
-                }
-
-            question_occurrences[
-                normalized
-            ]["personas"].append(
-                persona_id
-            )
-
-    # -----------------------------------------------------
-    # Identify all-persona questions
-    # -----------------------------------------------------
-
-    all_persona_questions = {
-
-        question_key
-
-        for question_key, data
-        in question_occurrences.items()
-
-        if len(
-            set(
-                data["personas"]
-            )
-        ) >= 2
-    }
-
-    print(
-        "[Insights] Unique interview questions:",
-        len(question_occurrences)
-    )
-
-    print(
-        "[Insights] Detected all-persona questions:",
-        len(all_persona_questions)
-    )
-
-    # -----------------------------------------------------
-    # Separate interviews
-    # -----------------------------------------------------
+    memory_personas = memory.get("personas", {})
 
     individual_interviews = []
-
     all_persona_interviews = []
+    grouped_questions = {}
 
-    for persona in current_personas:
+    current_ids = {
+        str(persona.get("id", "")).strip()
+        for persona in current_personas
+        if isinstance(persona, dict) and str(persona.get("id", "")).strip()
+    }
 
-        persona_id = str(
-            persona.get(
-                "id",
-                ""
-            )
-        ).strip()
+    persona_by_id = {
+        str(persona.get("id")).strip(): persona
+        for persona in current_personas
+        if isinstance(persona, dict) and str(persona.get("id", "")).strip()
+    }
 
-        conversation = conversations.get(
-            persona_id,
-            []
-        )
+    # -----------------------------------------------------
+    # INDIVIDUAL INTERVIEWS
+    # -----------------------------------------------------
+    for persona_id in current_ids:
+        stored = memory_personas.get(persona_id, {})
+        if not isinstance(stored, dict):
+            continue
+
+        conversation = stored.get("conversation", [])
+        if not isinstance(conversation, list):
+            continue
+
+        persona = persona_by_id.get(persona_id, {})
 
         for item in conversation:
-
-            if not isinstance(
-                item,
-                dict
-            ):
-
+            if not isinstance(item, dict):
                 continue
 
-            question = str(
-                item.get(
-                    "question",
-                    ""
-                )
-            ).strip()
-
-            answer = str(
-                item.get(
-                    "answer",
-                    ""
-                )
-            ).strip()
+            question = str(item.get("question", "")).strip()
+            answer = str(item.get("answer", "")).strip()
 
             if not question or not answer:
                 continue
 
-            normalized = normalize_question(
-                question
-            )
+            # Explicit mode is authoritative.
+            mode = str(item.get("mode", "individual")).strip().lower()
 
-            record = {
+            if mode != "individual":
+                continue
 
-                "personaId":
-                    persona_id,
+            individual_interviews.append({
+                "mode": "individual",
+                "personaId": persona_id,
+                "personaName": persona.get("name", stored.get("profile", {}).get("name", "Unknown")),
+                "question": question,
+                "answer": answer
+            })
 
-                "personaName":
-                    persona.get(
-                        "name",
-                        "Unknown"
+    # -----------------------------------------------------
+    # ALL-PERSONA INTERVIEWS
+    # -----------------------------------------------------
+    stored_group_interviews = memory.get("allPersonaInterviews", [])
+
+    if isinstance(stored_group_interviews, list):
+        for group in stored_group_interviews:
+            if not isinstance(group, dict):
+                continue
+
+            question = str(group.get("question", "")).strip()
+            responses = group.get("responses", [])
+
+            if not question or not isinstance(responses, list):
+                continue
+
+            group_records = []
+
+            for response in responses:
+                if not isinstance(response, dict):
+                    continue
+
+                persona_id = str(response.get("personaId", "")).strip()
+                answer = str(response.get("answer", "")).strip()
+
+                if persona_id not in current_ids or not answer:
+                    continue
+
+                persona = persona_by_id.get(persona_id, {})
+
+                record = {
+                    "mode": "all",
+                    "personaId": persona_id,
+                    "personaName": response.get(
+                        "personaName",
+                        persona.get("name", "Unknown")
                     ),
+                    "question": question,
+                    "answer": answer
+                }
 
-                "question":
-                    question,
+                all_persona_interviews.append(record)
+                group_records.append({
+                    "personaId": persona_id,
+                    "personaName": record["personaName"],
+                    "answer": answer
+                })
 
-                "answer":
-                    answer
-            }
+            if group_records:
+                normalized = normalize_question(question)
+                grouped_questions[normalized] = {
+                    "question": question,
+                    "responses": group_records
+                }
 
-            if normalized in all_persona_questions:
+    all_persona_question_groups = list(grouped_questions.values())
 
-                all_persona_interviews.append(
-                    record
-                )
-
-            else:
-
-                individual_interviews.append(
-                    record
-                )
-
-    # -----------------------------------------------------
-    # Group all-persona questions
-    # -----------------------------------------------------
-
-    grouped_questions = {}
-
-    for record in all_persona_interviews:
-
-        normalized = normalize_question(
-            record["question"]
-        )
-
-        if normalized not in grouped_questions:
-
-            grouped_questions[
-                normalized
-            ] = {
-
-                "question":
-                    record["question"],
-
-                "responses":
-                    []
-            }
-
-        grouped_questions[
-            normalized
-        ]["responses"].append({
-
-            "personaId":
-                record["personaId"],
-
-            "personaName":
-                record["personaName"],
-
-            "answer":
-                record["answer"]
-        })
-
-    all_persona_question_groups = list(
-        grouped_questions.values()
-    )
-
-    # -----------------------------------------------------
-    # Statistics
-    # -----------------------------------------------------
-
-    individual_count = len(
-        individual_interviews
-    )
-
-    all_persona_question_count = len(
-        all_persona_question_groups
-    )
-
-    all_persona_response_count = len(
-        all_persona_interviews
-    )
+    individual_count = len(individual_interviews)
+    all_persona_question_count = len(all_persona_question_groups)
+    all_persona_response_count = len(all_persona_interviews)
 
     personas_with_individual = len({
-
-        item["personaId"]
-
-        for item in individual_interviews
+        item["personaId"] for item in individual_interviews
     })
 
     personas_in_group = len({
-
-        item["personaId"]
-
-        for item in all_persona_interviews
+        item["personaId"] for item in all_persona_interviews
     })
 
-    total_data_points = (
-        individual_count
-        +
-        all_persona_response_count
-    )
-
     return {
-
-        "individualInterviews":
-            individual_interviews,
-
-        "allPersonaInterviews":
-            all_persona_interviews,
-
-        "allPersonaQuestionGroups":
-            all_persona_question_groups,
-
+        "individualInterviews": individual_interviews,
+        "allPersonaInterviews": all_persona_interviews,
+        "allPersonaQuestionGroups": all_persona_question_groups,
         "stats": {
-
-            "individualResponses":
-                individual_count,
-
-            "individualPersonas":
-                personas_with_individual,
-
-            "allPersonaQuestions":
-                all_persona_question_count,
-
-            "allPersonaResponses":
-                all_persona_response_count,
-
-            "allPersonaPersonas":
-                personas_in_group,
-
-            "totalInterviewDataPoints":
-                total_data_points
+            "individualResponses": individual_count,
+            "individualPersonas": personas_with_individual,
+            "allPersonaQuestions": all_persona_question_count,
+            "allPersonaResponses": all_persona_response_count,
+            "allPersonaPersonas": personas_in_group,
+            "totalInterviewDataPoints": (
+                individual_count + all_persona_response_count
+            )
         }
     }
 
@@ -1021,366 +533,336 @@ def build_persona_data(
         result.append({
 
             "id":
-                persona.get(
-                    "id"
-                ),
+                persona.get("id"),
 
             "name":
-                persona.get(
-                    "name"
-                ),
+                persona.get("name"),
 
             "age":
-                persona.get(
-                    "age"
-                ),
+                persona.get("age"),
 
             "gender":
-                persona.get(
-                    "gender"
-                ),
+                persona.get("gender"),
 
             "occupation":
-                persona.get(
-                    "occupation"
-                ),
+                persona.get("occupation"),
 
             "personality":
-                persona.get(
-                    "personality"
-                ),
+                persona.get("personality"),
 
             "buyDecision":
-                persona.get(
-                    "buyDecision"
-                ),
+                persona.get("buyDecision"),
 
             "rating":
-                persona.get(
-                    "rating"
-                ),
+                persona.get("rating"),
 
             "reason":
-                persona.get(
-                    "reason"
-                )
+                persona.get("reason")
+
         })
 
     return result
 
 
 # =========================================================
-# DEFAULT INSIGHTS
+# EMPTY DEFAULT INSIGHTS
 # =========================================================
 
 def default_insights():
 
     return {
 
-        "summary":
-            "",
+        "summary": "",
 
-        "mainFinding":
-            "",
+        "mainFinding": "",
 
-        "positiveSignals":
-            [],
+        "positiveSignals": [],
 
-        "concerns":
-            [],
+        "concerns": [],
 
         "sentiment": {
-
-            "positive":
-                0,
-
-            "neutral":
-                0,
-
-            "negative":
-                0
+            "positive": 0,
+            "neutral": 0,
+            "negative": 0
         },
 
-        "themes":
-            [],
+        "themes": [],
 
-        "interviewDiscoveries":
-            [],
+        "interviewDiscoveries": [],
 
-        "agreementPatterns":
-            [],
+        "agreementPatterns": [],
 
-        "disagreementPatterns":
-            [],
+        "disagreementPatterns": [],
 
-        "behavioralTrends":
-            [],
+        "behavioralTrends": [],
 
-        "segmentInsights":
-            [],
+        "segmentInsights": [],
 
-        "surveyVsInterview":
-            [],
+        "surveyVsInterview": [],
 
-        "individualPersonaInsights":
-            []
+        "individualPersonaInsights": []
+
     }
 
 
 # =========================================================
-# NORMALIZE GEMINI INSIGHTS
+# INSIGHTS AGENT
 # =========================================================
 
-def normalize_insights(
-    insights
-):
+def generate_insights(personas):
 
-    defaults = default_insights()
+    """
+    Main Insights Agent.
+
+    Combines:
+
+        1. Survey responses
+        2. Individual interviews
+        3. All-persona interviews
+
+    Only the current experiment's personas are analyzed.
+    """
+
+    # -----------------------------------------------------
+    # Validate current personas
+    # -----------------------------------------------------
 
     if not isinstance(
-        insights,
-        dict
-    ):
+        personas,
+        list
+    ) or not personas:
 
         raise Exception(
-            "Gemini insights response "
-            "must be a JSON object."
+            "No current personas available for insights."
         )
 
-    # Add missing fields
-    for key, default_value in defaults.items():
-
-        if key not in insights:
-
-            insights[key] = default_value
-
-    # -----------------------------------------------------
-    # Sentiment
-    # -----------------------------------------------------
-
-    if not isinstance(
-        insights.get("sentiment"),
-        dict
-    ):
-
-        insights["sentiment"] = {
-            "positive": 0,
-            "neutral": 0,
-            "negative": 0
-        }
-
-    for key in [
-        "positive",
-        "neutral",
-        "negative"
-    ]:
-
-        try:
-
-            insights["sentiment"][key] = int(
-                insights["sentiment"].get(
-                    key,
-                    0
-                )
-            )
-
-        except (
-            ValueError,
-            TypeError
-        ):
-
-            insights["sentiment"][key] = 0
-
-    # -----------------------------------------------------
-    # Arrays
-    # -----------------------------------------------------
-
-    array_fields = [
-
-        "positiveSignals",
-        "concerns",
-        "themes",
-        "interviewDiscoveries",
-        "agreementPatterns",
-        "disagreementPatterns",
-        "behavioralTrends",
-        "segmentInsights",
-        "surveyVsInterview",
-        "individualPersonaInsights"
-    ]
-
-    for field in array_fields:
-
-        if not isinstance(
-            insights.get(field),
-            list
-        ):
-
-            insights[field] = []
-
-    return insights
-
-
-# =========================================================
-# BUILD PROMPT
-# =========================================================
-
-def build_prompt(
-    research_package,
-    total_personas,
-    interview_stats
-):
-
-    survey_json = json.dumps(
-        research_package[
-            "surveyResearch"
-        ],
-        indent=2,
-        ensure_ascii=False
+    current_personas = build_current_personas(
+        personas
     )
 
-    personas_json = json.dumps(
-        research_package[
-            "personas"
-        ],
-        indent=2,
-        ensure_ascii=False
+    total_personas = len(
+        current_personas
     )
 
-    individual_json = json.dumps(
-        research_package[
+    print(
+        "\n========================================"
+    )
+
+    print(
+        "INSIGHTS AGENT"
+    )
+
+    print(
+        f"Current personas: {total_personas}"
+    )
+
+    print(
+        "========================================"
+    )
+
+    # -----------------------------------------------------
+    # Survey
+    # -----------------------------------------------------
+
+    survey = calculate_survey_statistics(
+        current_personas
+    )
+
+    print(
+        "Survey:",
+        survey
+    )
+
+    # -----------------------------------------------------
+    # Interviews
+    # -----------------------------------------------------
+
+    interview_data = extract_interviews(
+        current_personas
+    )
+
+    individual_interviews = (
+        interview_data[
             "individualInterviews"
-        ],
-        indent=2,
-        ensure_ascii=False
+        ]
     )
 
-    all_persona_json = json.dumps(
-        research_package[
+    all_persona_interviews = (
+        interview_data[
             "allPersonaInterviews"
-        ],
-        indent=2,
-        ensure_ascii=False
+        ]
     )
 
-    grouped_json = json.dumps(
-        research_package[
+    all_persona_question_groups = (
+        interview_data[
             "allPersonaQuestionGroups"
-        ],
-        indent=2,
-        ensure_ascii=False
+        ]
     )
+
+    interview_stats = (
+        interview_data["stats"]
+    )
+
+    print(
+        "Individual interview responses:",
+        interview_stats[
+            "individualResponses"
+        ]
+    )
+
+    print(
+        "All-persona questions:",
+        interview_stats[
+            "allPersonaQuestions"
+        ]
+    )
+
+    print(
+        "All-persona responses:",
+        interview_stats[
+            "allPersonaResponses"
+        ]
+    )
+
+    # -----------------------------------------------------
+    # Prepare interview data
+    # -----------------------------------------------------
+
+    research_package = {
+
+        "surveyResearch": {
+
+            "totalPersonas":
+                survey["totalPersonas"],
+
+            "preferred":
+                survey["preferred"],
+
+            "notPreferred":
+                survey["notPreferred"],
+
+            "wouldUsePercentage":
+                survey[
+                    "wouldUsePercentage"
+                ],
+
+            "averageRating":
+                survey[
+                    "averageRating"
+                ]
+        },
+
+        "personas":
+            build_persona_data(
+                current_personas
+            ),
+
+        "individualInterviews":
+            individual_interviews,
+
+        "allPersonaInterviews":
+            all_persona_interviews,
+
+        "allPersonaQuestionGroups":
+            all_persona_question_groups
+
+    }
+
+    # -----------------------------------------------------
+    # If there are NO interviews
+    # -----------------------------------------------------
+
+    no_interviews = (
+        len(individual_interviews) == 0
+        and
+        len(all_persona_interviews) == 0
+    )
+
+    # -----------------------------------------------------
+    # Gemini prompt
+    # -----------------------------------------------------
 
     prompt = f"""
 You are an expert UX Research Insights Agent.
 
 You are analyzing ONE CURRENT PRODUCT RESEARCH EXPERIMENT.
 
-CURRENT EXPERIMENT SIZE:
-{total_personas} personas
-
 IMPORTANT RULES:
 
-1. Analyze ONLY the data supplied in this prompt.
+1. Analyze ONLY the research data provided below.
 2. Do NOT assume there are 20 personas.
-3. Do NOT create additional personas.
-4. Do NOT use information from previous experiments.
-5. Do NOT invent interview responses.
-6. Every interview insight must be supported by an actual interview response.
-7. Distinguish survey findings from interview findings.
-8. Use survey buyDecision and rating for survey analysis.
-9. Use actual interview answers for interview analysis.
-10. Do not claim an interview occurred if no interview response exists.
-11. If interview data is limited, clearly state that.
-12. Agreement percentages must be based only on supplied interview data.
-13. Do not make unsupported demographic assumptions.
-14. Segment insights should use information actually present in persona data.
-15. Keep findings concise and useful for a UX researcher.
-16. Return ONLY valid JSON.
-17. Do not wrap the JSON in markdown code fences.
+3. The current experiment contains EXACTLY {total_personas} personas.
+4. Do NOT create additional personas.
+5. Do NOT use information from previous experiments.
+6. Do NOT invent interview responses.
+7. Every insight must be supported by the supplied research data.
+8. If interview data is limited, clearly reflect that.
+9. Distinguish survey findings from interview findings.
+10. Use the persona's survey decision and rating when discussing survey results.
+11. Use actual interview responses when discussing interview findings.
+12. Do not claim that an interview occurred if there is no interview response.
 
-==================================================
-SURVEY DATA
-==================================================
+SURVEY DATA:
 
-{survey_json}
+{json.dumps(
+    research_package["surveyResearch"],
+    indent=2,
+    ensure_ascii=False
+)}
 
-==================================================
-PERSONA DATA
-==================================================
+PERSONAS:
 
-{personas_json}
+{json.dumps(
+    research_package["personas"],
+    indent=2,
+    ensure_ascii=False
+)}
 
-==================================================
-INDIVIDUAL INTERVIEW RESPONSES
-==================================================
+INDIVIDUAL INTERVIEWS:
 
-{individual_json}
+{json.dumps(
+    research_package["individualInterviews"],
+    indent=2,
+    ensure_ascii=False
+)}
 
-==================================================
-ALL-PERSONA INTERVIEW RESPONSES
-==================================================
+ALL-PERSONA INTERVIEW RESPONSES:
 
-{all_persona_json}
+{json.dumps(
+    research_package["allPersonaInterviews"],
+    indent=2,
+    ensure_ascii=False
+)}
 
-==================================================
-ALL-PERSONA QUESTION GROUPS
-==================================================
+ALL-PERSONA QUESTION GROUPS:
 
-{grouped_json}
+{json.dumps(
+    research_package["allPersonaQuestionGroups"],
+    indent=2,
+    ensure_ascii=False
+)}
 
-==================================================
-INTERVIEW COUNTS
-==================================================
+INTERVIEW DATA AVAILABLE:
 
 Individual responses:
-{interview_stats["individualResponses"]}
-
-Personas with individual interviews:
-{interview_stats["individualPersonas"]}
+{len(individual_interviews)}
 
 All-persona questions:
-{interview_stats["allPersonaQuestions"]}
+{len(all_persona_question_groups)}
 
 All-persona responses:
-{interview_stats["allPersonaResponses"]}
+{len(all_persona_interviews)}
 
-Personas represented in all-persona interviews:
-{interview_stats["allPersonaPersonas"]}
+Now analyze the research.
 
-Total interview data points:
-{interview_stats["totalInterviewDataPoints"]}
+Return ONLY valid JSON.
 
-==================================================
-TASK
-==================================================
-
-Analyze the complete research.
-
-Identify:
-
-- Overall research summary
-- Main product finding
-- Positive signals
-- Concerns
-- Interview sentiment
-- Recurring themes
-- Interview discoveries
-- Agreement patterns
-- Disagreement patterns
-- Behavioral trends
-- Persona segments
-- Survey vs interview relationships
-- Individual persona findings
-
-==================================================
-REQUIRED JSON STRUCTURE
-==================================================
+Use EXACTLY this structure:
 
 {{
     "summary": "2-4 sentence overall research summary",
 
-    "mainFinding": "The most important research finding",
+    "mainFinding": "The most important finding",
 
     "positiveSignals": [
         "Positive research signal supported by evidence"
@@ -1465,286 +947,51 @@ REQUIRED JSON STRUCTURE
     ]
 }}
 
-==================================================
-VALID VALUES
-==================================================
-
-surveyVsInterview.direction:
+VALID VALUES FOR surveyVsInterview.direction:
 
 "Supports Survey"
 "Challenges Survey"
 "Adds Detail"
 
-sentiment:
+VALID VALUES FOR sentiment labels:
 
 "Positive"
 "Neutral"
 "Negative"
 
-==================================================
-NO INTERVIEW DATA
-==================================================
+IMPORTANT:
 
-If there are zero interview responses:
+If there are no interviews, return empty arrays for:
 
-themes = []
+themes
+interviewDiscoveries
+agreementPatterns
+disagreementPatterns
+behavioralTrends
+surveyVsInterview
+individualPersonaInsights
 
-interviewDiscoveries = []
+and set:
 
-agreementPatterns = []
-
-disagreementPatterns = []
-
-behavioralTrends = []
-
-surveyVsInterview = []
-
-individualPersonaInsights = []
-
-sentiment must be:
-
-{{
+sentiment = {{
     "positive": 0,
     "neutral": 0,
     "negative": 0
 }}
 
-Do NOT invent interview findings.
+Do not invent interview findings.
 """
 
-
-    return prompt
-
-
-# =========================================================
-# MAIN INSIGHTS AGENT
-# =========================================================
-
-def generate_insights(
-    personas
-):
-
-    """
-    Main Insights Agent.
-
-    Combines:
-
-    1. Survey responses
-    2. Individual interviews
-    3. All-persona interviews
-    """
-
     # -----------------------------------------------------
-    # Validate personas
+    # No interview data:
+    # We still ask Gemini to summarize survey data.
     # -----------------------------------------------------
-
-    if not isinstance(
-        personas,
-        list
-    ) or not personas:
-
-        raise Exception(
-            "No current personas available "
-            "for insights."
-        )
-
-    current_personas = (
-        build_current_personas(
-            personas
-        )
-    )
-
-    total_personas = len(
-        current_personas
-    )
-
-    print()
-    print("========================================")
-    print("          INSIGHTS AGENT")
-    print("========================================")
-
-    print(
-        f"Current personas: {total_personas}"
-    )
-
-    # -----------------------------------------------------
-    # Survey analysis
-    # -----------------------------------------------------
-
-    survey = (
-        calculate_survey_statistics(
-            current_personas
-        )
-    )
-
-    print(
-        "[Insights] Survey statistics:",
-        survey
-    )
-
-    # -----------------------------------------------------
-    # Interview extraction
-    # -----------------------------------------------------
-
-    interview_data = (
-        extract_interviews(
-            current_personas
-        )
-    )
-
-    individual_interviews = (
-        interview_data[
-            "individualInterviews"
-        ]
-    )
-
-    all_persona_interviews = (
-        interview_data[
-            "allPersonaInterviews"
-        ]
-    )
-
-    all_persona_question_groups = (
-        interview_data[
-            "allPersonaQuestionGroups"
-        ]
-    )
-
-    interview_stats = (
-        interview_data[
-            "stats"
-        ]
-    )
-
-    print()
-    print(
-        "[Insights] Individual responses:",
-        interview_stats[
-            "individualResponses"
-        ]
-    )
-
-    print(
-        "[Insights] Individual personas:",
-        interview_stats[
-            "individualPersonas"
-        ]
-    )
-
-    print(
-        "[Insights] All-persona questions:",
-        interview_stats[
-            "allPersonaQuestions"
-        ]
-    )
-
-    print(
-        "[Insights] All-persona responses:",
-        interview_stats[
-            "allPersonaResponses"
-        ]
-    )
-
-    # -----------------------------------------------------
-    # Build research package
-    # -----------------------------------------------------
-
-    research_package = {
-
-        "surveyResearch": {
-
-            "totalPersonas":
-                survey[
-                    "totalPersonas"
-                ],
-
-            "preferred":
-                survey[
-                    "preferred"
-                ],
-
-            "notPreferred":
-                survey[
-                    "notPreferred"
-                ],
-
-            "wouldUsePercentage":
-                survey[
-                    "wouldUsePercentage"
-                ],
-
-            "averageRating":
-                survey[
-                    "averageRating"
-                ]
-        },
-
-        "personas":
-            build_persona_data(
-                current_personas
-            ),
-
-        "individualInterviews":
-            individual_interviews,
-
-        "allPersonaInterviews":
-            all_persona_interviews,
-
-        "allPersonaQuestionGroups":
-            all_persona_question_groups
-    }
-
-    # -----------------------------------------------------
-    # Determine interview availability
-    # -----------------------------------------------------
-
-    no_interviews = (
-
-        len(
-            individual_interviews
-        ) == 0
-
-        and
-
-        len(
-            all_persona_interviews
-        ) == 0
-    )
 
     if no_interviews:
 
-        print()
         print(
-            "[Insights] No interview records found."
+            "No interview records found."
         )
-
-    else:
-
-        print()
-        print(
-            "[Insights] Interview data detected."
-        )
-
-    # -----------------------------------------------------
-    # Build Gemini prompt
-    # -----------------------------------------------------
-
-    prompt = build_prompt(
-        research_package,
-        total_personas,
-        interview_stats
-    )
-
-    print()
-    print(
-        "[Insights] Prompt prepared."
-    )
-
-    print(
-        "[Insights] Prompt length:",
-        len(prompt),
-        "characters"
-    )
 
     # -----------------------------------------------------
     # Call Gemini
@@ -1754,38 +1001,43 @@ def generate_insights(
         prompt
     )
 
-    # -----------------------------------------------------
-    # Parse response
-    # -----------------------------------------------------
-
     insights = parse_json_response(
         response
     )
 
+    if not isinstance(
+        insights,
+        dict
+    ):
+
+        raise Exception(
+            "Gemini insights response "
+            "must be a JSON object."
+        )
+
     # -----------------------------------------------------
-    # Normalize response
+    # Merge defaults
     # -----------------------------------------------------
 
-    insights = normalize_insights(
-        insights
-    )
+    defaults = default_insights()
+
+    for key, value in defaults.items():
+
+        if key not in insights:
+
+            insights[key] = value
 
     # -----------------------------------------------------
-    # If no interviews, force empty interview data
+    # Force empty interview sections if
+    # there is actually no interview data.
     # -----------------------------------------------------
 
     if no_interviews:
 
         insights["sentiment"] = {
-
-            "positive":
-                0,
-
-            "neutral":
-                0,
-
-            "negative":
-                0
+            "positive": 0,
+            "neutral": 0,
+            "negative": 0
         }
 
         insights["themes"] = []
@@ -1815,7 +1067,7 @@ def generate_insights(
         ] = []
 
     # -----------------------------------------------------
-    # ALWAYS calculate product score in Python
+    # ALWAYS use Python-calculated survey statistics
     # -----------------------------------------------------
 
     insights["productScore"] = {
@@ -1894,7 +1146,7 @@ def generate_insights(
     }
 
     # -----------------------------------------------------
-    # Ensure summary
+    # Ensure summary exists
     # -----------------------------------------------------
 
     if not str(
@@ -1905,9 +1157,7 @@ def generate_insights(
     ).strip():
 
         insights["summary"] = (
-
-            f"Out of "
-            f"{survey['totalPersonas']} "
+            f"Out of {survey['totalPersonas']} "
             f"personas, "
             f"{survey['wouldUsePercentage']}% "
             f"indicated that they would use "
@@ -1915,7 +1165,7 @@ def generate_insights(
         )
 
     # -----------------------------------------------------
-    # Ensure main finding
+    # Ensure main finding exists
     # -----------------------------------------------------
 
     if not str(
@@ -1926,62 +1176,44 @@ def generate_insights(
     ).strip():
 
         insights["mainFinding"] = (
-
             f"{survey['preferred']} of "
-            f"{survey['totalPersonas']} "
-            f"personas preferred the product."
+            f"{survey['totalPersonas']} personas "
+            f"preferred the product."
         )
 
     # -----------------------------------------------------
-    # Final debug output
+    # Debug output
     # -----------------------------------------------------
 
-    print()
-    print("========================================")
-    print("       INSIGHTS GENERATED")
-    print("========================================")
+    print(
+        "\n========================================"
+    )
+
+    print(
+        "INSIGHTS GENERATED"
+    )
 
     print(
         f"Personas: {total_personas}"
     )
 
     print(
-        "Product score:",
-        survey[
-            "wouldUsePercentage"
-        ],
-        "%"
+        f"Individual interviews: "
+        f"{interview_stats['individualResponses']}"
     )
 
     print(
-        "Individual interviews:",
-        interview_stats[
-            "individualResponses"
-        ]
+        f"All-persona questions: "
+        f"{interview_stats['allPersonaQuestions']}"
     )
 
     print(
-        "All-persona questions:",
-        interview_stats[
-            "allPersonaQuestions"
-        ]
+        f"All-persona responses: "
+        f"{interview_stats['allPersonaResponses']}"
     )
 
     print(
-        "All-persona responses:",
-        interview_stats[
-            "allPersonaResponses"
-        ]
+        "========================================\n"
     )
-
-    print(
-        "Total interview data points:",
-        interview_stats[
-            "totalInterviewDataPoints"
-        ]
-    )
-
-    print("========================================")
-    print()
 
     return insights
