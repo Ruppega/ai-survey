@@ -1,56 +1,164 @@
 {
   "personas": {
-    "fb9e9668-474d-4ff8-953a-52f5ad62dee2": {
+    "641a3e2a-18f9-4e77-8ad5-499f04c62bd7": {
       "profile": {
-        "name": "Leo Martinez",
+        "name": "Marcus Vance",
         "gender": "Male",
-        "age": 15,
-        "occupation": "High School Student",
-        "personality": "Studious, organized, and tech-savvy",
+        "age": 19,
+        "occupation": "College Freshman",
+        "personality": "Trend-focused and active",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "I need a reliable light for my late-night studying and coding projects. The adjustable brightness and flexible positioning would fit my desk space perfectly without disturbing my roommate.",
-        "id": "fb9e9668-474d-4ff8-953a-52f5ad62dee2"
+        "reason": "The modern design looks great for campus life, and the lightweight construction will be perfect for walking between classes.",
+        "id": "641a3e2a-18f9-4e77-8ad5-499f04c62bd7"
       },
       "conversation": [
         {
           "mode": "individual",
-          "question": "What matters most to you when choosing a product like this?",
-          "answer": "For me, it really comes down to reliability and adjustability. Since I spend a lot of late nights at my desk studying for AP classes or coding, I need something that won't strain my eyes and has precise brightness controls so I don't wake up my roommate. Build quality matters a lot too—I don't want something flimsy that’s going to wobble or break after a few months of heavy use.",
-          "timestamp": 1788875695.1026504
+          "question": "How familiar are you with the **Nike brand**?",
+          "answer": "Pretty familiar, I mean, almost everyone on campus wears something from them. They're kind of the go-to for running between classes or hitting the gym, especially when you want gear that actually looks good and isn't too bulky.",
+          "timestamp": 1788881619.0828645
         },
         {
           "mode": "all",
           "question": "What concerns would stop you from using it?",
-          "answer": "My main concern would be durability and build quality. Since I use my desk setup for hours every night, if the joints or the flexible arm get loose over time and won't hold their position, it would become really annoying for coding and studying.",
-          "timestamp": 1788875707.7421756
+          "answer": "Honestly, not much would stop me since I'm already sold, but if the material gets easily ruined in bad weather or muddy campus lawns, that would make me hesitate.",
+          "timestamp": 1788881769.427811
         }
       ]
     },
-    "b33be053-2590-4e3b-9b6c-9fa91751e53d": {
+    "129ed75a-db8b-4e31-9e65-6ecc2ceb7303": {
       "profile": {
-        "name": "Chloe Vance",
+        "name": "Chloe Bennett",
         "gender": "Female",
-        "age": 13,
-        "occupation": "Middle School Student",
-        "personality": "Creative, easily distracted, and minimalist",
+        "age": 24,
+        "occupation": "Graphic Designer",
+        "personality": "Minimalist and aesthetic-driven",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "I love the sleek, versatile look that pairs well with casual work outfits, though I wish it came in more neutral colorways.",
+        "id": "129ed75a-db8b-4e31-9e65-6ecc2ceb7303"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What concerns would stop you from using it?",
+          "answer": "For me, it would be if they release them in weird, overly trendy neon colors that clash with everything in my wardrobe. I really need those clean, minimalist neutrals.",
+          "timestamp": 1788881769.4278212
+        }
+      ]
+    },
+    "2da32c1e-bc2c-4f65-b0d9-bec901d18c00": {
+      "profile": {
+        "name": "Liam O'Connor",
+        "gender": "Male",
+        "age": 28,
+        "occupation": "Software Engineer",
+        "personality": "Pragmatic and comfort-first",
         "buyDecision": "No",
         "rating": 2,
-        "reason": "My phone screen and tablet already provide enough light for reading in bed, and my parents won't let me clutter my small desk with another gadget just for low power consumption.",
-        "id": "b33be053-2590-4e3b-9b6c-9fa91751e53d"
+        "reason": "While the cushioning sounds nice, I prefer specialized running shoes with maximum arch support over lifestyle sneakers.",
+        "id": "2da32c1e-bc2c-4f65-b0d9-bec901d18c00"
       },
       "conversation": [
         {
           "mode": "individual",
-          "question": "What would make you choose this product?",
-          "answer": "Honestly, probably nothing, unless it could do way more cool stuff. Like, if it was also a speaker that played my bedroom playlist really loudly without my phone dying, or if it changed colors to match my room aesthetic and didn't take up actual desk space—maybe if it could clip onto my bed frame instead. But my parents still wouldn't let me have it anyway because my desk is already a mess, so whatever.",
-          "timestamp": 1788875701.1842237
+          "question": "What is the main reason you would consider buying Nike sneakers?",
+          "answer": "Honestly, I probably wouldn't. As a software engineer, I spend a lot of time on my feet and I'm pretty pragmatic about my gear—I need maximum arch support and specialized running shoes for my workouts. Nike's lifestyle sneakers just don't cut it for what I need physically, so cushioning alone isn't going to win me over.",
+          "timestamp": 1788881667.5302794
+        },
+        {
+          "mode": "individual",
+          "question": "what is your current budget?",
+          "answer": "I mean, budget isn't really the issue here since I'm not looking at Nike lifestyle sneakers in the first place. But if we're talking about running shoes with the serious arch support I actually need for my workouts, I'm easily willing to drop around $150 to $180. For gear that keeps my feet and back from hurting after a long day of coding and running, it's just a necessary expense.",
+          "timestamp": 1788881686.252224
+        },
+        {
+          "mode": "individual",
+          "question": "will $100 be okay ?",
+          "answer": "No, $100 still wouldn't work for me. Like I said, it’s not really about the price tag—it’s about the actual build of the shoe. A $100 price point usually gets you a basic lifestyle sneaker or entry-level shoe that lacks the structural integrity and serious arch support I need. I'd rather spend the extra money on proper running shoes that actually protect my joints and back.",
+          "timestamp": 1788881708.5846097
         },
         {
           "mode": "all",
           "question": "What concerns would stop you from using it?",
-          "answer": "Honestly, the biggest thing stopping me is that it just feels like extra clutter I don't need on my desk. If it's too complicated to set up or takes up too much space, I wouldn't even want it in my room.",
-          "timestamp": 1788875707.7421865
+          "answer": "My main concern is the lack of proper technical support. Since I have high arches, walking all day in a standard lifestyle shoe without targeted ergonomic cushioning will just lead to foot and back pain.",
+          "timestamp": 1788881769.427823
+        }
+      ]
+    },
+    "590b3ce4-83d5-4b27-967e-ebdd48d9d920": {
+      "profile": {
+        "name": "Maya Lin",
+        "gender": "Female",
+        "age": 21,
+        "occupation": "Retail Associate and Dance Student",
+        "personality": "Energetic and budget-conscious",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "I spend all day on my feet at work, so the cushioned sole and breathable material are absolute must-haves for me.",
+        "id": "590b3ce4-83d5-4b27-967e-ebdd48d9d920"
+      },
+      "conversation": [
+        {
+          "mode": "individual",
+          "question": "How important is **comfort** when choosing Nike sneakers?",
+          "answer": "Honestly, comfort is a total dealbreaker for me. I spend all day on my feet working retail, and then I go straight to dance practice, so if a pair of Nikes doesn't have good support, my body is just wrecked by the end of the day. That's actually why I ended up buying mine—the cushioned sole and breathable material are absolute must-haves for my lifestyle. I'd give them a solid 4 out of 5 for that exact reason!",
+          "timestamp": 1788881632.8991334
+        },
+        {
+          "mode": "all",
+          "question": "What concerns would stop you from using it?",
+          "answer": "Price is my biggest concern. Working retail and paying for school means I have to watch my budget closely, so if they're overpriced for everyday wear, I couldn't justify buying them.",
+          "timestamp": 1788881769.427825
+        }
+      ]
+    },
+    "61dbcc8c-1b0d-46b8-8919-610f21e9559c": {
+      "profile": {
+        "name": "Jordan Taylor",
+        "gender": "Non-binary",
+        "age": 16,
+        "occupation": "High School Student",
+        "personality": "Skater and streetwear enthusiast",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "They look pretty cool, but the build quality doesn't seem durable enough to withstand the wear and tear of skateboarding.",
+        "id": "61dbcc8c-1b0d-46b8-8919-610f21e9559c"
+      },
+      "conversation": [
+        {
+          "mode": "individual",
+          "question": "How important is **durability** when purchasing Nike sneakers?",
+          "answer": "Super important, honestly. If I'm paying decent money for kicks, they gotta actually survive a session on the board. If the ollie area starts shredding after like two days of skating, it's a total waste. Streetwear looks cool and all, but my shoes actually gotta work, you know?",
+          "timestamp": 1788881651.1710317
+        },
+        {
+          "mode": "all",
+          "question": "What concerns would stop you from using it?",
+          "answer": "My biggest worry is durability. Since I skate, shoes take a beating from grip tape, so if the upper material shreds too easily or the sole peels off after a few ollies, it's a total dealbreaker.",
+          "timestamp": 1788881769.4278262
+        }
+      ]
+    },
+    "95564bb8-8177-4116-a8e8-4388e0499ce4": {
+      "profile": {
+        "name": "Sofia Rodriguez",
+        "gender": "Female",
+        "age": 26,
+        "occupation": "Marketing Coordinator",
+        "personality": "Busy and fitness-oriented",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "These are the ultimate grab-and-go shoes for my morning commute and running errands afterward; lightweight and stylish.",
+        "id": "95564bb8-8177-4116-a8e8-4388e0499ce4"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What concerns would stop you from using it?",
+          "answer": "If they aren't actually durable enough to handle my daily commute plus errands without wearing out quickly, or if they take too long to break in, I wouldn't bother.",
+          "timestamp": 1788881769.4278283
         }
       ]
     }
@@ -60,17 +168,37 @@
       "question": "What concerns would stop you from using it?",
       "responses": [
         {
-          "personaId": "fb9e9668-474d-4ff8-953a-52f5ad62dee2",
-          "personaName": "Leo Martinez",
-          "answer": "My main concern would be durability and build quality. Since I use my desk setup for hours every night, if the joints or the flexible arm get loose over time and won't hold their position, it would become really annoying for coding and studying."
+          "personaId": "641a3e2a-18f9-4e77-8ad5-499f04c62bd7",
+          "personaName": "Marcus Vance",
+          "answer": "Honestly, not much would stop me since I'm already sold, but if the material gets easily ruined in bad weather or muddy campus lawns, that would make me hesitate."
         },
         {
-          "personaId": "b33be053-2590-4e3b-9b6c-9fa91751e53d",
-          "personaName": "Chloe Vance",
-          "answer": "Honestly, the biggest thing stopping me is that it just feels like extra clutter I don't need on my desk. If it's too complicated to set up or takes up too much space, I wouldn't even want it in my room."
+          "personaId": "129ed75a-db8b-4e31-9e65-6ecc2ceb7303",
+          "personaName": "Chloe Bennett",
+          "answer": "For me, it would be if they release them in weird, overly trendy neon colors that clash with everything in my wardrobe. I really need those clean, minimalist neutrals."
+        },
+        {
+          "personaId": "2da32c1e-bc2c-4f65-b0d9-bec901d18c00",
+          "personaName": "Liam O'Connor",
+          "answer": "My main concern is the lack of proper technical support. Since I have high arches, walking all day in a standard lifestyle shoe without targeted ergonomic cushioning will just lead to foot and back pain."
+        },
+        {
+          "personaId": "590b3ce4-83d5-4b27-967e-ebdd48d9d920",
+          "personaName": "Maya Lin",
+          "answer": "Price is my biggest concern. Working retail and paying for school means I have to watch my budget closely, so if they're overpriced for everyday wear, I couldn't justify buying them."
+        },
+        {
+          "personaId": "61dbcc8c-1b0d-46b8-8919-610f21e9559c",
+          "personaName": "Jordan Taylor",
+          "answer": "My biggest worry is durability. Since I skate, shoes take a beating from grip tape, so if the upper material shreds too easily or the sole peels off after a few ollies, it's a total dealbreaker."
+        },
+        {
+          "personaId": "95564bb8-8177-4116-a8e8-4388e0499ce4",
+          "personaName": "Sofia Rodriguez",
+          "answer": "If they aren't actually durable enough to handle my daily commute plus errands without wearing out quickly, or if they take too long to break in, I wouldn't bother."
         }
       ],
-      "timestamp": 1788875707.7421954
+      "timestamp": 1788881769.4278362
     }
   ]
 }
