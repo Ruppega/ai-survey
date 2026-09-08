@@ -8,6 +8,7 @@ from agent import (
 )
 
 from insights_agent import generate_insights
+from ask_research import answer_research_question
 
 
 # =========================================================
@@ -955,6 +956,74 @@ def method_not_allowed(error):
 # =========================================================
 # START SERVER
 # =========================================================
+
+
+# =========================================================
+# ASK YOUR RESEARCH
+# =========================================================
+
+@app.route("/ask-research", methods=["POST"])
+def ask_research():
+    try:
+        data = request.get_json(silent=True) or {}
+
+        question = str(
+            data.get("question", "")
+        ).strip()
+
+        personas = data.get("personas", [])
+
+        if not question:
+            return jsonify({
+                "error": "Question is required."
+            }), 400
+
+        if not isinstance(personas, list) or not personas:
+            return jsonify({
+                "error": "No current personas were provided."
+            }), 400
+
+        valid_personas = [
+            persona
+            for persona in personas
+            if isinstance(persona, dict)
+            and str(persona.get("id", "")).strip()
+        ]
+
+        if not valid_personas:
+            return jsonify({
+                "error": "No valid current personas were provided."
+            }), 400
+
+        print()
+        print("========================================")
+        print("          ASK YOUR RESEARCH")
+        print("========================================")
+        print("Personas:", len(valid_personas))
+        print("Question:", question)
+        print("========================================")
+        print()
+
+        result = answer_research_question(
+            question=question,
+            personas=valid_personas,
+        )
+
+        return jsonify(result), 200
+
+    except Exception as e:
+        print()
+        print("========================================")
+        print("       ASK YOUR RESEARCH ERROR")
+        print("========================================")
+        print("Error type:", type(e).__name__)
+        print("Error message:", str(e))
+        print("========================================")
+        print()
+
+        return jsonify({
+            "error": str(e)
+        }), 500
 
 if __name__ == "__main__":
 

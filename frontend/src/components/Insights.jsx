@@ -82,15 +82,15 @@ function Insights({ personas }) {
   };
 
   const getDirectionClass = (direction) => {
-    if (!direction) return "";
+    if (!direction) return "adds-detail";
 
-    const normalized = direction.toLowerCase();
+    const value = String(direction).toLowerCase();
 
-    if (normalized.includes("supports")) {
+    if (value.includes("supports")) {
       return "supports";
     }
 
-    if (normalized.includes("challenges")) {
+    if (value.includes("challenges")) {
       return "challenges";
     }
 
@@ -98,12 +98,17 @@ function Insights({ personas }) {
   };
 
   const getSentimentClass = (sentimentValue) => {
-    if (!sentimentValue) return "";
+    if (!sentimentValue) return "neutral";
 
     const value = String(sentimentValue).toLowerCase();
 
-    if (value.includes("positive")) return "positive";
-    if (value.includes("negative")) return "negative";
+    if (value.includes("positive")) {
+      return "positive";
+    }
+
+    if (value.includes("negative")) {
+      return "negative";
+    }
 
     return "neutral";
   };
@@ -117,14 +122,16 @@ function Insights({ personas }) {
       <div className="insights-page">
 
         <div className="insights-header">
-          <div>
-            <span className="eyebrow">AI RESEARCH ANALYSIS</span>
+          <div className="header-content">
+            <span className="eyebrow">
+              AI RESEARCH ANALYSIS
+            </span>
 
             <h1>Research Insights</h1>
 
             <p>
-              Generate personas first to analyze survey and
-              interview research.
+              Generate personas first to analyze survey
+              and interview research.
             </p>
           </div>
         </div>
@@ -147,18 +154,21 @@ function Insights({ personas }) {
   // LOADING
   // =========================================================
 
-  if (loading) {
+  if (loading && !insights) {
     return (
       <div className="insights-page">
 
         <div className="insights-header">
-          <div>
-            <span className="eyebrow">AI RESEARCH ANALYSIS</span>
+          <div className="header-content">
+            <span className="eyebrow">
+              AI RESEARCH ANALYSIS
+            </span>
 
             <h1>Research Insights</h1>
 
             <p>
-              Analyzing survey responses and interview conversations.
+              Analyzing survey responses and interview
+              conversations.
             </p>
           </div>
         </div>
@@ -166,15 +176,16 @@ function Insights({ personas }) {
         <div className="insights-loading">
 
           <div className="loading-orb">
-            <span>AI</span>
+            AI
           </div>
 
-          <h2>Analyzing Persona Research...</h2>
+          <h2>
+            Analyzing Persona Research...
+          </h2>
 
           <p>
-            Gemini is comparing persona preferences, ratings,
-            reasons, individual interviews, and all-persona
-            discussions.
+            Comparing survey responses, individual interviews,
+            group interviews, and behavioral patterns.
           </p>
 
           <div className="loading-steps">
@@ -194,29 +205,39 @@ function Insights({ personas }) {
   // ERROR
   // =========================================================
 
-  if (error) {
+  if (error && !insights) {
     return (
       <div className="insights-page">
 
         <div className="insights-header">
-          <div>
-            <span className="eyebrow">AI RESEARCH ANALYSIS</span>
+          <div className="header-content">
+
+            <span className="eyebrow">
+              AI RESEARCH ANALYSIS
+            </span>
 
             <h1>Research Insights</h1>
 
             <p>
               AI-generated analysis from your persona research.
             </p>
+
           </div>
         </div>
 
         <div className="insights-error">
 
-          <div className="error-icon">!</div>
+          <div className="error-icon">
+            !
+          </div>
 
-          <h2>Unable to Generate Insights</h2>
+          <h2>
+            Unable to Generate Insights
+          </h2>
 
-          <p>{error}</p>
+          <p>
+            {error}
+          </p>
 
           <button
             className="refresh-insights-btn"
@@ -231,34 +252,55 @@ function Insights({ personas }) {
     );
   }
 
-  // =========================================================
-  // WAITING
-  // =========================================================
-
   if (!insights) {
     return null;
   }
 
-  const productScore = insights.productScore || {};
-  const sentiment = insights.sentiment || {};
-  const interviewStats = insights.interviewStats || {};
+  // =========================================================
+  // DATA
+  // =========================================================
+
+  const productScore =
+    insights.productScore || {};
+
+  const sentiment =
+    insights.sentiment || {};
+
+  const interviewStats =
+    insights.interviewStats || {};
 
   const totalPersonas =
-    safeNumber(productScore.total) || personas.length;
+    safeNumber(productScore.totalPersonas) ||
+    personas.length;
 
-  const interviewResponses =
-    safeNumber(interviewStats.individualInterviewResponses);
+  const individualQuestions =
+    safeNumber(
+      interviewStats.individualResponses
+    );
+
+  const individualPersonas =
+    safeNumber(
+      interviewStats.individualPersonas
+    );
 
   const allPersonaQuestions =
-    safeNumber(interviewStats.allPersonaQuestions);
+    safeNumber(
+      interviewStats.allPersonaQuestions
+    );
 
-  const personasInterviewed =
-    safeNumber(interviewStats.personasInterviewed);
+  const allPersonaResponses =
+    safeNumber(
+      interviewStats.allPersonaResponses
+    );
 
   const personasInAllInterviews =
     safeNumber(
-      interviewStats.personasInAllPersonaInterviews
+      interviewStats.allPersonaPersonas
     );
+
+  const totalQuestionsConsidered =
+    individualQuestions +
+    allPersonaQuestions;
 
   // =========================================================
   // MAIN UI
@@ -269,21 +311,25 @@ function Insights({ personas }) {
 
       {/* =====================================================
           HEADER
-      ===================================================== */}
+      ====================================================== */}
 
-      <div className="insights-header">
+      <header className="insights-header">
 
-        <div>
+        <div className="header-content">
+
           <span className="eyebrow">
             AI RESEARCH ANALYSIS
           </span>
 
-          <h1>Research Insights</h1>
+          <h1>
+            Research Insights
+          </h1>
 
           <p>
             AI-generated analysis combining survey responses,
             individual interviews, and all-persona interviews.
           </p>
+
         </div>
 
         <button
@@ -296,72 +342,114 @@ function Insights({ personas }) {
             : "Regenerate Insights"}
         </button>
 
-      </div>
+      </header>
 
 
       {/* =====================================================
           DATA SOURCES
-      ===================================================== */}
+      ====================================================== */}
 
       <section className="data-source-strip">
 
+        {/* SURVEY */}
+
         <div className="source-item active">
-          <span className="source-icon">S</span>
 
-          <div>
-            <strong>Survey Research</strong>
-            <small>{totalPersonas} personas</small>
+          <div className="source-icon">
+            S
           </div>
+
+          <div className="source-info">
+
+            <strong>
+              Survey Research
+            </strong>
+
+            <span>
+              {totalPersonas} personas
+            </span>
+
+          </div>
+
         </div>
 
-        <div className="source-line"></div>
+
+        <div className="source-connector" />
+
+
+        {/* INDIVIDUAL */}
 
         <div
           className={`source-item ${
-            interviewResponses > 0 ? "active" : ""
+            individualQuestions > 0
+              ? "active"
+              : ""
           }`}
         >
-          <span className="source-icon">I</span>
 
-          <div>
-            <strong>Individual Interviews</strong>
-
-            <small>
-              {interviewResponses} responses
-            </small>
+          <div className="source-icon">
+            I
           </div>
+
+          <div className="source-info">
+
+            <strong>
+              Individual Interviews
+            </strong>
+
+            <span>
+              {individualQuestions} questions
+            </span>
+
+          </div>
+
         </div>
 
-        <div className="source-line"></div>
+
+        <div className="source-connector" />
+
+
+        {/* GROUP */}
 
         <div
           className={`source-item ${
-            allPersonaQuestions > 0 ? "active" : ""
+            allPersonaQuestions > 0
+              ? "active"
+              : ""
           }`}
         >
-          <span className="source-icon">G</span>
 
-          <div>
-            <strong>All-Persona Interviews</strong>
+          <div className="source-icon">
+            G
+          </div>
 
-            <small>
+          <div className="source-info">
+
+            <strong>
+              All-Persona Interviews
+            </strong>
+
+            <span>
               {allPersonaQuestions} questions
-            </small>
+            </span>
+
           </div>
+
         </div>
 
       </section>
 
 
       {/* =====================================================
-          PRODUCT SCORE
-      ===================================================== */}
+          PRODUCT RECEPTION
+      ====================================================== */}
 
       <section className="insight-section">
 
         <div className="section-heading">
 
           <div>
+
             <span className="section-kicker">
               PRODUCT RECEPTION
             </span>
@@ -369,6 +457,7 @@ function Insights({ personas }) {
             <h2>
               Would Users Choose This Product?
             </h2>
+
           </div>
 
           <span className="section-badge">
@@ -384,7 +473,15 @@ function Insights({ personas }) {
 
           <div className="main-score-card">
 
-            <div className="score-ring">
+            <div
+              className="score-ring"
+              style={{
+                "--score":
+                  `${safeNumber(
+                    productScore.wouldUsePercentage
+                  ) * 3.6}deg`,
+              }}
+            >
 
               <div className="score-ring-inner">
 
@@ -400,7 +497,9 @@ function Insights({ personas }) {
 
             </div>
 
-            <h3>Product Acceptance</h3>
+            <h3>
+              Product Acceptance
+            </h3>
 
             <p>
               Percentage of personas who indicated that
@@ -490,7 +589,7 @@ function Insights({ personas }) {
 
       {/* =====================================================
           KEY TAKEAWAY
-      ===================================================== */}
+      ====================================================== */}
 
       <section className="insight-section">
 
@@ -500,7 +599,7 @@ function Insights({ personas }) {
             ✦
           </div>
 
-          <div>
+          <div className="takeaway-content">
 
             <span className="section-kicker">
               KEY TAKEAWAY
@@ -523,87 +622,110 @@ function Insights({ personas }) {
 
 
       {/* =====================================================
-          INTERVIEW COVERAGE
-      ===================================================== */}
+          INTERVIEW QUESTIONS
+      ====================================================== */}
 
-      <section className="insight-section">
+      <section className="insight-section interview-questions-section">
 
-        <div className="section-heading">
+        <div className="section-heading interview-heading">
 
           <div>
+
             <span className="section-kicker">
-              INTERVIEW COVERAGE
+              INTERVIEW ANALYSIS
             </span>
 
             <h2>
-              How Much Interview Data Was Analyzed?
+              How Many Questions Were Considered?
             </h2>
+
+            <p className="section-description">
+              Interview questions included from individual
+              persona conversations and all-persona discussions.
+            </p>
+
+          </div>
+
+          <div className="questions-total-badge">
+
+            <strong>
+              {totalQuestionsConsidered}
+            </strong>
+
+            <span>
+              Total Questions
+            </span>
+
           </div>
 
         </div>
 
 
-        <div className="coverage-grid">
+        <div className="questions-considered-grid">
 
-          <div className="coverage-card">
+          {/* INDIVIDUAL */}
 
-            <div className="coverage-top">
-              <span>Individual Interviews</span>
+          <div className="question-count-card">
+
+            <div className="question-count-icon">
+              I
+            </div>
+
+            <div className="question-count-content">
+
+              <span>
+                Individual Questions
+              </span>
 
               <strong>
-                {interviewResponses}
+                {individualQuestions}
               </strong>
-            </div>
 
-            <div className="coverage-bar">
-              <div
-                style={{
-                  width: `${Math.min(
-                    100,
-                    totalPersonas > 0
-                      ? (personasInterviewed /
-                          totalPersonas) *
-                          100
-                      : 0
-                  )}%`,
-                }}
-              />
-            </div>
+              <p>
+                Questions considered from individual
+                persona interviews across{" "}
+                {individualPersonas} persona
+                {individualPersonas === 1
+                  ? ""
+                  : "s"}.
+              </p>
 
-            <p>
-              {personasInterviewed} of{" "}
-              {totalPersonas} personas have
-              individual interview responses.
-            </p>
+            </div>
 
           </div>
 
 
-          <div className="coverage-card">
+          {/* ALL PERSONA */}
 
-            <div className="coverage-top">
-              <span>All-Persona Interviews</span>
+          <div className="question-count-card">
+
+            <div className="question-count-icon">
+              G
+            </div>
+
+            <div className="question-count-content">
+
+              <span>
+                All-Persona Questions
+              </span>
 
               <strong>
                 {allPersonaQuestions}
               </strong>
-            </div>
 
-            <div className="coverage-bar">
-              <div
-                style={{
-                  width:
-                    allPersonaQuestions > 0
-                      ? "100%"
-                      : "0%",
-                }}
-              />
-            </div>
+              <p>
+                Group questions considered across{" "}
+                {personasInAllInterviews} persona
+                {personasInAllInterviews === 1
+                  ? ""
+                  : "s"} with{" "}
+                {allPersonaResponses} response
+                {allPersonaResponses === 1
+                  ? ""
+                  : "s"}.
+              </p>
 
-            <p>
-              {personasInAllInterviews} personas
-              contributed to group interview analysis.
-            </p>
+            </div>
 
           </div>
 
@@ -614,9 +736,11 @@ function Insights({ personas }) {
 
       {/* =====================================================
           SURVEY VS INTERVIEW
-      ===================================================== */}
+      ====================================================== */}
 
-      {Array.isArray(insights.surveyVsInterview) &&
+      {Array.isArray(
+        insights.surveyVsInterview
+      ) &&
         insights.surveyVsInterview.length > 0 && (
 
         <section className="insight-section">
@@ -624,6 +748,7 @@ function Insights({ personas }) {
           <div className="section-heading">
 
             <div>
+
               <span className="section-kicker">
                 RESEARCH COMPARISON
               </span>
@@ -631,6 +756,7 @@ function Insights({ personas }) {
               <h2>
                 Survey vs Interview Findings
               </h2>
+
             </div>
 
             <span className="section-badge">
@@ -651,6 +777,7 @@ function Insights({ personas }) {
                   );
 
                 return (
+
                   <div
                     className="comparison-card"
                     key={index}
@@ -668,7 +795,8 @@ function Insights({ personas }) {
 
                       <div className="comparison-columns">
 
-                        <div>
+                        <div className="comparison-column">
+
                           <span className="comparison-label">
                             Survey Signal
                           </span>
@@ -676,9 +804,12 @@ function Insights({ personas }) {
                           <p>
                             {item.surveySignal}
                           </p>
+
                         </div>
 
-                        <div>
+
+                        <div className="comparison-column">
+
                           <span className="comparison-label">
                             Interview Signal
                           </span>
@@ -686,9 +817,11 @@ function Insights({ personas }) {
                           <p>
                             {item.interviewSignal}
                           </p>
+
                         </div>
 
                       </div>
+
 
                       <div className="comparison-interpretation">
 
@@ -708,6 +841,7 @@ function Insights({ personas }) {
                     </div>
 
                   </div>
+
                 );
               }
             )}
@@ -715,18 +849,20 @@ function Insights({ personas }) {
           </div>
 
         </section>
+
       )}
 
 
       {/* =====================================================
           SENTIMENT
-      ===================================================== */}
+      ====================================================== */}
 
       <section className="insight-section">
 
         <div className="section-heading">
 
           <div>
+
             <span className="section-kicker">
               INTERVIEW SENTIMENT
             </span>
@@ -734,6 +870,7 @@ function Insights({ personas }) {
             <h2>
               How Do Personas Feel?
             </h2>
+
           </div>
 
         </div>
@@ -746,27 +883,30 @@ function Insights({ personas }) {
             <div
               className="sentiment-positive"
               style={{
-                width: `${safeNumber(
-                  sentiment.positive
-                )}%`,
+                width:
+                  `${safeNumber(
+                    sentiment.positive
+                  )}%`,
               }}
             />
 
             <div
               className="sentiment-neutral"
               style={{
-                width: `${safeNumber(
-                  sentiment.neutral
-                )}%`,
+                width:
+                  `${safeNumber(
+                    sentiment.neutral
+                  )}%`,
               }}
             />
 
             <div
               className="sentiment-negative"
               style={{
-                width: `${safeNumber(
-                  sentiment.negative
-                )}%`,
+                width:
+                  `${safeNumber(
+                    sentiment.negative
+                  )}%`,
               }}
             />
 
@@ -775,42 +915,54 @@ function Insights({ personas }) {
 
           <div className="sentiment-legend">
 
-            <div>
-              <span className="legend-dot positive"></span>
+            <div className="sentiment-item">
 
-              <span>Positive</span>
+              <span className="legend-dot positive" />
+
+              <span>
+                Positive
+              </span>
 
               <strong>
                 {formatPercentage(
                   sentiment.positive
                 )}
               </strong>
+
             </div>
 
 
-            <div>
-              <span className="legend-dot neutral"></span>
+            <div className="sentiment-item">
 
-              <span>Neutral</span>
+              <span className="legend-dot neutral" />
+
+              <span>
+                Neutral
+              </span>
 
               <strong>
                 {formatPercentage(
                   sentiment.neutral
                 )}
               </strong>
+
             </div>
 
 
-            <div>
-              <span className="legend-dot negative"></span>
+            <div className="sentiment-item">
 
-              <span>Negative</span>
+              <span className="legend-dot negative" />
+
+              <span>
+                Negative
+              </span>
 
               <strong>
                 {formatPercentage(
                   sentiment.negative
                 )}
               </strong>
+
             </div>
 
           </div>
@@ -822,9 +974,11 @@ function Insights({ personas }) {
 
       {/* =====================================================
           INTERVIEW DISCOVERIES
-      ===================================================== */}
+      ====================================================== */}
 
-      {Array.isArray(insights.interviewDiscoveries) &&
+      {Array.isArray(
+        insights.interviewDiscoveries
+      ) &&
         insights.interviewDiscoveries.length > 0 && (
 
         <section className="insight-section">
@@ -832,6 +986,7 @@ function Insights({ personas }) {
           <div className="section-heading">
 
             <div>
+
               <span className="section-kicker">
                 INTERVIEW DISCOVERIES
               </span>
@@ -839,6 +994,7 @@ function Insights({ personas }) {
               <h2>
                 What Did Interviews Reveal?
               </h2>
+
             </div>
 
           </div>
@@ -862,7 +1018,10 @@ function Insights({ personas }) {
                     </span>
 
                     <span className="discovery-number">
-                      0{index + 1}
+                      {String(index + 1).padStart(
+                        2,
+                        "0"
+                      )}
                     </span>
 
                   </div>
@@ -876,6 +1035,7 @@ function Insights({ personas }) {
                   </p>
 
                   {discovery.evidence && (
+
                     <div className="evidence-box">
 
                       <span>
@@ -887,6 +1047,7 @@ function Insights({ personas }) {
                       </p>
 
                     </div>
+
                   )}
 
                 </div>
@@ -897,18 +1058,20 @@ function Insights({ personas }) {
           </div>
 
         </section>
+
       )}
 
 
       {/* =====================================================
           RECURRING THEMES
-      ===================================================== */}
+      ====================================================== */}
 
       <section className="insight-section">
 
         <div className="section-heading">
 
           <div>
+
             <span className="section-kicker">
               RECURRING THEMES
             </span>
@@ -916,6 +1079,7 @@ function Insights({ personas }) {
             <h2>
               What Keeps Appearing Across Interviews?
             </h2>
+
           </div>
 
         </div>
@@ -935,6 +1099,7 @@ function Insights({ personas }) {
                   );
 
                 return (
+
                   <div
                     className="theme-card"
                     key={index}
@@ -985,14 +1150,16 @@ function Insights({ personas }) {
 
                       </div>
 
+
                       <div className="mini-progress">
 
                         <div
                           style={{
-                            width: `${Math.min(
-                              100,
-                              agreement
-                            )}%`,
+                            width:
+                              `${Math.min(
+                                100,
+                                agreement
+                              )}%`,
                           }}
                         />
 
@@ -1001,6 +1168,7 @@ function Insights({ personas }) {
                     </div>
 
                   </div>
+
                 );
               }
             )
@@ -1019,8 +1187,8 @@ function Insights({ personas }) {
 
 
       {/* =====================================================
-          AGREEMENT + DISAGREEMENT
-      ===================================================== */}
+          AGREEMENT / DISAGREEMENT
+      ====================================================== */}
 
       <section className="insight-section">
 
@@ -1037,6 +1205,7 @@ function Insights({ personas }) {
               </div>
 
               <div>
+
                 <span className="section-kicker">
                   CONSENSUS
                 </span>
@@ -1044,6 +1213,7 @@ function Insights({ personas }) {
                 <h2>
                   Agreement Patterns
                 </h2>
+
               </div>
 
             </div>
@@ -1054,8 +1224,7 @@ function Insights({ personas }) {
               {Array.isArray(
                 insights.agreementPatterns
               ) &&
-              insights.agreementPatterns.length >
-                0 ? (
+              insights.agreementPatterns.length > 0 ? (
 
                 insights.agreementPatterns.map(
                   (pattern, index) => {
@@ -1066,6 +1235,7 @@ function Insights({ personas }) {
                       );
 
                     return (
+
                       <div
                         className="pattern-item"
                         key={index}
@@ -1087,10 +1257,11 @@ function Insights({ personas }) {
 
                           <div
                             style={{
-                              width: `${Math.min(
-                                100,
-                                percentage
-                              )}%`,
+                              width:
+                                `${Math.min(
+                                  100,
+                                  percentage
+                                )}%`,
                             }}
                           />
 
@@ -1101,6 +1272,7 @@ function Insights({ personas }) {
                         </p>
 
                       </div>
+
                     );
                   }
                 )
@@ -1130,6 +1302,7 @@ function Insights({ personas }) {
               </div>
 
               <div>
+
                 <span className="section-kicker">
                   DIVERSITY
                 </span>
@@ -1137,6 +1310,7 @@ function Insights({ personas }) {
                 <h2>
                   Disagreement Patterns
                 </h2>
+
               </div>
 
             </div>
@@ -1147,8 +1321,7 @@ function Insights({ personas }) {
               {Array.isArray(
                 insights.disagreementPatterns
               ) &&
-              insights.disagreementPatterns.length >
-                0 ? (
+              insights.disagreementPatterns.length > 0 ? (
 
                 insights.disagreementPatterns.map(
                   (pattern, index) => (
@@ -1191,13 +1364,14 @@ function Insights({ personas }) {
 
       {/* =====================================================
           BEHAVIORAL TRENDS
-      ===================================================== */}
+      ====================================================== */}
 
       <section className="insight-section">
 
         <div className="section-heading">
 
           <div>
+
             <span className="section-kicker">
               BEHAVIOR ANALYSIS
             </span>
@@ -1205,6 +1379,7 @@ function Insights({ personas }) {
             <h2>
               Behavioral Trends
             </h2>
+
           </div>
 
         </div>
@@ -1256,19 +1431,19 @@ function Insights({ personas }) {
 
       {/* =====================================================
           INDIVIDUAL PERSONA FINDINGS
-      ===================================================== */}
+      ====================================================== */}
 
       {Array.isArray(
         insights.individualPersonaInsights
       ) &&
-      insights.individualPersonaInsights.length >
-        0 && (
+      insights.individualPersonaInsights.length > 0 && (
 
         <section className="insight-section">
 
           <div className="section-heading">
 
             <div>
+
               <span className="section-kicker">
                 INDIVIDUAL PERSONA ANALYSIS
               </span>
@@ -1281,6 +1456,7 @@ function Insights({ personas }) {
                 Individual interview responses are compared
                 with each persona's original survey decision.
               </p>
+
             </div>
 
           </div>
@@ -1371,18 +1547,20 @@ function Insights({ personas }) {
           </div>
 
         </section>
+
       )}
 
 
       {/* =====================================================
           SEGMENT INSIGHTS
-      ===================================================== */}
+      ====================================================== */}
 
       <section className="insight-section">
 
         <div className="section-heading">
 
           <div>
+
             <span className="section-kicker">
               USER SEGMENTS
             </span>
@@ -1390,6 +1568,7 @@ function Insights({ personas }) {
             <h2>
               Persona Segment Insights
             </h2>
+
           </div>
 
         </div>
@@ -1475,7 +1654,7 @@ function Insights({ personas }) {
 
       {/* =====================================================
           FINAL CONCLUSION
-      ===================================================== */}
+      ====================================================== */}
 
       <section className="insight-section">
 
@@ -1496,13 +1675,16 @@ function Insights({ personas }) {
             </h2>
 
             <p>
-              {insights.summary ||
+              {insights.mainFinding ||
+                insights.summary ||
                 "The research analysis is complete."}
             </p>
+
 
             <div className="conclusion-stats">
 
               <div>
+
                 <strong>
                   {productScore.wouldUsePercentage ??
                     0}%
@@ -1511,9 +1693,12 @@ function Insights({ personas }) {
                 <span>
                   Would Use
                 </span>
+
               </div>
 
+
               <div>
+
                 <strong>
                   {productScore.averageRating ??
                     0}/5
@@ -1522,17 +1707,20 @@ function Insights({ personas }) {
                 <span>
                   Average Rating
                 </span>
+
               </div>
 
+
               <div>
+
                 <strong>
-                  {interviewResponses +
-                    allPersonaQuestions}
+                  {totalQuestionsConsidered}
                 </strong>
 
                 <span>
-                  Interview Data Points
+                  Questions Considered
                 </span>
+
               </div>
 
             </div>

@@ -3,6 +3,7 @@ import axios from "axios";
 import PersonaCard from "./components/PersonaCard";
 import Interview from "./components/Interview";
 import Insights from "./components/Insights";
+import AskResearch from "./components/AskResearch";
 import "./App.css";
 
 function App() {
@@ -313,6 +314,27 @@ function App() {
             {!sidebarCollapsed && (
               <span className="nav-label">
                 Insights
+              </span>
+            )}
+          </button>
+
+          <button
+            type="button"
+            className={
+              activePage === "ask-research"
+                ? "nav-item active"
+                : "nav-item"
+            }
+            onClick={() => goToPage("ask-research")}
+            disabled={!result}
+          >
+            <span className="nav-icon">
+              🔎
+            </span>
+
+            {!sidebarCollapsed && (
+              <span className="nav-label">
+                Ask Research
               </span>
             )}
           </button>
@@ -863,6 +885,20 @@ function App() {
           <div className="page">
 
             <Insights
+              personas={result.personas}
+            />
+
+          </div>
+        )}
+
+        {/* =====================================================
+            ASK YOUR RESEARCH PAGE
+        ====================================================== */}
+
+        {activePage === "ask-research" && result && (
+          <div className="page">
+
+            <AskResearch
               personas={result.personas}
             />
 

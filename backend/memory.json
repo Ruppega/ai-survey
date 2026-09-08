@@ -1,228 +1,76 @@
 {
   "personas": {
-    "eeb3cb9d-1e37-42b9-8034-7a159ed43a48": {
+    "fb9e9668-474d-4ff8-953a-52f5ad62dee2": {
       "profile": {
-        "name": "Liam Smith",
+        "name": "Leo Martinez",
         "gender": "Male",
-        "age": 7,
-        "occupation": "Primary School Student",
-        "personality": "Playful and easily distracted",
-        "buyDecision": "No",
-        "rating": 2,
-        "reason": "It doesn't have any superhero pictures on it, and opening three different compartments takes too long when I want to go play.",
-        "id": "eeb3cb9d-1e37-42b9-8034-7a159ed43a48"
-      },
-      "conversation": [
-        {
-          "mode": "individual",
-          "question": "How important is the number of compartments in a lunch box for you? Why?",
-          "answer": "They are super annoying! Having to open three different little doors just to get to my sandwich takes way too long, especially when recess is starting and I just want to go play tag with Leo. One big space is way better so I can just grab my stuff and go. Oh look, a bug!"
-        }
-      ]
-    },
-    "a7016620-d44a-4da5-9841-a8e531a86d73": {
-      "profile": {
-        "name": "Chloe Davis",
-        "gender": "Female",
-        "age": 10,
-        "occupation": "Elementary School Student",
-        "personality": "Organized and neat",
-        "buyDecision": "Yes",
-        "rating": 5,
-        "reason": "I love that the three compartments keep my fruit from touching my sandwich! It also fits easily next to my notebooks.",
-        "id": "a7016620-d44a-4da5-9841-a8e531a86d73"
-      },
-      "conversation": [
-        {
-          "mode": "individual",
-          "question": "What size and capacity would you prefer for a school lunch box?",
-          "answer": "It needs to be big enough to fit my sandwich box, a juice box, and an ice pack flat at the bottom, but not too big because it has to slide right into my backpack next to my spiral notebooks without making it too puffy or heavy."
-        }
-      ]
-    },
-    "e781378f-3e07-484a-93d2-6b0d48adb810": {
-      "profile": {
-        "name": "Ethan Johnson",
-        "gender": "Male",
-        "age": 13,
-        "occupation": "Middle School Student",
-        "personality": "No-nonsense and practical",
-        "buyDecision": "Yes",
-        "rating": 4,
-        "reason": "It's compact enough to slide right into my backpack without taking up all the space. The sections are useful for a quick meal.",
-        "id": "e781378f-3e07-484a-93d2-6b0d48adb810"
-      },
-      "conversation": [
-        {
-          "mode": "individual",
-          "question": "How important is it that the lunch box is leak-proof and prevents food from mixing?",
-          "answer": "It's pretty important, but not a total dealbreaker if the dividers are decent. I hate when yogurt gets into my sandwich, so it needs to at least keep the big stuff apart. And nobody wants soup juice leaking all over their math homework."
-        }
-      ]
-    },
-    "8bb9fd7e-5b87-4730-a8ca-f94a132130e3": {
-      "profile": {
-        "name": "Sophia Martinez",
-        "gender": "Female",
         "age": 15,
         "occupation": "High School Student",
-        "personality": "Trend-conscious and picky",
-        "buyDecision": "No",
-        "rating": 2,
-        "reason": "The design looks a bit too juvenile for high school. I prefer a sleek, adult-looking bento box or an insulated pouch.",
-        "id": "8bb9fd7e-5b87-4730-a8ca-f94a132130e3"
-      },
-      "conversation": [
-        {
-          "mode": "individual",
-          "question": "What type of material would you prefer for a lunch box (plastic, stainless steel, etc.) and why?",
-          "answer": "Honestly, definitely stainless steel or maybe a really good matte silicone. Plastic just feels super cheap and middle-school, and it gets all stained if you put pasta sauce or anything in it. Stainless steel looks way cleaner and more aesthetic, plus it actually keeps your food cold and doesn't hold onto weird smells."
-        }
-      ]
-    },
-    "54ff07cf-a641-48c1-9e6d-3ee55a01fe7f": {
-      "profile": {
-        "name": "Noah Brown",
-        "gender": "Male",
-        "age": 8,
-        "occupation": "Primary School Student",
-        "personality": "Energetic and messy",
-        "buyDecision": "No",
-        "rating": 3,
-        "reason": "My mom would probably buy it for me, but I'd likely lose one of the inner parts or leave the lid open in my school bag.",
-        "id": "54ff07cf-a641-48c1-9e6d-3ee55a01fe7f"
-      },
-      "conversation": [
-        {
-          "mode": "individual",
-          "question": "How important are the lunch box's design, colour, and appearance when choosing one?",
-          "answer": "They have to look cool, obviously! If it's just plain blue or something boring, no one looks at it. I'd want a bright red one or one with pictures on it, like race cars or superheroes. But honestly, it doesn't matter *too* much because it gets all covered in dirt and crushed up at the bottom of my backpack anyway."
-        }
-      ]
-    },
-    "902d3501-7947-4c79-8008-05c9ea070cbb": {
-      "profile": {
-        "name": "Mia Wilson",
-        "gender": "Female",
-        "age": 12,
-        "occupation": "Middle School Student",
-        "personality": "Health-conscious and creative",
+        "personality": "Studious, organized, and tech-savvy",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "Great for packing balanced snacks like veggies, dip, and crackers separately. The compact size is super convenient.",
-        "id": "902d3501-7947-4c79-8008-05c9ea070cbb"
+        "reason": "I need a reliable light for my late-night studying and coding projects. The adjustable brightness and flexible positioning would fit my desk space perfectly without disturbing my roommate.",
+        "id": "fb9e9668-474d-4ff8-953a-52f5ad62dee2"
       },
       "conversation": [
         {
           "mode": "individual",
-          "question": "How much would you be willing to spend on a good-quality school lunch box?",
-          "answer": "Probably around $15 to $20, maybe up to $25 if it looks really cool and has a bunch of good compartments. My mom would probably pay for it if it actually keeps my veggies crunchy and doesn't leak."
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "For me, it really comes down to reliability and adjustability. Since I spend a lot of late nights at my desk studying for AP classes or coding, I need something that won't strain my eyes and has precise brightness controls so I don't wake up my roommate. Build quality matters a lot too—I don't want something flimsy that’s going to wobble or break after a few months of heavy use.",
+          "timestamp": 1788875695.1026504
+        },
+        {
+          "mode": "all",
+          "question": "What concerns would stop you from using it?",
+          "answer": "My main concern would be durability and build quality. Since I use my desk setup for hours every night, if the joints or the flexible arm get loose over time and won't hold their position, it would become really annoying for coding and studying.",
+          "timestamp": 1788875707.7421756
         }
       ]
     },
-    "449e57b0-f37b-4fc5-84cd-d056631bfc2f": {
+    "b33be053-2590-4e3b-9b6c-9fa91751e53d": {
       "profile": {
-        "name": "Lucas Taylor",
-        "gender": "Male",
-        "age": 16,
-        "occupation": "High School Student",
-        "personality": "Athletic and hurried",
+        "name": "Chloe Vance",
+        "gender": "Female",
+        "age": 13,
+        "occupation": "Middle School Student",
+        "personality": "Creative, easily distracted, and minimalist",
         "buyDecision": "No",
-        "rating": 1,
-        "reason": "The portions in the three compartments are too small for my post-practice appetite. I need a much larger lunch container.",
-        "id": "449e57b0-f37b-4fc5-84cd-d056631bfc2f"
+        "rating": 2,
+        "reason": "My phone screen and tablet already provide enough light for reading in bed, and my parents won't let me clutter my small desk with another gadget just for low power consumption.",
+        "id": "b33be053-2590-4e3b-9b6c-9fa91751e53d"
       },
       "conversation": [
         {
           "mode": "individual",
-          "question": "Which feature would most influence your decision to buy this lunch box: compartments, leak-proof design, durability, size, appearance, ease of cleaning, or price? Why?",
-          "answer": "Size, 100%. None of the other stuff matters if I'm still starving after track practice. Those compartments are just way too tiny to hold enough food for a guy my age who's constantly burning calories. I need something way bigger that actually packs a real meal."
+          "question": "What would make you choose this product?",
+          "answer": "Honestly, probably nothing, unless it could do way more cool stuff. Like, if it was also a speaker that played my bedroom playlist really loudly without my phone dying, or if it changed colors to match my room aesthetic and didn't take up actual desk space—maybe if it could clip onto my bed frame instead. But my parents still wouldn't let me have it anyway because my desk is already a mess, so whatever.",
+          "timestamp": 1788875701.1842237
         },
         {
-          "mode": "individual",
-          "question": "if not",
-          "answer": "If not bigger? Honestly, I wouldn't even look at it. If it's not holding enough food, it's totally useless to me. I'd just stick to packing two separate containers or a big plastic grocery bag with my snacks instead.",
-          "timestamp": 1788522585.2369754
+          "mode": "all",
+          "question": "What concerns would stop you from using it?",
+          "answer": "Honestly, the biggest thing stopping me is that it just feels like extra clutter I don't need on my desk. If it's too complicated to set up or takes up too much space, I wouldn't even want it in my room.",
+          "timestamp": 1788875707.7421865
         }
       ]
     }
   },
   "allPersonaInterviews": [
     {
-      "question": "What would make you choose this product?",
+      "question": "What concerns would stop you from using it?",
       "responses": [
         {
-          "personaId": "9faf3433-9bf9-4154-a67d-566b788c4b57",
-          "personaName": "Marcus Vance",
-          "answer": "Honestly, seeing concrete proof that it fits seamlessly into my weekly meal prep without ruining my macros is what sold me. The 90% less oil claim means I can still enjoy wings and fries while staying strictly on track with my fitness goals."
+          "personaId": "fb9e9668-474d-4ff8-953a-52f5ad62dee2",
+          "personaName": "Leo Martinez",
+          "answer": "My main concern would be durability and build quality. Since I use my desk setup for hours every night, if the joints or the flexible arm get loose over time and won't hold their position, it would become really annoying for coding and studying."
         },
         {
-          "personaId": "948fc7fb-c2e9-407d-b13b-045fd381ca1d",
-          "personaName": "Elena Rostova",
-          "answer": "It would need to be a multi-functional appliance that actually replaces two or three of the kitchen gadgets I already own. Since counter space in my apartment is practically nonexistent, another single-purpose machine is a hard no for me."
-        },
-        {
-          "personaId": "05c43dd9-29ec-4891-acba-d203c5cfe883",
-          "personaName": "Devon Taylor",
-          "answer": "For me, it’s about making weeknight cooking fast and totally mess-free. I hate dealing with leftover cooking oil, so knowing this gives me a quick, easy way to roast veggies and snacks after a long day at my desk made it an easy yes."
-        },
-        {
-          "personaId": "dc74af19-0f89-4e1f-b333-be94b8a67f19",
-          "personaName": "Sarah Jenkins",
-          "answer": "It had to solve the daily dinner battle with my picky kids. If a product lets me serve up the crispy chicken nuggets and fries they love while secretly cutting down on fat and oil, I'm sold in a heartbeat."
-        },
-        {
-          "personaId": "cb7c9f0d-ab5c-44e7-be4f-5746cdcea35c",
-          "personaName": "Kenji Sato",
-          "answer": "Frankly, nothing would make me choose it. As a chef, I know that circulating hot air is just convection baking; it can never replicate the genuine Maillard reaction, caramelization, and deep-fried texture of traditional methods. It's just a marketing gimmick."
-        },
-        {
-          "personaId": "6476e2cd-2b84-4125-9e57-aa815b4dc09f",
-          "personaName": "Chloe Bennett",
-          "answer": "I'd need foolproof proof that it's genuinely easy to use and clean without a massive learning curve. Since I'm on a strict budget and easily overwhelmed in the kitchen, I have to be 100% sure I won't just let it collect dust on my counter."
+          "personaId": "b33be053-2590-4e3b-9b6c-9fa91751e53d",
+          "personaName": "Chloe Vance",
+          "answer": "Honestly, the biggest thing stopping me is that it just feels like extra clutter I don't need on my desk. If it's too complicated to set up or takes up too much space, I wouldn't even want it in my room."
         }
-      ]
-    },
-    {
-      "mode": "all",
-      "question": "What would make you choose this product?",
-      "responses": [
-        {
-          "personaId": "eeb3cb9d-1e37-42b9-8034-7a159ed43a48",
-          "personaName": "Liam Smith",
-          "answer": "If it had Spider-Man on it and I could just dump everything in one big space instead of messing with three separate parts, I'd totally want it!"
-        },
-        {
-          "personaId": "a7016620-d44a-4da5-9841-a8e531a86d73",
-          "personaName": "Chloe Davis",
-          "answer": "It's already perfect for me because I love keeping everything neat and organized, but maybe offering some pastel color options would make it even better."
-        },
-        {
-          "personaId": "e781378f-3e07-484a-93d2-6b0d48adb810",
-          "personaName": "Ethan Johnson",
-          "answer": "It works well enough as is for a quick lunch, but if it came in a plain, solid dark gray or black color, it would look a bit less childish."
-        },
-        {
-          "personaId": "8bb9fd7e-5b87-4730-a8ca-f94a132130e3",
-          "personaName": "Sophia Martinez",
-          "answer": "Honestly, if it looked like a sleek adult bento box with a minimalist matte finish instead of bright kid colors, I might actually consider carrying it."
-        },
-        {
-          "personaId": "54ff07cf-a641-48c1-9e6d-3ee55a01fe7f",
-          "personaName": "Noah Brown",
-          "answer": "If the lid was attached so I couldn't lose it and it was super durable if I dropped it running to the playground, that would help!"
-        },
-        {
-          "personaId": "902d3501-7947-4c79-8008-05c9ea070cbb",
-          "personaName": "Mia Wilson",
-          "answer": "I already love it for my balanced snacks! If it came with a little matching ice pack or mini dipping container, that would make it an absolute must-have."
-        },
-        {
-          "personaId": "449e57b0-f37b-4fc5-84cd-d056631bfc2f",
-          "personaName": "Lucas Taylor",
-          "answer": "You'd have to double or triple the capacity so I could fit enough food for my post-practice hunger. Right now, the portions are just way too tiny."
-        }
-      ]
+      ],
+      "timestamp": 1788875707.7421954
     }
   ]
 }
