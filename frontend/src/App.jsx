@@ -1,9 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
+
 import PersonaCard from "./components/PersonaCard";
 import Interview from "./components/Interview";
+import Results from "./components/Results";
 import Insights from "./components/Insights";
 import AskResearch from "./components/AskResearch";
+
 import "./App.css";
 
 function App() {
@@ -24,18 +27,15 @@ function App() {
   // INTERVIEW CONVERSATION STORAGE
   // =========================================================
   //
-  // Conversations are stored in App.jsx instead of Interview.jsx.
+  // Conversations are stored here so that changing pages
+  // does not destroy the interview history.
   //
   // Example:
   //
   // {
-  //   "1": [
+  //   "persona-id": [
   //     { type: "user", text: "..." },
   //     { type: "persona", persona: {...}, text: "..." }
-  //   ],
-  //
-  //   "2": [
-  //     ...
   //   ],
   //
   //   "all": [
@@ -43,7 +43,6 @@ function App() {
   //   ]
   // }
   //
-  // This means changing pages will NOT destroy the conversation.
   // =========================================================
 
   const [interviewMessages, setInterviewMessages] = useState({});
@@ -92,7 +91,7 @@ function App() {
 
       console.log("Response:", res.data);
 
-      // Save newly generated personas
+      // Save newly generated research result
       setResult(res.data);
 
       // New research session = fresh interview conversations
@@ -142,7 +141,7 @@ function App() {
   };
 
   // =========================================================
-  // SIDEBAR
+  // SIDEBAR NAVIGATION
   // =========================================================
 
   const goToPage = (page) => {
@@ -150,9 +149,14 @@ function App() {
     if (page === "interview" && !result) return;
     if (page === "results" && !result) return;
     if (page === "insights" && !result) return;
+    if (page === "ask-research" && !result) return;
 
     setActivePage(page);
   };
+
+  // =========================================================
+  // UI
+  // =========================================================
 
   return (
     <div className="app-layout">
@@ -188,7 +192,7 @@ function App() {
 
         </div>
 
-        {/* TOGGLE */}
+        {/* SIDEBAR TOGGLE */}
 
         <button
           type="button"
@@ -210,9 +214,13 @@ function App() {
           {sidebarCollapsed ? "☰" : "←"}
         </button>
 
-        {/* NAVIGATION */}
+        {/* =================================================
+            NAVIGATION
+        ================================================== */}
 
         <nav className="sidebar-nav">
+
+          {/* GENERATE */}
 
           <button
             type="button"
@@ -233,6 +241,8 @@ function App() {
               </span>
             )}
           </button>
+
+          {/* PERSONAS */}
 
           <button
             type="button"
@@ -255,6 +265,8 @@ function App() {
             )}
           </button>
 
+          {/* INTERVIEW */}
+
           <button
             type="button"
             className={
@@ -275,6 +287,8 @@ function App() {
               </span>
             )}
           </button>
+
+          {/* RESULTS */}
 
           <button
             type="button"
@@ -297,6 +311,8 @@ function App() {
             )}
           </button>
 
+          {/* INSIGHTS */}
+
           <button
             type="button"
             className={
@@ -317,6 +333,8 @@ function App() {
               </span>
             )}
           </button>
+
+          {/* ASK YOUR RESEARCH */}
 
           <button
             type="button"
@@ -341,7 +359,9 @@ function App() {
 
         </nav>
 
-        {/* FOOTER */}
+        {/* =================================================
+            SIDEBAR FOOTER
+        ================================================== */}
 
         {!sidebarCollapsed && (
           <div className="sidebar-footer">
@@ -389,6 +409,8 @@ function App() {
 
             </header>
 
+            {/* ABOUT PROJECT */}
+
             <section className="project-info">
 
               <div className="project-info-icon">
@@ -413,6 +435,8 @@ function App() {
               </div>
 
             </section>
+
+            {/* RESEARCH SETUP */}
 
             <section className="generator-card">
 
@@ -640,6 +664,8 @@ function App() {
 
               </div>
 
+              {/* GENERATE BUTTON */}
+
               <button
                 type="button"
                 className="generate-btn"
@@ -764,115 +790,16 @@ function App() {
         {activePage === "results" && result && (
           <div className="page">
 
-            <div className="page-header simple-header">
-
-              <div className="title-icon">
-                📊
-              </div>
-
-              <div>
-
-                <h1>
-                  Research Results
-                </h1>
-
-                <p className="subtitle">
-                  Summary of synthetic persona preferences
-                </p>
-
-              </div>
-
-            </div>
-
-            <div className="stats">
-
-              <div className="stat-box">
-
-                <span className="stat-icon">
-                  👍
-                </span>
-
-                <div>
-
-                  <h3>
-                    Preferred
-                  </h3>
-
-                  <p>
-                    {result.preferred}
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="stat-box">
-
-                <span className="stat-icon">
-                  👎
-                </span>
-
-                <div>
-
-                  <h3>
-                    Not Preferred
-                  </h3>
-
-                  <p>
-                    {result.notPreferred}
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="stat-box">
-
-                <span className="stat-icon">
-                  📊
-                </span>
-
-                <div>
-
-                  <h3>
-                    Preference Rate
-                  </h3>
-
-                  <p>
-                    {result.personas.length > 0
-                      ? Math.round(
-                          (result.preferred * 100) /
-                            result.personas.length
-                        )
-                      : 0}
-                    %
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="stat-box">
-
-                <span className="stat-icon">
-                  👥
-                </span>
-
-                <div>
-
-                  <h3>
-                    Total Personas
-                  </h3>
-
-                  <p>
-                    {result.personas.length}
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
+            <Results
+              personas={result.personas}
+              preferred={result.preferred}
+              notPreferred={result.notPreferred}
+              product={product}
+              description={description}
+              gender={gender}
+              age={age}
+              objective={objective}
+            />
 
           </div>
         )}
