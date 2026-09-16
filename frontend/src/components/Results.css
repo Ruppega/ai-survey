@@ -1259,3 +1259,556 @@
   .results-title-row { align-items: flex-start; }
   .large-score { font-size: 36px; }
 }
+
+
+/* =========================================================
+   PROFESSIONAL ALIGNMENT OVERRIDES
+   Layout only — existing purple/lavender visual language kept.
+   ========================================================= */
+
+.results-dashboard {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 28px 64px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.results-dashboard,
+.results-dashboard * {
+  box-sizing: border-box;
+}
+
+.results-header {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 0 0 28px;
+}
+
+.results-title-row {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.results-title-row > div:last-child {
+  min-width: 0;
+}
+
+.results-header h1 {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.results-header p {
+  max-width: 760px;
+  line-height: 1.5;
+}
+
+.results-persona-pill {
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+.report-download-card {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 28px;
+  padding: 24px 28px;
+}
+
+.report-download-content {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.report-download-content > div:last-child {
+  min-width: 0;
+}
+
+.report-download-card h2 {
+  line-height: 1.25;
+}
+
+.report-download-card p {
+  max-width: 720px;
+  line-height: 1.55;
+}
+
+.download-report-btn {
+  flex: 0 0 auto;
+  min-width: 190px;
+  text-align: center;
+}
+
+.results-stats-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.result-stat-card {
+  min-width: 0;
+  min-height: 132px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 22px;
+}
+
+.result-stat-icon {
+  margin: 0;
+}
+
+.result-stat-content {
+  min-width: 0;
+}
+
+.result-stat-content span,
+.result-stat-content strong,
+.result-stat-content small {
+  overflow-wrap: anywhere;
+}
+
+.result-stat-content strong {
+  font-size: clamp(26px, 2.4vw, 32px);
+}
+
+.results-card,
+.results-summary {
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 24px;
+  padding: 26px 28px;
+}
+
+.section-heading {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.section-heading > div:first-child {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.section-heading h2,
+.section-heading p {
+  max-width: 100%;
+}
+
+.validation-content {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: center;
+  gap: 30px;
+}
+
+.large-score {
+  text-align: center;
+}
+
+.validation-bar-wrap {
+  min-width: 0;
+  width: 100%;
+}
+
+.coverage-grid {
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.coverage-card {
+  min-width: 0;
+  min-height: 108px;
+  width: 100%;
+}
+
+.coverage-card span,
+.coverage-card strong {
+  overflow-wrap: anywhere;
+}
+
+.two-column-results {
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.two-column-results .results-card {
+  min-width: 0;
+}
+
+.sentiment-grid,
+.ai-theme-grid,
+.segment-grid,
+.highlight-grid,
+.theme-grid,
+.quotes-grid {
+  width: 100%;
+  align-items: stretch;
+}
+
+.sentiment-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ai-theme-grid,
+.theme-grid,
+.quotes-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.segment-grid,
+.highlight-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sentiment-card,
+.ai-theme-card,
+.segment-card,
+.highlight-card,
+.theme-card,
+.quote-card,
+.comparison-card,
+.individual-insight-card,
+.pattern-card {
+  min-width: 0;
+  width: 100%;
+}
+
+.insight-list-item,
+.ai-summary-main,
+.comparison-columns > div {
+  min-width: 0;
+}
+
+.insight-list-item p,
+.ai-summary-main p,
+.comparison-columns p,
+.pattern-card p,
+.segment-card p,
+.individual-insight-card p,
+.quote-card p {
+  overflow-wrap: anywhere;
+}
+
+.persona-score-list {
+  width: 100%;
+}
+
+.persona-score-row {
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: 38px 42px minmax(0, 1fr) 82px;
+  gap: 14px;
+}
+
+.persona-score-info {
+  min-width: 0;
+}
+
+.persona-score-name {
+  min-width: 0;
+}
+
+.persona-score-name strong,
+.persona-score-info > small {
+  overflow-wrap: anywhere;
+}
+
+.persona-score-value {
+  min-width: 0;
+}
+
+.results-summary {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.results-summary > div:last-child {
+  min-width: 0;
+}
+
+/* Keep the dashboard centered and prevent cards from being clipped. */
+@media (min-width: 1101px) {
+  .results-dashboard {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .results-dashboard {
+    max-width: 100%;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .results-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .coverage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .segment-grid,
+  .highlight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .results-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .results-persona-pill {
+    align-self: flex-start;
+  }
+
+  .report-download-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .download-report-btn {
+    width: 100%;
+  }
+
+  .two-column-results,
+  .sentiment-grid,
+  .ai-theme-grid,
+  .theme-grid,
+  .quotes-grid,
+  .segment-grid,
+  .highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .validation-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .large-score {
+    text-align: left;
+  }
+}
+
+@media (max-width: 620px) {
+  .results-dashboard {
+    padding: 16px 14px 42px;
+  }
+
+  .results-title-row {
+    align-items: flex-start;
+    gap: 13px;
+  }
+
+  .results-title-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 27px;
+  }
+
+  .results-header h1 {
+    font-size: 34px;
+  }
+
+  .report-download-card,
+  .results-card,
+  .results-summary {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .report-download-content {
+    align-items: flex-start;
+  }
+
+  .results-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .result-stat-card {
+    min-height: 112px;
+  }
+
+  .section-heading {
+    gap: 12px;
+  }
+
+  .validation-badge {
+    align-self: flex-start;
+  }
+
+  .persona-score-row {
+    grid-template-columns: 30px 38px minmax(0, 1fr) 62px;
+    gap: 9px;
+    padding: 11px;
+  }
+}
+
+@media (max-width: 430px) {
+  .results-title-row {
+    width: 100%;
+  }
+
+  .results-title-row > div:last-child {
+    flex: 1;
+  }
+
+  .results-header h1 {
+    font-size: 29px;
+    letter-spacing: -1px;
+  }
+
+  .results-header p {
+    font-size: 13px;
+  }
+
+  .results-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   RESULTS PAGE ALIGNMENT FIX
+   Scoped to .results-dashboard so Insights.css cannot
+   override these comparison styles.
+   ========================================================= */
+
+.results-dashboard .comparison-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+}
+
+.results-dashboard .comparison-card {
+  display: block !important;
+  width: 100%;
+  min-width: 0;
+  padding: 22px 24px;
+  box-sizing: border-box;
+}
+
+.results-dashboard .comparison-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100%;
+  min-width: 0;
+  gap: 18px;
+  margin: 0;
+}
+
+.results-dashboard .comparison-header strong {
+  display: block;
+  min-width: 0;
+  flex: 1 1 auto;
+  color: #41344f;
+  font-size: 16px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.results-dashboard .comparison-header span {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.results-dashboard .comparison-columns {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  width: 100%;
+  min-width: 0;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.results-dashboard .comparison-columns > div {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.results-dashboard .comparison-columns p {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.results-dashboard .comparison-interpretation {
+  display: block !important;
+  width: 100%;
+  min-width: 0;
+  margin-top: 14px;
+  box-sizing: border-box;
+}
+
+.results-dashboard .comparison-interpretation p {
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Keep all major Results grids inside the page width. */
+.results-dashboard .results-card,
+.results-dashboard .results-stats-grid,
+.results-dashboard .coverage-grid,
+.results-dashboard .two-column-results,
+.results-dashboard .ai-theme-grid,
+.results-dashboard .segment-grid,
+.results-dashboard .individual-insight-grid,
+.results-dashboard .quotes-grid {
+  min-width: 0;
+  width: 100%;
+}
+
+.results-dashboard .two-column-results > *,
+.results-dashboard .results-card > * {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .results-dashboard .comparison-columns {
+    grid-template-columns: 1fr !important;
+  }
+
+  .results-dashboard .comparison-header {
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
+}

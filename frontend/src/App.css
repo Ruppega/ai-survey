@@ -1,7 +1,3 @@
-/* =========================================================
-   GLOBAL
-========================================================= */
-
 * {
   box-sizing: border-box;
 }
@@ -27,15 +23,9 @@ textarea {
   font-family: inherit;
 }
 
-
-/* =========================================================
-   APP LAYOUT
-========================================================= */
-
 .app-layout {
   min-height: 100vh;
   display: flex;
-
   background:
     radial-gradient(
       circle at 80% 10%,
@@ -45,26 +35,17 @@ textarea {
     #f7f5ff;
 }
 
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
 .sidebar {
   width: 270px;
   min-width: 270px;
   min-height: 100vh;
-
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
-
   display: flex;
   flex-direction: column;
-
   padding: 28px 18px;
-
   background:
     linear-gradient(
       180deg,
@@ -72,13 +53,8 @@ textarea {
       #681dcc 52%,
       #7629e8 100%
     );
-
   color: white;
-
-  transition:
-    width 0.25s ease,
-    min-width 0.25s ease;
-
+  transition: width 0.25s ease, min-width 0.25s ease;
   z-index: 100;
 }
 
@@ -87,16 +63,9 @@ textarea {
   min-width: 82px;
 }
 
-
-/* =========================================================
-   SIDEBAR LOGO
-========================================================= */
-
 .sidebar-logo {
   padding: 0 8px 24px;
-
-  border-bottom:
-    1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .logo-row {
@@ -109,68 +78,44 @@ textarea {
   width: 44px;
   height: 44px;
   min-width: 44px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: rgba(255, 255, 255, 0.14);
-
   border-radius: 12px;
-
   font-size: 25px;
 }
 
 .sidebar-logo h2 {
   margin: 0;
-
   color: white;
-
   font-size: 22px;
   font-weight: 800;
 }
 
 .sidebar-logo p {
   margin: 4px 0 0;
-
   color: rgba(255, 255, 255, 0.72);
-
   font-size: 12px;
 }
 
-
-/* =========================================================
-   SIDEBAR TOGGLE
-========================================================= */
-
 .sidebar-toggle {
   position: absolute;
-
   top: 24px;
   right: -17px;
-
   width: 36px;
   height: 36px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: 4px solid #f7f5ff;
   border-radius: 50%;
-
   background: white;
-
   color: #6820cf;
-
   font-size: 18px;
   font-weight: 700;
-
   cursor: pointer;
-
-  box-shadow:
-    0 4px 14px rgba(56, 20, 120, 0.18);
-
+  box-shadow: 0 4px 14px rgba(56, 20, 120, 0.18);
   z-index: 110;
 }
 
@@ -178,45 +123,28 @@ textarea {
   transform: scale(1.05);
 }
 
-
-/* =========================================================
-   SIDEBAR NAVIGATION
-========================================================= */
-
 .sidebar-nav {
   margin-top: 36px;
-
   display: flex;
   flex-direction: column;
-
   gap: 10px;
 }
 
 .nav-item {
   width: 100%;
   min-height: 58px;
-
   display: flex;
   align-items: center;
-
   gap: 16px;
-
   padding: 0 18px;
-
   border: none;
   border-radius: 16px;
-
   background: transparent;
-
   color: rgba(255, 255, 255, 0.65);
-
   font-size: 16px;
   font-weight: 700;
-
   text-align: left;
-
   cursor: pointer;
-
   transition: 0.2s ease;
 }
 
@@ -228,9 +156,7 @@ textarea {
 .nav-item.active {
   background: white;
   color: #6820cf;
-
-  box-shadow:
-    0 8px 20px rgba(43, 12, 90, 0.18);
+  box-shadow: 0 8px 20px rgba(43, 12, 90, 0.18);
 }
 
 .nav-item:disabled {
@@ -241,9 +167,7 @@ textarea {
 .nav-icon {
   width: 28px;
   min-width: 28px;
-
   text-align: center;
-
   font-size: 20px;
 }
 
@@ -251,42 +175,21 @@ textarea {
   white-space: nowrap;
 }
 
-
-/* =========================================================
-   SIDEBAR FOOTER
-========================================================= */
-
 .sidebar-footer {
   margin-top: auto;
-
   padding: 20px 8px 4px;
-
   color: rgba(255, 255, 255, 0.55);
-
   font-size: 12px;
-
   text-align: center;
 }
 
-
-/* =========================================================
-   MAIN CONTENT
-========================================================= */
-
 .main-content {
   width: calc(100% - 270px);
-
   margin-left: 270px;
-
   min-height: 100vh;
-
   padding: 42px 36px 60px;
-
   overflow-x: hidden;
-
-  transition:
-    width 0.25s ease,
-    margin-left 0.25s ease;
+  transition: width 0.25s ease, margin-left 0.25s ease;
 }
 
 .sidebar.collapsed ~ .main-content {
@@ -294,31 +197,17 @@ textarea {
   margin-left: 82px;
 }
 
-
-/* =========================================================
-   PAGE
-========================================================= */
-
 .page {
   width: 100%;
   max-width: 1160px;
-
   margin: 0 auto;
-
   padding: 0 8px;
 }
-
-
-/* =========================================================
-   PAGE HEADER
-========================================================= */
 
 .page-header {
   display: flex;
   align-items: flex-start;
-
   gap: 18px;
-
   margin-bottom: 24px;
 }
 
@@ -330,24 +219,13 @@ textarea {
   width: 64px;
   height: 64px;
   min-width: 64px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background:
-    linear-gradient(
-      135deg,
-      #eadcff,
-      #f5edff
-    );
-
+  background: linear-gradient(135deg, #eadcff, #f5edff);
   border-radius: 18px;
-
   font-size: 31px;
-
-  box-shadow:
-    0 8px 24px rgba(102, 45, 190, 0.10);
+  box-shadow: 0 8px 24px rgba(102, 45, 190, 0.10);
 }
 
 .title-content {
@@ -357,200 +235,115 @@ textarea {
 
 .page-header h1 {
   margin: 0;
-
   max-width: 1000px;
-
   color: #5720bd;
-
   font-size: clamp(32px, 4vw, 47px);
-
   line-height: 1.12;
-
   font-weight: 800;
-
   letter-spacing: -1.2px;
 }
 
 .subtitle {
   margin: 9px 0 0;
-
   max-width: 850px;
-
   color: #766b8d;
-
   font-size: 16px;
-
   line-height: 1.55;
 }
 
-
-/* =========================================================
-   ABOUT PROJECT
-========================================================= */
-
 .project-info {
   width: 100%;
-
   display: flex;
   align-items: flex-start;
-
   gap: 16px;
-
   margin-bottom: 22px;
-
   padding: 18px 22px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff,
-      #faf8ff
-    );
-
+  background: linear-gradient(135deg, #ffffff, #faf8ff);
   border: 1px solid #e5daf7;
-
   border-radius: 17px;
-
-  box-shadow:
-    0 7px 22px rgba(73, 30, 140, 0.05);
+  box-shadow: 0 7px 22px rgba(73, 30, 140, 0.05);
 }
 
 .project-info-icon {
   width: 42px;
   height: 42px;
   min-width: 42px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #eee4ff;
-
   border-radius: 11px;
-
   font-size: 21px;
 }
 
 .project-info h3 {
   margin: 0 0 5px;
-
   color: #4f2397;
-
   font-size: 16px;
 }
 
 .project-info p {
   margin: 0;
-
   color: #746b87;
-
   font-size: 13px;
-
   line-height: 1.6;
 }
-
-
-/* =========================================================
-   GENERATOR CARD
-========================================================= */
 
 .generator-card {
   width: 100%;
   max-width: 100%;
-
   padding: 30px;
-
   background: #ffffff;
-
   border: 1px solid #e5daf7;
-
   border-radius: 22px;
-
-  box-shadow:
-    0 12px 35px rgba(74, 28, 142, 0.07);
-
+  box-shadow: 0 12px 35px rgba(74, 28, 142, 0.07);
   overflow: hidden;
 }
-
-
-/* =========================================================
-   FORM SECTION TITLE
-========================================================= */
 
 .form-section-title {
   display: flex;
   align-items: center;
-
   gap: 15px;
-
   margin-bottom: 27px;
-
   padding-bottom: 21px;
-
-  border-bottom:
-    1px solid #eee8f8;
+  border-bottom: 1px solid #eee8f8;
 }
 
 .section-icon {
   width: 50px;
   height: 50px;
   min-width: 50px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #eee5ff;
-
   border-radius: 15px;
-
   font-size: 23px;
 }
 
 .form-section-title h2 {
   margin: 0;
-
   color: #4d258f;
-
   font-size: 23px;
 }
 
 .form-section-title p {
   margin: 4px 0 0;
-
   color: #8b819d;
-
   font-size: 13px;
 }
 
-
-/* =========================================================
-   FORM GRID
-========================================================= */
-
 .form-grid {
   width: 100%;
-
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr);
-
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   column-gap: 28px;
-
   row-gap: 23px;
 }
-
-
-/* =========================================================
-   FORM FIELD
-========================================================= */
 
 .form-field {
   width: 100%;
   min-width: 0;
-
   display: flex;
   flex-direction: column;
 }
@@ -561,216 +354,110 @@ textarea {
 
 .form-label {
   display: block;
-
   margin-bottom: 8px;
-
   color: #51249c;
-
   font-size: 15px;
-
   font-weight: 750;
 }
-
-
-/* =========================================================
-   INPUT + TEXTAREA
-   WHITE INSIDE + DARK OUTER BORDER
-========================================================= */
 
 .form-field input,
 .form-field textarea {
   width: 100%;
-
   background: #ffffff;
-
   color: #34264a;
-
   border: 2px solid #40324f;
-
   border-radius: 12px;
-
   font-family: inherit;
-
   font-size: 15px;
-
   outline: none;
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-
-
-/* =========================================================
-   INPUT
-========================================================= */
 
 .form-field input {
   height: 52px;
-
   padding: 0 15px;
 }
-
-
-/* =========================================================
-   TEXTAREA
-========================================================= */
 
 .form-field textarea {
   min-height: 120px;
   height: 120px;
-
   padding: 14px 15px;
-
   resize: vertical;
-
   line-height: 1.5;
 }
-
-
-/* =========================================================
-   PLACEHOLDER
-========================================================= */
 
 .form-field input::placeholder,
 .form-field textarea::placeholder {
   color: #aaa2b5;
-
   opacity: 1;
 }
-
-
-/* =========================================================
-   FOCUS
-========================================================= */
 
 .form-field input:focus,
 .form-field textarea:focus {
   background: #ffffff;
-
   border-color: #7134bd;
-
-  box-shadow:
-    0 0 0 3px rgba(113, 52, 189, 0.10);
+  box-shadow: 0 0 0 3px rgba(113, 52, 189, 0.10);
 }
-
-
-/* =========================================================
-   HOVER
-========================================================= */
 
 .form-field input:hover,
 .form-field textarea:hover {
   border-color: #5b476c;
 }
 
-
-/* =========================================================
-   HELP TEXT
-========================================================= */
-
 .form-help {
   margin-top: 6px;
-
   color: #958aa5;
-
   font-size: 12px;
-
   line-height: 1.35;
 }
-
-
-/* =========================================================
-   GENDER
-========================================================= */
 
 .gender-options {
   width: 100%;
   min-height: 52px;
-
   display: flex;
   align-items: center;
-
   gap: 22px;
-
   padding: 0 15px;
-
   background: #ffffff;
-
   border: 2px solid #40324f;
-
   border-radius: 12px;
 }
 
 .radio-option {
   display: flex;
   align-items: center;
-
   gap: 7px;
-
   color: #493b5c;
-
   font-size: 14px;
-
   cursor: pointer;
 }
 
 .radio-option input {
   width: 16px;
   height: 16px;
-
   margin: 0;
-
   accent-color: #8b45e8;
-
   cursor: pointer;
 }
 
-
-/* =========================================================
-   GENERATE BUTTON
-========================================================= */
-
 .generate-btn {
   width: 100%;
-
   height: 55px;
-
   margin-top: 28px;
-
   border: none;
-
   border-radius: 13px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #6420c9,
-      #8b32ee
-    );
-
+  background: linear-gradient(135deg, #6420c9, #8b32ee);
   color: white;
-
   font-size: 16px;
-
   font-weight: 800;
-
   cursor: pointer;
-
-  box-shadow:
-    0 8px 20px rgba(103, 31, 202, 0.20);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    opacity 0.2s ease;
+  box-shadow: 0 8px 20px rgba(103, 31, 202, 0.20);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .generate-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-
-  box-shadow:
-    0 12px 25px rgba(103, 31, 202, 0.28);
+  box-shadow: 0 12px 25px rgba(103, 31, 202, 0.28);
 }
 
 .generate-btn:active:not(:disabled) {
@@ -779,134 +466,102 @@ textarea {
 
 .generate-btn:disabled {
   opacity: 0.65;
-
   cursor: wait;
 }
 
+/* 100-persona session indicator */
+.persona-count-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  padding: 13px 17px;
+  background: #f3ebff;
+  border: 1px solid #ddc7fa;
+  border-radius: 14px;
+  color: #64418b;
+  font-size: 14px;
+}
 
-/* =========================================================
-   PERSONA GRID
-========================================================= */
+.persona-count-banner strong {
+  color: #6420c9;
+  font-size: 20px;
+}
 
 .grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
 .persona-wrapper {
   display: flex;
   flex-direction: column;
-
   gap: 12px;
 }
 
 .interview-btn {
   width: 100%;
-
   height: 44px;
-
   border: 1px solid #d8c1f6;
-
   border-radius: 11px;
-
   background: white;
-
   color: #6822c5;
-
   font-size: 14px;
-
   font-weight: 700;
-
   cursor: pointer;
-
   transition: 0.2s ease;
 }
 
 .interview-btn:hover {
   background: #f4edff;
-
   border-color: #a875e5;
 }
 
-
-/* =========================================================
-   RESULTS
-========================================================= */
-
 .stats {
   display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
 
 .stat-box {
   display: flex;
   align-items: center;
-
   gap: 18px;
-
   min-height: 135px;
-
   padding: 24px;
-
   background: white;
-
   border: 1px solid #e5daf6;
-
   border-radius: 18px;
-
-  box-shadow:
-    0 8px 25px rgba(67, 25, 130, 0.06);
+  box-shadow: 0 8px 25px rgba(67, 25, 130, 0.06);
 }
 
 .stat-icon {
   width: 52px;
   height: 52px;
   min-width: 52px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #f0e7ff;
-
   border-radius: 14px;
-
   font-size: 23px;
 }
 
 .stat-box h3 {
   margin: 0 0 4px;
-
   color: #695c7d;
-
   font-size: 14px;
 }
 
 .stat-box p {
   margin: 0;
-
   color: #5622a5;
-
   font-size: 31px;
-
   font-weight: 800;
 }
 
-
-/* =========================================================
-   TABLET
-========================================================= */
-
 @media (max-width: 1000px) {
-
   .sidebar {
     width: 220px;
     min-width: 220px;
@@ -914,35 +569,24 @@ textarea {
 
   .main-content {
     width: calc(100% - 220px);
-
     margin-left: 220px;
-
     padding: 35px 24px 55px;
   }
 
   .sidebar.collapsed ~ .main-content {
     width: calc(100% - 82px);
-
     margin-left: 82px;
   }
 
   .grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media (max-width: 720px) {
-
   .sidebar {
     width: 82px;
     min-width: 82px;
-
     padding: 22px 12px;
   }
 
@@ -965,7 +609,6 @@ textarea {
 
   .nav-item {
     justify-content: center;
-
     padding: 0;
   }
 
@@ -979,9 +622,7 @@ textarea {
 
   .main-content {
     width: calc(100% - 82px);
-
     margin-left: 82px;
-
     padding: 24px 14px 40px;
   }
 
@@ -997,15 +638,12 @@ textarea {
     width: 52px;
     height: 52px;
     min-width: 52px;
-
     border-radius: 15px;
-
     font-size: 25px;
   }
 
   .page-header h1 {
     font-size: 28px;
-
     letter-spacing: -0.5px;
   }
 
@@ -1019,13 +657,11 @@ textarea {
 
   .generator-card {
     padding: 22px 18px;
-
     border-radius: 19px;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
-
     row-gap: 21px;
   }
 
@@ -1035,7 +671,6 @@ textarea {
 
   .gender-options {
     flex-wrap: wrap;
-
     gap: 15px;
   }
 
@@ -1048,13 +683,7 @@ textarea {
   }
 }
 
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
 @media (max-width: 480px) {
-
   .main-content {
     padding: 20px 11px 35px;
   }
@@ -1082,5 +711,11 @@ textarea {
   .form-field textarea {
     min-height: 110px;
     height: 110px;
+  }
+
+  .persona-count-banner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
   }
 }
