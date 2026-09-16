@@ -1,5 +1,9 @@
 from flask import Flask, request, jsonify, send_file
+import json
+import os
 import re
+import time
+
 from flask_cors import CORS
 
 from agent import (
@@ -14,6 +18,15 @@ from report_generator import generate_research_report
 
 
 # =========================================================
+# FILE LOCATION
+# =========================================================
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MEMORY_FILE = os.path.join(BASE_DIR, "memory.json")
+MAX_PERSONAS = 100
+
+
+# =========================================================
 # FLASK APP
 # =========================================================
 
@@ -23,16 +36,77 @@ CORS(app)
 
 
 # =========================================================
+# MEMORY HELPERS FOR ASK RESEARCH
+# =========================================================
+
+def load_memory():
+    if not os.path.exists(MEMORY_FILE):
+        return {
+            "personas": {},
+            "allPersonaInterviews": [],
+            "askResearchHistory": [],
+        }
+
+    try:
+        with open(
+            MEMORY_FILE,
+            "r",
+            encoding="utf-8",
+        ) as file:
+            content = file.read().strip()
+
+        if not content:
+            return {
+                "personas": {},
+                "allPersonaInterviews": [],
+                "askResearchHistory": [],
+            }
+
+        memory = json.loads(content)
+
+        if not isinstance(memory, dict):
+            memory = {}
+
+        memory.setdefault("personas", {})
+        memory.setdefault("allPersonaInterviews", [])
+        memory.setdefault("askResearchHistory", [])
+
+        return memory
+
+    except (json.JSONDecodeError, OSError):
+        return {
+            "personas": {},
+            "allPersonaInterviews": [],
+            "askResearchHistory": [],
+        }
+
+
+def save_memory(memory):
+    with open(
+        MEMORY_FILE,
+        "w",
+        encoding="utf-8",
+    ) as file:
+        json.dump(
+            memory,
+            file,
+            indent=2,
+            ensure_ascii=False,
+        )
+
+
+# =========================================================
 # HOME
 # =========================================================
 
 @app.route("/", methods=["GET"])
 def home():
-
-    return jsonify({
-        "message": "Persona Generator Backend Running",
-        "status": "success"
-    }), 200
+    return jsonify(
+        {
+            "message": "Persona Generator Backend Running",
+            "status": "success",
+        }
+    ), 200
 
 
 # =========================================================
@@ -41,9 +115,7 @@ def home():
 
 @app.route("/generate", methods=["POST"])
 def generate():
-
     try:
-
         data = request.get_json(silent=True) or {}
 
         product = str(
@@ -66,131 +138,73 @@ def generate():
             data.get("objective", "")
         ).strip()
 
-        count = data.get(
-            "count",
-            20
-        )
-
-        # -----------------------------------------------------
-        # VALIDATION
-        # -----------------------------------------------------
+        count = data.get("count", 20)
 
         if not product:
-
-            return jsonify({
-                "error": "Product name is required."
-            }), 400
+            return jsonify(
+                {"error": "Product name is required."}
+            ), 400
 
         if not description:
-
-            return jsonify({
-                "error": "Product description is required."
-            }), 400
+            return jsonify(
+                {"error": "Product description is required."}
+            ), 400
 
         if not age:
-
-            return jsonify({
-                "error": "Target audience age is required."
-            }), 400
+            return jsonify(
+                {"error": "Target audience age is required."}
+            ), 400
 
         if not objective:
-
-            return jsonify({
-                "error": "Research objective is required."
-            }), 400
-
-        # -----------------------------------------------------
-        # VALIDATE COUNT
-        # -----------------------------------------------------
+            return jsonify(
+                {"error": "Research objective is required."}
+            ), 400
 
         try:
-
             count = int(count)
-
-        except (
-            ValueError,
-            TypeError
-        ):
-
+        except (ValueError, TypeError):
             count = 20
 
         if count < 1:
-
             count = 1
 
-        if count > 100:
-
-            count = 100
-
-        # -----------------------------------------------------
-        # GENERATE PERSONAS
-        # -----------------------------------------------------
+        if count > MAX_PERSONAS:
+            count = MAX_PERSONAS
 
         print()
         print("========================================")
         print("        PERSONA GENERATION")
         print("========================================")
-
-        print(
-            f"Product: {product}"
-        )
-
-        print(
-            f"Gender: {gender}"
-        )
-
-        print(
-            f"Age: {age}"
-        )
-
-        print(
-            f"Persona count: {count}"
-        )
-
+        print("Product:", product)
+        print("Gender:", gender)
+        print("Age:", age)
+        print("Persona count requested:", count)
+        print("Maximum supported personas:", MAX_PERSONAS)
         print("========================================")
         print()
 
         result = generate_personas(
-
             product=product,
-
             description=description,
-
             gender=gender,
-
             age=age,
-
             objective=objective,
-
             count=count,
-
         )
 
         return jsonify(result), 200
 
     except Exception as e:
-
         print()
         print("========================================")
         print("        GENERATE PERSONAS ERROR")
         print("========================================")
-
-        print(
-            "Error type:",
-            type(e).__name__
-        )
-
-        print(
-            "Error message:",
-            str(e)
-        )
-
+        print("Error type:", type(e).__name__)
+        print("Error message:", str(e))
         print("========================================")
         print()
 
-        return jsonify({
-            "error": str(e)
-        }), 500
+        return jsonify({"error": str(e)}), 500
 
 
 # =========================================================
@@ -199,95 +213,54 @@ def generate():
 
 @app.route("/interview", methods=["POST"])
 def interview():
-
     try:
-
         data = request.get_json(
             silent=True
         ) or {}
 
-        persona_id = data.get(
-            "personaId"
-        )
+        persona_id = data.get("personaId")
 
         question = str(
-            data.get(
-                "question",
-                ""
-            )
+            data.get("question", "")
         ).strip()
 
-        # -----------------------------------------------------
-        # VALIDATION
-        # -----------------------------------------------------
-
         if not persona_id:
-
-            return jsonify({
-                "error": "Persona ID is required."
-            }), 400
+            return jsonify(
+                {"error": "Persona ID is required."}
+            ), 400
 
         if not question:
-
-            return jsonify({
-                "error": "Question is required."
-            }), 400
-
-        # -----------------------------------------------------
-        # INTERVIEW
-        # -----------------------------------------------------
+            return jsonify(
+                {"error": "Question is required."}
+            ), 400
 
         print()
         print("========================================")
         print("        INDIVIDUAL INTERVIEW")
         print("========================================")
-
-        print(
-            "Persona:",
-            persona_id
-        )
-
-        print(
-            "Question:",
-            question
-        )
-
+        print("Persona:", persona_id)
+        print("Question:", question)
         print("========================================")
         print()
 
         result = interview_persona(
-
             persona_id=persona_id,
-
             question=question,
-
         )
 
         return jsonify(result), 200
 
     except Exception as e:
-
         print()
         print("========================================")
         print("     INDIVIDUAL INTERVIEW ERROR")
         print("========================================")
-
-        print(
-            "Error type:",
-            type(e).__name__
-        )
-
-        print(
-            "Error message:",
-            str(e)
-        )
-
+        print("Error type:", type(e).__name__)
+        print("Error message:", str(e))
         print("========================================")
         print()
 
-        return jsonify({
-            "error": str(e)
-        }), 500
+        return jsonify({"error": str(e)}), 500
 
 
 # =========================================================
@@ -296,133 +269,71 @@ def interview():
 
 @app.route("/interview-all", methods=["POST"])
 def interview_all():
-
     try:
-
         data = request.get_json(
             silent=True
         ) or {}
 
         question = str(
-            data.get(
-                "question",
-                ""
-            )
+            data.get("question", "")
         ).strip()
 
         personas = data.get(
             "personas",
-            []
+            [],
         )
 
-        # -----------------------------------------------------
-        # VALIDATE QUESTION
-        # -----------------------------------------------------
-
         if not question:
+            return jsonify(
+                {"error": "Question is required."}
+            ), 400
 
-            return jsonify({
-                "error": "Question is required."
-            }), 400
-
-        # -----------------------------------------------------
-        # VALIDATE PERSONAS
-        # -----------------------------------------------------
-
-        if not isinstance(
-            personas,
-            list
-        ) or not personas:
-
-            return jsonify({
-                "error": "No current personas were provided."
-            }), 400
-
-        # -----------------------------------------------------
-        # VALIDATE PERSONA IDS
-        # -----------------------------------------------------
+        if not isinstance(personas, list) or not personas:
+            return jsonify(
+                {"error": "No current personas were provided."}
+            ), 400
 
         valid_personas = [
-
             persona
-
             for persona in personas
-
-            if isinstance(
-                persona,
-                dict
-            )
-
+            if isinstance(persona, dict)
             and str(
-                persona.get(
-                    "id",
-                    ""
-                )
+                persona.get("id", "")
             ).strip()
-
         ]
 
         if not valid_personas:
-
-            return jsonify({
-                "error": "No valid personas were provided."
-            }), 400
-
-        # -----------------------------------------------------
-        # ALL PERSONA INTERVIEW
-        # -----------------------------------------------------
+            return jsonify(
+                {"error": "No valid personas were provided."}
+            ), 400
 
         print()
         print("========================================")
         print("         ALL-PERSONA INTERVIEW")
         print("========================================")
-
-        print(
-            "Personas:",
-            len(valid_personas)
-        )
-
-        print(
-            "Question:",
-            question
-        )
-
+        print("Personas:", len(valid_personas))
+        print("Question:", question)
         print("========================================")
         print()
 
         result = interview_all_personas(
-
             question=question,
-
             personas=valid_personas,
-
         )
 
         return jsonify(result), 200
 
     except Exception as e:
-
         print()
         print("========================================")
         print("      ALL-PERSONA INTERVIEW ERROR")
         print("========================================")
-
-        print(
-            "Error type:",
-            type(e).__name__
-        )
-
-        print(
-            "Error message:",
-            str(e)
-        )
-
+        print("Error type:", type(e).__name__)
+        print("Error message:", str(e))
         print("========================================")
         print()
 
-        return jsonify({
-            "error": str(e)
-        }), 500
+        return jsonify({"error": str(e)}), 500
 
 
 # =========================================================
@@ -430,241 +341,115 @@ def interview_all():
 # =========================================================
 
 def create_fallback_insights(personas):
-
-    """
-    Creates useful survey-based insights when Gemini
-    cannot be reached because of quota or temporary errors.
-
-    This prevents the Insights page from completely failing.
-    """
-
     total = len(personas)
 
     preferred = 0
-
     not_preferred = 0
-
     ratings = []
 
-    # -----------------------------------------------------
-    # SURVEY CALCULATION
-    # -----------------------------------------------------
-
     for persona in personas:
-
-        if not isinstance(
-            persona,
-            dict
-        ):
-
+        if not isinstance(persona, dict):
             continue
 
         decision = str(
-            persona.get(
-                "buyDecision",
-                ""
-            )
+            persona.get("buyDecision", "")
         ).strip().lower()
 
         if decision == "yes":
-
             preferred += 1
 
         elif decision == "no":
-
             not_preferred += 1
 
         try:
-
             rating = float(
-                persona.get(
-                    "rating",
-                    0
-                )
+                persona.get("rating", 0)
             )
 
             if 1 <= rating <= 5:
+                ratings.append(rating)
 
-                ratings.append(
-                    rating
-                )
-
-        except (
-            ValueError,
-            TypeError
-        ):
-
+        except (ValueError, TypeError):
             pass
 
-    # -----------------------------------------------------
-    # SAFETY CORRECTION
-    # -----------------------------------------------------
-
     if preferred + not_preferred < total:
+        not_preferred = total - preferred
 
-        not_preferred = (
-            total - preferred
-        )
+    would_use_percentage = (
+        round((preferred / total) * 100, 1)
+        if total > 0
+        else 0
+    )
 
-    # -----------------------------------------------------
-    # WOULD USE %
-    # -----------------------------------------------------
-
-    if total > 0:
-
-        would_use_percentage = round(
-
-            (
-                preferred /
-                total
-            ) * 100,
-
-            1
-
-        )
-
-    else:
-
-        would_use_percentage = 0
-
-    # -----------------------------------------------------
-    # AVERAGE RATING
-    # -----------------------------------------------------
-
-    if ratings:
-
-        average_rating = round(
-
-            sum(ratings) /
-            len(ratings),
-
-            1
-
-        )
-
-    else:
-
-        average_rating = 0
-
-    # -----------------------------------------------------
-    # RETURN FALLBACK
-    # -----------------------------------------------------
+    average_rating = (
+        round(sum(ratings) / len(ratings), 1)
+        if ratings
+        else 0
+    )
 
     return {
+        "summary": (
+            f"{preferred} out of {total} personas indicated "
+            f"that they would use or purchase the product, "
+            f"representing {would_use_percentage}% of the "
+            f"research sample."
+        ),
 
-        "summary":
-            f"{preferred} out of {total} personas "
-            f"indicated that they would use or purchase "
-            f"the product, representing "
-            f"{would_use_percentage}% of the research sample.",
-
-        "mainFinding":
-            f"{would_use_percentage}% of personas "
-            f"would use the product based on the survey.",
+        "mainFinding": (
+            f"{would_use_percentage}% of personas would use "
+            f"the product based on the survey."
+        ),
 
         "positiveSignals": [
-
-            f"{preferred} of {total} personas "
-            f"preferred the product.",
-
-            f"The average product rating was "
-            f"{average_rating}/5."
-
+            f"{preferred} of {total} personas preferred the product.",
+            f"The average product rating was {average_rating}/5.",
         ],
 
         "concerns": [
-
-            f"{not_preferred} of {total} personas "
-            f"did not prefer the product."
-
+            f"{not_preferred} of {total} personas did not prefer the product."
         ],
 
         "sentiment": {
-
             "positive": 0,
-
             "neutral": 0,
-
-            "negative": 0
-
+            "negative": 0,
         },
 
         "themes": [],
-
         "interviewDiscoveries": [],
-
         "agreementPatterns": [],
-
         "disagreementPatterns": [],
-
         "behavioralTrends": [],
-
         "segmentInsights": [],
-
         "surveyVsInterview": [],
-
         "individualPersonaInsights": [],
 
-        # -------------------------------------------------
-        # PRODUCT SCORE
-        # -------------------------------------------------
-
         "productScore": {
-
-            "wouldUsePercentage":
-                would_use_percentage,
-
-            "preferred":
-                preferred,
-
-            "notPreferred":
-                not_preferred,
-
-            "totalPersonas":
-                total,
-
-            "averageRating":
-                average_rating
-
+            "wouldUsePercentage": would_use_percentage,
+            "preferred": preferred,
+            "notPreferred": not_preferred,
+            "totalPersonas": total,
+            "averageRating": average_rating,
         },
-
-        # -------------------------------------------------
-        # INTERVIEW STATS
-        # -------------------------------------------------
 
         "interviewStats": {
-
             "individualResponses": 0,
-
             "individualPersonas": 0,
-
             "allPersonaQuestions": 0,
-
             "allPersonaResponses": 0,
-
             "allPersonaPersonas": 0,
-
             "totalInterviewDataPoints": 0,
-
             "hasIndividualInterviews": False,
-
-            "hasAllPersonaInterviews": False
-
+            "hasAllPersonaInterviews": False,
         },
 
-        # -------------------------------------------------
-        # IMPORTANT STATUS
-        # -------------------------------------------------
+        "insightsStatus": "survey_only",
 
-        "insightsStatus":
-            "survey_only",
-
-        "insightsMessage":
-            "Survey insights are available. "
-            "AI interview analysis is temporarily "
-            "unavailable because the Gemini API quota "
-            "has been reached."
-
+        "insightsMessage": (
+            "Survey insights are available. AI interview analysis "
+            "is temporarily unavailable because the Gemini API "
+            "quota has been reached."
+        ),
     }
 
 
@@ -674,266 +459,123 @@ def create_fallback_insights(personas):
 
 @app.route("/insights", methods=["POST"])
 def insights():
-
     try:
-
         data = request.get_json(
             silent=True
         ) or {}
 
         personas = data.get(
             "personas",
-            []
+            [],
         )
 
-        # -----------------------------------------------------
-        # VALIDATE PERSONAS
-        # -----------------------------------------------------
-
-        if not isinstance(
-            personas,
-            list
-        ) or not personas:
-
-            return jsonify({
-                "error": "No current personas were provided."
-            }), 400
-
-        # -----------------------------------------------------
-        # VALID PERSONAS ONLY
-        # -----------------------------------------------------
+        if not isinstance(personas, list) or not personas:
+            return jsonify(
+                {"error": "No current personas were provided."}
+            ), 400
 
         valid_personas = [
-
             persona
-
             for persona in personas
-
-            if isinstance(
-                persona,
-                dict
-            )
-
+            if isinstance(persona, dict)
             and str(
-                persona.get(
-                    "id",
-                    ""
-                )
+                persona.get("id", "")
             ).strip()
-
         ]
 
         if not valid_personas:
-
-            return jsonify({
-                "error": "No valid current personas were provided."
-            }), 400
-
-        # -----------------------------------------------------
-        # START INSIGHTS
-        # -----------------------------------------------------
+            return jsonify(
+                {"error": "No valid current personas were provided."}
+            ), 400
 
         print()
         print("========================================")
         print("          INSIGHTS AGENT STARTED")
         print("========================================")
-
         print(
-            f"Analyzing {len(valid_personas)} "
-            f"current personas..."
+            f"Analyzing {len(valid_personas)} current personas..."
         )
-
         print("========================================")
         print()
 
-        # -----------------------------------------------------
-        # RUN AI INSIGHTS AGENT
-        # -----------------------------------------------------
-
         try:
-
             result = generate_insights(
                 valid_personas
             )
 
-            # -------------------------------------------------
-            # VALIDATE RESULT
-            # -------------------------------------------------
-
-            if not isinstance(
-                result,
-                dict
-            ):
-
+            if not isinstance(result, dict):
                 raise Exception(
-                    "Insights Agent returned "
-                    "an invalid response."
+                    "Insights Agent returned an invalid response."
                 )
 
-            print()
-            print("========================================")
-            print("       INSIGHTS AGENT SUCCESS")
-            print("========================================")
+            print("AI insights generated successfully.")
 
-            print(
-                "AI insights generated successfully."
-            )
-
-            print("========================================")
-            print()
-
-            return jsonify(
-                result
-            ), 200
+            return jsonify(result), 200
 
         except Exception as insights_error:
-
-            error_text = str(
-                insights_error
-            )
-
-            error_upper = (
-                error_text.upper()
-            )
+            error_text = str(insights_error)
+            error_upper = error_text.upper()
 
             print()
-            print("========================================")
-            print("       AI INSIGHTS ERROR")
-            print("========================================")
-
-            print(
-                "Error type:",
-                type(insights_error).__name__
-            )
-
-            print(
-                "Error message:",
-                error_text
-            )
-
-            print("========================================")
-            print()
-
-            # -------------------------------------------------
-            # GEMINI QUOTA / RATE LIMIT
-            # -------------------------------------------------
+            print("AI INSIGHTS ERROR")
+            print("Error type:", type(insights_error).__name__)
+            print("Error message:", error_text)
 
             quota_error = any(
-
                 keyword in error_upper
-
-                for keyword in [
-
+                for keyword in (
                     "429",
-
                     "RESOURCE_EXHAUSTED",
-
                     "QUOTA",
-
                     "RATE LIMIT",
-
                     "FREE_TIER",
-
-                    "GENERATEREQUESTS"
-
-                ]
-
+                    "GENERATEREQUESTS",
+                )
             )
 
             if quota_error:
-
-                print(
-                    "[Insights] Gemini quota "
-                    "limit detected."
+                fallback = create_fallback_insights(
+                    valid_personas
                 )
 
-                print(
-                    "[Insights] Returning "
-                    "survey-based fallback."
-                )
-
-                fallback = (
-                    create_fallback_insights(
-                        valid_personas
-                    )
-                )
-
-                return jsonify(
-                    fallback
-                ), 200
-
-            # -------------------------------------------------
-            # TEMPORARY GEMINI ERROR
-            # -------------------------------------------------
+                return jsonify(fallback), 200
 
             temporary_error = any(
-
                 keyword in error_upper
-
-                for keyword in [
-
+                for keyword in (
                     "503",
-
                     "UNAVAILABLE",
-
                     "TIMEOUT",
-
-                    "DEADLINE"
-
-                ]
-
+                    "DEADLINE",
+                )
             )
 
             if temporary_error:
-
-                fallback = (
-                    create_fallback_insights(
-                        valid_personas
-                    )
+                fallback = create_fallback_insights(
+                    valid_personas
                 )
 
-                fallback[
-                    "insightsMessage"
-                ] = (
+                fallback["insightsMessage"] = (
                     "Survey insights are available. "
                     "AI interview analysis is temporarily "
                     "unavailable. Please try again later."
                 )
 
-                return jsonify(
-                    fallback
-                ), 200
+                return jsonify(fallback), 200
 
-            # -------------------------------------------------
-            # OTHER AI ERROR
-            # -------------------------------------------------
-
-            raise insights_error
+            raise
 
     except Exception as e:
-
         print()
         print("========================================")
         print("        INSIGHTS ENDPOINT ERROR")
         print("========================================")
-
-        print(
-            "Error type:",
-            type(e).__name__
-        )
-
-        print(
-            "Error message:",
-            str(e)
-        )
-
+        print("Error type:", type(e).__name__)
+        print("Error message:", str(e))
         print("========================================")
         print()
 
-        return jsonify({
-            "error": str(e)
-        }), 500
-
+        return jsonify({"error": str(e)}), 500
 
 
 # =========================================================
@@ -942,10 +584,10 @@ def insights():
 
 @app.route("/generate-report", methods=["POST"])
 def generate_report():
-
     try:
-
-        data = request.get_json(silent=True) or {}
+        data = request.get_json(
+            silent=True
+        ) or {}
 
         product = str(
             data.get("product", "")
@@ -969,23 +611,17 @@ def generate_report():
 
         personas = data.get(
             "personas",
-            []
+            [],
         )
 
-        # AI insights may already have been generated by the Results
-        # page. Passing them here prevents the PDF download from
-        # making a second Gemini request.
+        # Optional: Results can pass already-generated AI insights.
+        # This prevents a second Gemini request during PDF generation.
         insights = data.get("insights")
 
-        # -----------------------------------------------------
-        # VALIDATION
-        # -----------------------------------------------------
-
         if not isinstance(personas, list) or not personas:
-
-            return jsonify({
-                "error": "No personas available for report."
-            }), 400
+            return jsonify(
+                {"error": "No personas available for report."}
+            ), 400
 
         valid_personas = [
             persona
@@ -994,14 +630,9 @@ def generate_report():
         ]
 
         if not valid_personas:
-
-            return jsonify({
-                "error": "No valid personas available for report."
-            }), 400
-
-        # -----------------------------------------------------
-        # GENERATE PDF
-        # -----------------------------------------------------
+            return jsonify(
+                {"error": "No valid personas available for report."}
+            ), 400
 
         print()
         print("========================================")
@@ -1012,6 +643,8 @@ def generate_report():
         print("========================================")
         print()
 
+        # report_generator.py reads the current session's
+        # Ask Research history from memory.json.
         pdf_buffer = generate_research_report(
             product=product,
             description=description,
@@ -1019,26 +652,27 @@ def generate_report():
             age=age,
             objective=objective,
             personas=valid_personas,
-            insights=insights
+            insights=insights,
         )
 
         safe_product = re.sub(
             r"[^A-Za-z0-9_-]+",
             "_",
-            product or "research"
+            product or "research",
         ).strip("_")
 
-        filename = f"{safe_product or 'research'}_report.pdf"
+        filename = (
+            f"{safe_product or 'research'}_report.pdf"
+        )
 
         return send_file(
             pdf_buffer,
             mimetype="application/pdf",
             as_attachment=True,
-            download_name=filename
+            download_name=filename,
         )
 
     except Exception as e:
-
         print()
         print("========================================")
         print("       RESEARCH REPORT ERROR")
@@ -1048,34 +682,7 @@ def generate_report():
         print("========================================")
         print()
 
-        return jsonify({
-            "error": str(e)
-        }), 500
-
-
-# =========================================================
-# GLOBAL ERROR HANDLER
-# =========================================================
-
-@app.errorhandler(404)
-def page_not_found(error):
-
-    return jsonify({
-        "error": "Endpoint not found."
-    }), 404
-
-
-@app.errorhandler(405)
-def method_not_allowed(error):
-
-    return jsonify({
-        "error": "HTTP method not allowed."
-    }), 405
-
-
-# =========================================================
-# START SERVER
-# =========================================================
+        return jsonify({"error": str(e)}), 500
 
 
 # =========================================================
@@ -1085,35 +692,42 @@ def method_not_allowed(error):
 @app.route("/ask-research", methods=["POST"])
 def ask_research():
     try:
-        data = request.get_json(silent=True) or {}
+        data = request.get_json(
+            silent=True
+        ) or {}
 
         question = str(
             data.get("question", "")
         ).strip()
 
-        personas = data.get("personas", [])
+        personas = data.get(
+            "personas",
+            [],
+        )
 
         if not question:
-            return jsonify({
-                "error": "Question is required."
-            }), 400
+            return jsonify(
+                {"error": "Question is required."}
+            ), 400
 
         if not isinstance(personas, list) or not personas:
-            return jsonify({
-                "error": "No current personas were provided."
-            }), 400
+            return jsonify(
+                {"error": "No current personas were provided."}
+            ), 400
 
         valid_personas = [
             persona
             for persona in personas
             if isinstance(persona, dict)
-            and str(persona.get("id", "")).strip()
+            and str(
+                persona.get("id", "")
+            ).strip()
         ]
 
         if not valid_personas:
-            return jsonify({
-                "error": "No valid current personas were provided."
-            }), 400
+            return jsonify(
+                {"error": "No valid current personas were provided."}
+            ), 400
 
         print()
         print("========================================")
@@ -1129,7 +743,42 @@ def ask_research():
             personas=valid_personas,
         )
 
-        return jsonify(result), 200
+        # -----------------------------------------------------
+        # SAVE ASK RESEARCH RESULT
+        # -----------------------------------------------------
+        # This is the important new part.
+        #
+        # Every Ask Research question and its result is saved
+        # against the CURRENT research generation.
+        #
+        # The next /generate call clears this list, so results
+        # from an older product cannot appear in a new report.
+        # -----------------------------------------------------
+
+        memory = load_memory()
+
+        memory.setdefault(
+            "askResearchHistory",
+            [],
+        )
+
+        memory["askResearchHistory"].append(
+            {
+                "question": question,
+                "result": result,
+                "timestamp": time.time(),
+                "personaCount": len(valid_personas),
+            }
+        )
+
+        save_memory(memory)
+
+        return jsonify(
+            {
+                **result,
+                "savedToResearchHistory": True,
+            }
+        ), 200
 
     except Exception as e:
         print()
@@ -1141,34 +790,43 @@ def ask_research():
         print("========================================")
         print()
 
-        return jsonify({
-            "error": str(e)
-        }), 500
+        return jsonify({"error": str(e)}), 500
+
+
+# =========================================================
+# ERROR HANDLERS
+# =========================================================
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return jsonify(
+        {"error": "Endpoint not found."}
+    ), 404
+
+
+@app.errorhandler(405)
+def method_not_allowed(error):
+    return jsonify(
+        {"error": "HTTP method not allowed."}
+    ), 405
+
+
+# =========================================================
+# START SERVER
+# =========================================================
 
 if __name__ == "__main__":
-
     print()
     print("========================================")
     print("      PERSONA RESEARCH BACKEND")
     print("========================================")
-
-    print(
-        "Server: http://127.0.0.1:5000"
-    )
-
-    print(
-        "Status: Running"
-    )
-
+    print("Server: http://127.0.0.1:5000")
+    print("Status: Running")
     print("========================================")
     print()
 
     app.run(
-
         host="127.0.0.1",
-
         port=5000,
-
-        debug=True
-
+        debug=True,
     )

@@ -1,110 +1,2750 @@
 {
   "personas": {
-    "72c8248b-9018-42a7-a5c1-c4bdb91f58d9": {
+    "5c19a19a-92d1-4dcc-9384-7f327eac7cb7": {
       "profile": {
-        "name": "Aarav Sharma",
+        "name": "Marcus Vance",
         "gender": "Male",
-        "age": 21,
-        "occupation": "Engineering Student",
-        "personality": "Budget-conscious, tech-savvy, and pragmatic",
+        "age": 34,
+        "occupation": "Software Engineer",
+        "personality": "Data-driven and efficiency-focused",
         "buyDecision": "Yes",
         "rating": 5,
-        "reason": "The 50-hour battery life and fast charging are incredible for long study sessions and daily commuting without needing constant recharges.",
-        "id": "72c8248b-9018-42a7-a5c1-c4bdb91f58d9"
+        "reason": "The promise of 90% less oil aligns with my macro tracking goals without sacrificing the crunch I love.",
+        "id": "5c19a19a-92d1-4dcc-9384-7f327eac7cb7"
       },
       "conversation": [
         {
-          "mode": "individual",
-          "question": "What matters most to you when choosing a product like this?",
-          "answer": "For me, it really comes down to practicality and value. As an engineering student, I’m always on the move between lectures, the library, and my dorm, so battery life and durability are huge. I hate having to constantly worry about finding an outlet or babying my tech. At the same time, I’m on a tight budget, so it has to be priced right—I won't pay extra for flashy branding or features I'll never actually use. If it's reliable, lasts all day, and doesn't break the bank, that’s an instant win for me.",
-          "timestamp": 1789489369.1341634
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Hard data proving it cuts cooking time and accurately maintains specific temperatures would completely sell me on integrating it into my macro-tracking routine.",
+          "timestamp": 1789574584.6769643
         },
         {
           "mode": "all",
-          "question": "What would make you choose this product?",
-          "answer": "Honestly, what clinched it for me was the 50-hour battery life and fast charging. As an engineering student constantly on campus, I don't have time to constantly plug things in, and this gives me amazing value for my budget.",
-          "timestamp": 1789489399.8239686
+          "question": "What is your budget?",
+          "answer": "I don't have a strict fixed cap, but looking at the specs and ROI on oil savings, anything under $150 makes analytical sense for what it delivers.",
+          "timestamp": 1789574767.4282572
         }
       ]
     },
-    "6cada5a9-635c-492e-a037-81a626843799": {
+    "f0f572cf-1697-4dfd-8421-4973758ac91c": {
       "profile": {
-        "name": "Ananya Iyer",
+        "name": "Elena Rostova",
         "gender": "Female",
-        "age": 25,
-        "occupation": "Digital Marketing Executive",
-        "personality": "Fast-paced, multitasking, and appearance-driven",
-        "buyDecision": "Yes",
-        "rating": 4,
-        "reason": "ENC calling is a lifesaver for my back-to-back client calls in noisy environments, though I would have liked more premium color options.",
-        "id": "6cada5a9-635c-492e-a037-81a626843799"
-      },
-      "conversation": [
-        {
-          "mode": "individual",
-          "question": "What matters most to you when choosing a product like this?",
-          "answer": "Honestly, functionality that keeps up with my hectic schedule is a total non-negotiable. I'm constantly hopping between back-to-back client calls while managing campaigns, so I need something reliable—like ENC calling—that actually filters out background noise so I don't have to repeat myself. But since I'm always on camera and care a lot about aesthetics, it also has to look sleek and chic with my outfits. Performance and style, both matter equally to me.",
-          "timestamp": 1789489375.61259
-        },
-        {
-          "mode": "all",
-          "question": "What would make you choose this product?",
-          "answer": "For me, it’s all about the Environmental Noise Cancellation (ENC). Since I'm always on back-to-back client calls in noisy coffee shops or transit, I chose it because it keeps my voice crystal clear. Though I really wish it came in more stylish, premium colors to match my aesthetic!",
-          "timestamp": 1789489399.8239741
-        }
-      ]
-    },
-    "4d2d48f0-180e-4a43-b3ff-0a284d6469d0": {
-      "profile": {
-        "name": "Rohan Verma",
-        "gender": "Male",
-        "age": 28,
-        "occupation": "Music Producer",
-        "personality": "Audiophile, critical, and uncompromising",
+        "age": 29,
+        "occupation": "Graphic Designer",
+        "personality": "Creative and aesthetic-conscious",
         "buyDecision": "No",
         "rating": 2,
-        "reason": "While the deep bass sounds fun, the overall soundstage lacks clarity and detail in the mid and high frequencies for serious music mixing.",
-        "id": "4d2d48f0-180e-4a43-b3ff-0a284d6469d0"
+        "reason": "It takes up too much counter space and I prefer traditional baking and pan-searing methods.",
+        "id": "f0f572cf-1697-4dfd-8421-4973758ac91c"
       },
       "conversation": [
         {
-          "mode": "individual",
-          "question": "What matters most to you when choosing a product like this?",
-          "answer": "For me, it’s all about absolute sonic accuracy and translation. When I’m mixing a track, I need to hear every single detail across the entire frequency spectrum—crisp highs, clean, separated mids, and a tight, honest low end that doesn't lie to me. If a pair of headphones or monitors colours the sound too much just to make things \"sound fun,\" it's useless to me in the studio. Transparency and a wide soundstage are non-negotiable.",
-          "timestamp": 1789489382.2222424
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Honestly, if it came in a sleek, compact, matte-pastel design that didn't dominate my limited counter space, I might reconsider, but it's still hard to pull me away from my Dutch oven.",
+          "timestamp": 1789574584.67697
         },
         {
           "mode": "all",
-          "question": "What would make you choose this product?",
-          "answer": "To be honest, I wouldn't choose it as my main device. Even though the deep bass is fun for casual listening, the soundstage just lacks the clarity and detail in the mids and highs that I need for serious music mixing.",
-          "timestamp": 1789489399.8239772
+          "question": "What is your budget?",
+          "answer": "Honestly, I wouldn't spend any money on it because I just don't want it cluttering my kitchen space when I already have good baking pans.",
+          "timestamp": 1789574767.4282606
         }
       ]
     },
-    "cd26948d-fe66-4d94-be05-8a4794101c17": {
+    "3a0e89b4-1789-475b-a48d-024e81dc559f": {
       "profile": {
-        "name": "Neha Patel",
-        "gender": "Female",
-        "age": 19,
-        "occupation": "Fashion Design Student",
-        "personality": "Trend-focused, minimalist, and active",
-        "buyDecision": "No",
-        "rating": 3,
-        "reason": "The battery life sounds great, but the charging case looks too bulky to fit comfortably in my small sling bags and trendy pockets.",
-        "id": "cd26948d-fe66-4d94-be05-8a4794101c17"
+        "name": "Derrick Sterling",
+        "gender": "Male",
+        "age": 42,
+        "occupation": "High School History Teacher",
+        "personality": "Pragmatic and budget-conscious",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "It cuts down cooking time on weeknights when I am exhausted from grading papers, plus it's healthier for my kids.",
+        "id": "3a0e89b4-1789-475b-a48d-024e81dc559f"
       },
       "conversation": [
         {
-          "mode": "individual",
-          "question": "What matters most to you when choosing a product like this?",
-          "answer": "Honestly, aesthetics and size are huge for me. Since I’m always running between classes and the design studio, whatever I carry has to actually fit in my tiny sling bags or the pockets of my cargo pants without ruining the silhouette of my outfit. It needs to look sleek and minimalist—like, if it doesn't match my vibe or takes up too much space, I'm just not going to use it, no matter how good the tech specs are.",
-          "timestamp": 1789489389.6702952
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "For me, it's all about a solid warranty and a fair price tag so I know it won't break down after a few months of heavy family use.",
+          "timestamp": 1789574584.6769724
         },
         {
           "mode": "all",
+          "question": "What is your budget?",
+          "answer": "With grading papers and family expenses, I'm looking to keep it around $100 to $130. It has to make financial sense for a weeknight tool.",
+          "timestamp": 1789574767.4282625
+        }
+      ]
+    },
+    "1ca960fa-474e-4cb6-8c03-422d6154c509": {
+      "profile": {
+        "name": "Chloe Dupont",
+        "gender": "Female",
+        "age": 31,
+        "occupation": "Registered Dietitian",
+        "personality": "Health-obsessed and analytical",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "As a nutritionist, I constantly recommend ways to reduce saturated fats. This is a game-changer for clients transitioning away from deep-frying.",
+        "id": "1ca960fa-474e-4cb6-8c03-422d6154c509"
+      },
+      "conversation": [
+        {
+          "mode": "all",
           "question": "What would make you choose this product?",
-          "answer": "I almost bought it because the battery life sounds amazing, but what stopped me is the charging case. It's just too bulky to fit comfortably into my small sling bags and trendy pockets. If they made a sleeker, more minimalist case, I'd reconsider.",
-          "timestamp": 1789489399.8239796
+          "answer": "Scientific validation showing it retains more micronutrients than traditional baking, coupled with easy-to-clean parts for daily client demonstrations, would make it a permanent fixture.",
+          "timestamp": 1789574584.6769743
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'm willing to invest up to $150 or $200 if the heating performance and build quality are top-tier since I use it so frequently for clients and myself.",
+          "timestamp": 1789574767.4282637
+        }
+      ]
+    },
+    "e6b27609-6a9b-469c-98c0-f778f9f2200e": {
+      "profile": {
+        "name": "Liam O'Connor",
+        "gender": "Male",
+        "age": 26,
+        "occupation": "Fitness Coach",
+        "personality": "Energetic and goal-oriented",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "I can prep chicken and sweet potatoes in bulk with minimal oil. It fits my lean-bulking diet perfectly.",
+        "id": "e6b27609-6a9b-469c-98c0-f778f9f2200e"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A larger basket capacity for meal prepping massive batches of chicken and sweet potatoes in one go would make this an absolute instant buy.",
+          "timestamp": 1789574584.6769762
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $150 is my sweet spot. Since I use it for daily meal prep, as long as it's durable and handles bulk chicken, the price is secondary to performance.",
+          "timestamp": 1789574767.4282653
+        }
+      ]
+    },
+    "3e65d78d-93ae-430c-96bb-1f9048003eb4": {
+      "profile": {
+        "name": "Mei-Ling Zhou",
+        "gender": "Female",
+        "age": 38,
+        "occupation": "Accountant",
+        "personality": "Meticulous and traditional",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "I tried one at a friend's house, but I feel like foods cooked this way lose their authentic moisture compared to traditional wok cooking.",
+        "id": "3e65d78d-93ae-430c-96bb-1f9048003eb4"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "If it could somehow incorporate steam technology to lock in moisture the way a traditional wok does, I would definitely give it a second chance.",
+          "timestamp": 1789574584.676978
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Since I'm not entirely convinced by the results compared to a wok, I wouldn't want to spend more than $80, though honestly, I'd rather save my money.",
+          "timestamp": 1789574767.4282675
+        }
+      ]
+    },
+    "0e7e4e10-faef-4949-817d-24be33c542aa": {
+      "profile": {
+        "name": "Carlos Mendez",
+        "gender": "Male",
+        "age": 47,
+        "occupation": "Civil Engineer",
+        "personality": "Skeptical and mechanically minded",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "It's basically just a small convection oven with a fancy marketing budget. I already have a full-size oven.",
+        "id": "0e7e4e10-faef-4949-817d-24be33c542aa"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Unless it can prove it has significantly better heating elements and airflow dynamics than my standard oven—without needing a bunch of gimmicky settings—I'm passing.",
+          "timestamp": 1789574584.6769798
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Zero dollars, because I already own a full-size convection oven that does the exact same mechanical job without taking up extra counter space.",
+          "timestamp": 1789574767.4282694
+        }
+      ]
+    },
+    "9f2e9785-81d9-4aec-a6d2-e0706eedf838": {
+      "profile": {
+        "name": "Sarah Jenkins",
+        "gender": "Female",
+        "age": 35,
+        "occupation": "Marketing Director",
+        "personality": "Busy and convenience-driven",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Between work and taking care of two toddlers, anything that makes dinner faster and healthier is an automatic buy for me.",
+        "id": "9f2e9785-81d9-4aec-a6d2-e0706eedf838"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Dishwasher-safe parts are non-negotiable for me; if I have to spend twenty minutes scrubbing grease out of tiny crevices after dinner, it's not worth it.",
+          "timestamp": 1789574584.6769814
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd happily pay up to $150. Between work and toddlers, if it saves me time and makes dinner easier, it's worth every penny.",
+          "timestamp": 1789574767.4282706
+        }
+      ]
+    },
+    "997dbd1a-6e5a-4b4b-bb55-5df22ec546eb": {
+      "profile": {
+        "name": "Javier Morales",
+        "gender": "Male",
+        "age": 30,
+        "occupation": "Chef de Partie",
+        "personality": "Culinary purist and demanding",
+        "buyDecision": "No",
+        "rating": 1,
+        "reason": "Nothing replaces the chemical reaction and flavor profile of real frying oil. Air frying is just dehydrated baking.",
+        "id": "997dbd1a-6e5a-4b4b-bb55-5df22ec546eb"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing would make me choose it. It fundamentally alters the physics of frying in a way that ruins texture and flavor, and no marketing claim will change my culinary standards.",
+          "timestamp": 1789574584.6769834
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I wouldn't spend a dime on one. No amount of money makes a glorified convection box a substitute for proper deep-frying oil.",
+          "timestamp": 1789574767.4282715
+        }
+      ]
+    },
+    "caa76cd1-e359-48d7-a95a-b684bc48ec6d": {
+      "profile": {
+        "name": "Amina Yusuf",
+        "gender": "Female",
+        "age": 41,
+        "occupation": "Pediatric Nurse",
+        "personality": "Caring and safety-conscious",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Much safer to use around young children than a pan full of hot oil sputtering on the stove.",
+        "id": "caa76cd1-e359-48d7-a95a-b684bc48ec6d"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Foolproof safety features like auto-shutoff and cool-touch exteriors that protect curious little hands are what completely win me over.",
+          "timestamp": 1789574584.676985
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $120 to $150 feels reasonable for something that keeps my kids safe from hot oil splatters on the stove.",
+          "timestamp": 1789574767.4282732
+        }
+      ]
+    },
+    "7e1e87c1-b66e-4df9-ace6-de73e8ff062c": {
+      "profile": {
+        "name": "Tobias Schmidt",
+        "gender": "Male",
+        "age": 39,
+        "occupation": "Financial Analyst",
+        "personality": "Cautious and value-oriented",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "The price point is a bit high compared to generic brands, and I'm not convinced it will last long-term.",
+        "id": "7e1e87c1-b66e-4df9-ace6-de73e8ff062c"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A lower price point backed by an extended multi-year warranty would be required to convince me it's a financially sound, long-term investment.",
+          "timestamp": 1789574584.6769867
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'm quite cautious, so I'd want to stay under $90 or wait for a solid discount before taking a risk on a countertop appliance.",
+          "timestamp": 1789574767.4282742
+        }
+      ]
+    },
+    "23e4d24e-266d-4771-89c1-84c80bc8ca6b": {
+      "profile": {
+        "name": "Zoe Kincaid",
+        "gender": "Female",
+        "age": 27,
+        "occupation": "Freelance Writer",
+        "personality": "Impulsive and trend-following",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "All my favorite food bloggers use it for quick, healthy snacks, and I want to try making those viral recipes.",
+        "id": "23e4d24e-266d-4771-89c1-84c80bc8ca6b"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Seeing a bunch of trendy aesthetic reels and easy, fun snack recipes makes me want to grab one right now!",
+          "timestamp": 1789574584.6769881
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd probably drop around $100 to $120 on a cute, trendy model that looks good in photos and lets me try those viral snack recipes.",
+          "timestamp": 1789574767.4282758
+        }
+      ]
+    },
+    "bdf9264d-a480-4ac4-a2f1-95e28c207d38": {
+      "profile": {
+        "name": "Kenji Sato",
+        "gender": "Male",
+        "age": 45,
+        "occupation": "Architect",
+        "personality": "Minimalist and design-focused",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Kitchen gadgets clutter clean countertops. Unless it can replace multiple appliances seamlessly, I won't buy it.",
+        "id": "bdf9264d-a480-4ac4-a2f1-95e28c207d38"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "It would need to have an ultra-minimalist, architectural design that completely replaces my toaster oven and toaster so it actually clears up counter space instead of adding to the clutter.",
+          "timestamp": 1789574584.6769898
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Price isn't really the main issue, but since it has to replace multiple appliances to earn counter space, I'd expect a premium multi-function model around $200 if I bought one at all.",
+          "timestamp": 1789574767.4282768
+        }
+      ]
+    },
+    "49c545d6-d83a-480f-b169-43a05d6e2f8f": {
+      "profile": {
+        "name": "Rachel Goldberg",
+        "gender": "Female",
+        "age": 33,
+        "occupation": "Product Manager",
+        "personality": "Research-heavy and pragmatic",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "I read the reviews and specs. Philips has superior airflow technology compared to competitors, making it worth the switch to healthier meals.",
+        "id": "49c545d6-d83a-480f-b169-43a05d6e2f8f"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Transparent testing data proving superior thermal distribution and consistent crisping performance compared to budget alternatives is what seals the deal for me.",
+          "timestamp": 1789574584.6769912
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I researched the specs and Philips airflow tech is superior, so I'm willing to budget around $160 for a reliable, high-performing unit.",
+          "timestamp": 1789574767.428278
+        }
+      ]
+    },
+    "f1b97104-242b-4b52-a139-304d69434989": {
+      "profile": {
+        "name": "Mateo Silva",
+        "gender": "Male",
+        "age": 28,
+        "occupation": "Barista",
+        "personality": "Easygoing and social",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Great for making quick post-work bites without heating up the whole apartment or dealing with greasy pans.",
+        "id": "f1b97104-242b-4b52-a139-304d69434989"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "If it's compact enough for a small apartment kitchen and cleans up in under two minutes, I'm sold for quick post-shift bites.",
+          "timestamp": 1789574584.6769927
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $100 is ideal. I just want a quick, hassle-free way to make post-work bites without breaking the bank.",
+          "timestamp": 1789574767.4282794
+        }
+      ]
+    },
+    "95a1f499-ad4b-404a-87b3-dd94c15887b7": {
+      "profile": {
+        "name": "Hannah Abbott",
+        "gender": "Female",
+        "age": 49,
+        "occupation": "HR Manager",
+        "personality": "Health-conscious and family-focused",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "My doctor told me to lower my cholesterol. This lets me keep eating my favorite crispy textures while drastically cutting oil.",
+        "id": "95a1f499-ad4b-404a-87b3-dd94c15887b7"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Clear clinical validation that it effectively lowers cholesterol-raising fats while keeping favorite family meals tasting great is all the convincing I need.",
+          "timestamp": 1789574584.6769943
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Health is my priority right now on doctor's orders, so I'm comfortable spending up to $150 for a dependable machine that lowers my cholesterol.",
+          "timestamp": 1789574767.4282808
+        }
+      ]
+    },
+    "76019b0a-9daa-440d-98d3-3505d1b9d970": {
+      "profile": {
+        "name": "Brandon Foster",
+        "gender": "Male",
+        "age": 36,
+        "occupation": "Sales Executive",
+        "personality": "Ambitious and impatient",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Cleaning out the basket and grease trap looks like a chore. I'd rather order takeout or use the microwave.",
+        "id": "76019b0a-9daa-440d-98d3-3505d1b9d970"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Unless it is genuinely self-cleaning or completely dishwasher-safe without any frustrating nooks and crannies, I'd rather just stick to takeout.",
+          "timestamp": 1789574584.6769958
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Since I'd rather just order takeout than clean a grease trap, my budget for this is strictly zero.",
+          "timestamp": 1789574767.428283
+        }
+      ]
+    },
+    "17259f40-b6b8-4561-a35a-1c1ca775f233": {
+      "profile": {
+        "name": "Nadia Al-Mansoor",
+        "gender": "Female",
+        "age": 32,
+        "occupation": "Pharmacist",
+        "personality": "Evidence-based and cautious",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Reducing trans fats and heavy oils is scientifically proven to improve cardiovascular health, so making this switch makes sense.",
+        "id": "17259f40-b6b8-4561-a35a-1c1ca775f233"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Peer-reviewed nutritional data demonstrating measurable cardiovascular improvements from reduced oil consumption would make this an essential kitchen tool.",
+          "timestamp": 1789574584.6769977
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I view it as an investment in cardiovascular health, so around $130 to $150 is a reasonable price point for an evidence-backed appliance.",
+          "timestamp": 1789574767.4282842
+        }
+      ]
+    },
+    "daac3645-3b3b-4938-aaca-28419014e33e": {
+      "profile": {
+        "name": "Kevin O'Leary",
+        "gender": "Male",
+        "age": 44,
+        "occupation": "Electrician",
+        "personality": "Hands-on and straightforward",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "Draws a lot of power on the kitchen circuit and I already have a toaster oven that does half these things.",
+        "id": "daac3645-3b3b-4938-aaca-28419014e33e"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "It would need to prove it doesn't overload standard kitchen circuits and genuinely outperforms a quality toaster oven, which right now I doubt it does.",
+          "timestamp": 1789574584.6769993
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "My budget is zero since my toaster oven handles what I need and I don't want to overload the kitchen circuit.",
+          "timestamp": 1789574767.4282851
+        }
+      ]
+    },
+    "e5a1e10f-31df-492f-9110-0c9c5e433b00": {
+      "profile": {
+        "name": "Beatrice Dubois",
+        "gender": "Female",
+        "age": 25,
+        "occupation": "Graduate Student",
+        "personality": "Budget-minded and busy",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Living in a small dorm-style apartment means no stove ventilation. This lets me cook quick, healthy meals without setting off the smoke detector.",
+        "id": "e5a1e10f-31df-492f-9110-0c9c5e433b00"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A compact footprint that fits a tight dorm counter and zero smoke emission are the exact features that make this a must-have for me.",
+          "timestamp": 1789574584.6770008
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "As a grad student living in a small space, I need to keep it under $90, ideally finding a good sale on a compact model.",
+          "timestamp": 1789574767.4282866
+        }
+      ]
+    },
+    "e8ca2d47-b4fe-44b6-aaa2-8e252910f082": {
+      "profile": {
+        "name": "Arthur Pendelton",
+        "gender": "Male",
+        "age": 42,
+        "occupation": "Accountant",
+        "personality": "Methodical, cautious, and numbers-driven",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "I appreciate the health benefits, but traditional deep frying gives a specific texture that I just don't think a convection appliance can truly replicate.",
+        "id": "e8ca2d47-b4fe-44b6-aaa2-8e252910f082"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "I would need to taste side-by-side comparative samples proving that convection air circulation can genuinely match the exact mouthfeel of traditional immersion frying.",
+          "timestamp": 1789574584.677002
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Given my doubts about the texture compared to traditional frying, I wouldn't allocate any budget for it.",
+          "timestamp": 1789574767.4282877
+        }
+      ]
+    },
+    "8747e7e1-7790-46c6-87cb-3a58b7818ed0": {
+      "profile": {
+        "name": "Bianca Vance",
+        "gender": "Female",
+        "age": 29,
+        "occupation": "Graphic Designer",
+        "personality": "Creative, aesthetic-focused, and busy",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Reducing oil usage without sacrificing crunch fits my busy design schedule and health goals perfectly. It saves time on cleanup, too.",
+        "id": "8747e7e1-7790-46c6-87cb-3a58b7818ed0"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A gorgeous, streamlined aesthetic that complements my kitchen decor, combined with ultra-fast cleanup, makes this an absolute yes for my busy schedule.",
+          "timestamp": 1789574584.6770036
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd budget around $130. It needs to look sleek on the counter and save me time on cleanup without breaking the bank.",
+          "timestamp": 1789574767.4282887
+        }
+      ]
+    },
+    "670e3644-1bf9-4016-896c-c96ae4db26f1": {
+      "profile": {
+        "name": "Caleb Thorne",
+        "gender": "Male",
+        "age": 35,
+        "occupation": "Personal Trainer",
+        "personality": "Energetic, fitness-obsessed, and persuasive",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "My clients always struggle to find healthy meal alternatives that taste good. The 90% less oil claim makes this an easy recommendation for clean eating.",
+        "id": "670e3644-1bf9-4016-896c-c96ae4db26f1"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Guaranteed consistency in texture and a foolproof oil-reduction metric that I can easily explain to clients makes recommending this a no-brainer.",
+          "timestamp": 1789574584.6770055
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd say around $150. Since I recommend clean eating alternatives to my clients all the time, it's worth having a solid unit on hand.",
+          "timestamp": 1789574767.42829
+        }
+      ]
+    },
+    "0df2c3dc-321c-4159-b823-b9b965d5dc58": {
+      "profile": {
+        "name": "Diana Kropotkin",
+        "gender": "Female",
+        "age": 48,
+        "occupation": "Librarian",
+        "personality": "Traditional, quiet, and deliberate",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "My kitchen counters are already full of specialized gadgets, and I prefer using my cast-iron skillet for everything.",
+        "id": "0df2c3dc-321c-4159-b823-b9b965d5dc58"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing would make me choose it; I prefer the timeless reliability of my seasoned cast-iron skillet over another electric gadget.",
+          "timestamp": 1789574584.6770072
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "My budget is zero; between my cast-iron skillet and full counters, I have no desire to spend money on another single-use gadget.",
+          "timestamp": 1789574767.428291
+        }
+      ]
+    },
+    "d330e540-f8e9-4a25-a1df-932de4c99f00": {
+      "profile": {
+        "name": "Ethan Brooks",
+        "gender": "Male",
+        "age": 31,
+        "occupation": "Software Engineer",
+        "personality": "Analytical, tech-savvy, and efficiency-minded",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Data shows it uses significantly less energy and oil while cutting cooking times. It's a logical upgrade for my kitchen workflow.",
+        "id": "d330e540-f8e9-4a25-a1df-932de4c99f00"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Reliable performance metrics, energy-efficiency ratings, and a seamless digital interface that integrates smoothly into a streamlined kitchen workflow.",
+          "timestamp": 1789574584.6770086
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Data-wise, a $120 to $140 price point pencils out nicely when factoring in reduced cooking time and lower energy usage.",
+          "timestamp": 1789574767.428292
+        }
+      ]
+    },
+    "50b5786b-aa75-47d1-b8a4-8af8c79a646e": {
+      "profile": {
+        "name": "Fatima Zahra",
+        "gender": "Female",
+        "age": 38,
+        "occupation": "High School Teacher",
+        "personality": "Nurturing, organized, and budget-conscious",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Feeding a family of four healthily is tough. Cutting down on cooking oil while still making food kids love to eat is a massive win.",
+        "id": "50b5786b-aa75-47d1-b8a4-8af8c79a646e"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Durability, a family-sized capacity, and proof that it can turn out healthy dinners quickly without complaints from the kids.",
+          "timestamp": 1789574584.6770105
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "With feeding a family of four, I'm looking to spend around $100 to $120 max to keep things budget-friendly.",
+          "timestamp": 1789574767.4282935
+        }
+      ]
+    },
+    "bfef54b6-f0f0-4cfa-a487-c101ee53eb10": {
+      "profile": {
+        "name": "Gabriel Santos",
+        "gender": "Male",
+        "age": 26,
+        "occupation": "Barista",
+        "personality": "Outgoing, casual, and experimental",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "I love late-night snacks, but frying things in my small apartment leaves a terrible smell and mess. This solves both problems.",
+        "id": "bfef54b6-f0f0-4cfa-a487-c101ee53eb10"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Total odor containment and easy cleanup are all it takes to keep my apartment fresh after late-night cooking sessions.",
+          "timestamp": 1789574584.6770124
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $100 works for me. I just want a cheap, easy way to handle late-night snacks without stinking up my apartment.",
+          "timestamp": 1789574767.4282947
+        }
+      ]
+    },
+    "9a0ecae0-83f5-4672-98ea-d0c4acf1b039": {
+      "profile": {
+        "name": "Hannah Abbott",
+        "gender": "Female",
+        "age": 33,
+        "occupation": "Nurse",
+        "personality": "Caring, pragmatic, and health-conscious",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Working long shifts means I need fast meals, but working in healthcare makes me hyper-aware of heart health. This bridges that gap effortlessly.",
+        "id": "9a0ecae0-83f5-4672-98ea-d0c4acf1b039"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Speed, ease of cleaning after a grueling shift, and knowing I'm feeding my heart right are the deciding factors for me.",
+          "timestamp": 1789574584.677014
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd budget about $130. Working long shifts means convenience and heart health are worth paying a fair price for.",
+          "timestamp": 1789574767.428296
+        }
+      ]
+    },
+    "50414dd7-ce3f-424d-aeaf-5374b4cd9fd8": {
+      "profile": {
+        "name": "Ian McGregor",
+        "gender": "Male",
+        "age": 45,
+        "occupation": "Civil Engineer",
+        "personality": "Pragmatic, skeptical, and structural",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "It seems like an overglorified convection oven. I'd rather stick to my traditional oven and stove setup.",
+        "id": "50414dd7-ce3f-424d-aeaf-5374b4cd9fd8"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Solid engineering proof that it offers distinct functional advantages over a standard convection oven is required before I'd ever buy one.",
+          "timestamp": 1789574584.6770158
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I wouldn't spend anything on it since my structural setup with a standard oven and stove works just fine.",
+          "timestamp": 1789574767.4282973
+        }
+      ]
+    },
+    "cf669b42-85a6-4582-8440-497b74f22930": {
+      "profile": {
+        "name": "Jasmine Patel",
+        "gender": "Female",
+        "age": 30,
+        "occupation": "Marketing Specialist",
+        "personality": "Trendy, social, and trend-aware",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "I see recipes for air fryers all over social media. Switching to a healthier cooking method without losing flavor looks super easy.",
+        "id": "cf669b42-85a6-4582-8440-497b74f22930"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "If it's trendy, looks sleek on the counter, and makes healthy viral recipes taste amazing with zero effort, I'm sold.",
+          "timestamp": 1789574584.6770175
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd spend around $120. Seeing it all over social media makes me want a reliable model that matches the hype.",
+          "timestamp": 1789574767.4282982
+        }
+      ]
+    },
+    "4f9e4f06-75b1-470f-9001-7e648e7a0056": {
+      "profile": {
+        "name": "Kieran Gallagher",
+        "gender": "Male",
+        "age": 39,
+        "occupation": "Electrician",
+        "personality": "Hands-on, direct, and practical",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Too many parts to clean. I like simple cooking tools that don't require scrubbing small baskets and non-stick coatings.",
+        "id": "4f9e4f06-75b1-470f-9001-7e648e7a0056"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Completely dishwasher-safe parts and a non-stick coating that actually lasts without peeling after a few months would be the only way I'd consider it.",
+          "timestamp": 1789574584.6770186
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Zero dollars. Too many parts to clean means it's not worth spending money on, no matter the price.",
+          "timestamp": 1789574767.4282997
+        }
+      ]
+    },
+    "e9abcc2d-d124-4e4d-8be8-9c51e0f53e93": {
+      "profile": {
+        "name": "Lena Rostova",
+        "gender": "Female",
+        "age": 41,
+        "occupation": "Account Manager",
+        "personality": "Busy, results-oriented, and health-focused",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Lowering cholesterol and calorie intake without giving up crispy textures is worth the counter space.",
+        "id": "e9abcc2d-d124-4e4d-8be8-9c51e0f53e93"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Fast results, measurable health benefits for cholesterol management, and a sleek design that justifies the counter real estate.",
+          "timestamp": 1789574584.67702
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $140 is my limit. Results and health matter more to me than finding the absolute cheapest option.",
+          "timestamp": 1789574767.4283009
+        }
+      ]
+    },
+    "4426f3c0-f186-4f5f-a009-6dda45e6839b": {
+      "profile": {
+        "name": "Mason Drake",
+        "gender": "Male",
+        "age": 27,
+        "occupation": "Financial Analyst",
+        "personality": "Calculated, cost-aware, and ambitious",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "The upfront cost and limited capacity make it hard to justify when my current cooking methods work fine.",
+        "id": "4426f3c0-f186-4f5f-a009-6dda45e6839b"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A lower price point and double-layer capacity that actually lets me cook an entire family meal at once would make me reconsider.",
+          "timestamp": 1789574584.6770215
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Given the upfront cost and limited capacity, I'm not looking to spend more than $80, which is why I haven't bought one yet.",
+          "timestamp": 1789574767.428302
+        }
+      ]
+    },
+    "e5689405-e558-4dd5-94be-305203a4e4b5": {
+      "profile": {
+        "name": "Nora Sterling",
+        "gender": "Female",
+        "age": 36,
+        "occupation": "Freelance Writer",
+        "personality": "Curious, articulate, and wellness-minded",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "I want to transition away from heavy frying oils for daily meals, and Philips has a strong reputation for even heating.",
+        "id": "e5689405-e558-4dd5-94be-305203a4e4b5"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Reliable even heating technology from a trusted brand like Philips is what makes me feel confident adding this to my daily cooking routine.",
+          "timestamp": 1789574584.6770232
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'm willing to invest around $130 for a reputable brand like Philips that promises even heating and wellness benefits.",
+          "timestamp": 1789574767.4283032
+        }
+      ]
+    },
+    "b9113212-4426-45e5-ba99-3f6903ba0fcc": {
+      "profile": {
+        "name": "Oliver Vance",
+        "gender": "Male",
+        "age": 50,
+        "occupation": "Restaurant Manager",
+        "personality": "Discerning, culinary-focused, and strict",
+        "buyDecision": "No",
+        "rating": 1,
+        "reason": "Nothing beats the authentic crunch and flavor profile of genuine deep frying. Air frying is just a compromise.",
+        "id": "b9113212-4426-45e5-ba99-3f6903ba0fcc"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing could make me choose it; it's a culinary compromise that can never replicate the genuine texture and depth of real deep frying.",
+          "timestamp": 1789574584.677025
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "My budget for an air fryer is zero. I won't spend money on a culinary compromise.",
+          "timestamp": 1789574767.4283044
+        }
+      ]
+    },
+    "f2c7fbd0-a068-4760-939b-d82722641d77": {
+      "profile": {
+        "name": "Penny Liu",
+        "gender": "Female",
+        "age": 28,
+        "occupation": "Pharmacist",
+        "personality": "Detail-oriented, cautious, and scientific",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "The health benefits of cutting out excess saturated fats are clear. It's a great tool for preventive nutrition at home.",
+        "id": "f2c7fbd0-a068-4760-939b-d82722641d77"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Clear evidence of reduced dietary fat absorption and reliable thermal controls make it a valuable tool for preventive health.",
+          "timestamp": 1789574584.6770267
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $120 to $140 is a reasonable budget for preventive nutrition tools in my household.",
+          "timestamp": 1789574767.4283056
+        }
+      ]
+    },
+    "ef3fd66e-8209-4e59-b0f4-e2edae29c64f": {
+      "profile": {
+        "name": "Quentin Brooks",
+        "gender": "Male",
+        "age": 34,
+        "occupation": "Product Designer",
+        "personality": "Design-conscious, innovative, and picky",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "The build quality of Philips appliances is usually top-tier, and using 90% less oil aligns with my minimalist, health-forward lifestyle.",
+        "id": "ef3fd66e-8209-4e59-b0f4-e2edae29c64f"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Impeccable build quality, premium material finishes, and a minimalist footprint that complements modern kitchen architecture.",
+          "timestamp": 1789574584.677028
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd budget around $150. Build quality and minimalist design are important to me, so I don't mind paying a bit more for a well-crafted appliance.",
+          "timestamp": 1789574767.4283066
+        }
+      ]
+    },
+    "c26045ab-9d92-4070-a720-5859986fce55": {
+      "profile": {
+        "name": "Rachel Thorne",
+        "gender": "Female",
+        "age": 44,
+        "occupation": "HR Director",
+        "personality": "Empathetic, busy, and family-oriented",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Getting my family to eat healthier is a constant struggle. If this lets them have crispy foods with a fraction of the oil, I'm sold.",
+        "id": "c26045ab-9d92-4070-a720-5859986fce55"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Anything that gets my kids to happily eat nutritious meals without fuss on busy weeknights is an instant winner in my book.",
+          "timestamp": 1789574584.677034
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'm happy to spend up to $150 if it actually gets my family to eat healthier without a fight over veggies.",
+          "timestamp": 1789574767.4283078
+        }
+      ]
+    },
+    "f77591a1-5a8e-4fcd-9574-3d6ce507ea1f": {
+      "profile": {
+        "name": "Samuel Cruz",
+        "gender": "Male",
+        "age": 32,
+        "occupation": "Operations Manager",
+        "personality": "Logical, efficiency-driven, and no-nonsense",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "It takes up too much counter space for a device that only does a few specific tasks. Multi-cookers make more sense to me.",
+        "id": "f77591a1-5a8e-4fcd-9574-3d6ce507ea1f"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "It would need to do multiple jobs efficiently, like a multi-cooker, so it doesn't waste precious counter space on a single function.",
+          "timestamp": 1789574584.6770356
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd prefer a multi-cooker instead, but if I were buying an air fryer, I wouldn't want to spend more than $90 since it's a single-task device.",
+          "timestamp": 1789574767.4283085
+        }
+      ]
+    },
+    "f9fb19e2-54e3-415f-b6c2-105825fd59d3": {
+      "profile": {
+        "name": "Tara Jenkins",
+        "gender": "Female",
+        "age": 25,
+        "occupation": "Yoga Instructor",
+        "personality": "Holistic, active, and mindful",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Aligns completely with my clean-eating philosophy. I love that I can prepare vibrant, wholesome, and crispy meals without heavy oils.",
+        "id": "f9fb19e2-54e3-415f-b6c2-105825fd59d3"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Complete alignment with a mindful, clean-eating lifestyle where I can prepare wholesome plant-based and crispy foods effortlessly.",
+          "timestamp": 1789574584.6770365
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $120 is my budget. It aligns with my clean-eating lifestyle, so it's a worthwhile wellness investment.",
+          "timestamp": 1789574767.4283097
+        }
+      ]
+    },
+    "92d38699-b81e-45d1-8ec0-a8fbfdfe1535": {
+      "profile": {
+        "name": "Declan Murphy",
+        "gender": "Male",
+        "age": 34,
+        "occupation": "Firefighter",
+        "personality": "Direct, health-conscious, and values time-saving kitchen tools after long shifts.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Cutting down oil without sacrificing the crispiness of post-shift meals is a huge win for my cholesterol and schedule.",
+        "id": "92d38699-b81e-45d1-8ec0-a8fbfdfe1535"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Speed, ease of cleanup, and the ability to get a satisfying, crispy meal on the table right after a long, exhausting shift.",
+          "timestamp": 1789574584.6770377
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $130. After a long shift at the firehouse, anything that saves time and protects my cholesterol is worth a fair price.",
+          "timestamp": 1789574767.4283106
+        }
+      ]
+    },
+    "716f8312-4c55-43c3-a67c-8fabd2d5f689": {
+      "profile": {
+        "name": "Siddharth Verma",
+        "gender": "Male",
+        "age": 41,
+        "occupation": "Software Architect",
+        "personality": "Analytical, data-driven, and skeptical of marketing claims regarding appliances.",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "I've looked at the specs, and it's basically a convection oven with a strong fan. My current setup does fine if I use parchment paper.",
+        "id": "716f8312-4c55-43c3-a67c-8fabd2d5f689"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Hard engineering specifications showing it does something fundamentally different from a regular convection oven with a sheet pan.",
+          "timestamp": 1789574584.6770399
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Since my convection oven and parchment paper do the trick, my budget is zero—I'm not paying for marketing hype.",
+          "timestamp": 1789574767.4283118
+        }
+      ]
+    },
+    "5630534e-6523-42ec-84ed-a5c3ea604e3d": {
+      "profile": {
+        "name": "Gemma Sterling",
+        "gender": "Female",
+        "age": 29,
+        "occupation": "Graphic Designer",
+        "personality": "Visual, trendy, and loves trying viral cooking hacks found on social media.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "All my favorite recipe creators use an air fryer for quick, aesthetic roasted veggies and guilt-free fries. I'm definitely switching.",
+        "id": "5630534e-6523-42ec-84ed-a5c3ea604e3d"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "If it makes recreating those aesthetic TikTok roasted veggie and crispy fry hacks super fast and easy, I'm all in.",
+          "timestamp": 1789574584.677041
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd spend around $120 on a cute, trendy model that matches the aesthetic of the recipe hacks I see online.",
+          "timestamp": 1789574767.4283128
+        }
+      ]
+    },
+    "af9737c4-5c56-4be5-bdb5-e54fa4eea040": {
+      "profile": {
+        "name": "Marcus Vance",
+        "gender": "Male",
+        "age": 46,
+        "occupation": "High School History Teacher",
+        "personality": "Traditional, cost-conscious, and prefers classic cast-iron cooking methods.",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Another single-purpose gadget taking up counter space? I'll stick to my frying pan and oven; they've worked for decades.",
+        "id": "af9737c4-5c56-4be5-bdb5-e54fa4eea040"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing; I've used cast iron for decades, and I don't need a single-purpose electric gadget cluttering up my kitchen.",
+          "timestamp": 1789574584.6770425
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "My budget is zero. My cast-iron skillet has lasted years, and I don't need a single-purpose gadget taking up space.",
+          "timestamp": 1789574767.4283144
+        }
+      ]
+    },
+    "3721c527-a526-4d48-ac57-d7e3c61978e7": {
+      "profile": {
+        "name": "Chloe Dupont",
+        "gender": "Female",
+        "age": 37,
+        "occupation": "Pediatric Nurse",
+        "personality": "Caring, exhausted by evening meal prep, and eager to feed her family cleaner food.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Getting my kids to eat healthier is a constant battle. If this makes veggies taste crispy with less grease, it's worth every penny.",
+        "id": "3721c527-a526-4d48-ac57-d7e3c61978e7"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Fast cleanup and foolproof operation when I'm too tired to think, plus getting the kids to eat healthy without complaining.",
+          "timestamp": 1789574584.6770437
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd budget around $110 to $130. If it gets my kids to eat healthier without a huge hassle, it's worth the investment.",
+          "timestamp": 1789574767.4283154
+        }
+      ]
+    },
+    "5f840966-e1e3-4f9e-b190-9cd9da7b26fa": {
+      "profile": {
+        "name": "Aiden O'Rourke",
+        "gender": "Male",
+        "age": 31,
+        "occupation": "Fitness Coach",
+        "personality": "Disciplined, energetic, and constantly tracking macros and dietary fat intake.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Eliminating excess oil makes hitting my lean bulking and cutting targets so much easier without resorting to bland, boiled chicken.",
+        "id": "5f840966-e1e3-4f9e-b190-9cd9da7b26fa"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Precise temperature control and rapid cooking cycles that make hitting my daily macros and tracking fats completely effortless.",
+          "timestamp": 1789574584.6770453
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $140. Hitting my macros easily without eating dry, bland chicken makes it a high-value tool for my fitness goals.",
+          "timestamp": 1789574767.4283164
+        }
+      ]
+    },
+    "7d68f953-edd4-4e1b-9baa-4b29d76f2d3b": {
+      "profile": {
+        "name": "Yuki Tanaka",
+        "gender": "Female",
+        "age": 44,
+        "occupation": "Accountant",
+        "personality": "Methodical, budget-aware, and researches every household appliance thoroughly.",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "The energy savings appeal to me, but the cleaning process looks tedious compared to traditional baking sheets.",
+        "id": "7d68f953-edd4-4e1b-9baa-4b29d76f2d3b"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A genuinely effortless, non-stick cleaning system would be necessary to overcome my hesitation about washing complicated basket components.",
+          "timestamp": 1789574584.6770463
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Because the cleaning process looks tedious, I'd only consider a budget-friendly option around $80, assuming I bought one at all.",
+          "timestamp": 1789574767.4283178
+        }
+      ]
+    },
+    "fe41170b-14a4-4ceb-8f0b-5848cba91272": {
+      "profile": {
+        "name": "Dante Rossi",
+        "gender": "Male",
+        "age": 39,
+        "occupation": "Restaurant Manager",
+        "personality": "Culinary purist who believes deep frying has no healthy substitute.",
+        "buyDecision": "No",
+        "rating": 1,
+        "reason": "Nothing replaces the texture of proper immersion frying. An air fryer just creates dried-out food, not true fried food.",
+        "id": "fe41170b-14a4-4ceb-8f0b-5848cba91272"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing can replace real immersion frying; an air fryer simply produces dehydrated food, not proper fried dishes.",
+          "timestamp": 1789574584.6770475
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Zero. There is no budget for an appliance that produces dried-out food instead of real fried food.",
+          "timestamp": 1789574767.4283185
+        }
+      ]
+    },
+    "1b425dcc-b618-484a-a890-e2a7ce5373a2": {
+      "profile": {
+        "name": "Maya Lin",
+        "gender": "Female",
+        "age": 27,
+        "occupation": "UX Researcher",
+        "personality": "Curious, experimental, and heavily influenced by ergonomic design and user convenience.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "I hate dealing with hot oil splatters on my stovetop. Switching to a sealed air fryer is a safer, cleaner alternative for apartment living.",
+        "id": "1b425dcc-b618-484a-a890-e2a7ce5373a2"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "An ergonomic, easy-to-clean design that completely eliminates oil splatters and smoke in my apartment makes this an instant winner.",
+          "timestamp": 1789574584.677049
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd say around $120. Getting rid of stovetop oil splatters in a small apartment makes that price very reasonable.",
+          "timestamp": 1789574767.42832
+        }
+      ]
+    },
+    "51a24d74-1854-43d7-b5a0-37da5a7ae8a0": {
+      "profile": {
+        "name": "Harrison Cole",
+        "gender": "Male",
+        "age": 48,
+        "occupation": "Civil Engineer",
+        "personality": "Pragmatic, mechanically minded, and appreciative of efficient thermal engineering.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "The rapid air technology makes thermodynamic sense for cooking evenly without submerging food in grease.",
+        "id": "51a24d74-1854-43d7-b5a0-37da5a7ae8a0"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Efficient thermal engineering and solid airflow mechanics that prove it distributes heat uniformly without hot spots.",
+          "timestamp": 1789574584.6770506
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $130. The rapid air thermodynamic design makes mechanical sense, so it's a fair price for efficient cooking.",
+          "timestamp": 1789574767.428321
+        }
+      ]
+    },
+    "526767db-fa62-44e2-a3a7-2c39c2cdc25d": {
+      "profile": {
+        "name": "Freja Lindstrom",
+        "gender": "Female",
+        "age": 33,
+        "occupation": "Interior Stylist",
+        "personality": "Minimalist, aesthetic-focused, and selective about what sits on her kitchen counters.",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Even though I want to eat healthier, most models are bulky plastic eyesores that ruin my kitchen counter aesthetic.",
+        "id": "526767db-fa62-44e2-a3a7-2c39c2cdc25d"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "It would have to come in a refined, minimalist, neutral finish that genuinely complements high-end kitchen counters instead of looking like bulky plastic.",
+          "timestamp": 1789574584.6770523
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Since most models are bulky plastic eyesores that ruin my kitchen counter aesthetic, my budget is zero unless a sleek, high-end design comes along.",
+          "timestamp": 1789574767.4283218
+        }
+      ]
+    },
+    "874d4107-b6d6-4bc7-8f38-42fb6db2e620": {
+      "profile": {
+        "name": "Tariq Al-Jamil",
+        "gender": "Male",
+        "age": 36,
+        "occupation": "Pharmacist",
+        "personality": "Health-focused, risk-averse, and attentive to clinical dietary recommendations.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Reducing dietary saturated fats is a primary goal for my household's cardiovascular health, making this an easy lifestyle switch.",
+        "id": "874d4107-b6d6-4bc7-8f38-42fb6db2e620"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Clinical reassurance that it significantly cuts down dietary saturated fats for long-term cardiovascular health protection.",
+          "timestamp": 1789574584.6770537
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'm comfortable spending up to $150. Cardiovascular health is a priority for my household, so it's a worthwhile health investment.",
+          "timestamp": 1789574767.4283228
+        }
+      ]
+    },
+    "a2b6efd1-8dd0-43e6-81c9-21c1b296443c": {
+      "profile": {
+        "name": "Brianna Scott",
+        "gender": "Female",
+        "age": 25,
+        "occupation": "Marketing Coordinator",
+        "personality": "Busy, budget-conscious apartment renter looking for quick meal solutions.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "My apartment doesn't have great ventilation, so deep frying leaves the place smelling like oil for days. This solves that problem completely.",
+        "id": "a2b6efd1-8dd0-43e6-81c9-21c1b296443c"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Compact size, great ventilation control so my apartment doesn't smell like grease, and quick cooking times for busy nights.",
+          "timestamp": 1789574584.6770582
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "As an apartment renter on a budget, I need to stay around $90 to $100, especially since it saves me from lingering oil smells.",
+          "timestamp": 1789574767.428324
+        }
+      ]
+    },
+    "2e7ef9c6-dd11-4695-a5ae-96d0020f6e7f": {
+      "profile": {
+        "name": "Julian Vance",
+        "gender": "Male",
+        "age": 50,
+        "occupation": "Financial Analyst",
+        "personality": "Conservative, skeptical of kitchen trends, and values long-term durability.",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "I suspect these appliances break down too quickly given their complex heating coils and digital touchpads.",
+        "id": "2e7ef9c6-dd11-4695-a5ae-96d0020f6e7f"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A guaranteed long-term warranty and proof of mechanical durability would be essential to convince me it won't break down prematurely.",
+          "timestamp": 1789574584.6770604
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Given my skepticism about digital touchpads and durability, I wouldn't want to spend more than $70 on something that might break down quickly.",
+          "timestamp": 1789574767.4283252
+        }
+      ]
+    },
+    "61f0b3f3-b5f0-456f-92ae-95a6eac695bd": {
+      "profile": {
+        "name": "Kavita Nair",
+        "gender": "Female",
+        "age": 38,
+        "occupation": "Biotech Researcher",
+        "personality": "Inquisitive, health-oriented, and keen on reducing trans fats in home cooking.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "It lets me recreate traditional fried snacks with a fraction of the oil, drastically cutting down our family's caloric intake.",
+        "id": "61f0b3f3-b5f0-456f-92ae-95a6eac695bd"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Data showing it drastically reduces trans fats and calories while maintaining the authentic texture of traditional snacks.",
+          "timestamp": 1789574584.6770616
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd budget around $130 to $150. Reducing trans fats while keeping traditional flavors is worth a solid investment.",
+          "timestamp": 1789574767.4283264
+        }
+      ]
+    },
+    "efabfc70-1261-47aa-87ce-55ededbe7487": {
+      "profile": {
+        "name": "Logan Miller",
+        "gender": "Male",
+        "age": 28,
+        "occupation": "Carpenter",
+        "personality": "Hands-on, straightforward, and looks for appliances that just work without hassle.",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "It seems like a lot of hype. My toaster oven can do most of these things if I just use a little bit of spray oil.",
+        "id": "efabfc70-1261-47aa-87ce-55ededbe7487"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "It would need to prove it does something my toaster oven and a spray bottle of oil can't already accomplish with less cleanup.",
+          "timestamp": 1789574584.677063
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Since my toaster oven already does most of these things, I wouldn't spend more than $60 on a standalone unit, if that.",
+          "timestamp": 1789574767.428327
+        }
+      ]
+    },
+    "94c49c89-1504-4098-8133-4d17113b1364": {
+      "profile": {
+        "name": "Nadine Moreau",
+        "gender": "Female",
+        "age": 42,
+        "occupation": "Pastry Chef",
+        "personality": "Discerning, passionate about food texture, but open to modern kitchen innovations.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "While it won't replace my oven for baking, it's brilliant for quickly roasting proteins and vegetables with minimal mess.",
+        "id": "94c49c89-1504-4098-8133-4d17113b1364"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Consistent high-temperature crisping performance for proteins and vegetables without complicated maintenance or messy grease traps.",
+          "timestamp": 1789574584.6770642
+        },
+        {
+          "mode": "individual",
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "For me, it’s all about precision and texture—getting that deep, even roast on vegetables or a crisp sear on a protein without drying it out, and without a nightmare cleanup afterwards. As I mentioned, it won't ever replace my professional oven for pastries, but if it can deliver that kind of reliable, high-heat performance day in and day out with minimal fuss, it earns a spot in my kitchen.",
+          "timestamp": 1789574653.6238632
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd spend around $140. As a pastry chef, I appreciate tools that make roasting proteins and vegetables quick and clean.",
+          "timestamp": 1789574767.4283283
+        }
+      ]
+    },
+    "9315400d-9bbe-49b5-86a9-35cfe0372608": {
+      "profile": {
+        "name": "Ezekiel Wright",
+        "gender": "Male",
+        "age": 35,
+        "occupation": "Logistics Coordinator",
+        "personality": "Efficiency-driven, rushed, and relies on fast dinner preparation methods.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Preheating a big oven takes too long after a 10-hour shift. An air fryer cooks fast and keeps my diet on track.",
+        "id": "9315400d-9bbe-49b5-86a9-35cfe0372608"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Instant heating with zero preheat time so I can get a fast, healthy dinner on the plate immediately after a long shift.",
+          "timestamp": 1789574584.6770656
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $110 to $120. After a long shift, saving time on preheating an oven is easily worth that much.",
+          "timestamp": 1789574767.428329
+        }
+      ]
+    },
+    "17840436-c353-428e-9634-3290100a7596": {
+      "profile": {
+        "name": "Seraphina Vance",
+        "gender": "Female",
+        "age": 30,
+        "occupation": "Yoga Instructor",
+        "personality": "Holistic, wellness-oriented, but wary of highly processed kitchen gadgets.",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "I prefer whole-food cooking methods like steaming and raw prep over countertop electric appliances.",
+        "id": "17840436-c353-428e-9634-3290100a7596"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "I prefer whole-food cooking methods; unless it can radically alter my view on countertop electric appliances, I'm sticking to steaming.",
+          "timestamp": 1789574584.677067
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Since I prefer whole-food cooking like steaming and raw prep, my budget for a processed kitchen gadget is zero.",
+          "timestamp": 1789574767.42833
+        }
+      ]
+    },
+    "43a61e61-6141-40c1-9316-66bc94884261": {
+      "profile": {
+        "name": "Mateo Silva",
+        "gender": "Male",
+        "age": 43,
+        "occupation": "Operations Manager",
+        "personality": "Pragmatic family man looking for ways to reduce household grocery waste and calories.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "It reheats leftovers better than a microwave and lets us enjoy crispy snacks without feeling guilty about heavy oil use.",
+        "id": "43a61e61-6141-40c1-9316-66bc94884261"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Great reheating performance, energy savings, and a way to feed the family crispy snacks without the guilt of heavy oil.",
+          "timestamp": 1789574584.677068
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $120 is a fair price for cutting household calories and reheating leftovers better than a microwave.",
+          "timestamp": 1789574767.4283319
+        }
+      ]
+    },
+    "fb45d25e-5a83-4e78-aac0-4c9f94757820": {
+      "profile": {
+        "name": "Marcus Vance",
+        "gender": "Male",
+        "age": 34,
+        "occupation": "Software Engineer",
+        "personality": "Analytical, data-driven, and skeptical of marketing claims.",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "I prefer traditional deep frying for texture and taste; I doubt a countertop convection oven can truly replicate that experience without oil.",
+        "id": "fb45d25e-5a83-4e78-aac0-4c9f94757820"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Solid proof that it can replicate the exact texture and crunch of traditional deep frying without sacrificing flavor.",
+          "timestamp": 1789574584.6770697
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "My budget is zero since I doubt a countertop convection oven can replicate proper deep frying.",
+          "timestamp": 1789574767.428333
+        }
+      ]
+    },
+    "3e421451-3922-4420-b67e-43c358a7ceaf": {
+      "profile": {
+        "name": "Chloe Dupont",
+        "gender": "Female",
+        "age": 29,
+        "occupation": "Graphic Designer",
+        "personality": "Trend-conscious, busy, and visually driven.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "I want to eat healthier without spending hours prepping complex meals, and it fits nicely on my kitchen counter.",
+        "id": "3e421451-3922-4420-b67e-43c358a7ceaf"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A sleek, compact design that looks stylish on my counter and makes quick, healthy meals effortless.",
+          "timestamp": 1789574584.677071
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd happily pay around $120 for something that fits my counter nicely and helps me eat healthier without spending hours prepping.",
+          "timestamp": 1789574767.428334
+        }
+      ]
+    },
+    "0b5d816b-9b12-4973-8d59-0a117c302013": {
+      "profile": {
+        "name": "Javier Morales",
+        "gender": "Male",
+        "age": 42,
+        "occupation": "High School History Teacher",
+        "personality": "Budget-conscious, practical, and family-oriented.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Cutting back on oil helps our family budget and our health, making this a worthwhile investment for quick weeknight dinners.",
+        "id": "0b5d816b-9b12-4973-8d59-0a117c302013"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Reliable performance, lower oil usage for family health, and a price point that makes sense for our household budget.",
+          "timestamp": 1789574584.677073
+        },
+        {
+          "mode": "individual",
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "For me, it really comes down to practicality and value. With a family of four, any kitchen gadget or tool we bring home has to justify its cost and actually get used—it can't just sit in a cabinet. It needs to be durable, easy to clean after a long day of teaching and grading, and help me get a healthy meal on the table quickly without breaking the bank.",
+          "timestamp": 1789574646.139441
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'm looking to keep it around $100. It's an investment for quick weeknight dinners and saving on oil.",
+          "timestamp": 1789574767.4283352
+        }
+      ]
+    },
+    "d416d1fb-02b1-4ccb-9f4b-860f90915aaf": {
+      "profile": {
+        "name": "Maya Lin",
+        "gender": "Female",
+        "age": 31,
+        "occupation": "Pharmacy Technician",
+        "personality": "Health-focused, meticulous, and cautious about processed foods.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "As someone working in healthcare, reducing saturated fats is a priority for me, and this appliance makes healthy eating convenient.",
+        "id": "d416d1fb-02b1-4ccb-9f4b-860f90915aaf"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Proven health benefits in reducing saturated fats combined with fast, convenient operation for busy healthcare schedules.",
+          "timestamp": 1789574584.6770747
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $130 is my budget. Reducing saturated fats conveniently makes it a very practical healthcare purchase for my kitchen.",
+          "timestamp": 1789574767.4283361
+        }
+      ]
+    },
+    "12c8d9e4-66b9-47cb-ac5b-23456912a13a": {
+      "profile": {
+        "name": "Declan Murphy",
+        "gender": "Male",
+        "age": 45,
+        "occupation": "Construction Supervisor",
+        "personality": "Straightforward, values heartiness, and dislikes overly trendy gadgets.",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "It seems like another single-use kitchen gadget that will just gather dust. My oven and stove do everything I need.",
+        "id": "12c8d9e4-66b9-47cb-ac5b-23456912a13a"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing; my oven and stove already handle everything I need without taking up extra space for a single-use gadget.",
+          "timestamp": 1789574584.6770766
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "My budget is zero. I think it's a single-use gadget that will just collect dust alongside my standard oven and stove.",
+          "timestamp": 1789574767.4283373
+        }
+      ]
+    },
+    "4bc81837-a952-4681-9d43-d4ececf5555c": {
+      "profile": {
+        "name": "Kavita Nair",
+        "gender": "Female",
+        "age": 38,
+        "occupation": "Accountant",
+        "personality": "Organized, detail-oriented, and efficiency-seeking.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "It cuts down cooking time significantly and lets me prepare lower-calorie versions of my favorite snacks after a long workday.",
+        "id": "4bc81837-a952-4681-9d43-d4ececf5555c"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Significant time savings on weeknights and an easy way to prepare lower-calorie versions of favorite meals.",
+          "timestamp": 1789574584.67708
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd budget around $120. Cutting down cooking time and calories after a long workday is well worth that price.",
+          "timestamp": 1789574767.428339
+        }
+      ]
+    },
+    "2b86d51d-77cf-4022-8f2c-e6e72f3b796f": {
+      "profile": {
+        "name": "Ethan Brooks",
+        "gender": "Male",
+        "age": 27,
+        "occupation": "Personal Trainer",
+        "personality": "Fitness-obsessed, energetic, and goal-oriented.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Being able to enjoy crispy foods while staying on track with my macro goals is a total game-changer for my diet.",
+        "id": "2b86d51d-77cf-4022-8f2c-e6e72f3b796f"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "The ability to hit my exact macro targets while still enjoying genuinely crispy foods without extra oil.",
+          "timestamp": 1789574584.6770813
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $140. Staying on track with my macro goals while eating crispy food is a game-changer I'm willing to pay for.",
+          "timestamp": 1789574767.4283404
+        }
+      ]
+    },
+    "30556d98-b24a-474f-a7e5-0b58ee1a0c4f": {
+      "profile": {
+        "name": "Nadine Moreau",
+        "gender": "Female",
+        "age": 49,
+        "occupation": "Boutique Owner",
+        "personality": "Discerning, aesthetic-focused, and traditional in the kitchen.",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "I love the idea of less oil, but I already own a convection oven and don't see the need for another specialized appliance.",
+        "id": "30556d98-b24a-474f-a7e5-0b58ee1a0c4f"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Unless it offers something entirely unique that my standard convection oven cannot do, I don't see the need for it.",
+          "timestamp": 1789574584.6770828
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Since I already own a convection oven, I wouldn't spend money on an extra specialized appliance.",
+          "timestamp": 1789574767.4283412
+        }
+      ]
+    },
+    "f88b4091-5063-46f2-bc87-3c8cc15d186d": {
+      "profile": {
+        "name": "Siddharth Verma",
+        "gender": "Male",
+        "age": 33,
+        "occupation": "Financial Analyst",
+        "personality": "Pragmatic, cost-conscious, and research-heavy.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "The energy savings compared to heating a large oven, combined with the health benefits, make it a smart purchase.",
+        "id": "f88b4091-5063-46f2-bc87-3c8cc15d186d"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Clear energy savings compared to a full-sized oven, paired with proven health and time benefits.",
+          "timestamp": 1789574584.6770875
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Based on energy savings and health benefits, I'd budget around $110 to $130 for a smart, pragmatic purchase.",
+          "timestamp": 1789574767.4283423
+        }
+      ]
+    },
+    "3be4147d-71db-49b5-87fb-b5db97af78ea": {
+      "profile": {
+        "name": "Freja Lindstrom",
+        "gender": "Female",
+        "age": 36,
+        "occupation": "Landscape Architect",
+        "personality": "Eco-conscious, minimalist, and outdoorsy.",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "I try to minimize countertop clutter and prefer cooking with fresh ingredients on a cast-iron skillet rather than using electric appliances.",
+        "id": "3be4147d-71db-49b5-87fb-b5db97af78ea"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "I prefer cooking with fresh ingredients on cast iron; an electric appliance just adds unnecessary clutter to my kitchen.",
+          "timestamp": 1789574584.677089
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "My budget is zero. I prefer minimizing countertop clutter and cooking with fresh ingredients on cast iron.",
+          "timestamp": 1789574767.4283435
+        }
+      ]
+    },
+    "b28672ec-e3e0-4d73-9504-e13df3f4b9a2": {
+      "profile": {
+        "name": "Gabriel Santos",
+        "gender": "Male",
+        "age": 40,
+        "occupation": "Civil Engineer",
+        "personality": "Methodical, functional, and skeptical of hype.",
+        "buyDecision": "Yes",
+        "rating": 3,
+        "reason": "It works well for quick weeknight meals, though cleaning the basket thoroughly can be a bit tedious.",
+        "id": "b28672ec-e3e0-4d73-9504-e13df3f4b9a2"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Functional performance for quick weeknight meals, paired with a design that makes thorough cleaning as painless as possible.",
+          "timestamp": 1789574584.6770906
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $110. It's a functional tool for weeknight meals, though I wouldn't overpay for it given the tedious basket cleaning.",
+          "timestamp": 1789574767.4283445
+        }
+      ]
+    },
+    "0bbb6143-9295-4d1f-9ae3-f23023d97ee3": {
+      "profile": {
+        "name": "Rachel Goldberg",
+        "gender": "Female",
+        "age": 30,
+        "occupation": "Speech Therapist",
+        "personality": "Patient, nurturing, and mindful of family nutrition.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "My toddler loves chicken nuggets and fries, so being able to make a healthier version at home with minimal oil is fantastic.",
+        "id": "0bbb6143-9295-4d1f-9ae3-f23023d97ee3"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A foolproof way to make toddler-friendly favorites like nuggets and fries much healthier with minimal oil and fuss.",
+          "timestamp": 1789574584.6770918
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd spend around $130 to make healthier versions of chicken nuggets and fries for my toddler with minimal oil.",
+          "timestamp": 1789574767.428346
+        }
+      ]
+    },
+    "e4620e0a-bd70-47c8-b1dc-3b677f3b06c8": {
+      "profile": {
+        "name": "Tobias Schmidt",
+        "gender": "Male",
+        "age": 46,
+        "occupation": "Logistics Manager",
+        "personality": "Efficient, no-nonsense, and results-driven.",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "The capacity is too small for cooking meals for a larger household, so I end up having to cook in multiple batches anyway.",
+        "id": "e4620e0a-bd70-47c8-b1dc-3b677f3b06c8"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A much larger cooking capacity that can handle family-sized meals in a single batch without requiring multiple rounds.",
+          "timestamp": 1789574584.6770933
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Since the capacity is too small for a larger household and I'd have to cook in batches, I wouldn't spend more than $70 on it.",
+          "timestamp": 1789574767.4283469
+        }
+      ]
+    },
+    "3d2ade19-7524-4721-90d2-fba3e166b045": {
+      "profile": {
+        "name": "Amina Yusuf",
+        "gender": "Female",
+        "age": 32,
+        "occupation": "Digital Marketer",
+        "personality": "Curious, social-media savvy, and experimental with recipes.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "I've seen so many creative recipes online for air fryers. Switching to less oil without sacrificing flavor appeals to me.",
+        "id": "3d2ade19-7524-4721-90d2-fba3e166b045"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Inspiration from fun, creative online recipes that let me cut back on oil without sacrificing flavor.",
+          "timestamp": 1789574584.677095
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $120. I've seen so many cool recipes online and want to try them without spending a fortune.",
+          "timestamp": 1789574767.4283478
+        }
+      ]
+    },
+    "201a0060-0ee4-4c3c-877a-9c2c8efd7c31": {
+      "profile": {
+        "name": "Caleb Thorne",
+        "gender": "Male",
+        "age": 28,
+        "occupation": "UX Researcher",
+        "personality": "Inquisitive, user-focused, and habit-conscious.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "It lowers the barrier to cooking healthy meals when I'm feeling lazy, making it much easier to break takeout habits.",
+        "id": "201a0060-0ee4-4c3c-877a-9c2c8efd7c31"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Low friction and absolute ease of use so I actually cook instead of defaulting to ordering takeout when I'm tired.",
+          "timestamp": 1789574584.6770964
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd budget about $120. If it stops me from ordering takeout when I'm lazy, it pays for itself pretty quickly.",
+          "timestamp": 1789574767.4283493
+        }
+      ]
+    },
+    "c74100b5-3773-4156-9267-cbfead6c284f": {
+      "profile": {
+        "name": "Elena Rostova",
+        "gender": "Female",
+        "age": 41,
+        "occupation": "Veterinarian",
+        "personality": "Compassionate, busy, and pragmatic.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Between long shifts and pet surgeries, I need fast dinners. This lets me cook nutritious food quickly with zero hassle.",
+        "id": "c74100b5-3773-4156-9267-cbfead6c284f"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Fast, hassle-free dinner preparation that delivers nutritious meals with zero cleanup stress after long shifts.",
+          "timestamp": 1789574584.677098
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $140 is fine by me. Between pet surgeries and long shifts, fast and nutritious dinners are a necessity I'll pay for.",
+          "timestamp": 1789574767.4283507
+        }
+      ]
+    },
+    "f1985acb-3136-4a31-9c18-ac76bc85737a": {
+      "profile": {
+        "name": "Brandon Foster",
+        "gender": "Male",
+        "age": 35,
+        "occupation": "Sales Director",
+        "personality": "Fast-paced, convenience-oriented, and ambitious.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "It saves me time on cleanup compared to traditional frying pans, and I feel better knowing I'm consuming less oil.",
+        "id": "f1985acb-3136-4a31-9c18-ac76bc85737a"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Speed, effortless cleanup compared to traditional pans, and the health perk of consuming way less oil.",
+          "timestamp": 1789574584.6770995
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd drop around $130. Saving time on cleanup and consuming less oil is worth it for my fast-paced schedule.",
+          "timestamp": 1789574767.4283514
+        }
+      ]
+    },
+    "7a8e7305-fac5-46e5-8c2b-ae98a45a0afa": {
+      "profile": {
+        "name": "Yuki Tanaka",
+        "gender": "Female",
+        "age": 26,
+        "occupation": "Junior Architect",
+        "personality": "Design-focused, apartment-dweller, and health-conscious.",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Living in a small apartment means managing smoke and smells is tough; an air fryer keeps my kitchen clean and oil-free.",
+        "id": "7a8e7305-fac5-46e5-8c2b-ae98a45a0afa"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A compact footprint that manages smoke and smells perfectly in a small apartment kitchen.",
+          "timestamp": 1789574584.6771026
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Living in a small apartment makes smoke management a priority, so I'm willing to budget around $110 for a good model.",
+          "timestamp": 1789574767.4283533
+        }
+      ]
+    },
+    "b049de1c-f4e4-4774-aad2-4757d8a72afe": {
+      "profile": {
+        "name": "Arthur Pendelton",
+        "gender": "Male",
+        "age": 50,
+        "occupation": "Insurance Adjuster",
+        "personality": "Cautious, traditional, and resistant to change.",
+        "buyDecision": "No",
+        "rating": 1,
+        "reason": "I have high cholesterol and my doctor told me to change my diet, but I'd rather just grill or bake normally than buy another gadget.",
+        "id": "b049de1c-f4e4-4774-aad2-4757d8a72afe"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing; I'd rather stick to my traditional baking and grilling habits than buy another countertop appliance.",
+          "timestamp": 1789574584.6771045
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "My budget is zero. Even with high cholesterol, I'd rather grill or bake normally than buy another gadget.",
+          "timestamp": 1789574767.4283545
+        }
+      ]
+    },
+    "7d2c589d-65b4-4f49-8feb-988b7ec59485": {
+      "profile": {
+        "name": "Zoe Kincaid",
+        "gender": "Female",
+        "age": 37,
+        "occupation": "Freelance Writer",
+        "personality": "Creative, flexible, and wellness-oriented.",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "It makes eating vegetables enjoyable because roasting them gives them a great texture without needing heavy oils and butters.",
+        "id": "7d2c589d-65b4-4f49-8feb-988b7ec59485"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A versatile tool that makes roasting vegetables fast and delicious without needing heavy oils or butters.",
+          "timestamp": 1789574584.677106
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $120. Making vegetables taste great without heavy oils and butters makes it a very worthwhile kitchen tool for me.",
+          "timestamp": 1789574767.4283557
+        }
+      ]
+    },
+    "89606f9e-ecf9-4cca-bdb8-45fc7db36155": {
+      "profile": {
+        "name": "Zachary Taylor",
+        "gender": "Male",
+        "age": 34,
+        "occupation": "Automotive Technician",
+        "personality": "Pragmatic, mechanically inclined, prefers hearty comfort foods",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Nothing replaces the texture of deep-fried food cooked in actual lard or oil; low-fat alternatives taste dry to me.",
+        "id": "89606f9e-ecf9-4cca-bdb8-45fc7db36155"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing replaces traditional deep-fried textures cooked in real oil; low-fat alternatives just taste too dry for my liking.",
+          "timestamp": 1789574584.677107
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Zero dollars. Low-fat alternatives taste dry to me, and nothing replaces real lard or oil.",
+          "timestamp": 1789574767.4283566
+        }
+      ]
+    },
+    "df4a3216-2394-4d3a-b90d-50b00b9c3fa6": {
+      "profile": {
+        "name": "Vanessa Cruz",
+        "gender": "Female",
+        "age": 28,
+        "occupation": "Graphic Designer",
+        "personality": "Trend-conscious, visual, loves experimenting with viral food recipes",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "It helps me cut down on calories without sacrificing the crunch, plus it fits the aesthetic of my minimalist kitchen.",
+        "id": "df4a3216-2394-4d3a-b90d-50b00b9c3fa6"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A sleek, minimalist aesthetic that looks great on my counter, combined with easy ways to make viral crunchy recipes.",
+          "timestamp": 1789574584.6771092
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd spend around $130 on a sleek model that fits my minimalist kitchen aesthetic and lets me try viral recipes.",
+          "timestamp": 1789574767.4283578
+        }
+      ]
+    },
+    "69661ca2-4d81-4462-b48f-aa24370aee0f": {
+      "profile": {
+        "name": "Marcus Vance-Smith",
+        "gender": "Male",
+        "age": 42,
+        "occupation": "High School History Teacher",
+        "personality": "Busy parent, budget-conscious, values family dinner time",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "It cuts down cooking time significantly on weeknights and is much safer around the kids than a boiling pot of oil.",
+        "id": "69661ca2-4d81-4462-b48f-aa24370aee0f"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Fast weeknight cooking times and enhanced safety around children compared to an open pot of hot oil.",
+          "timestamp": 1789574584.6771107
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $110 to $130. Cutting down weeknights' cooking time and keeping it safe around the kids is a solid family investment.",
+          "timestamp": 1789574767.4283588
+        }
+      ]
+    },
+    "24fef424-b612-457e-bc84-296aed5d22d9": {
+      "profile": {
+        "name": "Siobhan Byrne",
+        "gender": "Female",
+        "age": 39,
+        "occupation": "Registered Nurse",
+        "personality": "Health-literate, cautious about processed diets, evidence-driven",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Seeing patients with cardiovascular issues daily makes me proactive about reducing dietary fats at home.",
+        "id": "24fef424-b612-457e-bc84-296aed5d22d9"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Evidence-backed health benefits that make reducing dietary fats at home simple and practical.",
+          "timestamp": 1789574584.677112
+        },
+        {
+          "mode": "individual",
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "For me, it has to be clinical credibility and transparency. In my line of work as a nurse, I see the real-world consequences of poor long-term diets every single day, so I don't have time for wellness marketing hype or vague claims. If a product is going to help me keep my family's cardiovascular health on track by reducing unnecessary fats, I need to see clear, evidence-based reasoning behind it, and the ingredients list has to be straightforward and trustworthy.",
+          "timestamp": 1789574639.8558426
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "As a nurse seeing cardiovascular issues daily, I'm comfortable investing around $140 in a quality appliance that reduces dietary fats.",
+          "timestamp": 1789574767.4283597
+        }
+      ]
+    },
+    "519823e4-f6ed-4edf-97d8-41dd29214cce": {
+      "profile": {
+        "name": "Devin Brooks",
+        "gender": "Male",
+        "age": 26,
+        "occupation": "Fitness Coach",
+        "personality": "Disciplined, goal-oriented, obsessed with macro tracking",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "Getting crispy chicken wings and sweet potato fries while staying within my cutting macros is an absolute game-changer.",
+        "id": "519823e4-f6ed-4edf-97d8-41dd29214cce"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Crispy chicken wings and sweet potato fries that fit seamlessly into my strict cutting macro targets.",
+          "timestamp": 1789574584.6771162
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $140. Getting crispy wings and fries while hitting cutting macros is a non-negotiable tool for my fitness routine.",
+          "timestamp": 1789574767.428361
+        }
+      ]
+    },
+    "1c900790-9369-4f44-9ce5-337b635a47e6": {
+      "profile": {
+        "name": "Amara Diallo",
+        "gender": "Female",
+        "age": 31,
+        "occupation": "Software Engineer",
+        "personality": "Analytical, efficiency-driven, relies on kitchen gadgets that save time",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "The science behind the rapid air circulation makes sense, and it's much easier to clean than my traditional oven.",
+        "id": "1c900790-9369-4f44-9ce5-337b635a47e6"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Efficient rapid-air technology and a design that is vastly easier to clean than a traditional oven.",
+          "timestamp": 1789574584.6771173
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Based on the science of rapid air circulation and easy cleanup, I'd budget around $130.",
+          "timestamp": 1789574767.428362
+        }
+      ]
+    },
+    "9a0d3355-7a21-4c1e-9121-fcb8f6251334": {
+      "profile": {
+        "name": "Bjorn Lindqvist",
+        "gender": "Male",
+        "age": 45,
+        "occupation": "Architect",
+        "personality": "Design-focused, minimalist, appreciates quality materials",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Countertop space is at a premium in my kitchen, and I prefer using my cast-iron skillet for everything.",
+        "id": "9a0d3355-7a21-4c1e-9121-fcb8f6251334"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing; limited counter space means I'm sticking to my cast-iron skillet for everything.",
+          "timestamp": 1789574584.677119
+        },
+        {
+          "mode": "individual",
+          "question": "What would make you choose this product?",
+          "answer": "As I mentioned, nothing. My kitchen is intentionally minimal, and every surface needs to earn its place. A single, well-seasoned cast-iron skillet handles everything I need with better quality and zero clutter. I have no room or use for single-purpose appliances.",
+          "timestamp": 1789574601.4760199
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Since counter space is premium and I prefer my cast-iron skillet, my budget for an air fryer is zero.",
+          "timestamp": 1789574767.428363
+        }
+      ]
+    },
+    "e2806cf5-7023-409f-b591-d526d3d4def5": {
+      "profile": {
+        "name": "Mei-Ling Chen",
+        "gender": "Female",
+        "age": 36,
+        "occupation": "Accountant",
+        "personality": "Frugal, cautious buyer, researches thoroughly before purchasing",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "I already own a convection oven that does essentially the same thing; buying another single-use appliance feels redundant.",
+        "id": "e2806cf5-7023-409f-b591-d526d3d4def5"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Unless it proves it does something radically different from my existing convection oven, it's too redundant to buy.",
+          "timestamp": 1789574584.6771204
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Being cautious and frugal, I wouldn't want to spend more than $80, especially since I already own a convection oven.",
+          "timestamp": 1789574767.4283643
+        }
+      ]
+    },
+    "07986a18-ae97-40b6-944a-c6aa8642ac7b": {
+      "profile": {
+        "name": "Darius King",
+        "gender": "Male",
+        "age": 29,
+        "occupation": "Personal Chef",
+        "personality": "Culinary purist, detail-oriented, skeptical of shortcut tools",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Nothing beats traditional frying techniques for flavor development and Maillard reaction depth.",
+        "id": "07986a18-ae97-40b6-944a-c6aa8642ac7b"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing; shortcut tools cannot replicate the depth of flavor and Maillard reaction achieved through traditional techniques.",
+          "timestamp": 1789574584.6771219
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "My budget is zero. As a personal chef, shortcut tools don't match traditional techniques for depth of flavor.",
+          "timestamp": 1789574767.4283652
+        }
+      ]
+    },
+    "26587966-4c39-4f88-ba8b-084204b8f8e3": {
+      "profile": {
+        "name": "Clara Higgins",
+        "gender": "Female",
+        "age": 48,
+        "occupation": "Real Estate Agent",
+        "personality": "Social, entertaining-focused, busy schedule",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "It is fantastic for quickly reheating appetizers and making snacks when clients drop by unexpectedly.",
+        "id": "26587966-4c39-4f88-ba8b-084204b8f8e3"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "The ability to quickly whip up appetizers and snacks when clients drop by unexpectedly with zero stress.",
+          "timestamp": 1789574584.6771233
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd spend around $130. It's fantastic for quickly making appetizers when clients drop by unexpectedly.",
+          "timestamp": 1789574767.4283662
+        }
+      ]
+    },
+    "df316933-ba88-49cd-979a-cb10c73162e2": {
+      "profile": {
+        "name": "Tariq Mansoor",
+        "gender": "Male",
+        "age": 33,
+        "occupation": "Pharmacist",
+        "personality": "Detail-oriented, health-conscious, analytical",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Reducing dietary oil intake is a simple intervention for lowering cholesterol, so it aligns with my health goals.",
+        "id": "df316933-ba88-49cd-979a-cb10c73162e2"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A straightforward way to lower dietary oil intake and improve cholesterol levels without sacrificing taste.",
+          "timestamp": 1789574584.677125
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $130. Lowering cholesterol through reduced oil intake aligns well with my analytical health goals.",
+          "timestamp": 1789574767.4283676
+        }
+      ]
+    },
+    "fd27800f-9f30-454d-96e1-8ef7612c13db": {
+      "profile": {
+        "name": "Kirsten Vestergaard",
+        "gender": "Female",
+        "age": 41,
+        "occupation": "Librarian",
+        "personality": "Quiet, traditional, skeptical of modern cooking trends",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "I prefer traditional baking and stovetop cooking methods that I've used for decades without needing gadgets.",
+        "id": "fd27800f-9f30-454d-96e1-8ef7612c13db"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Nothing; I prefer traditional baking and stovetop cooking methods that I've trusted for decades.",
+          "timestamp": 1789574584.6771262
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Zero. I prefer traditional baking methods I've used for decades without buying modern gadgets.",
+          "timestamp": 1789574767.4283683
+        }
+      ]
+    },
+    "6d0da206-c362-426b-9c9d-43f8dfa8a82f": {
+      "profile": {
+        "name": "Guillermo Perez",
+        "gender": "Male",
+        "age": 37,
+        "occupation": "Civil Engineer",
+        "personality": "Practical, functional, utility-driven",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "It saves electricity compared to turning on the large wall oven just to roast a small batch of vegetables.",
+        "id": "6d0da206-c362-426b-9c9d-43f8dfa8a82f"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Energy efficiency when roasting small batches, saving me from firing up the large wall oven.",
+          "timestamp": 1789574584.6771274
+        },
+        {
+          "mode": "individual",
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "Utility and efficiency matter most to me. It needs to actually do the job it's designed for without wasting resources, like electricity. If I can cook a side of vegetables or a small meal without heating up the whole kitchen and driving up my utility bill, that's a win. It has to make practical sense for daily use, not just look good on the counter.",
+          "timestamp": 1789574629.2581494
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $110. Saving electricity compared to turning on the large wall oven for small batches makes practical sense.",
+          "timestamp": 1789574767.4283698
+        }
+      ]
+    },
+    "d3cc35ed-f1c7-4100-9428-7bffb545039e": {
+      "profile": {
+        "name": "Yara Al-Farsi",
+        "gender": "Female",
+        "age": 27,
+        "occupation": "Marketing Specialist",
+        "personality": "Influenced by wellness culture, eager to try new lifestyle products",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "All my favorite wellness creators use it for oil-free falafel and roasted veggies, so I want to join the trend.",
+        "id": "d3cc35ed-f1c7-4100-9428-7bffb545039e"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Inspiration from wellness creators for oil-free falafel and roasted veggies that let me join the trend easily.",
+          "timestamp": 1789574584.67713
+        },
+        {
+          "mode": "individual",
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "For me, it has to be about how easily it fits into my routine without sacrificing my health goals. If it can give me that guilt-free, crispy texture for things like roasted veggies and falafel without needing tons of oil—and if it looks aesthetically pleasing enough to leave out on my counter—that’s what sells it for me. Plus, it helps when there's a whole community online sharing cute recipes I can actually follow.",
+          "timestamp": 1789574623.7599986
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "I'd budget around $120 to join the wellness trend and make oil-free falafel just like the creators I follow.",
+          "timestamp": 1789574767.428371
+        }
+      ]
+    },
+    "bff2e9a4-55c5-4487-9368-7393164d11e1": {
+      "profile": {
+        "name": "Tobias Lind",
+        "gender": "Male",
+        "age": 50,
+        "occupation": "Logistics Manager",
+        "personality": "Direct, values convenience, impatient with complicated meal prep",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "Tossing frozen foods in for a fast dinner with minimal cleanup fits my hectic work schedule perfectly.",
+        "id": "bff2e9a4-55c5-4487-9368-7393164d11e1"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Fast dinner prep for frozen foods and minimal cleanup to match my hectic work schedule.",
+          "timestamp": 1789574584.6771312
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $120. Tossing in frozen foods with minimal cleanup fits my hectic schedule perfectly.",
+          "timestamp": 1789574767.428372
+        }
+      ]
+    },
+    "4db3b041-7bf8-4f66-8bf9-ecd7301aa233": {
+      "profile": {
+        "name": "Nadine Gauthier",
+        "gender": "Female",
+        "age": 35,
+        "occupation": "Botanist",
+        "personality": "Eco-conscious, values natural ingredients, health-focused",
+        "buyDecision": "No",
+        "rating": 3,
+        "reason": "I prefer eating whole, raw, or lightly steamed foods rather than processed foods cooked in an air fryer.",
+        "id": "4db3b041-7bf8-4f66-8bf9-ecd7301aa233"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "I prefer whole, raw, or lightly steamed foods rather than processed foods cooked in an air fryer.",
+          "timestamp": 1789574584.6771324
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "My budget is zero since I prefer eating whole, raw, or lightly steamed foods rather than air-fried meals.",
+          "timestamp": 1789574767.4283726
+        }
+      ]
+    },
+    "c801889a-60c5-4d1a-b56c-804fbd12df5d": {
+      "profile": {
+        "name": "Jamal Washington",
+        "gender": "Male",
+        "age": 30,
+        "occupation": "Financial Analyst",
+        "personality": "Cost-benefit driven, research-heavy buyer",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "The long-term savings on cooking oil and health-related expenses make it a worthwhile kitchen investment.",
+        "id": "c801889a-60c5-4d1a-b56c-804fbd12df5d"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Clear long-term savings on cooking oil and health-related expenses that make it a smart financial investment.",
+          "timestamp": 1789574584.6771336
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "With long-term savings on oil and health expenses factored in, I'm comfortable spending around $130.",
+          "timestamp": 1789574767.4283738
+        }
+      ]
+    },
+    "9fa608f7-66aa-423c-8755-a1180ac7b73a": {
+      "profile": {
+        "name": "Freja Olsen",
+        "gender": "Female",
+        "age": 32,
+        "occupation": "Interior Stylist",
+        "personality": "Aesthetic-driven, home-proud, selective about appliances",
+        "buyDecision": "No",
+        "rating": 2,
+        "reason": "Bulky plastic appliances ruin the clean look of my marble countertops; I refuse to leave it out.",
+        "id": "9fa608f7-66aa-423c-8755-a1180ac7b73a"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "A sleek, genuinely attractive design that doesn't ruin the clean look of marble countertops when left out.",
+          "timestamp": 1789574584.6771355
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Since bulky plastic appliances ruin the look of my marble countertops, my budget is zero unless it looks exceptionally high-end.",
+          "timestamp": 1789574767.428375
+        }
+      ]
+    },
+    "2f58dc9f-c55b-49e9-874a-583414a5cee6": {
+      "profile": {
+        "name": "Ewan McGregor",
+        "gender": "Male",
+        "age": 46,
+        "occupation": "Veterinarian",
+        "personality": "Caring, pragmatic, busy working long hours",
+        "buyDecision": "Yes",
+        "rating": 4,
+        "reason": "It lets me make quick, healthier meals for myself after long shifts without standing over a hot stove.",
+        "id": "2f58dc9f-c55b-49e9-874a-583414a5cee6"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Quick, healthier meals after long shifts without having to stand over a hot stove.",
+          "timestamp": 1789574584.6771367
+        },
+        {
+          "mode": "individual",
+          "question": "What matters most to you when choosing a product like this?",
+          "answer": "Reliability and speed are the big ones for me. When I finally get home at eight or nine at night, my brain is fried from dealing with everything at the clinic—surgeries, anxious pet owners, paperwork. I don't have the mental energy to read a complicated manual or wait half an hour for something to cook. It just needs to work, and it needs to give me something decent and nutritious without a massive cleanup afterwards. If it's too much fuss, I won't use it.",
+          "timestamp": 1789574608.383699
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "Around $130. Working long veterinary hours means I need quick, healthier meals without standing over a hot stove.",
+          "timestamp": 1789574767.4283764
+        }
+      ]
+    },
+    "a0da9bfc-e73d-463e-8aea-1dbedb865a30": {
+      "profile": {
+        "name": "Soraya Patel",
+        "gender": "Female",
+        "age": 25,
+        "occupation": "Graduate Student",
+        "personality": "Budget-conscious, busy, lives in a small apartment",
+        "buyDecision": "Yes",
+        "rating": 5,
+        "reason": "It doubles as a mini oven in my dorm-style kitchen, saving me time, space, and money on takeout.",
+        "id": "a0da9bfc-e73d-463e-8aea-1dbedb865a30"
+      },
+      "conversation": [
+        {
+          "mode": "all",
+          "question": "What would make you choose this product?",
+          "answer": "Acting as a reliable mini oven in a small dorm-style kitchen to save space, time, and money on takeout.",
+          "timestamp": 1789574584.6771388
+        },
+        {
+          "mode": "individual",
+          "question": "What would make you choose this product?",
+          "answer": "Honestly, I just told you—it's the fact that it actually replaces a toaster oven and a regular appliance while taking up hardly any counter space in my tiny kitchen. When you're a grad student trying to cut back on expensive takeout and you barely have room to prep food, something that cooks fast and doesn't clutter the place is an instant yes for me.",
+          "timestamp": 1789574614.0115318
+        },
+        {
+          "mode": "all",
+          "question": "What is your budget?",
+          "answer": "As a grad student in a small apartment, I'm keeping my budget under $90 to save space, time, and takeout money.",
+          "timestamp": 1789574767.4283774
         }
       ]
     }
@@ -114,27 +2754,1014 @@
       "question": "What would make you choose this product?",
       "responses": [
         {
-          "personaId": "72c8248b-9018-42a7-a5c1-c4bdb91f58d9",
-          "personaName": "Aarav Sharma",
-          "answer": "Honestly, what clinched it for me was the 50-hour battery life and fast charging. As an engineering student constantly on campus, I don't have time to constantly plug things in, and this gives me amazing value for my budget."
+          "personaId": "5c19a19a-92d1-4dcc-9384-7f327eac7cb7",
+          "personaName": "Marcus Vance",
+          "answer": "Hard data proving it cuts cooking time and accurately maintains specific temperatures would completely sell me on integrating it into my macro-tracking routine."
         },
         {
-          "personaId": "6cada5a9-635c-492e-a037-81a626843799",
-          "personaName": "Ananya Iyer",
-          "answer": "For me, it’s all about the Environmental Noise Cancellation (ENC). Since I'm always on back-to-back client calls in noisy coffee shops or transit, I chose it because it keeps my voice crystal clear. Though I really wish it came in more stylish, premium colors to match my aesthetic!"
+          "personaId": "f0f572cf-1697-4dfd-8421-4973758ac91c",
+          "personaName": "Elena Rostova",
+          "answer": "Honestly, if it came in a sleek, compact, matte-pastel design that didn't dominate my limited counter space, I might reconsider, but it's still hard to pull me away from my Dutch oven."
         },
         {
-          "personaId": "4d2d48f0-180e-4a43-b3ff-0a284d6469d0",
-          "personaName": "Rohan Verma",
-          "answer": "To be honest, I wouldn't choose it as my main device. Even though the deep bass is fun for casual listening, the soundstage just lacks the clarity and detail in the mids and highs that I need for serious music mixing."
+          "personaId": "3a0e89b4-1789-475b-a48d-024e81dc559f",
+          "personaName": "Derrick Sterling",
+          "answer": "For me, it's all about a solid warranty and a fair price tag so I know it won't break down after a few months of heavy family use."
         },
         {
-          "personaId": "cd26948d-fe66-4d94-be05-8a4794101c17",
-          "personaName": "Neha Patel",
-          "answer": "I almost bought it because the battery life sounds amazing, but what stopped me is the charging case. It's just too bulky to fit comfortably into my small sling bags and trendy pockets. If they made a sleeker, more minimalist case, I'd reconsider."
+          "personaId": "1ca960fa-474e-4cb6-8c03-422d6154c509",
+          "personaName": "Chloe Dupont",
+          "answer": "Scientific validation showing it retains more micronutrients than traditional baking, coupled with easy-to-clean parts for daily client demonstrations, would make it a permanent fixture."
+        },
+        {
+          "personaId": "e6b27609-6a9b-469c-98c0-f778f9f2200e",
+          "personaName": "Liam O'Connor",
+          "answer": "A larger basket capacity for meal prepping massive batches of chicken and sweet potatoes in one go would make this an absolute instant buy."
+        },
+        {
+          "personaId": "3e65d78d-93ae-430c-96bb-1f9048003eb4",
+          "personaName": "Mei-Ling Zhou",
+          "answer": "If it could somehow incorporate steam technology to lock in moisture the way a traditional wok does, I would definitely give it a second chance."
+        },
+        {
+          "personaId": "0e7e4e10-faef-4949-817d-24be33c542aa",
+          "personaName": "Carlos Mendez",
+          "answer": "Unless it can prove it has significantly better heating elements and airflow dynamics than my standard oven—without needing a bunch of gimmicky settings—I'm passing."
+        },
+        {
+          "personaId": "9f2e9785-81d9-4aec-a6d2-e0706eedf838",
+          "personaName": "Sarah Jenkins",
+          "answer": "Dishwasher-safe parts are non-negotiable for me; if I have to spend twenty minutes scrubbing grease out of tiny crevices after dinner, it's not worth it."
+        },
+        {
+          "personaId": "997dbd1a-6e5a-4b4b-bb55-5df22ec546eb",
+          "personaName": "Javier Morales",
+          "answer": "Nothing would make me choose it. It fundamentally alters the physics of frying in a way that ruins texture and flavor, and no marketing claim will change my culinary standards."
+        },
+        {
+          "personaId": "caa76cd1-e359-48d7-a95a-b684bc48ec6d",
+          "personaName": "Amina Yusuf",
+          "answer": "Foolproof safety features like auto-shutoff and cool-touch exteriors that protect curious little hands are what completely win me over."
+        },
+        {
+          "personaId": "7e1e87c1-b66e-4df9-ace6-de73e8ff062c",
+          "personaName": "Tobias Schmidt",
+          "answer": "A lower price point backed by an extended multi-year warranty would be required to convince me it's a financially sound, long-term investment."
+        },
+        {
+          "personaId": "23e4d24e-266d-4771-89c1-84c80bc8ca6b",
+          "personaName": "Zoe Kincaid",
+          "answer": "Seeing a bunch of trendy aesthetic reels and easy, fun snack recipes makes me want to grab one right now!"
+        },
+        {
+          "personaId": "bdf9264d-a480-4ac4-a2f1-95e28c207d38",
+          "personaName": "Kenji Sato",
+          "answer": "It would need to have an ultra-minimalist, architectural design that completely replaces my toaster oven and toaster so it actually clears up counter space instead of adding to the clutter."
+        },
+        {
+          "personaId": "49c545d6-d83a-480f-b169-43a05d6e2f8f",
+          "personaName": "Rachel Goldberg",
+          "answer": "Transparent testing data proving superior thermal distribution and consistent crisping performance compared to budget alternatives is what seals the deal for me."
+        },
+        {
+          "personaId": "f1b97104-242b-4b52-a139-304d69434989",
+          "personaName": "Mateo Silva",
+          "answer": "If it's compact enough for a small apartment kitchen and cleans up in under two minutes, I'm sold for quick post-shift bites."
+        },
+        {
+          "personaId": "95a1f499-ad4b-404a-87b3-dd94c15887b7",
+          "personaName": "Hannah Abbott",
+          "answer": "Clear clinical validation that it effectively lowers cholesterol-raising fats while keeping favorite family meals tasting great is all the convincing I need."
+        },
+        {
+          "personaId": "76019b0a-9daa-440d-98d3-3505d1b9d970",
+          "personaName": "Brandon Foster",
+          "answer": "Unless it is genuinely self-cleaning or completely dishwasher-safe without any frustrating nooks and crannies, I'd rather just stick to takeout."
+        },
+        {
+          "personaId": "17259f40-b6b8-4561-a35a-1c1ca775f233",
+          "personaName": "Nadia Al-Mansoor",
+          "answer": "Peer-reviewed nutritional data demonstrating measurable cardiovascular improvements from reduced oil consumption would make this an essential kitchen tool."
+        },
+        {
+          "personaId": "daac3645-3b3b-4938-aaca-28419014e33e",
+          "personaName": "Kevin O'Leary",
+          "answer": "It would need to prove it doesn't overload standard kitchen circuits and genuinely outperforms a quality toaster oven, which right now I doubt it does."
+        },
+        {
+          "personaId": "e5a1e10f-31df-492f-9110-0c9c5e433b00",
+          "personaName": "Beatrice Dubois",
+          "answer": "A compact footprint that fits a tight dorm counter and zero smoke emission are the exact features that make this a must-have for me."
+        },
+        {
+          "personaId": "e8ca2d47-b4fe-44b6-aaa2-8e252910f082",
+          "personaName": "Arthur Pendelton",
+          "answer": "I would need to taste side-by-side comparative samples proving that convection air circulation can genuinely match the exact mouthfeel of traditional immersion frying."
+        },
+        {
+          "personaId": "8747e7e1-7790-46c6-87cb-3a58b7818ed0",
+          "personaName": "Bianca Vance",
+          "answer": "A gorgeous, streamlined aesthetic that complements my kitchen decor, combined with ultra-fast cleanup, makes this an absolute yes for my busy schedule."
+        },
+        {
+          "personaId": "670e3644-1bf9-4016-896c-c96ae4db26f1",
+          "personaName": "Caleb Thorne",
+          "answer": "Guaranteed consistency in texture and a foolproof oil-reduction metric that I can easily explain to clients makes recommending this a no-brainer."
+        },
+        {
+          "personaId": "0df2c3dc-321c-4159-b823-b9b965d5dc58",
+          "personaName": "Diana Kropotkin",
+          "answer": "Nothing would make me choose it; I prefer the timeless reliability of my seasoned cast-iron skillet over another electric gadget."
+        },
+        {
+          "personaId": "d330e540-f8e9-4a25-a1df-932de4c99f00",
+          "personaName": "Ethan Brooks",
+          "answer": "Reliable performance metrics, energy-efficiency ratings, and a seamless digital interface that integrates smoothly into a streamlined kitchen workflow."
+        },
+        {
+          "personaId": "50b5786b-aa75-47d1-b8a4-8af8c79a646e",
+          "personaName": "Fatima Zahra",
+          "answer": "Durability, a family-sized capacity, and proof that it can turn out healthy dinners quickly without complaints from the kids."
+        },
+        {
+          "personaId": "bfef54b6-f0f0-4cfa-a487-c101ee53eb10",
+          "personaName": "Gabriel Santos",
+          "answer": "Total odor containment and easy cleanup are all it takes to keep my apartment fresh after late-night cooking sessions."
+        },
+        {
+          "personaId": "9a0ecae0-83f5-4672-98ea-d0c4acf1b039",
+          "personaName": "Hannah Abbott",
+          "answer": "Speed, ease of cleaning after a grueling shift, and knowing I'm feeding my heart right are the deciding factors for me."
+        },
+        {
+          "personaId": "50414dd7-ce3f-424d-aeaf-5374b4cd9fd8",
+          "personaName": "Ian McGregor",
+          "answer": "Solid engineering proof that it offers distinct functional advantages over a standard convection oven is required before I'd ever buy one."
+        },
+        {
+          "personaId": "cf669b42-85a6-4582-8440-497b74f22930",
+          "personaName": "Jasmine Patel",
+          "answer": "If it's trendy, looks sleek on the counter, and makes healthy viral recipes taste amazing with zero effort, I'm sold."
+        },
+        {
+          "personaId": "4f9e4f06-75b1-470f-9001-7e648e7a0056",
+          "personaName": "Kieran Gallagher",
+          "answer": "Completely dishwasher-safe parts and a non-stick coating that actually lasts without peeling after a few months would be the only way I'd consider it."
+        },
+        {
+          "personaId": "e9abcc2d-d124-4e4d-8be8-9c51e0f53e93",
+          "personaName": "Lena Rostova",
+          "answer": "Fast results, measurable health benefits for cholesterol management, and a sleek design that justifies the counter real estate."
+        },
+        {
+          "personaId": "4426f3c0-f186-4f5f-a009-6dda45e6839b",
+          "personaName": "Mason Drake",
+          "answer": "A lower price point and double-layer capacity that actually lets me cook an entire family meal at once would make me reconsider."
+        },
+        {
+          "personaId": "e5689405-e558-4dd5-94be-305203a4e4b5",
+          "personaName": "Nora Sterling",
+          "answer": "Reliable even heating technology from a trusted brand like Philips is what makes me feel confident adding this to my daily cooking routine."
+        },
+        {
+          "personaId": "b9113212-4426-45e5-ba99-3f6903ba0fcc",
+          "personaName": "Oliver Vance",
+          "answer": "Nothing could make me choose it; it's a culinary compromise that can never replicate the genuine texture and depth of real deep frying."
+        },
+        {
+          "personaId": "f2c7fbd0-a068-4760-939b-d82722641d77",
+          "personaName": "Penny Liu",
+          "answer": "Clear evidence of reduced dietary fat absorption and reliable thermal controls make it a valuable tool for preventive health."
+        },
+        {
+          "personaId": "ef3fd66e-8209-4e59-b0f4-e2edae29c64f",
+          "personaName": "Quentin Brooks",
+          "answer": "Impeccable build quality, premium material finishes, and a minimalist footprint that complements modern kitchen architecture."
+        },
+        {
+          "personaId": "c26045ab-9d92-4070-a720-5859986fce55",
+          "personaName": "Rachel Thorne",
+          "answer": "Anything that gets my kids to happily eat nutritious meals without fuss on busy weeknights is an instant winner in my book."
+        },
+        {
+          "personaId": "f77591a1-5a8e-4fcd-9574-3d6ce507ea1f",
+          "personaName": "Samuel Cruz",
+          "answer": "It would need to do multiple jobs efficiently, like a multi-cooker, so it doesn't waste precious counter space on a single function."
+        },
+        {
+          "personaId": "f9fb19e2-54e3-415f-b6c2-105825fd59d3",
+          "personaName": "Tara Jenkins",
+          "answer": "Complete alignment with a mindful, clean-eating lifestyle where I can prepare wholesome plant-based and crispy foods effortlessly."
+        },
+        {
+          "personaId": "92d38699-b81e-45d1-8ec0-a8fbfdfe1535",
+          "personaName": "Declan Murphy",
+          "answer": "Speed, ease of cleanup, and the ability to get a satisfying, crispy meal on the table right after a long, exhausting shift."
+        },
+        {
+          "personaId": "716f8312-4c55-43c3-a67c-8fabd2d5f689",
+          "personaName": "Siddharth Verma",
+          "answer": "Hard engineering specifications showing it does something fundamentally different from a regular convection oven with a sheet pan."
+        },
+        {
+          "personaId": "5630534e-6523-42ec-84ed-a5c3ea604e3d",
+          "personaName": "Gemma Sterling",
+          "answer": "If it makes recreating those aesthetic TikTok roasted veggie and crispy fry hacks super fast and easy, I'm all in."
+        },
+        {
+          "personaId": "af9737c4-5c56-4be5-bdb5-e54fa4eea040",
+          "personaName": "Marcus Vance",
+          "answer": "Nothing; I've used cast iron for decades, and I don't need a single-purpose electric gadget cluttering up my kitchen."
+        },
+        {
+          "personaId": "3721c527-a526-4d48-ac57-d7e3c61978e7",
+          "personaName": "Chloe Dupont",
+          "answer": "Fast cleanup and foolproof operation when I'm too tired to think, plus getting the kids to eat healthy without complaining."
+        },
+        {
+          "personaId": "5f840966-e1e3-4f9e-b190-9cd9da7b26fa",
+          "personaName": "Aiden O'Rourke",
+          "answer": "Precise temperature control and rapid cooking cycles that make hitting my daily macros and tracking fats completely effortless."
+        },
+        {
+          "personaId": "7d68f953-edd4-4e1b-9baa-4b29d76f2d3b",
+          "personaName": "Yuki Tanaka",
+          "answer": "A genuinely effortless, non-stick cleaning system would be necessary to overcome my hesitation about washing complicated basket components."
+        },
+        {
+          "personaId": "fe41170b-14a4-4ceb-8f0b-5848cba91272",
+          "personaName": "Dante Rossi",
+          "answer": "Nothing can replace real immersion frying; an air fryer simply produces dehydrated food, not proper fried dishes."
+        },
+        {
+          "personaId": "1b425dcc-b618-484a-a890-e2a7ce5373a2",
+          "personaName": "Maya Lin",
+          "answer": "An ergonomic, easy-to-clean design that completely eliminates oil splatters and smoke in my apartment makes this an instant winner."
+        },
+        {
+          "personaId": "51a24d74-1854-43d7-b5a0-37da5a7ae8a0",
+          "personaName": "Harrison Cole",
+          "answer": "Efficient thermal engineering and solid airflow mechanics that prove it distributes heat uniformly without hot spots."
+        },
+        {
+          "personaId": "526767db-fa62-44e2-a3a7-2c39c2cdc25d",
+          "personaName": "Freja Lindstrom",
+          "answer": "It would have to come in a refined, minimalist, neutral finish that genuinely complements high-end kitchen counters instead of looking like bulky plastic."
+        },
+        {
+          "personaId": "874d4107-b6d6-4bc7-8f38-42fb6db2e620",
+          "personaName": "Tariq Al-Jamil",
+          "answer": "Clinical reassurance that it significantly cuts down dietary saturated fats for long-term cardiovascular health protection."
+        },
+        {
+          "personaId": "a2b6efd1-8dd0-43e6-81c9-21c1b296443c",
+          "personaName": "Brianna Scott",
+          "answer": "Compact size, great ventilation control so my apartment doesn't smell like grease, and quick cooking times for busy nights."
+        },
+        {
+          "personaId": "2e7ef9c6-dd11-4695-a5ae-96d0020f6e7f",
+          "personaName": "Julian Vance",
+          "answer": "A guaranteed long-term warranty and proof of mechanical durability would be essential to convince me it won't break down prematurely."
+        },
+        {
+          "personaId": "61f0b3f3-b5f0-456f-92ae-95a6eac695bd",
+          "personaName": "Kavita Nair",
+          "answer": "Data showing it drastically reduces trans fats and calories while maintaining the authentic texture of traditional snacks."
+        },
+        {
+          "personaId": "efabfc70-1261-47aa-87ce-55ededbe7487",
+          "personaName": "Logan Miller",
+          "answer": "It would need to prove it does something my toaster oven and a spray bottle of oil can't already accomplish with less cleanup."
+        },
+        {
+          "personaId": "94c49c89-1504-4098-8133-4d17113b1364",
+          "personaName": "Nadine Moreau",
+          "answer": "Consistent high-temperature crisping performance for proteins and vegetables without complicated maintenance or messy grease traps."
+        },
+        {
+          "personaId": "9315400d-9bbe-49b5-86a9-35cfe0372608",
+          "personaName": "Ezekiel Wright",
+          "answer": "Instant heating with zero preheat time so I can get a fast, healthy dinner on the plate immediately after a long shift."
+        },
+        {
+          "personaId": "17840436-c353-428e-9634-3290100a7596",
+          "personaName": "Seraphina Vance",
+          "answer": "I prefer whole-food cooking methods; unless it can radically alter my view on countertop electric appliances, I'm sticking to steaming."
+        },
+        {
+          "personaId": "43a61e61-6141-40c1-9316-66bc94884261",
+          "personaName": "Mateo Silva",
+          "answer": "Great reheating performance, energy savings, and a way to feed the family crispy snacks without the guilt of heavy oil."
+        },
+        {
+          "personaId": "fb45d25e-5a83-4e78-aac0-4c9f94757820",
+          "personaName": "Marcus Vance",
+          "answer": "Solid proof that it can replicate the exact texture and crunch of traditional deep frying without sacrificing flavor."
+        },
+        {
+          "personaId": "3e421451-3922-4420-b67e-43c358a7ceaf",
+          "personaName": "Chloe Dupont",
+          "answer": "A sleek, compact design that looks stylish on my counter and makes quick, healthy meals effortless."
+        },
+        {
+          "personaId": "0b5d816b-9b12-4973-8d59-0a117c302013",
+          "personaName": "Javier Morales",
+          "answer": "Reliable performance, lower oil usage for family health, and a price point that makes sense for our household budget."
+        },
+        {
+          "personaId": "d416d1fb-02b1-4ccb-9f4b-860f90915aaf",
+          "personaName": "Maya Lin",
+          "answer": "Proven health benefits in reducing saturated fats combined with fast, convenient operation for busy healthcare schedules."
+        },
+        {
+          "personaId": "12c8d9e4-66b9-47cb-ac5b-23456912a13a",
+          "personaName": "Declan Murphy",
+          "answer": "Nothing; my oven and stove already handle everything I need without taking up extra space for a single-use gadget."
+        },
+        {
+          "personaId": "4bc81837-a952-4681-9d43-d4ececf5555c",
+          "personaName": "Kavita Nair",
+          "answer": "Significant time savings on weeknights and an easy way to prepare lower-calorie versions of favorite meals."
+        },
+        {
+          "personaId": "2b86d51d-77cf-4022-8f2c-e6e72f3b796f",
+          "personaName": "Ethan Brooks",
+          "answer": "The ability to hit my exact macro targets while still enjoying genuinely crispy foods without extra oil."
+        },
+        {
+          "personaId": "30556d98-b24a-474f-a7e5-0b58ee1a0c4f",
+          "personaName": "Nadine Moreau",
+          "answer": "Unless it offers something entirely unique that my standard convection oven cannot do, I don't see the need for it."
+        },
+        {
+          "personaId": "f88b4091-5063-46f2-bc87-3c8cc15d186d",
+          "personaName": "Siddharth Verma",
+          "answer": "Clear energy savings compared to a full-sized oven, paired with proven health and time benefits."
+        },
+        {
+          "personaId": "3be4147d-71db-49b5-87fb-b5db97af78ea",
+          "personaName": "Freja Lindstrom",
+          "answer": "I prefer cooking with fresh ingredients on cast iron; an electric appliance just adds unnecessary clutter to my kitchen."
+        },
+        {
+          "personaId": "b28672ec-e3e0-4d73-9504-e13df3f4b9a2",
+          "personaName": "Gabriel Santos",
+          "answer": "Functional performance for quick weeknight meals, paired with a design that makes thorough cleaning as painless as possible."
+        },
+        {
+          "personaId": "0bbb6143-9295-4d1f-9ae3-f23023d97ee3",
+          "personaName": "Rachel Goldberg",
+          "answer": "A foolproof way to make toddler-friendly favorites like nuggets and fries much healthier with minimal oil and fuss."
+        },
+        {
+          "personaId": "e4620e0a-bd70-47c8-b1dc-3b677f3b06c8",
+          "personaName": "Tobias Schmidt",
+          "answer": "A much larger cooking capacity that can handle family-sized meals in a single batch without requiring multiple rounds."
+        },
+        {
+          "personaId": "3d2ade19-7524-4721-90d2-fba3e166b045",
+          "personaName": "Amina Yusuf",
+          "answer": "Inspiration from fun, creative online recipes that let me cut back on oil without sacrificing flavor."
+        },
+        {
+          "personaId": "201a0060-0ee4-4c3c-877a-9c2c8efd7c31",
+          "personaName": "Caleb Thorne",
+          "answer": "Low friction and absolute ease of use so I actually cook instead of defaulting to ordering takeout when I'm tired."
+        },
+        {
+          "personaId": "c74100b5-3773-4156-9267-cbfead6c284f",
+          "personaName": "Elena Rostova",
+          "answer": "Fast, hassle-free dinner preparation that delivers nutritious meals with zero cleanup stress after long shifts."
+        },
+        {
+          "personaId": "f1985acb-3136-4a31-9c18-ac76bc85737a",
+          "personaName": "Brandon Foster",
+          "answer": "Speed, effortless cleanup compared to traditional pans, and the health perk of consuming way less oil."
+        },
+        {
+          "personaId": "7a8e7305-fac5-46e5-8c2b-ae98a45a0afa",
+          "personaName": "Yuki Tanaka",
+          "answer": "A compact footprint that manages smoke and smells perfectly in a small apartment kitchen."
+        },
+        {
+          "personaId": "b049de1c-f4e4-4774-aad2-4757d8a72afe",
+          "personaName": "Arthur Pendelton",
+          "answer": "Nothing; I'd rather stick to my traditional baking and grilling habits than buy another countertop appliance."
+        },
+        {
+          "personaId": "7d2c589d-65b4-4f49-8feb-988b7ec59485",
+          "personaName": "Zoe Kincaid",
+          "answer": "A versatile tool that makes roasting vegetables fast and delicious without needing heavy oils or butters."
+        },
+        {
+          "personaId": "89606f9e-ecf9-4cca-bdb8-45fc7db36155",
+          "personaName": "Zachary Taylor",
+          "answer": "Nothing replaces traditional deep-fried textures cooked in real oil; low-fat alternatives just taste too dry for my liking."
+        },
+        {
+          "personaId": "df4a3216-2394-4d3a-b90d-50b00b9c3fa6",
+          "personaName": "Vanessa Cruz",
+          "answer": "A sleek, minimalist aesthetic that looks great on my counter, combined with easy ways to make viral crunchy recipes."
+        },
+        {
+          "personaId": "69661ca2-4d81-4462-b48f-aa24370aee0f",
+          "personaName": "Marcus Vance-Smith",
+          "answer": "Fast weeknight cooking times and enhanced safety around children compared to an open pot of hot oil."
+        },
+        {
+          "personaId": "24fef424-b612-457e-bc84-296aed5d22d9",
+          "personaName": "Siobhan Byrne",
+          "answer": "Evidence-backed health benefits that make reducing dietary fats at home simple and practical."
+        },
+        {
+          "personaId": "519823e4-f6ed-4edf-97d8-41dd29214cce",
+          "personaName": "Devin Brooks",
+          "answer": "Crispy chicken wings and sweet potato fries that fit seamlessly into my strict cutting macro targets."
+        },
+        {
+          "personaId": "1c900790-9369-4f44-9ce5-337b635a47e6",
+          "personaName": "Amara Diallo",
+          "answer": "Efficient rapid-air technology and a design that is vastly easier to clean than a traditional oven."
+        },
+        {
+          "personaId": "9a0d3355-7a21-4c1e-9121-fcb8f6251334",
+          "personaName": "Bjorn Lindqvist",
+          "answer": "Nothing; limited counter space means I'm sticking to my cast-iron skillet for everything."
+        },
+        {
+          "personaId": "e2806cf5-7023-409f-b591-d526d3d4def5",
+          "personaName": "Mei-Ling Chen",
+          "answer": "Unless it proves it does something radically different from my existing convection oven, it's too redundant to buy."
+        },
+        {
+          "personaId": "07986a18-ae97-40b6-944a-c6aa8642ac7b",
+          "personaName": "Darius King",
+          "answer": "Nothing; shortcut tools cannot replicate the depth of flavor and Maillard reaction achieved through traditional techniques."
+        },
+        {
+          "personaId": "26587966-4c39-4f88-ba8b-084204b8f8e3",
+          "personaName": "Clara Higgins",
+          "answer": "The ability to quickly whip up appetizers and snacks when clients drop by unexpectedly with zero stress."
+        },
+        {
+          "personaId": "df316933-ba88-49cd-979a-cb10c73162e2",
+          "personaName": "Tariq Mansoor",
+          "answer": "A straightforward way to lower dietary oil intake and improve cholesterol levels without sacrificing taste."
+        },
+        {
+          "personaId": "fd27800f-9f30-454d-96e1-8ef7612c13db",
+          "personaName": "Kirsten Vestergaard",
+          "answer": "Nothing; I prefer traditional baking and stovetop cooking methods that I've trusted for decades."
+        },
+        {
+          "personaId": "6d0da206-c362-426b-9c9d-43f8dfa8a82f",
+          "personaName": "Guillermo Perez",
+          "answer": "Energy efficiency when roasting small batches, saving me from firing up the large wall oven."
+        },
+        {
+          "personaId": "d3cc35ed-f1c7-4100-9428-7bffb545039e",
+          "personaName": "Yara Al-Farsi",
+          "answer": "Inspiration from wellness creators for oil-free falafel and roasted veggies that let me join the trend easily."
+        },
+        {
+          "personaId": "bff2e9a4-55c5-4487-9368-7393164d11e1",
+          "personaName": "Tobias Lind",
+          "answer": "Fast dinner prep for frozen foods and minimal cleanup to match my hectic work schedule."
+        },
+        {
+          "personaId": "4db3b041-7bf8-4f66-8bf9-ecd7301aa233",
+          "personaName": "Nadine Gauthier",
+          "answer": "I prefer whole, raw, or lightly steamed foods rather than processed foods cooked in an air fryer."
+        },
+        {
+          "personaId": "c801889a-60c5-4d1a-b56c-804fbd12df5d",
+          "personaName": "Jamal Washington",
+          "answer": "Clear long-term savings on cooking oil and health-related expenses that make it a smart financial investment."
+        },
+        {
+          "personaId": "9fa608f7-66aa-423c-8755-a1180ac7b73a",
+          "personaName": "Freja Olsen",
+          "answer": "A sleek, genuinely attractive design that doesn't ruin the clean look of marble countertops when left out."
+        },
+        {
+          "personaId": "2f58dc9f-c55b-49e9-874a-583414a5cee6",
+          "personaName": "Ewan McGregor",
+          "answer": "Quick, healthier meals after long shifts without having to stand over a hot stove."
+        },
+        {
+          "personaId": "a0da9bfc-e73d-463e-8aea-1dbedb865a30",
+          "personaName": "Soraya Patel",
+          "answer": "Acting as a reliable mini oven in a small dorm-style kitchen to save space, time, and money on takeout."
         }
       ],
-      "timestamp": 1789489399.8239894
+      "timestamp": 1789574584.6772182
+    },
+    {
+      "question": "What is your budget?",
+      "responses": [
+        {
+          "personaId": "5c19a19a-92d1-4dcc-9384-7f327eac7cb7",
+          "personaName": "Marcus Vance",
+          "answer": "I don't have a strict fixed cap, but looking at the specs and ROI on oil savings, anything under $150 makes analytical sense for what it delivers."
+        },
+        {
+          "personaId": "f0f572cf-1697-4dfd-8421-4973758ac91c",
+          "personaName": "Elena Rostova",
+          "answer": "Honestly, I wouldn't spend any money on it because I just don't want it cluttering my kitchen space when I already have good baking pans."
+        },
+        {
+          "personaId": "3a0e89b4-1789-475b-a48d-024e81dc559f",
+          "personaName": "Derrick Sterling",
+          "answer": "With grading papers and family expenses, I'm looking to keep it around $100 to $130. It has to make financial sense for a weeknight tool."
+        },
+        {
+          "personaId": "1ca960fa-474e-4cb6-8c03-422d6154c509",
+          "personaName": "Chloe Dupont",
+          "answer": "I'm willing to invest up to $150 or $200 if the heating performance and build quality are top-tier since I use it so frequently for clients and myself."
+        },
+        {
+          "personaId": "e6b27609-6a9b-469c-98c0-f778f9f2200e",
+          "personaName": "Liam O'Connor",
+          "answer": "Around $150 is my sweet spot. Since I use it for daily meal prep, as long as it's durable and handles bulk chicken, the price is secondary to performance."
+        },
+        {
+          "personaId": "3e65d78d-93ae-430c-96bb-1f9048003eb4",
+          "personaName": "Mei-Ling Zhou",
+          "answer": "Since I'm not entirely convinced by the results compared to a wok, I wouldn't want to spend more than $80, though honestly, I'd rather save my money."
+        },
+        {
+          "personaId": "0e7e4e10-faef-4949-817d-24be33c542aa",
+          "personaName": "Carlos Mendez",
+          "answer": "Zero dollars, because I already own a full-size convection oven that does the exact same mechanical job without taking up extra counter space."
+        },
+        {
+          "personaId": "9f2e9785-81d9-4aec-a6d2-e0706eedf838",
+          "personaName": "Sarah Jenkins",
+          "answer": "I'd happily pay up to $150. Between work and toddlers, if it saves me time and makes dinner easier, it's worth every penny."
+        },
+        {
+          "personaId": "997dbd1a-6e5a-4b4b-bb55-5df22ec546eb",
+          "personaName": "Javier Morales",
+          "answer": "I wouldn't spend a dime on one. No amount of money makes a glorified convection box a substitute for proper deep-frying oil."
+        },
+        {
+          "personaId": "caa76cd1-e359-48d7-a95a-b684bc48ec6d",
+          "personaName": "Amina Yusuf",
+          "answer": "Around $120 to $150 feels reasonable for something that keeps my kids safe from hot oil splatters on the stove."
+        },
+        {
+          "personaId": "7e1e87c1-b66e-4df9-ace6-de73e8ff062c",
+          "personaName": "Tobias Schmidt",
+          "answer": "I'm quite cautious, so I'd want to stay under $90 or wait for a solid discount before taking a risk on a countertop appliance."
+        },
+        {
+          "personaId": "23e4d24e-266d-4771-89c1-84c80bc8ca6b",
+          "personaName": "Zoe Kincaid",
+          "answer": "I'd probably drop around $100 to $120 on a cute, trendy model that looks good in photos and lets me try those viral snack recipes."
+        },
+        {
+          "personaId": "bdf9264d-a480-4ac4-a2f1-95e28c207d38",
+          "personaName": "Kenji Sato",
+          "answer": "Price isn't really the main issue, but since it has to replace multiple appliances to earn counter space, I'd expect a premium multi-function model around $200 if I bought one at all."
+        },
+        {
+          "personaId": "49c545d6-d83a-480f-b169-43a05d6e2f8f",
+          "personaName": "Rachel Goldberg",
+          "answer": "I researched the specs and Philips airflow tech is superior, so I'm willing to budget around $160 for a reliable, high-performing unit."
+        },
+        {
+          "personaId": "f1b97104-242b-4b52-a139-304d69434989",
+          "personaName": "Mateo Silva",
+          "answer": "Around $100 is ideal. I just want a quick, hassle-free way to make post-work bites without breaking the bank."
+        },
+        {
+          "personaId": "95a1f499-ad4b-404a-87b3-dd94c15887b7",
+          "personaName": "Hannah Abbott",
+          "answer": "Health is my priority right now on doctor's orders, so I'm comfortable spending up to $150 for a dependable machine that lowers my cholesterol."
+        },
+        {
+          "personaId": "76019b0a-9daa-440d-98d3-3505d1b9d970",
+          "personaName": "Brandon Foster",
+          "answer": "Since I'd rather just order takeout than clean a grease trap, my budget for this is strictly zero."
+        },
+        {
+          "personaId": "17259f40-b6b8-4561-a35a-1c1ca775f233",
+          "personaName": "Nadia Al-Mansoor",
+          "answer": "I view it as an investment in cardiovascular health, so around $130 to $150 is a reasonable price point for an evidence-backed appliance."
+        },
+        {
+          "personaId": "daac3645-3b3b-4938-aaca-28419014e33e",
+          "personaName": "Kevin O'Leary",
+          "answer": "My budget is zero since my toaster oven handles what I need and I don't want to overload the kitchen circuit."
+        },
+        {
+          "personaId": "e5a1e10f-31df-492f-9110-0c9c5e433b00",
+          "personaName": "Beatrice Dubois",
+          "answer": "As a grad student living in a small space, I need to keep it under $90, ideally finding a good sale on a compact model."
+        },
+        {
+          "personaId": "e8ca2d47-b4fe-44b6-aaa2-8e252910f082",
+          "personaName": "Arthur Pendelton",
+          "answer": "Given my doubts about the texture compared to traditional frying, I wouldn't allocate any budget for it."
+        },
+        {
+          "personaId": "8747e7e1-7790-46c6-87cb-3a58b7818ed0",
+          "personaName": "Bianca Vance",
+          "answer": "I'd budget around $130. It needs to look sleek on the counter and save me time on cleanup without breaking the bank."
+        },
+        {
+          "personaId": "670e3644-1bf9-4016-896c-c96ae4db26f1",
+          "personaName": "Caleb Thorne",
+          "answer": "I'd say around $150. Since I recommend clean eating alternatives to my clients all the time, it's worth having a solid unit on hand."
+        },
+        {
+          "personaId": "0df2c3dc-321c-4159-b823-b9b965d5dc58",
+          "personaName": "Diana Kropotkin",
+          "answer": "My budget is zero; between my cast-iron skillet and full counters, I have no desire to spend money on another single-use gadget."
+        },
+        {
+          "personaId": "d330e540-f8e9-4a25-a1df-932de4c99f00",
+          "personaName": "Ethan Brooks",
+          "answer": "Data-wise, a $120 to $140 price point pencils out nicely when factoring in reduced cooking time and lower energy usage."
+        },
+        {
+          "personaId": "50b5786b-aa75-47d1-b8a4-8af8c79a646e",
+          "personaName": "Fatima Zahra",
+          "answer": "With feeding a family of four, I'm looking to spend around $100 to $120 max to keep things budget-friendly."
+        },
+        {
+          "personaId": "bfef54b6-f0f0-4cfa-a487-c101ee53eb10",
+          "personaName": "Gabriel Santos",
+          "answer": "Around $100 works for me. I just want a cheap, easy way to handle late-night snacks without stinking up my apartment."
+        },
+        {
+          "personaId": "9a0ecae0-83f5-4672-98ea-d0c4acf1b039",
+          "personaName": "Hannah Abbott",
+          "answer": "I'd budget about $130. Working long shifts means convenience and heart health are worth paying a fair price for."
+        },
+        {
+          "personaId": "50414dd7-ce3f-424d-aeaf-5374b4cd9fd8",
+          "personaName": "Ian McGregor",
+          "answer": "I wouldn't spend anything on it since my structural setup with a standard oven and stove works just fine."
+        },
+        {
+          "personaId": "cf669b42-85a6-4582-8440-497b74f22930",
+          "personaName": "Jasmine Patel",
+          "answer": "I'd spend around $120. Seeing it all over social media makes me want a reliable model that matches the hype."
+        },
+        {
+          "personaId": "4f9e4f06-75b1-470f-9001-7e648e7a0056",
+          "personaName": "Kieran Gallagher",
+          "answer": "Zero dollars. Too many parts to clean means it's not worth spending money on, no matter the price."
+        },
+        {
+          "personaId": "e9abcc2d-d124-4e4d-8be8-9c51e0f53e93",
+          "personaName": "Lena Rostova",
+          "answer": "Around $140 is my limit. Results and health matter more to me than finding the absolute cheapest option."
+        },
+        {
+          "personaId": "4426f3c0-f186-4f5f-a009-6dda45e6839b",
+          "personaName": "Mason Drake",
+          "answer": "Given the upfront cost and limited capacity, I'm not looking to spend more than $80, which is why I haven't bought one yet."
+        },
+        {
+          "personaId": "e5689405-e558-4dd5-94be-305203a4e4b5",
+          "personaName": "Nora Sterling",
+          "answer": "I'm willing to invest around $130 for a reputable brand like Philips that promises even heating and wellness benefits."
+        },
+        {
+          "personaId": "b9113212-4426-45e5-ba99-3f6903ba0fcc",
+          "personaName": "Oliver Vance",
+          "answer": "My budget for an air fryer is zero. I won't spend money on a culinary compromise."
+        },
+        {
+          "personaId": "f2c7fbd0-a068-4760-939b-d82722641d77",
+          "personaName": "Penny Liu",
+          "answer": "Around $120 to $140 is a reasonable budget for preventive nutrition tools in my household."
+        },
+        {
+          "personaId": "ef3fd66e-8209-4e59-b0f4-e2edae29c64f",
+          "personaName": "Quentin Brooks",
+          "answer": "I'd budget around $150. Build quality and minimalist design are important to me, so I don't mind paying a bit more for a well-crafted appliance."
+        },
+        {
+          "personaId": "c26045ab-9d92-4070-a720-5859986fce55",
+          "personaName": "Rachel Thorne",
+          "answer": "I'm happy to spend up to $150 if it actually gets my family to eat healthier without a fight over veggies."
+        },
+        {
+          "personaId": "f77591a1-5a8e-4fcd-9574-3d6ce507ea1f",
+          "personaName": "Samuel Cruz",
+          "answer": "I'd prefer a multi-cooker instead, but if I were buying an air fryer, I wouldn't want to spend more than $90 since it's a single-task device."
+        },
+        {
+          "personaId": "f9fb19e2-54e3-415f-b6c2-105825fd59d3",
+          "personaName": "Tara Jenkins",
+          "answer": "Around $120 is my budget. It aligns with my clean-eating lifestyle, so it's a worthwhile wellness investment."
+        },
+        {
+          "personaId": "92d38699-b81e-45d1-8ec0-a8fbfdfe1535",
+          "personaName": "Declan Murphy",
+          "answer": "Around $130. After a long shift at the firehouse, anything that saves time and protects my cholesterol is worth a fair price."
+        },
+        {
+          "personaId": "716f8312-4c55-43c3-a67c-8fabd2d5f689",
+          "personaName": "Siddharth Verma",
+          "answer": "Since my convection oven and parchment paper do the trick, my budget is zero—I'm not paying for marketing hype."
+        },
+        {
+          "personaId": "5630534e-6523-42ec-84ed-a5c3ea604e3d",
+          "personaName": "Gemma Sterling",
+          "answer": "I'd spend around $120 on a cute, trendy model that matches the aesthetic of the recipe hacks I see online."
+        },
+        {
+          "personaId": "af9737c4-5c56-4be5-bdb5-e54fa4eea040",
+          "personaName": "Marcus Vance",
+          "answer": "My budget is zero. My cast-iron skillet has lasted years, and I don't need a single-purpose gadget taking up space."
+        },
+        {
+          "personaId": "3721c527-a526-4d48-ac57-d7e3c61978e7",
+          "personaName": "Chloe Dupont",
+          "answer": "I'd budget around $110 to $130. If it gets my kids to eat healthier without a huge hassle, it's worth the investment."
+        },
+        {
+          "personaId": "5f840966-e1e3-4f9e-b190-9cd9da7b26fa",
+          "personaName": "Aiden O'Rourke",
+          "answer": "Around $140. Hitting my macros easily without eating dry, bland chicken makes it a high-value tool for my fitness goals."
+        },
+        {
+          "personaId": "7d68f953-edd4-4e1b-9baa-4b29d76f2d3b",
+          "personaName": "Yuki Tanaka",
+          "answer": "Because the cleaning process looks tedious, I'd only consider a budget-friendly option around $80, assuming I bought one at all."
+        },
+        {
+          "personaId": "fe41170b-14a4-4ceb-8f0b-5848cba91272",
+          "personaName": "Dante Rossi",
+          "answer": "Zero. There is no budget for an appliance that produces dried-out food instead of real fried food."
+        },
+        {
+          "personaId": "1b425dcc-b618-484a-a890-e2a7ce5373a2",
+          "personaName": "Maya Lin",
+          "answer": "I'd say around $120. Getting rid of stovetop oil splatters in a small apartment makes that price very reasonable."
+        },
+        {
+          "personaId": "51a24d74-1854-43d7-b5a0-37da5a7ae8a0",
+          "personaName": "Harrison Cole",
+          "answer": "Around $130. The rapid air thermodynamic design makes mechanical sense, so it's a fair price for efficient cooking."
+        },
+        {
+          "personaId": "526767db-fa62-44e2-a3a7-2c39c2cdc25d",
+          "personaName": "Freja Lindstrom",
+          "answer": "Since most models are bulky plastic eyesores that ruin my kitchen counter aesthetic, my budget is zero unless a sleek, high-end design comes along."
+        },
+        {
+          "personaId": "874d4107-b6d6-4bc7-8f38-42fb6db2e620",
+          "personaName": "Tariq Al-Jamil",
+          "answer": "I'm comfortable spending up to $150. Cardiovascular health is a priority for my household, so it's a worthwhile health investment."
+        },
+        {
+          "personaId": "a2b6efd1-8dd0-43e6-81c9-21c1b296443c",
+          "personaName": "Brianna Scott",
+          "answer": "As an apartment renter on a budget, I need to stay around $90 to $100, especially since it saves me from lingering oil smells."
+        },
+        {
+          "personaId": "2e7ef9c6-dd11-4695-a5ae-96d0020f6e7f",
+          "personaName": "Julian Vance",
+          "answer": "Given my skepticism about digital touchpads and durability, I wouldn't want to spend more than $70 on something that might break down quickly."
+        },
+        {
+          "personaId": "61f0b3f3-b5f0-456f-92ae-95a6eac695bd",
+          "personaName": "Kavita Nair",
+          "answer": "I'd budget around $130 to $150. Reducing trans fats while keeping traditional flavors is worth a solid investment."
+        },
+        {
+          "personaId": "efabfc70-1261-47aa-87ce-55ededbe7487",
+          "personaName": "Logan Miller",
+          "answer": "Since my toaster oven already does most of these things, I wouldn't spend more than $60 on a standalone unit, if that."
+        },
+        {
+          "personaId": "94c49c89-1504-4098-8133-4d17113b1364",
+          "personaName": "Nadine Moreau",
+          "answer": "I'd spend around $140. As a pastry chef, I appreciate tools that make roasting proteins and vegetables quick and clean."
+        },
+        {
+          "personaId": "9315400d-9bbe-49b5-86a9-35cfe0372608",
+          "personaName": "Ezekiel Wright",
+          "answer": "Around $110 to $120. After a long shift, saving time on preheating an oven is easily worth that much."
+        },
+        {
+          "personaId": "17840436-c353-428e-9634-3290100a7596",
+          "personaName": "Seraphina Vance",
+          "answer": "Since I prefer whole-food cooking like steaming and raw prep, my budget for a processed kitchen gadget is zero."
+        },
+        {
+          "personaId": "43a61e61-6141-40c1-9316-66bc94884261",
+          "personaName": "Mateo Silva",
+          "answer": "Around $120 is a fair price for cutting household calories and reheating leftovers better than a microwave."
+        },
+        {
+          "personaId": "fb45d25e-5a83-4e78-aac0-4c9f94757820",
+          "personaName": "Marcus Vance",
+          "answer": "My budget is zero since I doubt a countertop convection oven can replicate proper deep frying."
+        },
+        {
+          "personaId": "3e421451-3922-4420-b67e-43c358a7ceaf",
+          "personaName": "Chloe Dupont",
+          "answer": "I'd happily pay around $120 for something that fits my counter nicely and helps me eat healthier without spending hours prepping."
+        },
+        {
+          "personaId": "0b5d816b-9b12-4973-8d59-0a117c302013",
+          "personaName": "Javier Morales",
+          "answer": "I'm looking to keep it around $100. It's an investment for quick weeknight dinners and saving on oil."
+        },
+        {
+          "personaId": "d416d1fb-02b1-4ccb-9f4b-860f90915aaf",
+          "personaName": "Maya Lin",
+          "answer": "Around $130 is my budget. Reducing saturated fats conveniently makes it a very practical healthcare purchase for my kitchen."
+        },
+        {
+          "personaId": "12c8d9e4-66b9-47cb-ac5b-23456912a13a",
+          "personaName": "Declan Murphy",
+          "answer": "My budget is zero. I think it's a single-use gadget that will just collect dust alongside my standard oven and stove."
+        },
+        {
+          "personaId": "4bc81837-a952-4681-9d43-d4ececf5555c",
+          "personaName": "Kavita Nair",
+          "answer": "I'd budget around $120. Cutting down cooking time and calories after a long workday is well worth that price."
+        },
+        {
+          "personaId": "2b86d51d-77cf-4022-8f2c-e6e72f3b796f",
+          "personaName": "Ethan Brooks",
+          "answer": "Around $140. Staying on track with my macro goals while eating crispy food is a game-changer I'm willing to pay for."
+        },
+        {
+          "personaId": "30556d98-b24a-474f-a7e5-0b58ee1a0c4f",
+          "personaName": "Nadine Moreau",
+          "answer": "Since I already own a convection oven, I wouldn't spend money on an extra specialized appliance."
+        },
+        {
+          "personaId": "f88b4091-5063-46f2-bc87-3c8cc15d186d",
+          "personaName": "Siddharth Verma",
+          "answer": "Based on energy savings and health benefits, I'd budget around $110 to $130 for a smart, pragmatic purchase."
+        },
+        {
+          "personaId": "3be4147d-71db-49b5-87fb-b5db97af78ea",
+          "personaName": "Freja Lindstrom",
+          "answer": "My budget is zero. I prefer minimizing countertop clutter and cooking with fresh ingredients on cast iron."
+        },
+        {
+          "personaId": "b28672ec-e3e0-4d73-9504-e13df3f4b9a2",
+          "personaName": "Gabriel Santos",
+          "answer": "Around $110. It's a functional tool for weeknight meals, though I wouldn't overpay for it given the tedious basket cleaning."
+        },
+        {
+          "personaId": "0bbb6143-9295-4d1f-9ae3-f23023d97ee3",
+          "personaName": "Rachel Goldberg",
+          "answer": "I'd spend around $130 to make healthier versions of chicken nuggets and fries for my toddler with minimal oil."
+        },
+        {
+          "personaId": "e4620e0a-bd70-47c8-b1dc-3b677f3b06c8",
+          "personaName": "Tobias Schmidt",
+          "answer": "Since the capacity is too small for a larger household and I'd have to cook in batches, I wouldn't spend more than $70 on it."
+        },
+        {
+          "personaId": "3d2ade19-7524-4721-90d2-fba3e166b045",
+          "personaName": "Amina Yusuf",
+          "answer": "Around $120. I've seen so many cool recipes online and want to try them without spending a fortune."
+        },
+        {
+          "personaId": "201a0060-0ee4-4c3c-877a-9c2c8efd7c31",
+          "personaName": "Caleb Thorne",
+          "answer": "I'd budget about $120. If it stops me from ordering takeout when I'm lazy, it pays for itself pretty quickly."
+        },
+        {
+          "personaId": "c74100b5-3773-4156-9267-cbfead6c284f",
+          "personaName": "Elena Rostova",
+          "answer": "Around $140 is fine by me. Between pet surgeries and long shifts, fast and nutritious dinners are a necessity I'll pay for."
+        },
+        {
+          "personaId": "f1985acb-3136-4a31-9c18-ac76bc85737a",
+          "personaName": "Brandon Foster",
+          "answer": "I'd drop around $130. Saving time on cleanup and consuming less oil is worth it for my fast-paced schedule."
+        },
+        {
+          "personaId": "7a8e7305-fac5-46e5-8c2b-ae98a45a0afa",
+          "personaName": "Yuki Tanaka",
+          "answer": "Living in a small apartment makes smoke management a priority, so I'm willing to budget around $110 for a good model."
+        },
+        {
+          "personaId": "b049de1c-f4e4-4774-aad2-4757d8a72afe",
+          "personaName": "Arthur Pendelton",
+          "answer": "My budget is zero. Even with high cholesterol, I'd rather grill or bake normally than buy another gadget."
+        },
+        {
+          "personaId": "7d2c589d-65b4-4f49-8feb-988b7ec59485",
+          "personaName": "Zoe Kincaid",
+          "answer": "Around $120. Making vegetables taste great without heavy oils and butters makes it a very worthwhile kitchen tool for me."
+        },
+        {
+          "personaId": "89606f9e-ecf9-4cca-bdb8-45fc7db36155",
+          "personaName": "Zachary Taylor",
+          "answer": "Zero dollars. Low-fat alternatives taste dry to me, and nothing replaces real lard or oil."
+        },
+        {
+          "personaId": "df4a3216-2394-4d3a-b90d-50b00b9c3fa6",
+          "personaName": "Vanessa Cruz",
+          "answer": "I'd spend around $130 on a sleek model that fits my minimalist kitchen aesthetic and lets me try viral recipes."
+        },
+        {
+          "personaId": "69661ca2-4d81-4462-b48f-aa24370aee0f",
+          "personaName": "Marcus Vance-Smith",
+          "answer": "Around $110 to $130. Cutting down weeknights' cooking time and keeping it safe around the kids is a solid family investment."
+        },
+        {
+          "personaId": "24fef424-b612-457e-bc84-296aed5d22d9",
+          "personaName": "Siobhan Byrne",
+          "answer": "As a nurse seeing cardiovascular issues daily, I'm comfortable investing around $140 in a quality appliance that reduces dietary fats."
+        },
+        {
+          "personaId": "519823e4-f6ed-4edf-97d8-41dd29214cce",
+          "personaName": "Devin Brooks",
+          "answer": "Around $140. Getting crispy wings and fries while hitting cutting macros is a non-negotiable tool for my fitness routine."
+        },
+        {
+          "personaId": "1c900790-9369-4f44-9ce5-337b635a47e6",
+          "personaName": "Amara Diallo",
+          "answer": "Based on the science of rapid air circulation and easy cleanup, I'd budget around $130."
+        },
+        {
+          "personaId": "9a0d3355-7a21-4c1e-9121-fcb8f6251334",
+          "personaName": "Bjorn Lindqvist",
+          "answer": "Since counter space is premium and I prefer my cast-iron skillet, my budget for an air fryer is zero."
+        },
+        {
+          "personaId": "e2806cf5-7023-409f-b591-d526d3d4def5",
+          "personaName": "Mei-Ling Chen",
+          "answer": "Being cautious and frugal, I wouldn't want to spend more than $80, especially since I already own a convection oven."
+        },
+        {
+          "personaId": "07986a18-ae97-40b6-944a-c6aa8642ac7b",
+          "personaName": "Darius King",
+          "answer": "My budget is zero. As a personal chef, shortcut tools don't match traditional techniques for depth of flavor."
+        },
+        {
+          "personaId": "26587966-4c39-4f88-ba8b-084204b8f8e3",
+          "personaName": "Clara Higgins",
+          "answer": "I'd spend around $130. It's fantastic for quickly making appetizers when clients drop by unexpectedly."
+        },
+        {
+          "personaId": "df316933-ba88-49cd-979a-cb10c73162e2",
+          "personaName": "Tariq Mansoor",
+          "answer": "Around $130. Lowering cholesterol through reduced oil intake aligns well with my analytical health goals."
+        },
+        {
+          "personaId": "fd27800f-9f30-454d-96e1-8ef7612c13db",
+          "personaName": "Kirsten Vestergaard",
+          "answer": "Zero. I prefer traditional baking methods I've used for decades without buying modern gadgets."
+        },
+        {
+          "personaId": "6d0da206-c362-426b-9c9d-43f8dfa8a82f",
+          "personaName": "Guillermo Perez",
+          "answer": "Around $110. Saving electricity compared to turning on the large wall oven for small batches makes practical sense."
+        },
+        {
+          "personaId": "d3cc35ed-f1c7-4100-9428-7bffb545039e",
+          "personaName": "Yara Al-Farsi",
+          "answer": "I'd budget around $120 to join the wellness trend and make oil-free falafel just like the creators I follow."
+        },
+        {
+          "personaId": "bff2e9a4-55c5-4487-9368-7393164d11e1",
+          "personaName": "Tobias Lind",
+          "answer": "Around $120. Tossing in frozen foods with minimal cleanup fits my hectic schedule perfectly."
+        },
+        {
+          "personaId": "4db3b041-7bf8-4f66-8bf9-ecd7301aa233",
+          "personaName": "Nadine Gauthier",
+          "answer": "My budget is zero since I prefer eating whole, raw, or lightly steamed foods rather than air-fried meals."
+        },
+        {
+          "personaId": "c801889a-60c5-4d1a-b56c-804fbd12df5d",
+          "personaName": "Jamal Washington",
+          "answer": "With long-term savings on oil and health expenses factored in, I'm comfortable spending around $130."
+        },
+        {
+          "personaId": "9fa608f7-66aa-423c-8755-a1180ac7b73a",
+          "personaName": "Freja Olsen",
+          "answer": "Since bulky plastic appliances ruin the look of my marble countertops, my budget is zero unless it looks exceptionally high-end."
+        },
+        {
+          "personaId": "2f58dc9f-c55b-49e9-874a-583414a5cee6",
+          "personaName": "Ewan McGregor",
+          "answer": "Around $130. Working long veterinary hours means I need quick, healthier meals without standing over a hot stove."
+        },
+        {
+          "personaId": "a0da9bfc-e73d-463e-8aea-1dbedb865a30",
+          "personaName": "Soraya Patel",
+          "answer": "As a grad student in a small apartment, I'm keeping my budget under $90 to save space, time, and takeout money."
+        }
+      ],
+      "timestamp": 1789574767.4284437
     }
-  ]
+  ],
+  "askResearchHistory": []
 }
