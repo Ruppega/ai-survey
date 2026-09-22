@@ -1,71 +1,43 @@
-# Persona AI – Synthetic User Research Platform
+Project Overview
 
-## 1. Project Overview
+Persona AI is an AI-powered synthetic user research platform that generates realistic AI personas based on product information, target audience, and research objectives. It enables researchers to simulate user research, understand customer preferences, and analyze product decisions.
 
-Persona AI is an AI-powered synthetic user research platform designed to help researchers simulate product research using AI-generated user personas.
+AI Persona Generation
 
-The system generates realistic synthetic personas based on:
+The system generates synthetic users with attributes such as name, age, gender, occupation, personality, product rating, purchase decision, and reasoning. It supports up to 100 personas, with large requests handled through batch generation.
 
-- Product name
-- Product description
-- Target audience age
-- Target gender
-- Research objective
+Interview Mode
 
-Researchers can then interact with these personas, analyze their opinions, calculate product adoption scores, extract research insights, ask questions about the research data, and generate a downloadable research report.
+Researchers can interact with individual personas through conversational interviews. The system maintains conversation history and persona context to provide consistent responses across multiple questions. Researchers can also ask the same question to multiple personas.
 
-The platform is designed to support large-scale synthetic research with **up to 100 personas**.
+Research Analysis
 
----
+The platform analyzes persona responses to identify recurring themes, sentiment, agreement patterns, behavioral trends, and segment-level insights. This helps convert large amounts of synthetic research data into meaningful findings.
 
-## 2. Project Objectives
+Adoption Score
 
-The main objectives of the project are:
+Each persona receives an adoption score based on their product rating and purchase decision. The score helps summarize product acceptance and compare responses across different synthetic users.
 
-1. Generate realistic AI-powered synthetic users.
-2. Support generation of up to 100 personas.
-3. Provide individual persona interviews.
-4. Maintain conversation memory and persona context.
-5. Allow researchers to ask the same question to all personas.
-6. Calculate product adoption scores.
-7. Extract recurring themes and sentiment from research responses.
-8. Provide an interactive research results dashboard.
-9. Allow researchers to ask natural-language questions about the generated research.
-10. Generate a downloadable PDF research report.
-11. Validate the system through large-scale testing with 100 personas.
+Results Dashboard
 
----
+The Results page provides an overview of the research through persona statistics, purchase decisions, average ratings, adoption scores, sentiment, common themes, and key persona opinions.
 
-## 3. Key Features
+Ask Research
 
-### 3.1 AI Persona Generation
+Ask Research allows researchers to ask natural-language questions about the generated research data. The system uses the available persona and interview information to provide research-oriented responses.
 
-Users provide research information through the Research Setup form.
+Research Report
 
-The system generates synthetic personas containing information such as:
+The platform can generate a downloadable PDF containing the research overview, persona findings, adoption results, interview summaries, Ask Research results, insights, and final conclusions.
 
-- Name
-- Gender
-- Age
-- Occupation
-- Personality
-- Product purchase decision
-- Product rating
-- Reason for the decision
+100-Persona Validation
 
-The system supports between **1 and 100 personas**.
+A major focus of the project is validating the system with 100 synthetic personas. Testing covers persona generation, data consistency, interviews, dashboard calculations, insights, and the complete end-to-end research workflow.
 
-For large requests, persona generation is performed in batches to reduce the load on a single AI generation request.
+Technology Stack
 
-Example:
+The system uses React and Vite for the frontend, Python and Flask for the backend, Google Gemini for generative AI, JSON-based memory storage for research data, and ReportLab for PDF report generation.
 
-```text
-100 personas requested
-        ↓
-Batch 1 → 20 personas
-Batch 2 → 20 personas
-Batch 3 → 20 personas
-Batch 4 → 20 personas
-Batch 5 → 20 personas
-        ↓
-100 personas
+Overall Workflow
+
+Research Setup → Generate Personas → Interview Personas → Ask All Personas → Analyze Results → Extract Insights → Ask Research → Generate Research Report.
